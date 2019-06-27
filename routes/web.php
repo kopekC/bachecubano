@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Welcome Route
+Route::get('/', 'WelcomeController@index')->name('welcome');
 
+//User Login/Register/Change Password routes
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
