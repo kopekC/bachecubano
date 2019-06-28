@@ -7,7 +7,7 @@
                 <div class="counter">
                     <div class="icon"><i class="lni-layers"></i></div>
                     <h2 class="counterUp">12090</h2>
-                    <p>Regular Ads</p>
+                    <p>Anuncios</p>
                 </div>
             </div>
             <!-- Counter Item -->
@@ -15,7 +15,7 @@
                 <div class="counter">
                     <div class="icon"><i class="lni-map"></i></div>
                     <h2 class="counterUp">350</h2>
-                    <p>Locations</p>
+                    <p>Ubicaciones</p>
                 </div>
             </div>
             <!-- Counter Item -->
@@ -23,7 +23,7 @@
                 <div class="counter">
                     <div class="icon"><i class="lni-user"></i></div>
                     <h2 class="counterUp">23453</h2>
-                    <p>Reguler Members</p>
+                    <p>Miembros</p>
                 </div>
             </div>
             <!-- Counter Item -->
@@ -31,7 +31,7 @@
                 <div class="counter">
                     <div class="icon"><i class="lni-briefcase"></i></div>
                     <h2 class="counterUp">250</h2>
-                    <p>Premium Ads</p>
+                    <p>Anuncios Premium</p>
                 </div>
             </div>
         </div>

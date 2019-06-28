@@ -17,31 +17,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>Bird</span>
-                                    <sapn>234</sapn>
+                                    <span>234</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Cat</span>
-                                    <sapn>1098</sapn>
+                                    <span>1098</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Dog</span>
-                                    <sapn>34</sapn>
+                                    <span>34</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Guinea Pig</span>
-                                    <sapn>67</sapn>
+                                    <span>67</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Rabbits</span>
-                                    <sapn>957</sapn>
+                                    <span>957</span>
                                 </a>
                             </li>
                             <li>
@@ -68,31 +68,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>Higher secondary</span>
-                                    <sapn>56</sapn>
+                                    <span>56</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Kindergarten</span>
-                                    <sapn>25</sapn>
+                                    <span>25</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Pre-primary</span>
-                                    <sapn>40</sapn>
+                                    <span>40</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Primary</span>
-                                    <sapn>98</sapn>
+                                    <span>98</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Secondary</span>
-                                    <sapn>24</sapn>
+                                    <span>24</span>
                                 </a>
                             </li>
                             <li>
@@ -119,31 +119,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>Home Appliances</span>
-                                    <sapn>953</sapn>
+                                    <span>953</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Kitchen Appliances</span>
-                                    <sapn>45</sapn>
+                                    <span>45</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>New Arrivals</span>
-                                    <sapn>334</sapn>
+                                    <span>334</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Small Appliances</span>
-                                    <sapn>10</sapn>
+                                    <span>10</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>TV & Entertainment</span>
-                                    <sapn>123</sapn>
+                                    <span>123</span>
                                 </a>
                             </li>
                             <li>
@@ -170,31 +170,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>Casual</span>
-                                    <sapn>97</sapn>
+                                    <span>97</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Classic</span>
-                                    <sapn>24</sapn>
+                                    <span>24</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Office Wear</span>
-                                    <sapn>67</sapn>
+                                    <span>67</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Sports Wear</span>
-                                    <sapn>34</sapn>
+                                    <span>34</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Vintage</span>
-                                    <sapn>16</sapn>
+                                    <span>16</span>
                                 </a>
                             </li>
                             <li>
@@ -221,31 +221,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>Beds</span>
-                                    <sapn>81</sapn>
+                                    <span>81</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Chairs</span>
-                                    <sapn>34</sapn>
+                                    <span>34</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Dining Table</span>
-                                    <sapn>6</sapn>
+                                    <span>6</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Office Chairs</span>
-                                    <sapn>464</sapn>
+                                    <span>464</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Sofas</span>
-                                    <sapn>567</sapn>
+                                    <span>567</span>
                                 </a>
                             </li>
                             <li>
@@ -272,31 +272,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>Accounting</span>
-                                    <sapn>67</sapn>
+                                    <span>67</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Administration</span>
-                                    <sapn>124</sapn>
+                                    <span>124</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Creative</span>
-                                    <sapn>6</sapn>
+                                    <span>6</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Education</span>
-                                    <sapn>36</sapn>
+                                    <span>36</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Engineering</span>
-                                    <sapn>234</sapn>
+                                    <span>234</span>
                                 </a>
                             </li>
                             <li>
@@ -323,31 +323,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>iMac</span>
-                                    <sapn>45</sapn>
+                                    <span>45</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Macbook</span>
-                                    <sapn>24</sapn>
+                                    <span>24</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Notebook</span>
-                                    <sapn>56</sapn>
+                                    <span>56</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Traditional Laptops</span>
-                                    <sapn>45</sapn>
+                                    <span>45</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Ultrabooks</span>
-                                    <sapn>34</sapn>
+                                    <span>34</span>
                                 </a>
                             </li>
                             <li>
@@ -374,31 +374,31 @@
                             <li>
                                 <a href="category.html">
                                     <span>Apple</span>
-                                    <sapn>20</sapn>
+                                    <span>20</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>LG</span>
-                                    <sapn>0</sapn>
+                                    <span>0</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>One Plus</span>
-                                    <sapn>323</sapn>
+                                    <span>323</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Samsung</span>
-                                    <sapn>42</sapn>
+                                    <span>42</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="category.html">
                                     <span>Xiaomi</span>
-                                    <sapn>87</sapn>
+                                    <span>87</span>
                                 </a>
                             </li>
                             <li>

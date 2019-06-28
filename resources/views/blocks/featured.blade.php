@@ -9,7 +9,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="#"><img class="img-fluid" src="assets/img/featured/img1.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{{ asset('img/featured/img1.jpg') }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
@@ -44,7 +44,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="#"><img class="img-fluid" src="assets/img/featured/img2.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{{ asset('img/featured/img2.jpg') }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
@@ -78,7 +78,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="#"><img class="img-fluid" src="assets/img/featured/img3.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{{ asset('img/featured/img3.jpg') }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
@@ -112,7 +112,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="#"><img class="img-fluid" src="assets/img/featured/img4.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{{ asset('img/featured/img4.jpg') }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
@@ -147,7 +147,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="#"><img class="img-fluid" src="assets/img/featured/img5.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{{ asset('img/featured/img5.jpg') }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
@@ -182,7 +182,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="#"><img class="img-fluid" src="assets/img/featured/img6.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="{{ asset('img/featured/img6.jpg') }}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">

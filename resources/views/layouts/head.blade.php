@@ -7,15 +7,22 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/line-icons.css') }}">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/slicknav.css') }}">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/nivo-lightbox.css') }}">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

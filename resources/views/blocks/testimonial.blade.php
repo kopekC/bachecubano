@@ -8,7 +8,7 @@
                     <div class="item">
                         <div class="testimonial-item">
                             <div class="img-thumb">
-                                <img src="assets/img/testimonial/img1.png" alt="">
+                                <img src="{{ asset('img/testimonial/img1.png') }}" alt="">
                             </div>
                             <div class="content">
                                 <h2><a href="#">John Doe</a></h2>
@@ -20,7 +20,7 @@
                     <div class="item">
                         <div class="testimonial-item">
                             <div class="img-thumb">
-                                <img src="assets/img/testimonial/img2.png" alt="">
+                                <img src="{{ asset('img/testimonial/img2.png') }}" alt="">
                             </div>
                             <div class="content">
                                 <h2><a href="#">Jessica</a></h2>
@@ -32,7 +32,7 @@
                     <div class="item">
                         <div class="testimonial-item">
                             <div class="img-thumb">
-                                <img src="assets/img/testimonial/img3.png" alt="">
+                                <img src="{{ asset('img/testimonial/img3.png') }}" alt="">
                             </div>
                             <div class="content">
                                 <h2><a href="#">Johnny Zeigler</a></h2>
@@ -44,7 +44,7 @@
                     <div class="item">
                         <div class="testimonial-item">
                             <div class="img-thumb">
-                                <img src="assets/img/testimonial/img1.png" alt="">
+                                <img src="{{ asset('img/testimonial/img4.png') }}" alt="">
                             </div>
                             <div class="content">
                                 <h2><a href="#">John Doe</a></h2>
@@ -56,7 +56,7 @@
                     <div class="item">
                         <div class="testimonial-item">
                             <div class="img-thumb">
-                                <img src="assets/img/testimonial/img2.png" alt="">
+                                <img src="{{ asset('img/testimonial/img5.png') }}" alt="">
                             </div>
                             <div class="content">
                                 <h2><a href="#">Jessica</a></h2>

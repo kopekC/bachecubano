@@ -8,7 +8,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img1.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img1.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                                 <div class="btn-product bg-yellow">
@@ -47,7 +47,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img2.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img2.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img3.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img3.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                                 <div class="btn-product bg-red">
@@ -122,7 +122,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img4.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img4.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                             </div>
@@ -158,7 +158,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img5.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img5.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                                 <div class="btn-product bg-yellow">
@@ -197,7 +197,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img6.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img6.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                             </div>
@@ -233,7 +233,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img7.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img7.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                                 <div class="btn-product bg-red">
@@ -272,7 +272,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="assets/img/product/img8.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/product/img8.jpg') }}" alt="">
                                 <div class="overlay">
                                 </div>
                             </div>

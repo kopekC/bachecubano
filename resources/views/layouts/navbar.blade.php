@@ -9,20 +9,10 @@
                 <span class="lni-menu"></span>
                 <span class="lni-menu"></span>
             </button>
-            <a href="index.html" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>
+            <a href="index.html" class="navbar-brand"><img src="{{ asset('img/logo.png') }}" alt=""></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Home
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="index.html">Home 1</a>
-                        <a class="dropdown-item" href="index-2.html">Home 2</a>
-                        <a class="dropdown-item active" href="index-3.html">Home 3</a>
-                    </div>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="category.html">
                         Categories
