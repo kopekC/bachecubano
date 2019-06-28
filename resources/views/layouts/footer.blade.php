@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="footer-logo"><img src="assets/img/logo.png" alt=""></h3>
+                        <h3 class="footer-logo"><img src="{{ asset('img/logo.png') }}" alt=""></h3>
                         <div class="textwidget">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed, auctor ut purus.</p>
                         </div>
@@ -18,7 +18,7 @@
                         <ul class="media-content-list">
                             <li>
                                 <div class="media-left">
-                                    <img class="img-fluid" src="assets/img/art/img1.jpg" alt="">
+                                    <img class="img-fluid" src="{{ asset('img/art/img1.jpg') }}" alt="">
                                     <div class="overlay">
                                         <span class="price">$ 79</span>
                                     </div>
@@ -30,7 +30,7 @@
                             </li>
                             <li>
                                 <div class="media-left">
-                                    <img class="img-fluid" src="assets/img/art/img2.jpg" alt="">
+                                    <img class="img-fluid" src="{{ asset('img/art/img2.jpg') }}" alt="">
                                     <div class="overlay">
                                         <span class="price">$ 49</span>
                                     </div>
@@ -70,7 +70,6 @@
                             <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
                             <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
                             <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
-                            <li><a class="google-plus" href="#"><i class="lni-google-plus"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -85,21 +84,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="site-info float-left">
-                        <p>All copyrights reserved &copy; 2018 - Designed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
+                        <p>Todos los derechos reservados &copy; {{ date("Y") }} - Desarrollado por <a href="https://www.qvaqui.com">QvaQui</a></p>
                     </div>
                     <div class="float-right">
                         <ul class="bottom-card">
                             <li>
-                                <a href="#"><img src="assets/img/footer/card1.jpg" alt="card"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="assets/img/footer/card2.jpg" alt="card"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="assets/img/footer/card3.jpg" alt="card"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="assets/img/footer/card4.jpg" alt="card"></a>
+                                <a href="#"><img src="{{ asset('img/footer/card1.jpg') }}" alt="card"></a>
                             </li>
                         </ul>
                     </div>
