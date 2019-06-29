@@ -14,6 +14,11 @@
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
+//Ads Routes
+
+//Search route
+Route::get('/search', 'AdsController@search')->name('search');
+
 //User Login/Register/Change Password routes
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
