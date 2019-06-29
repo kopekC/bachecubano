@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::share('total_ads', '120918');      //Load and cache this number everyday
     }
 }

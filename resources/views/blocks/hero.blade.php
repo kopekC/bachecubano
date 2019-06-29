@@ -5,7 +5,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-9 col-lg-9 col-xs-12 text-center">
                 <div class="contents">
-                    <h1 class="head-title">Explore 12090 Ads or Start Posting</h1>
+                    <h1 class="head-title">Busca entre +{{ $total_ads }} anuncios o <a href="#">Publica GRATIS</a></h1>
                     <p>Buy And Sell Everything From Used Cars To Mobile Phones And Computers</p>
                     <div class="search-two-form">
                         <form class="search-two" action="">
