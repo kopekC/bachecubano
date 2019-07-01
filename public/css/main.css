@@ -769,9 +769,6 @@ a.back-to-top:hover, a.back-to-top:focus {
     padding: 0px 15px;
     top: 0;
   }
-  .navbar-brand img {
-    width: 75%;
-  }
   .slicknav_menu {
     display: block;
   }
@@ -785,9 +782,6 @@ a.back-to-top:hover, a.back-to-top:focus {
     position: absolute;
     padding: 0px 15px;
     top: 0;
-  }
-  .navbar-brand img {
-    width: 75%;
   }
   #mobile-menu {
     display: none;

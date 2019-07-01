@@ -74,7 +74,7 @@
                     </li>
                     @else
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Acceder</a>
+                        <a class="nav-link dropdown-toggle" href="{{ route('login') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Acceder</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('login') }}"><i class="lni-home"></i> Iniciar sesión</a>
                             @if (Route::has('register'))
@@ -87,7 +87,7 @@
                 @endif
 
             </ul>
-            <a class="tg-btn" href="post-ads.html">
+            <a class="tg-btn" href="{{ route('add') }}">
                 <i class="lni-pencil-alt"></i> Publicar Anuncio
             </a>
         </div>

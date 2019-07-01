@@ -14,7 +14,9 @@
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
-//Ads Routes
+//Ads Routes & Resource Route
+Route::get('/add', 'AdController@search')->name('add');
+Route::resource('ad', 'AdController');
 
 //Search route
 Route::get('/search', 'SearchController@search')->name('search');
