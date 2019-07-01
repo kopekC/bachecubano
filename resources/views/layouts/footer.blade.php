@@ -8,7 +8,7 @@
                     <div class="widget">
                         <h3 class="footer-logo"><img src="{{ asset('img/logo-bachecubano.png') }}" alt="Bachecubano" width="60" height="60"></h3>
                         <div class="textwidget">
-                            <p>Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas y carros en Cuba.</p>
+                            <p>Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas y carros así como sorteos y compras online.</p>
                         </div>
                     </div>
                 </div>
@@ -47,21 +47,21 @@
                     <div class="widget">
                         <h3 class="block-title">Ayuda & soporte</h3>
                         <ul class="menu">
-                            <li><a href="#">Live Chat</a></li>
+                            <li><a href="https://m.me/Bachecubano">Chatea con Bachecubano</a></li>
                             <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Purchase Protection</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">protección de compras</a></li>
+                            <li><a href="#">Soporte</a></li>
+                            <li><a href="#">Contáctanos</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
                         <h3 class="block-title">Subscríbete a nosotros</h3>
-                        <p class="text-sub">We have over 5 years of experience Our suppoer avalable to help you 24 hours a day, seven days week</p>
+                        <p class="text-sub">Llevamos más de 5 años ofreciendo lo mejor de la compra venta en Cuba, subscríbete a nuestras alertas de gangas por correo.</p>
                         <form method="post" id="subscribe-form" name="subscribe-form" class="validate">
                             <div class="form-group is-empty">
-                                <input type="email" value="" name="Email" class="form-control" id="EMAIL" placeholder="Email address" required="">
+                                <input type="email" value="" name="Email" class="form-control" id="EMAIL" placeholder="Dirección de correo" required="">
                                 <button type="submit" name="subscribe" id="subscribes" class="btn btn-common sub-btn"><i class="lni-check-box"></i></button>
                                 <div class="clearfix"></div>
                             </div>
@@ -69,9 +69,7 @@
                         <ul class="footer-social">
                             <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
                             <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
-                            <li><a class="messenger" href="#"><i class="lni-messenger-fill"></i></a></li>
                             <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
-                            <li><a class="telegram" href="#"><i class="lni-telegram-fill"></i></a></li>
                         </ul>
                     </div>
                 </div>

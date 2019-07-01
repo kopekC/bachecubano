@@ -25,21 +25,6 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pages
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="about.html">About Us</a>
-                        <a class="dropdown-item" href="services.html">Services</a>
-                        <a class="dropdown-item" href="ads-details.html">Ads Details</a>
-                        <a class="dropdown-item" href="post-ads.html">Ads Post</a>
-                        <a class="dropdown-item" href="pricing.html">Packages</a>
-                        <a class="dropdown-item" href="testimonial.html">Testimonial</a>
-                        <a class="dropdown-item" href="faq.html">FAQ</a>
-                        <a class="dropdown-item" href="404.html">404</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Blog
                     </a>
                     <div class="dropdown-menu">
@@ -85,7 +70,6 @@
                     @endauth
                 </div>
                 @endif
-
             </ul>
             <a class="tg-btn btn-danger" href="{{ route('add') }}">
                 <i class="lni-pencil-alt"></i> Publicar Anuncio
@@ -99,37 +83,9 @@
             <a class="active" href="#">
                 Home
             </a>
-            <ul class="dropdown">
-                <li><a href="index.html">Home 1</a></li>
-                <li><a href="index-2.html">Home 2</a></li>
-                <li><a class="active" href="index-3.html">Home 2</a></li>
-            </ul>
         </li>
         <li>
             <a href="category.html">Categories</a>
-        </li>
-        <li>
-            <a href="#">
-                Listings
-            </a>
-            <ul class="dropdown">
-                <li><a href="adlistinggrid.html">Ad Grid</a></li>
-                <li><a href="adlistinglist.html">Ad Listing</a></li>
-                <li><a href="ads-details.html">Listing Detail</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Pages</a>
-            <ul class="dropdown">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="ads-details.html">Ads Details</a></li>
-                <li><a href="post-ads.html">Ads Post</a></li>
-                <li><a href="pricing.html">Packages</a></li>
-                <li><a href="testimonial.html">Testimonial</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="404.html">404</a></li>
-            </ul>
         </li>
         <li>
             <a href="#">Blog</a>
@@ -143,8 +99,10 @@
         <li>
             <a href="contact.html">Contact Us</a>
         </li>
+        @if (Route::has('login'))
+        @auth
         <li>
-            <a>My Account</a>
+            <a>Mi Cuenta</a>
             <ul class="dropdown">
                 <li><a href="account-profile-setting.html"><i class="lni-home"></i> Account Home</a></li>
                 <li><a href="account-myads.html"><i class="lni-wallet"></i> My Ads</a></li>
@@ -156,6 +114,18 @@
                 <li><a href="account-close.html"><i class="lni-close"></i>Account close</a></li>
             </ul>
         </li>
+        @else
+        <li>
+            <a>Mi Cuenta</a>
+            <ul class="dropdown">
+                <li><a class="dropdown-item" href="{{ route('login') }}"><i class="lni-home"></i> Iniciar sesión</a></li>
+                @if (Route::has('register'))
+                <li><a class="dropdown-item" href="{{ route('register') }}"><i class="lni-wallet"></i> Registrarme</a></li>
+                @endif
+            </ul>
+        </li>
+        @endauth
+        @endif
     </ul>
     <!-- Mobile Menu End -->
 
