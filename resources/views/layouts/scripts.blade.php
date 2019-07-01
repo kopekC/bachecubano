@@ -24,9 +24,8 @@
 <script src="{{ asset('js/contact-form-script.min.js') }}"></script>
 <script src="{{ asset('js/summernote.js') }}"></script>
 
-<!-- Google Analitycs -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-11"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-3"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -35,5 +34,5 @@
     }
     gtag('js', new Date());
 
-    gtag('config', 'UA-64168215-11');
+    gtag('config', 'UA-64168215-3');
 </script>
