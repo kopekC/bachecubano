@@ -2,7 +2,7 @@
 <footer>
     <!-- Footer Area Start -->
     <section class="footer-Content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
@@ -89,7 +89,7 @@
                     <div class="float-right">
                         <ul class="bottom-card">
                             <li>
-                                <a href="https://www.qvapay.com"><img src="{{ asset('img/footer/card1.jpg') }}" alt="Pasarela de pagos QvaPay"></a>
+                                <a href="https://www.qvapay.com"><img src="https://www.qvapay.com/favicon-32x32.png" alt="Pasarela de pagos QvaPay" width="34" height="22"></a>
                             </li>
                         </ul>
                     </div>
