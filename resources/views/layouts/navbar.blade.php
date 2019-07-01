@@ -87,7 +87,7 @@
                 @endif
 
             </ul>
-            <a class="tg-btn" href="{{ route('add') }}">
+            <a class="tg-btn btn-danger" href="{{ route('add') }}">
                 <i class="lni-pencil-alt"></i> Publicar Anuncio
             </a>
         </div>
