@@ -1,9 +1,3 @@
-<!-- Preloader -->
-<div id="preloader">
-    <div class="loader" id="loader-1"></div>
-</div>
-<!-- End Preloader -->
-
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="{{ asset('js/jquery-min.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
@@ -30,3 +24,6 @@
     gtag('js', new Date());
     gtag('config', 'UA-64168215-3');
 </script>
+
+<!-- ManyChat -->
+<script src="//widget.manychat.com/1407854356137306.js" async="async"></script>
