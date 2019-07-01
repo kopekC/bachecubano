@@ -1,6 +1,6 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
-    <div class="container">
+    <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,18 +9,13 @@
                 <span class="lni-menu"></span>
                 <span class="lni-menu"></span>
             </button>
-            <a href="index.html" class="navbar-brand"><img src="{{ asset('img/logo.png') }}" alt=""></a>
+            <a href="index.html" class="navbar-brand"><img src="{{ asset('img/logo-bachecubano.png') }}" alt="Bachecubano" width="60" height="60"></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="category.html">
-                        Categories
-                    </a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Listings
+                        Categorías
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="adlistinggrid.html">Ad Grid</a>
@@ -56,7 +51,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">
-                        Contact
+                        Contacto
                     </a>
                 </li>
             </ul>

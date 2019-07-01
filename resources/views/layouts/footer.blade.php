@@ -6,15 +6,15 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="footer-logo"><img src="{{ asset('img/logo.png') }}" alt=""></h3>
+                        <h3 class="footer-logo"><img src="{{ asset('img/logo-bachecubano.png') }}" alt="Bachecubano" width="60" height="60"></h3>
                         <div class="textwidget">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed, auctor ut purus.</p>
+                            <p>Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas y carros en Cuba.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="block-title">Latest Ads</h3>
+                        <h3 class="block-title">Últimos anuncios</h3>
                         <ul class="media-content-list">
                             <li>
                                 <div class="media-left">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="block-title">Help & Support</h3>
+                        <h3 class="block-title">Ayuda & soporte</h3>
                         <ul class="menu">
                             <li><a href="#">Live Chat</a></li>
                             <li><a href="#">Privacy Policy</a></li>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="block-title">Subscribe us</h3>
+                        <h3 class="block-title">Subscríbete a nosotros</h3>
                         <p class="text-sub">We have over 5 years of experience Our suppoer avalable to help you 24 hours a day, seven days week</p>
                         <form method="post" id="subscribe-form" name="subscribe-form" class="validate">
                             <div class="form-group is-empty">
@@ -69,7 +69,9 @@
                         <ul class="footer-social">
                             <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
                             <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
+                            <li><a class="messenger" href="#"><i class="lni-messenger-fill"></i></a></li>
                             <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
+                            <li><a class="telegram" href="#"><i class="lni-telegram-fill"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -89,7 +91,7 @@
                     <div class="float-right">
                         <ul class="bottom-card">
                             <li>
-                                <a href="#"><img src="{{ asset('img/footer/card1.jpg') }}" alt="card"></a>
+                                <a href="https://www.qvapay.com"><img src="{{ asset('img/footer/card1.jpg') }}" alt="Pasarela de pagos QvaPay"></a>
                             </li>
                         </ul>
                     </div>
