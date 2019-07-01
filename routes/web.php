@@ -17,7 +17,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 //Ads Routes
 
 //Search route
-Route::get('/search', 'AdsController@search')->name('search');
+Route::get('/search', 'SearchController@search')->name('search');
 
 //User Login/Register/Change Password routes
 Auth::routes();
