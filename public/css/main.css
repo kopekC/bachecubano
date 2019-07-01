@@ -337,17 +337,6 @@ a.back-to-top:hover, a.back-to-top:focus {
   width: 12px;
 }
 
-/* Preloader */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  z-index: 9999999;
-}
-
 .loader {
   top: 50%;
   width: 50px;
