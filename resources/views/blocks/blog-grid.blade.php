@@ -7,7 +7,7 @@
                 <div class="blog-post-item">
                     <div class="post-thumb">
                         <figure>
-                            <img src="assets/img/blog/img1.jpg" alt="">
+                            <img src="{{ asset('img/blog/img1.jpg') }}" alt="">
                         </figure>
                         <div class="post-categories">
                             <a href="#">Travel and Tourism</a>
@@ -23,7 +23,7 @@
                 <div class="blog-post-item">
                     <div class="post-thumb">
                         <figure>
-                            <img src="assets/img/blog/img2.jpg" alt="">
+                            <img src="{{ asset('img/blog/img2.jpg') }}" alt="">
                         </figure>
                         <div class="post-categories">
                             <a href="#">Food & Restaurants</a>
@@ -39,7 +39,7 @@
                 <div class="blog-post-item">
                     <div class="post-thumb">
                         <figure>
-                            <img src="assets/img/blog/img3.jpg" alt="">
+                            <img src="{{ asset('img/blog/img3.jpg') }}" alt="">
                         </figure>
                         <div class="post-categories">
                             <a href="#">Gym and Fitness</a>
