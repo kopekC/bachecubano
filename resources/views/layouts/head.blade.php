@@ -8,21 +8,22 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
     <!-- Icon -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/line-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/line-icons.css') }}">
     <!-- Slicknav -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
     <!-- Nivo Lightbox -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/nivo-lightbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nivo-lightbox.css') }}">
     <!-- Animate -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <!-- Owl carousel -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <!-- Responsive Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">

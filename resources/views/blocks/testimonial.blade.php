@@ -1,7 +1,7 @@
 <!-- Testimonial Section Start -->
 <section class="testimonial section-padding bg-white">
     <div class="container">
-        <h1 class="section-title">Client Feedbacks</h1>
+        <h1 class="section-title">Empresas Asociadas</h1>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div id="testimonials" class="owl-carousel">
