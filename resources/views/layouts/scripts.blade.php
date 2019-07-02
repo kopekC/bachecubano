@@ -1,11 +1,11 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="{{ asset('js/jquery-min.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
 <script src="{{ asset('js/waypoints.min.js') }}"></script>
 <script src="{{ asset('js/wow.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
 <script src="{{ asset('js/nivo-lightbox.js') }}"></script>
 <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
