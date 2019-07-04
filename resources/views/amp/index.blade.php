@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="This is the AMP Boilerplate.">
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
     <link rel="preload" href="hero-img.jpg" as="image">
     <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
@@ -82,9 +81,9 @@
             }
         </style>
     </noscript>
-
-    <link rel="canonical" href=".">
+    <link rel="canonical" href="."><!-- Non AMP version -->
     <title>My AMP Page</title>
+    <meta name="description" content="This is the AMP Boilerplate.">
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
