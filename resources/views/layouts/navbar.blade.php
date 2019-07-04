@@ -54,7 +54,9 @@
                             <a class="dropdown-item" href="login.html"><i class="lni-lock"></i> Log In</a>
                             <a class="dropdown-item" href="signup.html"><i class="lni-user"></i> Signup</a>
                             <a class="dropdown-item" href="forgot-password.html"><i class="lni-reload"></i> Forgot Password</a>
-                            <a class="dropdown-item" href="account-close.html"><i class="lni-close"></i>Account close</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Salir') }}
+                            </a>
                         </div>
                     </li>
                     @else
