@@ -86,7 +86,6 @@ to{opacity:1}
 .top-nav-collapse .navbar-nav li.active a.nav-link{color:#fff!important}
 .indigo{background:0 0}
 .navbar-expand-lg .navbar-nav .nav-link{font-size:14px;color:#fff;padding:0 20px;letter-spacing:.5px;margin-top:20px;margin-bottom:20px;border-radius:30px;line-height:37px;text-transform:uppercase;background:0 0;font-weight:400;-webkit-transition:all .3s ease-in-out;-moz-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
-.navbar-expand-lg .navbar-nav li .active>a,.navbar-expand-lg .navbar-nav li a:focus,.navbar-expand-lg .navbar-nav li a:hover{color:#1976d2;outline:0}
 .navbar{padding:0}
 .navbar li.active a.nav-link{color:#fff!important;background:#1976d2;border-radius:30px}
 .dropdown-toggle::after{display:none}
