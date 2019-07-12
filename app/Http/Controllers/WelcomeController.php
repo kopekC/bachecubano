@@ -22,6 +22,24 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        //Bets Stores so far
+
+
+        //Latest Ads
+
+
+        //Counter Stats
+
+
+        //Featured Listing, Diamond and Gold Random
+
+
+        //testimonial
+
+
+        //blog posts        
+
+
         return view('welcome');
     }
 }

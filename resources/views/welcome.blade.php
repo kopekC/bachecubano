@@ -4,9 +4,9 @@
 
 @include('blocks.categories')
 
-@include('blocks.cities')
+@include('blocks.top-stores')
 
-@include('blocks.featured')
+@include('blocks.latest')
 
 @include('blocks.counter')
 

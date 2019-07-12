@@ -1,7 +1,7 @@
 <!-- Cities Section Start -->
 <section class="cities section-padding bg-white">
     <div class="container">
-        <h1 class="section-title">Top Cities</h1>
+        <h1 class="section-title">Tiendas Top 5</h1>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <a href="category.html" class="img-box">

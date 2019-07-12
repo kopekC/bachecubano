@@ -1,7 +1,7 @@
 <!-- Featured Section Start -->
 <section class="featured section-padding bg-drack">
     <div class="container">
-        <h1 class="section-title">Recently Added</h1>
+        <h1 class="section-title">Publicado recientemente</h1>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
                 <div class="featured-box">
