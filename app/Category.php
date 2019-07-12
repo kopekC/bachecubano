@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Category Class, All indexes, Order and relations.
+ */
 class Category extends Model
 {
     /**
@@ -22,6 +25,9 @@ class Category extends Model
     }
 }
 
+/**
+ * SubClass which load metadata from this category
+ */
 class CategoryDescription extends Model
 {
     /**

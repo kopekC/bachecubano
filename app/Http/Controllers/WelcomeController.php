@@ -22,14 +22,6 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-
-        //Retrieve Categories
-        $categories = Category::all();
-
-        foreach ($categories as $category) {
-            dump($category->description);
-        }
-
         return view('welcome');
     }
 }
