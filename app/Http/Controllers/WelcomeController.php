@@ -24,9 +24,7 @@ class WelcomeController extends Controller
     {
 
         //Retrieve Categories
-        $flights = Category::all();
-
-        dd( $flights);
+        $categories = Category::all();
 
         return view('welcome');
     }
