@@ -5,7 +5,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-9 col-lg-9 col-xs-12 text-center">
                 <div class="contents">
-                    <h1 class="head-title">Busca anuncios entre +{{ $total_ads }}</h1>
+                    <h1 class="head-title">Busca entre +{{ $total_ads }} anuncios</h1>
                     <p>Compra y Vende Computadoras, Celulares, Casas, Carros, ofertas de empleo y todo lo que quieras en Cuba</p>
                     <div class="search-two-form">
                         <form class="search-two" action="{{ route('search') }}" method="get">
