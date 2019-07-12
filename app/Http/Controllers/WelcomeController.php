@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class WelcomeController extends Controller
 {
@@ -21,6 +22,12 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+
+        //Retrieve Categories
+        $flights = Category::all();
+
+        dd( $flights);
+
         return view('welcome');
     }
 }
