@@ -26,9 +26,21 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //Global Cached Categories Data
-        $categories = Category::all(); //View How to Cache this!!!
+        $categories = Category::with('description')->get(); //View How to Cache this!!!
 
-        View::share('categories', $categories);
+        //Small foreach for some organized category structure
+        $parent_categories = [];
+        $category_formatted = [];
+        foreach ($categories as $cat) {
+            if (is_null($cat->parent_id)) {
+                $parent_categories[] = $cat;
+            } else {
+                $category_formatted[$cat->parent_id][] = $cat->description;
+            }
+        }
+
+        View::share('parent_categories', $parent_categories);
+        View::share('category_formatted', $category_formatted);
         View::share('total_ads', '120918');      //Load and cache this number everyday
     }
 }
