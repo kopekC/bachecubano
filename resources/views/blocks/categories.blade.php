@@ -6,7 +6,9 @@
             <div class="col-lg-3 col-md-6 col-xs-12">
                 <div class="category-box">
                     <div class="icon">
-                        <i class="lni-{{ $super_category->icon }}"></i>
+                        <a href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">
+                            <i class="lni-{{ $super_category->icon }}"></i>
+                        </a>
                     </div>
                     <div class="category-header">
                         <a href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">
@@ -27,15 +29,14 @@
 
                             {{-- Breaking this foreach at 6 subcategories, try to pass to JQuery and show all --}}
                             @if($loop->index >= 5)
-                            @break
-                            @endif
-
-                            @endforeach
                             <li>
                                 <a href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">
                                     <span>Ver Todo <i class="lni-arrow-right"></i></span>
                                 </a>
                             </li>
+                            @break
+                            @endif
+                            @endforeach
                         </ul>
                     </div>
                 </div>

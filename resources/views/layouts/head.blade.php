@@ -10,7 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
     <!-- Icon -->
-    <link rel="stylesheet" href="{{ asset('fonts/line-icons.css') }}">
+    <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="{{ asset('fonts/line-icons.css') }}">-->
     <!-- Slicknav -->
     <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
     <!-- Nivo Lightbox -->
