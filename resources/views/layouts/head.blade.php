@@ -7,22 +7,27 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
-    <!-- Icon -->
+    <!-- LineIcons CDN -->
     <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="{{ asset('fonts/line-icons.css') }}">-->
+    
     <!-- Slicknav -->
     <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
+    
     <!-- Nivo Lightbox -->
     <link rel="stylesheet" href="{{ asset('css/nivo-lightbox.css') }}">
+    
     <!-- Animate -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    
     <!-- Owl carousel -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    
     <!-- Responsive Style -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
