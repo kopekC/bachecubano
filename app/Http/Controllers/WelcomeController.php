@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Ad;
 
 class WelcomeController extends Controller
 {
@@ -26,7 +27,11 @@ class WelcomeController extends Controller
 
 
         //Latest Ads (With Photo only)
-
+        $latest_ads = Ad::where('active', 1)
+            ->with(['description', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
+            ->orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
 
         //Counter Stats
 
@@ -40,6 +45,7 @@ class WelcomeController extends Controller
         //blog posts        
 
 
-        return view('welcome');
+        //Analize the variable submit, could be better
+        return view('welcome', compact('latest_ads'));
     }
 }

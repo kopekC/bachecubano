@@ -10,6 +10,14 @@ use Illuminate\Database\Eloquent\Model;
 class Ad extends Model
 {
     /**
+     * Get the Ad that owns the stats.
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
+    /**
      * Get the ad description
      */
     public function description()

@@ -31,6 +31,14 @@ class Category extends Model
     {
         return $this->hasOne('App\CategoryStats');
     }
+
+    /**
+     * Aprent Category Data if $this->parent_id != null
+     */
+    public function parent()
+    {
+        return $this->hasOne('App\Category', 'id', 'parent_id');
+    }
 }
 
 /**
