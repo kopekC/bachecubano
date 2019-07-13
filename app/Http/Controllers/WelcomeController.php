@@ -25,7 +25,7 @@ class WelcomeController extends Controller
         //Bets Stores so far
 
 
-        //Latest Ads
+        //Latest Ads (With Photo only)
 
 
         //Counter Stats
