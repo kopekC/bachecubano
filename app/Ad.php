@@ -52,25 +52,90 @@ class Ad extends Model
 
 class AdDescription extends Model
 {
-    //
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the Ad that owns the stats.
+     */
+    public function ad()
+    {
+        return $this->belongsTo('App\Ad');
+    }
 }
 
 class AdLocation extends Model
 {
-    //
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the Ad that owns the stats.
+     */
+    public function ad()
+    {
+        return $this->belongsTo('App\Ad');
+    }
 }
 
 class AdPromo extends Model
 {
-    //
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the Ad that owns the stats.
+     */
+    public function ad()
+    {
+        return $this->belongsTo('App\Ad');
+    }
 }
 
 class AdResource extends Model
 {
-    //
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the Ad that owns the stats.
+     */
+    public function ad()
+    {
+        return $this->belongsTo('App\Ad');
+    }
 }
 
 class AdStats extends Model
 {
-    //
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the Ad that owns the stats.
+     */
+    public function ad()
+    {
+        return $this->belongsTo( 'App\Ad');
+    }
 }
