@@ -28,10 +28,12 @@ class WelcomeController extends Controller
 
         //Latest Ads (With Photo only)
         $latest_ads = Ad::where('active', 1)
-            ->with(['description', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
+            ->with(['description', 'resources', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
             ->orderBy('created_at', 'desc')
             ->take(6)
             ->get();
+
+            dump( $latest_ads);
 
         //Counter Stats
 
