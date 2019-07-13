@@ -10,7 +10,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="{{ route('show_ad', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug, 'ad_title' => Str::slug($ad->description->title), 'id' => $ad->id]) }}"><img class="img-fluid" src="@if(isset($ad->resources[0]->name) && isset($ad->resources[0]->extension))https://www.bachecubano.com/images/{{ $ad->resources[0]->name }}.{{ $ad->resources[0]->extension }}@else https://www.bachecubano.com/android-chrome-192x192.png @endif" alt="{{ $ad->description->title }}"></a>
+                        <a href="{{ ad_url($ad) }}"><img class="img-fluid" src="@if(isset($ad->resources[0]->name) && isset($ad->resources[0]->extension))https://www.bachecubano.com/images/{{ $ad->resources[0]->name }}.{{ $ad->resources[0]->extension }}@else https://www.bachecubano.com/android-chrome-192x192.png @endif" alt="{{ $ad->description->title }}"></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
