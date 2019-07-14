@@ -9,7 +9,9 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="{{ asset('img/product/img3.jpg') }}" alt="">
+                                <a href="{{ ad_url($ad) }}">
+                                    <img class="img-fluid" src="{{ asset('img/product/img3.jpg') }}" alt="{{ $ad->category->description->name }}">
+                                </a>
                                 <div class="overlay">
                                 </div>
                                 <div class="btn-product bg-red">
@@ -17,7 +19,7 @@
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h3 class="product-title"><a href="ads-details.html">Iphone X</a></h3>
+                                <h3 class="product-title"><a href="{{ ad_url($ad) }}">{{ $ad->category->description->name }}</a></h3>
                                 <p>Lorem ipsum dolor sit</p>
                                 <span class="price">$ 30.00</span>
                                 <div class="meta">

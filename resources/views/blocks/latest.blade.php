@@ -14,7 +14,7 @@
                     </figure>
                     <div class="feature-content">
                         <div class="product">
-                            <a href="{{ route('category_index', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug]) }}"><i class="lni-{{ $ad->category->icon }}"></i> {{ $ad->category->description->name }}</a>
+                            <a href="{{ ad_url($ad) }}"><i class="lni-{{ $ad->category->icon }}"></i> {{ $ad->category->description->name }}</a>
                         </div>
                         <h4><a href="{{ route('show_ad', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug, 'ad_title' => Str::slug($ad->description->title), 'id' => $ad->id]) }}">{{ $ad->description->title }}</a></h4>
                         <span>{{ $ad->created_at->diffForHumans() }}</span>
