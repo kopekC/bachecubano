@@ -23,7 +23,7 @@
                                 <a href="#"><i class="lni-map-marker"></i> Location</a>
                             </li>
                             <li>
-                                <a href="#"><i class="lni-alarm-clock"></i> {{ $ad->created_at }}</a>
+                                <a href="#"><i class="lni-alarm-clock"></i> {{ $ad->created_at->format("d-m H:m") }}</a>
                             </li>
                             <li>
                                 <a href="#"><i class="lni-user"></i> {{ $ad->contact_name }}</a>
