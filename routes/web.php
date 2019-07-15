@@ -27,3 +27,8 @@ Route::get('/search', 'SearchController@search')->name('search');
 //User Login/Register/Change Password routes
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+//SubDomain Stores
+Route::domain('{store_name}.bachecubano.com')->group(function () {
+    Route::get('store/{store_name}', 'StoreController@index')->name('store_index');
+});

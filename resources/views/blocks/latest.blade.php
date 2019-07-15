@@ -10,7 +10,7 @@
                         <div class="icon">
                             <i class="lni-heart"></i>
                         </div>
-                        <a href="{{ ad_url($ad) }}"><img class="img-fluid" src="@if(isset($ad->resources[0]->name) && isset($ad->resources[0]->extension))https://www.bachecubano.com/images/{{ $ad->resources[0]->name }}.{{ $ad->resources[0]->extension }}@else https://www.bachecubano.com/android-chrome-192x192.png @endif" alt="{{ $ad->description->title }}"></a>
+                        <a href="{{ ad_url($ad) }}"><img class="img-fluid" src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}"></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
@@ -33,7 +33,7 @@
                             </li>
                         </ul>
                         <div class="listing-bottom">
-                            <h3 class="price float-left">@if($ad->price > 0 && $ad->price != null) $ {{ $ad->price / 1000000 }} @endif</h3>
+                            <h3 class="price float-left">{{ ad_price($ad) }}</h3>
                             <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i> Verificado</a>
                         </div>
                     </div>

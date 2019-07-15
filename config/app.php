@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'img_url' => env('IMG_URL'),        //IMG_URL=https://img.bachecubano.com/
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

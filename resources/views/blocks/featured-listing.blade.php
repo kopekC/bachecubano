@@ -10,18 +10,18 @@
                         <div class="product-item">
                             <div class="carousel-thumb">
                                 <a href="{{ ad_url($ad) }}">
-                                    <img class="img-fluid" src="{{ asset('img/product/img3.jpg') }}" alt="{{ $ad->category->description->name }}">
+                                    <img class="img-fluid" src="{{ ad_first_image($ad) }}" alt="{{ $ad->category->description->name }}">
                                 </a>
                                 <div class="overlay">
                                 </div>
                                 <div class="btn-product bg-red">
-                                    <a href="#">Discount 50%</a>
+                                    <a href="#">-50%</a>
                                 </div>
                             </div>
                             <div class="product-content">
                                 <h3 class="product-title"><a href="{{ ad_url($ad) }}">{{ $ad->category->description->name }}</a></h3>
                                 <p>Lorem ipsum dolor sit</p>
-                                <span class="price">$ 30.00</span>
+                                <span class="price">{{ ad_price($ad) }}</span>
                                 <div class="meta">
                                     <span class="icon-wrap">
                                         <i class="lni-star-filled"></i>
