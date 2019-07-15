@@ -10,6 +10,7 @@ if (!function_exists('ad_url')) {
     }
 }
 
+//Show forst image assets url
 if (!function_exists('ad_first_image')) {
     /**
      * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
@@ -24,6 +25,7 @@ if (!function_exists('ad_first_image')) {
     }
 }
 
+//Show Ad Price id it exists
 if (!function_exists('ad_price')) {
     /**
      * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
