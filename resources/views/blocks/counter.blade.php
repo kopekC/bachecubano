@@ -7,7 +7,7 @@
             <div class="col-md-3 col-sm-6 work-counter-widget text-center">
                 <div class="counter">
                     <div class="icon"><i class="lni-layers"></i></div>
-                    <h2 class="counterUp">12090</h2>
+                    <h2 class="counterUp">{{ $total_ads }}</h2>
                     <p>Anuncios</p>
                 </div>
             </div>
@@ -15,7 +15,7 @@
             <div class="col-md-3 col-sm-6 work-counter-widget text-center">
                 <div class="counter">
                     <div class="icon"><i class="lni-map"></i></div>
-                    <h2 class="counterUp">350</h2>
+                    <h2 class="counterUp">169</h2>
                     <p>Ubicaciones</p>
                 </div>
             </div>
@@ -23,8 +23,8 @@
             <div class="col-md-3 col-sm-6 work-counter-widget text-center">
                 <div class="counter">
                     <div class="icon"><i class="lni-user"></i></div>
-                    <h2 class="counterUp">23453</h2>
-                    <p>Miembros</p>
+                    <h2 class="counterUp">{{ $total_users }}</h2>
+                    <p>Usuarios</p>
                 </div>
             </div>
             <!-- Counter Item -->

@@ -42,5 +42,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('parent_categories', $parent_categories);
         View::share('category_formatted', $category_formatted);
         View::share('total_ads', '120918');      //Load and cache this number everyday
+        View::share('total_users', '15421');      //Load and cache this number everyday
     }
 }
