@@ -46,7 +46,8 @@ class AdController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $ad = Ad::findOrFail($id);
+        //$ad = Ad::findOrFail($id);
+        $ad = Ad::find($id);
 
         dd($ad);
 

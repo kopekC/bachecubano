@@ -1,3 +1,6 @@
+<!-- Images LazyLoad -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js" async="async"></script>
+
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>

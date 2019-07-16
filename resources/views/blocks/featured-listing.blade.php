@@ -10,7 +10,7 @@
                         <div class="product-item">
                             <div class="carousel-thumb">
                                 <a href="{{ ad_url($ad) }}">
-                                    <img class="img-fluid" src="{{ ad_first_image($ad) }}" alt="{{ $ad->category->description->name }}">
+                                    <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->category->description->name }}">
                                 </a>
                                 <div class="overlay">
                                 </div>
