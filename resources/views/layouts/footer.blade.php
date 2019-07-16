@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="block-title">Últimos anuncios</h3>
+                        <h3 class="block-title">Movida en Twitter</h3>
                         <ul class="media-content-list">
                             <li>
                                 <div class="media-left">
@@ -28,18 +28,6 @@
                                     <span class="date">12 Jan 2018</span>
                                 </div>
                             </li>
-                            <li>
-                                <div class="media-left">
-                                    <img class="img-fluid" src="{{ asset('img/art/img2.jpg') }}" alt="">
-                                    <div class="overlay">
-                                        <span class="price">$ 49</span>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="post-title"><a href="ads-details.html">Canon Photography Camera</a></h4>
-                                    <span class="date">28 Mar 2018</span>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -48,10 +36,10 @@
                         <h3 class="block-title">Ayuda & soporte</h3>
                         <ul class="menu">
                             <li><a href="https://m.me/Bachecubano">Chatea con Bachecubano</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">protección de compras</a></li>
-                            <li><a href="#">Soporte</a></li>
-                            <li><a href="#">Contáctanos</a></li>
+                            <li><a href="#privacy-page">Política de Privacidad</a></li>
+                            <li><a href="#report-user">Protección de compras</a></li>
+                            <li><a href="#support-ticket-system">Soporte Técnico</a></li>
+                            <li><a href="#contact">Contáctanos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -67,9 +55,9 @@
                             </div>
                         </form>
                         <ul class="footer-social">
-                            <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
-                            <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
+                            <li><a class="facebook" href="https://www.facebook.com/Bachecubano" rel="nofollow"><i class="lni-facebook-filled"></i></a></li>
+                            <li><a class="twitter" href="https://www.twitter.com/Bachecubano" rel="nofollow"><i class="lni-twitter-filled"></i></a></li>
+                            <li><a class="linkedin" href="https://www.linkedin.com/company/bachecubano"><i class="lni-linkedin-fill"></i></a></li>
                         </ul>
                     </div>
                 </div>
