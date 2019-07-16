@@ -12,7 +12,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
     }
@@ -22,7 +22,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
     }
@@ -44,7 +44,7 @@ class AdController extends Controller
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $ad = Ad::findOrFail($id);
 
@@ -224,7 +224,7 @@ class AdController extends Controller
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ad $ad)
+    public function edit(Request $request, Ad $ad)
     {
         //
     }
@@ -247,7 +247,7 @@ class AdController extends Controller
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ad $ad)
+    public function destroy(Request $request, Ad $ad)
     {
         //
     }

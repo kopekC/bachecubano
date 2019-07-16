@@ -39,8 +39,8 @@ class WelcomeController extends Controller
         //OpenGraph::addProperty('type', 'articles');
         Twitter::setTitle($seo_data['title']);
 
-        //Bets Stores so far
-
+        //Best Stores so far
+        
 
         //Latest Ads (With Photo only)
         $latest_ads = Ad::where('active', 1)
@@ -65,7 +65,7 @@ class WelcomeController extends Controller
             ->get();
 
         //testimonial
-        //Try to fetch from facebook isn't
+        //Try to fetch from facebook isn't with JS
 
         //blog posts        
         //First Make the blog 🤣
