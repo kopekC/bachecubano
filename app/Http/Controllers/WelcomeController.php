@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Ad;
 
+use SEOMeta;
+use OpenGraph;
+use Twitter;
+
 class WelcomeController extends Controller
 {
     /**
@@ -23,6 +27,18 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        //SEO Data
+        $seo_data = [
+            'title' => 'Computadoras, celulares, electrodométicos, casas y carros en Cuba',
+            'desc' => 'Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.',
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription('Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.');
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription('Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.');
+        //OpenGraph::addProperty('type', 'articles');
+        Twitter::setTitle($seo_data['title']);
+
         //Bets Stores so far
 
 
