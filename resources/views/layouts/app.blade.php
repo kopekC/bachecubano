@@ -6,7 +6,7 @@
 <!-- Header Area wrapper Starts -->
 <header id="header-wrap">
     @include('layouts.navbar')
-    @include('blocks.hero')
+    @yield('hero')
 </header>
 <!-- Header Area wrapper End -->
 

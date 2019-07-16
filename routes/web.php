@@ -18,7 +18,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/add', 'AdController@create')->name('add');
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index');
-Route::get('/{category}/{subcategory}/{ad_title}/{id}', 'AdController@show')->name('show_ad');
+Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad');
 Route::resource('ad', 'AdController');
 
 //Search route

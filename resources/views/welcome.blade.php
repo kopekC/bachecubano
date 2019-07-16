@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('hero')
+@include('blocks.hero')
+@endsection
+
 @section('content')
 
 @include('blocks.categories')

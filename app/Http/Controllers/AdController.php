@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Ad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+use SEOMeta;
+use OpenGraph;
+use Twitter;
 
 class AdController extends Controller
 {
@@ -44,13 +50,25 @@ class AdController extends Controller
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
-        //$ad = Ad::findOrFail($id);
-        $ad = Ad::find($id);
+        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'promo'])
+            ->findOrFail($ad_id);
 
-        dd($ad);
+        //SEO Data
+        $seo_data = [
+            'title' => Str::limit($ad->description->title, 60),
+            'desc' => Str::limit($ad->description->description, 160),
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
 
+        return view('ads.show', compact('ad'));
+
+        /*
         SEOMeta::setTitle($post->title);
         SEOMeta::setDescription($post->resume);
         SEOMeta::addMeta('article:published_time', $post->published_date->toW3CString(), 'property');
@@ -215,8 +233,7 @@ class AdController extends Controller
                 'location:latitude' => 'float',
                 'location:longitude' => 'float',
             ]);
-
-        return view('myshow', compact('post'));
+            */
     }
 
     /**

@@ -33,19 +33,18 @@ class WelcomeController extends Controller
             'desc' => 'Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.',
         ];
         SEOMeta::setTitle($seo_data['title']);
-        SEOMeta::setDescription('Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.');
+        SEOMeta::setDescription($seo_data['desc']);
         OpenGraph::setTitle($seo_data['title']);
-        OpenGraph::setDescription('Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.');
-        //OpenGraph::addProperty('type', 'articles');
+        OpenGraph::setDescription($seo_data['desc']);
         Twitter::setTitle($seo_data['title']);
 
         //Best Stores so far
-        
+
 
         //Latest Ads (With Photo only)
         $latest_ads = Ad::where('active', 1)
             ->with(['description', 'resources', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
-            ->has('resources')
+            ->has('resources')  //Has Pictures...
             ->orderBy('created_at', 'desc')
             ->take(6)
             ->get();
@@ -56,7 +55,6 @@ class WelcomeController extends Controller
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Ad::where('active', 1)
             ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
-            //->has('promo.promotype', '>=', 3)
             ->whereHas('promo', function ($query) {
                 $query->where('promotype', '>=', 3);
             })

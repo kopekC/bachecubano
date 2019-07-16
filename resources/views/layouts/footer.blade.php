@@ -55,9 +55,9 @@
                             </div>
                         </form>
                         <ul class="footer-social">
-                            <li><a class="facebook" href="https://www.facebook.com/Bachecubano" rel="nofollow"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a class="twitter" href="https://www.twitter.com/Bachecubano" rel="nofollow"><i class="lni-twitter-filled"></i></a></li>
-                            <li><a class="linkedin" href="https://www.linkedin.com/company/bachecubano"><i class="lni-linkedin-fill"></i></a></li>
+                            <li><a class="facebook" href="https://www.facebook.com/Bachecubano" rel="nofollow"><i class="lni-facebook"></i></a></li>
+                            <li><a class="twitter" href="https://www.twitter.com/Bachecubano" rel="nofollow"><i class="lni-twitter"></i></a></li>
+                            <li><a class="linkedin" href="https://www.linkedin.com/company/bachecubano"><i class="lni-linkedin"></i></a></li>
                         </ul>
                     </div>
                 </div>
