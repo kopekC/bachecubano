@@ -58,7 +58,7 @@
                         <div class="ads-details-info">
                             <div class="details-meta">
                                 <span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->format("d M, H:m") }}</a></span>
-                                <span><a href="#"><i class="lni-map-marker"></i> New York</a></span>
+                                <!-- <span><a href="#"><i class="lni-map-marker"></i> New York</a></span> -->
                                 <span><a href="#"><i class="lni-eye"></i> {{ $ad->stats->hits > 0 ? $ad->stats->hits : 0 }} Visitas</a></span>
                             </div>
                             <h4 class="title-small mb-3">Detalles del anuncio:</h4>
@@ -105,9 +105,9 @@
                         <h4 class="mt-4">Perfil de contacto</h4>
                         <ul>
                             <li><a href="#"><i class="lni-users"></i> Anuncios de <span>{{ $ad->contact_name }}</span></a></li>
-                            <li><a href="#"><i class="lni-printer"></i> Print this ad</a></li>
-                            <li><a href="#"><i class="lni-reply"></i> Send to a friend</a></li>
-                            <li><a href="#"><i class="lni-warning"></i> Report this ad</a></li>
+                            <li><a href="#"><i class="lni-printer"></i> Imprimir anuncio</a></li>
+                            <li><a href="#"><i class="lni-reply"></i> Enviar a un amigo</a></li>
+                            <li><a href="#"><i class="lni-warning"></i> reportar anuncio</a></li>
                         </ul>
                     </div>
                 </div>

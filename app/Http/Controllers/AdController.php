@@ -55,7 +55,7 @@ class AdController extends Controller
         $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats'])
             ->findOrFail($ad_id);
 
-        dump($ad);
+        //dump($ad);
 
         //SEO Data
         $seo_data = [
