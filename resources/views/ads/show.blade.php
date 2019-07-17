@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Page Header Start -->
-<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+<div class="page-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -30,6 +30,7 @@
         <div class="product-info row">
             <div class="col-lg-6 col-md-12 col-xs-12">
                 <div class="details-box ads-details-wrapper">
+
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="product-img">
@@ -55,11 +56,11 @@
             <div class="col-lg-6 col-md-12 col-xs-12">
                 <div class="details-box">
                     <div class="ads-details-info">
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum saepe suscipit debitis neque, laborum! Magni ducimus suscipit modi.</p>
+                        <p class="mb-2">{{ \Str::limit($ad->description->description, 200) }}</p>
                         <div class="details-meta">
-                            <span><a href="#"><i class="lni-alarm-clock"></i> 7 Jan, 10:10 pm</a></span>
+                            <span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->format("d M, H:m") }}</a></span>
                             <span><a href="#"><i class="lni-map-marker"></i> New York</a></span>
-                            <span><a href="#"><i class="lni-eye"></i> 299 View</a></span>
+                            <span><a href="#"><i class="lni-eye"></i> {{ $ad->hits > 0 ? $ad->hits : 0 }} Visitas</a></span>
                         </div>
                         <h4 class="title-small mb-3">Specification:</h4>
                         <ul class="list-specification">
@@ -113,7 +114,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-xs-12">
                     <div class="short-info">
-                        <h4>Short Info</h4>
+                        <h4>Perfil de contacto</h4>
                         <ul>
                             <li><a href="#"><i class="lni-users"></i> More ads by <span>User</span></a></li>
                             <li><a href="#"><i class="lni-printer"></i> Print this ad</a></li>

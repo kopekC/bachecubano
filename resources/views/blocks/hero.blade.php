@@ -1,5 +1,5 @@
 <!-- Hero Area Start -->
-<div id="hero-area-two">
+<div id="hero-area">
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-flex justify-content-center">

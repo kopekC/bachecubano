@@ -6,7 +6,7 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "Computadoras, celulares, electrodométicos, casas y carros en Cuba", // set false to total remove
+            'title'        => "Bachecubano", // set false to total remove
             'description'  => 'Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],
@@ -30,7 +30,7 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Computadoras, celulares, electrodométicos, casas y carros en Cuba', // set false to total remove
+            'title'       => 'Bachecubano', // set false to total remove
             'description' => 'Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => false,

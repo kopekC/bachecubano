@@ -52,8 +52,10 @@ class AdController extends Controller
      */
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
-        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'promo'])
+        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats'])
             ->findOrFail($ad_id);
+
+        dump($ad);
 
         //SEO Data
         $seo_data = [
