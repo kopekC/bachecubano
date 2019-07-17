@@ -33,7 +33,7 @@ if (!function_exists('ad_price')) {
     function ad_price($ad)
     {
         if ($ad->price > 0 && $ad->price != null) {
-            return "$ " . $ad->price / 1000000;
+            return "$ " . $ad->price;
         }
         return "";
     }
