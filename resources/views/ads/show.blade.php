@@ -119,4 +119,8 @@
 </div>
 <!-- Ads Details End -->
 
+<!-- featured Listing -->
+@include('blocks.featured-listing')
+<!-- featured Listing -->
+
 @endsection

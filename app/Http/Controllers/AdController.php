@@ -68,9 +68,97 @@ class AdController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         Twitter::setTitle($seo_data['title']);
 
-        return view('ads.show', compact('ad'));
+        //Featured Listing, Diamond and Gold Random
+        $promoted_ads = Ad::where('active', 1)
+            ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
+            ->whereHas('promo', function ($query) {
+                $query->where('promotype', '>=', 3);
+            })
+            ->inRandomOrder()
+            ->take(8)
+            ->get();
+
+        return view('ads.show', compact('ad', 'promoted_ads'));
 
         /*
+
+        SEOMeta::addKeyword($keyword);
+        SEOMeta::addMeta($meta, $value = null, $name = 'name');
+        SEOMeta::addAlternateLanguage($lang, $url);
+        SEOMeta::addAlternateLanguages(array $languages);
+        SEOMeta::setTitleSeparator($separator);
+        SEOMeta::setTitle($title);
+        SEOMeta::setTitleDefault($default);
+        SEOMeta::setDescription($description);
+        SEOMeta::setKeywords($keywords);
+        SEOMeta::setRobots($robots);
+        SEOMeta::setCanonical($url);
+        SEOMeta::setPrev($url);
+        SEOMeta::setNext($url);
+        SEOMeta::removeMeta($key);
+
+        // You can chain methods
+        SEOMeta::setTitle($title)
+                    ->setDescription($description)
+                    ->setKeywords($keywords)
+                    ->addKeyword($keyword)
+                    ->addMeta($meta, $value);
+
+        // Retrieving data
+        SEOMeta::getTitle();
+        SEOMeta::getTitleSession();
+        SEOMeta::getTitleSeparator();
+        SEOMeta::getKeywords();
+        SEOMeta::getDescription();
+        SEOMeta::getCanonical($url);
+        SEOMeta::getPrev($url);
+        SEOMeta::getNext($url);
+        SEOMeta::getRobots();
+        SEOMeta::reset();
+
+        SEOMeta::generate();
+
+        OpenGraph::addProperty($key, $value); // value can be string or array
+        OpenGraph::addImage($url); // add image url
+        OpenGraph::addImages($url); // add an array of url images
+        OpenGraph::setTitle($title); // define title
+        OpenGraph::setDescription($description);  // define description
+        OpenGraph::setUrl($url); // define url
+        OpenGraph::setSiteName($name); //define site_name
+
+        // You can chain methods
+        OpenGraph::addProperty($key, $value)
+                    ->addImage($url)
+                    ->addImages($url)
+                    ->setTitle($title)
+                    ->setDescription($description)
+                    ->setUrl($url)
+                    ->setSiteName($name);
+
+        // Generate html tags
+        OpenGraph::generate();
+
+        Twitter::addValue($key, $value); // value can be string or array
+        Twitter::setType($type); // type of twitter card tag
+        Twitter::setTitle($type); // title of twitter card tag
+        Twitter::setSite($type); // site of twitter card tag
+        Twitter::setDescription($type); // description of twitter card tag
+        Twitter::setUrl($type); // url of twitter card tag
+        Twitter::setImage($url); // add image url
+
+
+        // You can chain methods
+        Twitter::addValue($key, $value)
+                    ->setType($type)
+                    ->setImage($url)
+                    ->setTitle($title)
+                    ->setDescription($description)
+                    ->setUrl($url)
+                    ->setSite($name);
+
+        // Generate html tags
+        Twitter::generate();
+
         SEOMeta::setTitle($post->title);
         SEOMeta::setDescription($post->resume);
         SEOMeta::addMeta('article:published_time', $post->published_date->toW3CString(), 'property');
