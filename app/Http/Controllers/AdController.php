@@ -11,6 +11,8 @@ use SEOMeta;
 use OpenGraph;
 use Twitter;
 
+use App\CategoryDescription;
+
 //use Illuminate\Support\Facades\URL;
 
 class AdController extends Controller
@@ -20,10 +22,17 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Category $category, Category $subcategory)
+    public function index(Request $request, $category, $subcategory)
     {
-        //Here's come the Sun
+        dump($category);
+        dump($subcategory);
 
+        //Get Super and SubCategory
+        $super_category = CategoryDescription::where('slug', $category)->first();
+        $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
+
+        dump($super_category);
+        dump($sub_category);
     }
 
     /**
