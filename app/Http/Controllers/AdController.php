@@ -11,6 +11,8 @@ use SEOMeta;
 use OpenGraph;
 use Twitter;
 
+//use Illuminate\Support\Facades\URL;
+
 class AdController extends Controller
 {
     /**
@@ -52,20 +54,21 @@ class AdController extends Controller
      */
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
+        //Retrieve Ad
         $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats'])
             ->findOrFail($ad_id);
-
-        //dump($ad);
 
         //SEO Data
         $seo_data = [
             'title' => Str::limit($ad->description->title, 60),
-            'desc' => Str::limit($ad->description->description, 160),
+            'desc' => text_clean(Str::limit($ad->description->description, 160)),
         ];
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addImage(ad_first_image($ad));
         Twitter::setTitle($seo_data['title']);
 
         //Featured Listing, Diamond and Gold Random

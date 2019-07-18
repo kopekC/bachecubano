@@ -9,7 +9,7 @@ return [
             'title'        => "Bachecubano", // set false to total remove
             'description'  => 'Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => [],
+            'keywords'     => ['clasificados cuba', 'compra venta cuba', 'tiendas online cuba', 'ecommerce cuba', 'amazon cuba', 'revolico cuba', 'porlalivre cuba', 'compras online cuba'],
             'canonical'    => null, // Set null for using Url::current(), set false to total remove
             'robots'       => 'all', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
@@ -34,8 +34,9 @@ return [
             'description' => 'Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => false,
-            'site_name'   => false,
+            'site_name'   => 'Bachecubano',
             'images'      => [],
+            'locale'      => 'es_ES',     
         ],
     ],
     'twitter' => [

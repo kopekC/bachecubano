@@ -230,7 +230,7 @@ to{opacity:1}
 .product-item .product-title a{color:#484848;font-weight:700;font-size:14px}
 .product-item .product-title a:hover{color:#1976d2}
 .product-item p{margin-bottom:10px}
-.product-item .price{position:absolute;top:30px;right:20px;color:#1976d2;display:block;font-size:18px;font-weight:700}
+.product-item .price{color:#1976d2;display:block;font-size:18px;font-weight:700}
 .product-item .icon-wrap{margin-right:5px;color:#1976d2}
 .product-item .card-text{width:100%;display:inline-block;margin-top:15px;padding:15px 0;border-top:1px solid #f1f1f1}
 .product-item .card-text .icon{color:#1976d2;font-size:15px;margin-right:5px}

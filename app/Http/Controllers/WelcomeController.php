@@ -36,6 +36,7 @@ class WelcomeController extends Controller
         SEOMeta::setDescription($seo_data['desc']);
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addImage(asset('android-chrome-512x512.png'));
         Twitter::setTitle($seo_data['title']);
 
         //Best Stores so far
