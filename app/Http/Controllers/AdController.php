@@ -20,10 +20,10 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Category $category, Category $subcategory)
     {
         //Here's come the Sun
-        
+
     }
 
     /**
