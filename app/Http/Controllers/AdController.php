@@ -22,7 +22,8 @@ class AdController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        //Here's come the Sun
+        
     }
 
     /**
@@ -65,11 +66,19 @@ class AdController extends Controller
         ];
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
-        OpenGraph::addProperty('type', 'article');
-        OpenGraph::addImage(ad_first_image($ad));
-        Twitter::setTitle($seo_data['title']);
+        OpenGraph::addProperty('type', 'website');
+
+        //Iterate every image for OpenGrap and Owl Carousell
+        if ($ad->resources != null) {
+            foreach ($ad->resources as $resource) {
+                OpenGraph::addImage(ad_image_url($resource));
+            }
+        } else {
+            OpenGraph::addImage(ad_first_image($ad));
+        }
 
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Ad::where('active', 1)
@@ -82,251 +91,6 @@ class AdController extends Controller
             ->get();
 
         return view('ads.show', compact('ad', 'promoted_ads'));
-
-        /*
-
-        SEOMeta::addKeyword($keyword);
-        SEOMeta::addMeta($meta, $value = null, $name = 'name');
-        SEOMeta::addAlternateLanguage($lang, $url);
-        SEOMeta::addAlternateLanguages(array $languages);
-        SEOMeta::setTitleSeparator($separator);
-        SEOMeta::setTitle($title);
-        SEOMeta::setTitleDefault($default);
-        SEOMeta::setDescription($description);
-        SEOMeta::setKeywords($keywords);
-        SEOMeta::setRobots($robots);
-        SEOMeta::setCanonical($url);
-        SEOMeta::setPrev($url);
-        SEOMeta::setNext($url);
-        SEOMeta::removeMeta($key);
-
-        // You can chain methods
-        SEOMeta::setTitle($title)
-                    ->setDescription($description)
-                    ->setKeywords($keywords)
-                    ->addKeyword($keyword)
-                    ->addMeta($meta, $value);
-
-        // Retrieving data
-        SEOMeta::getTitle();
-        SEOMeta::getTitleSession();
-        SEOMeta::getTitleSeparator();
-        SEOMeta::getKeywords();
-        SEOMeta::getDescription();
-        SEOMeta::getCanonical($url);
-        SEOMeta::getPrev($url);
-        SEOMeta::getNext($url);
-        SEOMeta::getRobots();
-        SEOMeta::reset();
-
-        SEOMeta::generate();
-
-        OpenGraph::addProperty($key, $value); // value can be string or array
-        OpenGraph::addImage($url); // add image url
-        OpenGraph::addImages($url); // add an array of url images
-        OpenGraph::setTitle($title); // define title
-        OpenGraph::setDescription($description);  // define description
-        OpenGraph::setUrl($url); // define url
-        OpenGraph::setSiteName($name); //define site_name
-
-        // You can chain methods
-        OpenGraph::addProperty($key, $value)
-                    ->addImage($url)
-                    ->addImages($url)
-                    ->setTitle($title)
-                    ->setDescription($description)
-                    ->setUrl($url)
-                    ->setSiteName($name);
-
-        // Generate html tags
-        OpenGraph::generate();
-
-        Twitter::addValue($key, $value); // value can be string or array
-        Twitter::setType($type); // type of twitter card tag
-        Twitter::setTitle($type); // title of twitter card tag
-        Twitter::setSite($type); // site of twitter card tag
-        Twitter::setDescription($type); // description of twitter card tag
-        Twitter::setUrl($type); // url of twitter card tag
-        Twitter::setImage($url); // add image url
-
-
-        // You can chain methods
-        Twitter::addValue($key, $value)
-                    ->setType($type)
-                    ->setImage($url)
-                    ->setTitle($title)
-                    ->setDescription($description)
-                    ->setUrl($url)
-                    ->setSite($name);
-
-        // Generate html tags
-        Twitter::generate();
-
-        SEOMeta::setTitle($post->title);
-        SEOMeta::setDescription($post->resume);
-        SEOMeta::addMeta('article:published_time', $post->published_date->toW3CString(), 'property');
-        SEOMeta::addMeta('article:section', $post->category, 'property');
-        SEOMeta::addKeyword(['key1', 'key2', 'key3']);
-
-        OpenGraph::setDescription($post->resume);
-        OpenGraph::setTitle($post->title);
-        OpenGraph::setUrl('http://current.url.com');
-        OpenGraph::addProperty('type', 'article');
-        OpenGraph::addProperty('locale', 'pt-br');
-        OpenGraph::addProperty('locale:alternate', ['pt-pt', 'en-us']);
-
-        OpenGraph::addImage($post->cover->url);
-        OpenGraph::addImage($post->images->list('url'));
-        OpenGraph::addImage(['url' => 'http://image.url.com/cover.jpg', 'size' => 300]);
-        OpenGraph::addImage('http://image.url.com/cover.jpg', ['height' => 300, 'width' => 300]);
-
-        // Namespace URI: http://ogp.me/ns/article#
-        // article
-        OpenGraph::setTitle('Article')
-            ->setDescription('Some Article')
-            ->setType('article')
-            ->setArticle([
-                'published_time' => 'datetime',
-                'modified_time' => 'datetime',
-                'expiration_time' => 'datetime',
-                'author' => 'profile / array',
-                'section' => 'string',
-                'tag' => 'string / array'
-            ]);
-
-        // Namespace URI: http://ogp.me/ns/book#
-        // book
-        OpenGraph::setTitle('Book')
-            ->setDescription('Some Book')
-            ->setType('book')
-            ->setBook([
-                'author' => 'profile / array',
-                'isbn' => 'string',
-                'release_date' => 'datetime',
-                'tag' => 'string / array'
-            ]);
-
-        // Namespace URI: http://ogp.me/ns/profile#
-        // profile
-        OpenGraph::setTitle('Profile')
-            ->setDescription('Some Person')
-            ->setType('profile')
-            ->setProfile([
-                'first_name' => 'string',
-                'last_name' => 'string',
-                'username' => 'string',
-                'gender' => 'enum(male, female)'
-            ]);
-
-        // Namespace URI: http://ogp.me/ns/music#
-        // music.song
-        OpenGraph::setType('music.song')
-            ->setMusicSong([
-                'duration' => 'integer',
-                'album' => 'array',
-                'album:disc' => 'integer',
-                'album:track' => 'integer',
-                'musician' => 'array'
-            ]);
-
-        // music.album
-        OpenGraph::setType('music.album')
-            ->setMusicAlbum([
-                'song' => 'music.song',
-                'song:disc' => 'integer',
-                'song:track' => 'integer',
-                'musician' => 'profile',
-                'release_date' => 'datetime'
-            ]);
-
-        //music.playlist
-        OpenGraph::setType('music.playlist')
-            ->setMusicPlaylist([
-                'song' => 'music.song',
-                'song:disc' => 'integer',
-                'song:track' => 'integer',
-                'creator' => 'profile'
-            ]);
-
-        // music.radio_station
-        OpenGraph::setType('music.radio_station')
-            ->setMusicRadioStation([
-                'creator' => 'profile'
-            ]);
-
-        // Namespace URI: http://ogp.me/ns/video#
-        // video.movie
-        OpenGraph::setType('video.movie')
-            ->setVideoMovie([
-                'actor' => 'profile / array',
-                'actor:role' => 'string',
-                'director' => 'profile /array',
-                'writer' => 'profile / array',
-                'duration' => 'integer',
-                'release_date' => 'datetime',
-                'tag' => 'string / array'
-            ]);
-
-        // video.episode
-        OpenGraph::setType('video.episode')
-            ->setVideoEpisode([
-                'actor' => 'profile / array',
-                'actor:role' => 'string',
-                'director' => 'profile /array',
-                'writer' => 'profile / array',
-                'duration' => 'integer',
-                'release_date' => 'datetime',
-                'tag' => 'string / array',
-                'series' => 'video.tv_show'
-            ]);
-
-        // video.tv_show
-        OpenGraph::setType('video.tv_show')
-            ->setVideoTVShow([
-                'actor' => 'profile / array',
-                'actor:role' => 'string',
-                'director' => 'profile /array',
-                'writer' => 'profile / array',
-                'duration' => 'integer',
-                'release_date' => 'datetime',
-                'tag' => 'string / array'
-            ]);
-
-        // video.other
-        OpenGraph::setType('video.other')
-            ->setVideoOther([
-                'actor' => 'profile / array',
-                'actor:role' => 'string',
-                'director' => 'profile /array',
-                'writer' => 'profile / array',
-                'duration' => 'integer',
-                'release_date' => 'datetime',
-                'tag' => 'string / array'
-            ]);
-
-        // og:video
-        OpenGraph::addVideo('http://example.com/movie.swf', [
-            'secure_url' => 'https://example.com/movie.swf',
-            'type' => 'application/x-shockwave-flash',
-            'width' => 400,
-            'height' => 300
-        ]);
-
-        // og:audio
-        OpenGraph::addAudio('http://example.com/sound.mp3', [
-            'secure_url' => 'https://secure.example.com/sound.mp3',
-            'type' => 'audio/mpeg'
-        ]);
-
-        // og:place
-        OpenGraph::setTitle('Place')
-            ->setDescription('Some Place')
-            ->setType('place')
-            ->setPlace([
-                'location:latitude' => 'float',
-                'location:longitude' => 'float',
-            ]);
-            */
     }
 
     /**

@@ -26,6 +26,17 @@ if (!function_exists('ad_first_image')) {
     }
 }
 
+//shortcut to ad image
+if (!function_exists('ad_image_url')) {
+    /**
+     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     */
+    function ad_image_url($ad_resurce_intance)
+    {
+        return config('app.img_url') . $ad_resurce_intance->path . $ad_resurce_intance->id . "." . $ad_resurce_intance->extension;
+    }
+}
+
 //Show Ad Price id it exists
 if (!function_exists('ad_price')) {
     /**

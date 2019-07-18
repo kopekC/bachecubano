@@ -32,15 +32,17 @@
         <div class="product-info row">
             <div class="col-lg-3 col-md-12 col-xs-12">
                 <div class="owl-carousel owl-theme" id="product-carousel">
+                    @if($ad->resources != null)
+                    @foreach($ad->resources as $resource)
+                    <div class="item">
+                        <img src="{{ ad_image_url($resource) }}" class="img-fluid">
+                    </div>
+                    @endforeach
+                    @else
                     <div class="item">
                         <img src="{{ ad_first_image($ad) }}" class="img-fluid">
                     </div>
-                    <div class="item">
-                        <img src="{{ ad_first_image($ad) }}" class="img-fluid">
-                    </div>
-                    <div class="item">
-                        <img src="{{ ad_first_image($ad) }}" class="img-fluid">
-                    </div>
+                    @endif
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-xs-12 pr-5 pl-5">
@@ -70,7 +72,6 @@
                             </li>
                         </ul>
                     </div>
-                    {{ dump($ad) }}
                     {{ $ad->description->description }}
                 </div>
             </div>
