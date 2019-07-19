@@ -16,9 +16,6 @@
                 <li>
                     <a href="#"><i class="lni-user"></i> Maria Barlow</a>
                 </li>
-                <li>
-                    <a href="#"><i class="lni-package"></i> Used</a>
-                </li>
             </ul>
             <div class="listing-bottom">
                 <h3 class="price float-left">{{ ad_price($ad) }}</h3>

@@ -181,6 +181,7 @@ return [
          * Addons Providers
          */
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Just\Amp\Laravel\AmpServiceProvider::class,
     ],
 
     /*
@@ -238,5 +239,6 @@ return [
         'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
+        'AmpRouter' => Just\Amp\Laravel\AmpRouteFacade::class,
     ],
 ];
