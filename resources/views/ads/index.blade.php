@@ -8,7 +8,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
-                    <h1 class="h2 text-white">{{ isset($sub_category->name) ? $sub_category->name : $super_category->name }}</h1>
+                    <a href="{{ URL::current() }}">
+                        <h1 class="h2 text-white">{{ isset($sub_category->name) ? $sub_category->name : $super_category->name }}</h1>
+                    </a>
                     <h2 class="h6 text-white">{{ isset($sub_category->description) ? $sub_category->description : $super_category->description }}</h2>
                 </div>
             </div>
@@ -125,13 +127,13 @@
                             <div class="row">
                                 @if($ads)
                                 @foreach($ads as $ad)
-                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-2 p-1">
                                     <div class="featured-box">
                                         <figure>
                                             <div class="icon">
                                                 <i class="lni-heart"></i>
                                             </div>
-                                            <a href="#"><img class="img-fluid" src="{{ ad_image_url($ad) }}" alt=""></a>
+                                            <a href="{{ ad_url($ad) }}"><img class="img-fluid" src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}"></a>
                                         </figure>
                                         <div class="feature-content">
                                             <div class="product">
@@ -140,9 +142,6 @@
                                             <h4><a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a></h4>
                                             <span>@if($ad->updated_at != null) {{ $ad->updated_at->diffForHumans() }} @endif</span>
                                             <ul class="address">
-                                                <li>
-                                                    <a href="#"><i class="lni-map-marker"></i> Avenue C, US</a>
-                                                </li>
                                                 <li>
                                                     <a href="#"><i class="lni-user"></i> Maria Barlow</a>
                                                 </li>
@@ -161,46 +160,6 @@
                                 @endif
                             </div>
                         </div>
-                        <!--<div id="list-view" class="tab-pane fade">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="featured-box">
-                                        <figure>
-                                            <div class="icon">
-                                                <i class="lni-heart"></i>
-                                            </div>
-                                            <a href="#"><img class="img-fluid" src="assets/img/featured/img5.jpg" alt=""></a>
-                                        </figure>
-                                        <div class="feature-content">
-                                            <div class="product">
-                                                <a href="#"><i class="lni-folder"></i> Apple</a>
-                                            </div>
-                                            <h4><a href="ads-details.html">Apple Macbook Pro 13 Inch</a></h4>
-                                            <span>Last Updated: 4 hours ago</span>
-                                            <ul class="address">
-                                                <li>
-                                                    <a href="#"><i class="lni-map-marker"></i>Louis, Missouri, US</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="lni-alarm-clock"></i> May 18, 2018</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="lni-user"></i> Will Ernest</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="lni-package"></i> Brand New</a>
-                                                </li>
-                                            </ul>
-                                            <div class="listing-bottom">
-                                                <h3 class="price float-left">$450.00</h3>
-                                                <a href="account-myads.html" class="btn-verified float-right"><i class="lni-check-box"></i>
-                                                    Verified Ad</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
                     </div>
                 </div>
                 <!-- Adds wrapper End -->
