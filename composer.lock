@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0b937c17113ea7b3883793759105979",
+    "content-hash": "e527b5104e7b4534218366d91f853233",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -3518,6 +3518,64 @@
                 "environment"
             ],
             "time": "2019-06-15T22:40:20+00:00"
+        },
+        {
+            "name": "wearejust/laravel-amp",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wearejust/laravel-amp.git",
+                "reference": "c13d39f82056735b73a9c732216e64e0c381e521"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wearejust/laravel-amp/zipball/c13d39f82056735b73a9c732216e64e0c381e521",
+                "reference": "c13d39f82056735b73a9c732216e64e0c381e521",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5",
+                "illuminate/support": "~5",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Just\\Amp\\Laravel\\AmpServiceProvider"
+                    ],
+                    "aliases": {
+                        "AmpRouter": "Just\\Amp\\Laravel\\AmpRouteFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Just\\Amp\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": ":Cees van Egmond",
+                    "email": "cees.vanegmond@wearejust.com",
+                    "homepage": "https://wearejust.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Package that helps you set up AMP (Accelerated Mobile Pages) using Laravel",
+            "homepage": "https://github.com/wearejust/amp",
+            "keywords": [
+                "laravel-amp",
+                "wearejust"
+            ],
+            "time": "2018-05-20T21:52:53+00:00"
         }
     ],
     "packages-dev": [
