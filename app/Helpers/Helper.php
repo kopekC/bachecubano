@@ -3,7 +3,7 @@
 //Constructed ad url
 if (!function_exists('ad_url')) {
     /**
-     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     * Obtiene la URL de un anuncio pasando el $ad object
      */
     function ad_url($ad)
     {
@@ -14,12 +14,12 @@ if (!function_exists('ad_url')) {
 //Show forst image assets url
 if (!function_exists('ad_first_image')) {
     /**
-     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     * Obtiene la primera imagen de un anuncio, pasa el segundo parametro como la calidad del mismo
      */
-    function ad_first_image($ad)
+    function ad_first_image($ad, $quality = 'thumbnail')
     {
         if (isset($ad->resources[0]->id) && isset($ad->resources[0]->extension)) {
-            return config('app.img_url') . $ad->resources[0]->path . $ad->resources[0]->id . "." . $ad->resources[0]->extension;
+            return config('app.img_url') . $ad->resources[0]->path . $ad->resources[0]->id . "-" . $quality . "." . $ad->resources[0]->extension;
         } else {
             return asset("android-chrome-512x512.png");
         }
@@ -29,18 +29,18 @@ if (!function_exists('ad_first_image')) {
 //shortcut to ad image
 if (!function_exists('ad_image_url')) {
     /**
-     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     * Obten la url construida de un recurso de anuncios
      */
-    function ad_image_url($ad_resurce_intance)
+    function ad_image_url($ad_resurce_intance, $quality = 'thumbnail')
     {
-        return config('app.img_url') . $ad_resurce_intance->path . $ad_resurce_intance->id . "." . $ad_resurce_intance->extension;
+        return config('app.img_url') . $ad_resurce_intance->path . $ad_resurce_intance->id  . "-" . $quality . "." . $ad_resurce_intance->extension;
     }
 }
 
 //Show Ad Price id it exists
 if (!function_exists('ad_price')) {
     /**
-     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     * Obtiene el precio establec o no de un anuncio
      */
     function ad_price($ad)
     {
@@ -54,7 +54,7 @@ if (!function_exists('ad_price')) {
 //Category Getter
 if (!function_exists('ad_category_url')) {
     /**
-     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     * Obtiene la categoria URL de un anuncio
      */
     function ad_category_url($ad)
     {
@@ -65,7 +65,7 @@ if (!function_exists('ad_category_url')) {
 //Promotion Type
 if (!function_exists('ad_promotion_text_type')) {
     /**
-     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     * Obtiene el tipo de promocion de un anuncio basado en el promotype
      */
     function ad_promotion_text_type($ad)
     {
@@ -83,7 +83,7 @@ if (!function_exists('ad_promotion_text_type')) {
 //Sanitize description elements
 if (!function_exists('text_clean')) {
     /**
-     * Transforma un texto de tarjeta en una formateada por espacios y/o ofscada
+     * Limpia el texto para uso en etiquetas SEO
      */
     function text_clean($str)
     {
