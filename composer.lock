@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "910ae0711be9a5ffba104abe96f2e93e",
+    "content-hash": "c0b937c17113ea7b3883793759105979",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -442,6 +442,121 @@
                 "trusted proxy"
             ],
             "time": "2019-01-10T14:06:47+00:00"
+        },
+        {
+            "name": "genealabs/laravel-model-caching",
+            "version": "0.5.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeneaLabs/laravel-model-caching.git",
+                "reference": "6cb0629b114e547e8e315dbdf4d953968d429480"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeneaLabs/laravel-model-caching/zipball/6cb0629b114e547e8e315dbdf4d953968d429480",
+                "reference": "6cb0629b114e547e8e315dbdf4d953968d429480",
+                "shasum": ""
+            },
+            "require": {
+                "genealabs/laravel-pivot-events": "*",
+                "illuminate/cache": "5.8.*",
+                "illuminate/config": "5.8.*",
+                "illuminate/console": "5.8.*",
+                "illuminate/container": "5.8.*",
+                "illuminate/database": "5.8.*",
+                "illuminate/http": "5.8.*",
+                "illuminate/support": "5.8.*",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "*",
+                "mockery/mockery": "*",
+                "orchestra/database": "3.8.*",
+                "orchestra/testbench": "3.8.*",
+                "orchestra/testbench-browser-kit": "3.8.*",
+                "php-coveralls/php-coveralls": "*",
+                "phpmd/phpmd": "*",
+                "phpunit/phpunit": "^7.5",
+                "predis/predis": "*",
+                "sebastian/phpcpd": "*",
+                "symfony/thanks": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "GeneaLabs\\LaravelModelCaching\\Providers\\Service"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GeneaLabs\\LaravelModelCaching\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Bronner",
+                    "email": "hello@genealabs.com"
+                }
+            ],
+            "description": "Automatic caching for Eloquent models.",
+            "time": "2019-06-20T21:58:57+00:00"
+        },
+        {
+            "name": "genealabs/laravel-pivot-events",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeneaLabs/laravel-pivot-events.git",
+                "reference": "fddbf91bcbce4e7c5ed4332c94b15356b57b0339"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeneaLabs/laravel-pivot-events/zipball/fddbf91bcbce4e7c5ed4332c94b15356b57b0339",
+                "reference": "fddbf91bcbce4e7c5ed4332c94b15356b57b0339",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">5.5.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.*",
+                "orchestra/testbench": "3.*",
+                "symfony/thanks": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GeneaLabs\\LaravelPivotEvents\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Bronner",
+                    "email": "hello@genealabs.com",
+                    "homepage": "https://genealabs.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package introduces new eloquent events for sync(), attach(), detach() or updateExistingPivot() methods on BelongsToMany relation.",
+            "homepage": "https://github.com/fico7489/laravel-pivot",
+            "keywords": [
+                "eloquent events",
+                "eloquent extra events",
+                "laravel BelongsToMany events",
+                "laravel pivot events",
+                "laravel sync events"
+            ],
+            "time": "2019-05-17T22:15:12+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -5246,6 +5361,50 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2019-06-13T22:48:21+00:00"
+        },
+        {
+            "name": "watson/rememberable",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/rememberable.git",
+                "reference": "f3451ed6c4f9b902e1d1b3817dc62508c6b16d90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/rememberable/zipball/f3451ed6c4f9b902e1d1b3817dc62508c6b16d90",
+                "reference": "f3451ed6c4f9b902e1d1b3817dc62508c6b16d90",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Watson\\Rememberable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwight@studiousapp.com"
+                }
+            ],
+            "description": "Query caching for Laravel 5",
+            "keywords": [
+                "caching",
+                "eloquent",
+                "laravel",
+                "remember"
+            ],
+            "time": "2019-02-27T03:32:43+00:00"
         },
         {
             "name": "webmozart/assert",

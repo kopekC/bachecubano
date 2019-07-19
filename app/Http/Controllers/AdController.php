@@ -24,15 +24,15 @@ class AdController extends Controller
      */
     public function index(Request $request, $category, $subcategory)
     {
-        dump($category);
-        dump($subcategory);
-
         //Get Super and SubCategory
         $super_category = CategoryDescription::where('slug', $category)->first();
         $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
 
-        dump($super_category);
-        dump($sub_category);
+        $ads = Ad::where('category_id', $sub_category->category_id)
+            ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats'])
+            ->paginate(100);
+
+        return view('ads.index', compact('ads', 'super_category', 'sub_category'));
     }
 
     /**

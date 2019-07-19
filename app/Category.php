@@ -3,14 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Watson\Rememberable\Rememberable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 /**
  * Category Class, All indexes, Order and relations.
  */
 class Category extends Model
 {
-    use Rememberable;
+    use Cachable;
 
     /**
      * Indicates if the model should be timestamped.
@@ -49,7 +49,7 @@ class Category extends Model
  */
 class CategoryDescription extends Model
 {
-    use Rememberable;
+    use Cachable;
 
     /**
      * Indicates if the model should be timestamped.
@@ -72,7 +72,7 @@ class CategoryDescription extends Model
  */
 class CategoryStats extends Model
 {
-    use Rememberable;
+    use Cachable;
     
     /**
      * Indicates if the model should be timestamped.
