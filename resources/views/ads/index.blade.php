@@ -70,15 +70,22 @@
                         @endif
                     </div>
                     <div class="Show-item">
-                        <span>Show Items</span>
+                        <span>Anuncios por página:</span>
+                        @foreach(config('constants.posts_per_page_options') as $page_option)
+                        @if($page_option == $posts_per_page)
+                        <span>{{ $page_option }}</span>
+                        @else
+                        <a href="{{ URL::full() }}?posts_per_page={{ $page_option }}">{{ $page_option }}</a>
+                        @endif
+                        @endforeach
+                        <span class="ml-3">Orden: </span>
                         <form class="woocommerce-ordering" method="post">
                             <label>
                                 <select name="order" class="orderby">
-                                    <option selected="selected" value="menu-order">49 items</option>
-                                    <option value="popularity">popularity</option>
-                                    <option value="popularity">Average ration</option>
-                                    <option value="popularity">newness</option>
-                                    <option value="popularity">price</option>
+                                    <option selected="selected" value="updated_at">Fecha Modificación</option>
+                                    <option value="popularity">Popularidad</option>
+                                    <option value="lower_price">Menor Precio</option>
+                                    <option value="greather_price">Mayor Precio</option>
                                 </select>
                             </label>
                         </form>
