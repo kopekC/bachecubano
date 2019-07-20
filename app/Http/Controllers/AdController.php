@@ -12,6 +12,7 @@ use OpenGraph;
 use Twitter;
 
 use App\CategoryDescription;
+use Illuminate\Support\Facades\Input;
 
 //use Illuminate\Support\Facades\URL;
 
@@ -28,9 +29,40 @@ class AdController extends Controller
         $super_category = CategoryDescription::where('slug', $category)->first();
         $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
 
-        $ads = Ad::where('category_id', $sub_category->category_id)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats'])
-            ->paginate(100);
+        //Parametrice all Input elements and pass to corresponding method where
+        //Getted from Input GET data
+
+        $query = Ad::query();
+        //$query->select('user_id', 'updated_at', 'price');
+        $query->where('category_id', $sub_category->category_id)->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats']);
+
+        //Bunch of conditions here? ...
+
+        //Minimal Price
+        if (null !== Input::get('min_price')) {
+            $query->when(request('min_price') >= 0, function ($q) {
+                return $q->where('price', '>=', request('min_price', 0));
+            });
+        }
+
+        //Maximal Price
+        if (null !== Input::get('max_price')) {
+            $query->when(request('max_price') >= 0, function ($q) {
+                return $q->where('price', '<=', request('max_price', 0));
+            });
+        }
+
+        //Search Query With on;y Photos ads
+        if (null !== Input::get('only_photos')) {
+            $query->when(request('only_photos') == 1, function ($q) {
+                return $q->whereHas('resources');
+            });
+        }
+
+        //Order
+        $query->orderBy('updated_at', 'desc');
+
+        $ads = $query->paginate(72);
 
         return view('ads.index', compact('ads', 'super_category', 'sub_category'));
     }
@@ -42,7 +74,8 @@ class AdController extends Controller
      */
     public function create(Request $request)
     {
-        //
+
+        return view('ads.add');
     }
 
     /**

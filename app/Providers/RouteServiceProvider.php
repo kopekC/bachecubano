@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //Added AMP Router
         AmpRouter::registerMacros();
         
         parent::boot();

@@ -194,13 +194,13 @@ to{opacity:1}
 .classiser-search-bar .select:after{top:7px;right:15px;z-index:2;color:#666;display:block;content:'\e93a';position:absolute;text-align:center;font-size:inherit;line-height:40px;font-family:LineIcons}
 .classiser-search-bar .form-group .form-control,.classiser-search-bar .form-group select{border:0;height:50px;width:100%;border-radius:50px;font-size:15px;line-height:30px;padding:10px 15px 15px 5px;background:#fff}
 .featured-box{width:100%;background:#fff;box-shadow:0 2px 18px 0 rgba(198,198,198,.3);margin-bottom:15px;margin-top:15px}
-.featured-box figure{margin:0;width:100%;float:left;position:relative}
+.featured-box figure{margin:0;width:100%;float:left;position:relative;max-height: 246px;overflow-y: hidden;}
 .featured-box figure .icon i{top:10px;right:10px;z-index:2;color:#fff;font-size:17px;font-weight:500;text-align:center;position:absolute;background:#1976d2;padding:10px;display:inline-block;border-radius:50%}
 .featured-box .feature-content{display:inline-block;padding:0 20px 10px}
 .featured-box .feature-content .product{width:100%;float:left;font-size:13px;line-height:18px;list-style:none;margin:0 0 12px;padding:15px 0 10px;border-bottom:1px solid #eee}
 .featured-box .feature-content .product a{color:#333}
 .featured-box .feature-content .product a i{margin-right:5px}
-.featured-box .feature-content h4{font-size:16px;line-height:20px;text-transform:uppercase}
+.featured-box .feature-content h4{font-size:15px;line-height:18px}
 .featured-box .feature-content h4 a{color:#333}
 .featured-box .feature-content h4 a:hover{color:#1976d2}
 .featured-box .feature-content span{margin-bottom:10px;display:block;font-size:13px;color:#999}

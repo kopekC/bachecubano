@@ -10,7 +10,7 @@
             <div class="product">
                 <a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->icon }}"></i> {{ $ad->category->description->name }}</a>
             </div>
-            <h4><a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a></h4>
+            <h4 class="h5"><a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a></h4>
             <span>@if($ad->updated_at != null) {{ $ad->updated_at->diffForHumans() }} @endif</span>
             <ul class="address">
                 <li>

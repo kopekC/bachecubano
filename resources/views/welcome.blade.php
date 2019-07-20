@@ -22,4 +22,65 @@
 
 @include('blocks.subscribe')
 
+@push('script')
+<script>
+    /* Counter
+    ========================================================*/
+    $('.counterUp').counterUp({
+        delay: 10,
+        time: 1000
+    });
+
+    /* Search
+    ========================================================*/
+    $('.search-query .form-control').on('click', function(e) {
+        e.stopPropagation();
+        $(this).parent().toggleClass('query-focus');
+    });
+    $('body').on('click', function() {
+        if ($('.search-query').hasClass('query-focus')) {
+            $('.search-query').removeClass('query-focus');
+        }
+    });
+    $('.search-suggestion').on('click', function(e) {
+        e.stopPropagation();
+    });
+
+    /* Testimonials Carousel 
+    ========================================================*/
+    var owl = $("#testimonials");
+    owl.owlCarousel({
+        navigation: false,
+        pagination: true,
+        slideSpeed: 1000,
+        stopOnHover: true,
+        autoPlay: true,
+        items: 2,
+        itemsDesktop: [1199, 2],
+        itemsDesktopSmall: [980, 2],
+        itemsTablet: [768, 1],
+        itemsTablet: [767, 1],
+        itemsTabletSmall: [480, 1],
+        itemsMobile: [479, 1],
+    });
+
+    /* New Products Owl Carousel
+    ========================================================*/
+    $("#new-products").owlCarousel({
+        navigation: true,
+        pagination: false,
+        slideSpeed: 1000,
+        stopOnHover: true,
+        autoPlay: false,
+        items: 4,
+        itemsDesktop: [1199, 3],
+        itemsDesktopSmall: [980, 2],
+        itemsTablet: [768, 1],
+        itemsTablet: [767, 1],
+        itemsTabletSmall: [480, 1],
+        itemsMobile: [479, 1],
+    });
+</script>
+@endpush
+
 @endsection

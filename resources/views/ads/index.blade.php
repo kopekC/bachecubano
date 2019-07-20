@@ -35,13 +35,13 @@
                     <!-- Searcg Widget -->
                     <div class="widget_search">
                         <form role="search" id="search-form">
-                            <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Search..." id="search-input" value="">
+                            <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Buscar..." id="search-input" value="" name="search">
                             <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
                         </form>
                     </div>
                     <!-- Categories Widget -->
                     <div class="widget categories">
-                        <h4 class="widget-title">All Categories</h4>
+                        <h4 class="widget-title">Otras Categorías</h4>
                         <ul class="categories-list">
                             <li>
                                 <a href="#">
@@ -49,59 +49,21 @@
                                     Hotel & Travels <span class="category-counter">(5)</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-control-panel"></i>
-                                    Services <span class="category-counter">(8)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-github"></i>
-                                    Pets <span class="category-counter">(2)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-coffee-cup"></i>
-                                    Restaurants <span class="category-counter">(3)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-home"></i>
-                                    Real Estate <span class="category-counter">(4)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-pencil"></i>
-                                    Jobs <span class="category-counter">(5)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-display"></i>
-                                    Electronics <span class="category-counter">(9)</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                     <div class="widget">
-                        <h4 class="widget-title">Advertisement</h4>
+                        <h4 class="widget-title">Publicidad</h4>
                         <div class="add-box">
-                            <img class="img-fluid" src="assets/img/img1.jpg" alt="">
+
                         </div>
                     </div>
-                    {{ dump($sub_category) }}
-                    {{ dump($ads) }}
                 </aside>
             </div>
             <div class="col-lg-10 col-md-12 col-xs-12 page-content">
                 <!-- Product filter Start -->
                 <div class="product-filter">
                     <div class="short-name">
-                        <span>Showing (1 - 12 products of 7371 products)</span>
+                        <span>Mostrando (1 - 12 anuncios de {{ $total_ads }})</span>
                     </div>
                     <div class="Show-item">
                         <span>Show Items</span>
