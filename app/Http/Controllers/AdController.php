@@ -46,10 +46,14 @@ class AdController extends Controller
         //Getted from Input GET data
 
         //post Per Page Custom configuration
-        $posts_per_page = $this->mpost_per_page($request);
+        $posts_per_page = $this->post_per_page($request);
 
         $query = Ad::query();
-        $query->where('category_id', $sub_category->category_id)->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats']);
+        $query->where('category_id', $sub_category->category_id);
+        $query->with(['description', 'resources', 'category.description', 'category.parent.description', 'stats']);
+
+        //Join for a correct ordering?
+        $query->join('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
 
         //Minimal Price
         if (null !== Input::get('min_price')) {
@@ -58,7 +62,7 @@ class AdController extends Controller
             });
         }
 
-        //Maximal Price
+        //Maximum Price
         if (null !== Input::get('max_price')) {
             $query->when(request('max_price') >= 0, function ($q) {
                 return $q->where('price', '<=', request('max_price', 0));
@@ -72,10 +76,14 @@ class AdController extends Controller
             });
         }
 
-        //Order
-        $query->orderBy('updated_at', 'desc');
+        //Order Bu PromoType and later as updated time
+        $query->orderBy('ad_promos.promotype', 'desc');
+        $query->latest();
 
         $ads = $query->paginate($posts_per_page);
+
+        //$promos = $ads->groupBy('promo.promotype');
+        //dump($ads);
 
         return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page'));
     }
@@ -197,7 +205,7 @@ class AdController extends Controller
     /**
      * Get Post per Page value
      */
-    private function mpost_per_page($request)
+    private function post_per_page($request)
     {
         /**
          * It means – let’s try to get posts_per_page from GET request, if it’s not there, then let’s default to the data in the Cookie.

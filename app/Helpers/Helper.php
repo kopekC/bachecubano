@@ -19,7 +19,7 @@ if (!function_exists('ad_first_image')) {
     function ad_first_image($ad, $quality = 'thumbnail')
     {
         if (isset($ad->resources[0]->id) && isset($ad->resources[0]->extension)) {
-            return config('app.img_url') . $ad->resources[0]->path . $ad->resources[0]->id . "-" . $quality . "." . $ad->resources[0]->extension;
+            return config('app.img_url') . $ad->resources[0]->path . $ad->resources[0]->id . "_" . $quality . "." . $ad->resources[0]->extension;
         } else {
             return asset("android-chrome-512x512.png");
         }
@@ -33,7 +33,7 @@ if (!function_exists('ad_image_url')) {
      */
     function ad_image_url($ad_resurce_intance, $quality = 'thumbnail')
     {
-        return config('app.img_url') . $ad_resurce_intance->path . $ad_resurce_intance->id  . "-" . $quality . "." . $ad_resurce_intance->extension;
+        return config('app.img_url') . $ad_resurce_intance->path . $ad_resurce_intance->id  . "_" . $quality . "." . $ad_resurce_intance->extension;
     }
 }
 

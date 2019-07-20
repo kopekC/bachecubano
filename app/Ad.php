@@ -23,7 +23,10 @@ class Ad extends Model
      */
     public function description()
     {
-        return $this->hasOne('App\AdDescription');
+        return $this->hasOne('App\AdDescription')->withDefault([
+            'title' => "invalid title",
+            'description' => "invalid Description"
+        ]);
     }
 
     /**
@@ -73,7 +76,10 @@ class AdDescription extends Model
      */
     public function ad()
     {
-        return $this->belongsTo('App\Ad');
+        return $this->belongsTo('App\Ad')->withDefault([
+            'title' => "invalid title",
+            'description' => "invalid Description"
+        ]);
     }
 }
 
@@ -109,7 +115,9 @@ class AdPromo extends Model
      */
     public function ad()
     {
-        return $this->belongsTo('App\Ad');
+        return $this->belongsTo('App\Ad')->withDefault([
+            'promotype' => "0",
+        ]);
     }
 }
 

@@ -41,7 +41,7 @@
                     </div>
                     <!-- Categories Widget -->
                     <div class="widget categories">
-                        <h4 class="widget-title">Otras Categorías</h4>
+                        <h4 class="widget-title">Filtrado</h4>
                         <ul class="categories-list">
                             <li>
                                 <a href="#">

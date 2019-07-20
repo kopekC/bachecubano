@@ -81,9 +81,9 @@
                     <div class="short-info">
 
                         <div class="ads-btn mb-4">
-                            {{ ad_price($ad) }}
+                            <h3 class="price">{{ ad_price($ad) }}</h3>
                             <a href="mailto:{{ $ad->contact_email }}" class="btn btn-common btn-reply"><i class="lni-envelope"></i> Correo</a>
-                            <a href="tel:{{ $ad->contact_email }}" class="btn btn-common"><i class="lni-phone-handset"></i> 01154256643</a>
+                            <a href="tel:XXXXXXXXX" class="btn btn-common"><i class="lni-phone-handset"></i> XXXXXXXXX</a>
                         </div>
 
                         <div class="share">
