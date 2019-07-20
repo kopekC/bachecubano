@@ -182,7 +182,7 @@ return [
          */
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Just\Amp\Laravel\AmpServiceProvider::class,
-        //NotificationChannels\FacebookPoster\FacebookPosterServiceProvider::class,
+        NotificationChannels\FacebookPoster\FacebookPosterServiceProvider::class,
     ],
 
     /*
