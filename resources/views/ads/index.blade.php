@@ -63,7 +63,11 @@
                 <!-- Product filter Start -->
                 <div class="product-filter">
                     <div class="short-name">
-                        <span>Mostrando (1 - 12 anuncios de {{ $total_ads }})</span>
+                        @if($ads)
+                        <span>Mostrando (1 - {{ count($ads) }} anuncios de {{ $total_ads }})</span>
+                        @else
+                        <span>No se han encontrado anuncios</span>
+                        @endif
                     </div>
                     <div class="Show-item">
                         <span>Show Items</span>

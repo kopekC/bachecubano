@@ -29,8 +29,23 @@ class AdController extends Controller
         $super_category = CategoryDescription::where('slug', $category)->first();
         $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
 
+        //SEO Data
+        $seo_data = [
+            'title' => $sub_category->name,
+            'desc' => $sub_category->description,
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+
         //Parametrice all Input elements and pass to corresponding method where
         //Getted from Input GET data
+
+        //post Per Page Custom configuration
+        $posts_per_page = 72;
 
         $query = Ad::query();
         //$query->select('user_id', 'updated_at', 'price');
@@ -62,7 +77,7 @@ class AdController extends Controller
         //Order
         $query->orderBy('updated_at', 'desc');
 
-        $ads = $query->paginate(72);
+        $ads = $query->paginate( $posts_per_page);
 
         return view('ads.index', compact('ads', 'super_category', 'sub_category'));
     }
@@ -74,6 +89,18 @@ class AdController extends Controller
      */
     public function create(Request $request)
     {
+        //SEO Data
+        $seo_data = [
+            'title' => "Publicar anuncio gratis",
+            'desc' => "Promociona tu anuncio ",
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+
 
         return view('ads.add');
     }
