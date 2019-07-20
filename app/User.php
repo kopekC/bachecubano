@@ -11,6 +11,13 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'my_flights';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

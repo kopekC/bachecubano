@@ -210,7 +210,7 @@ to{opacity:1}
 .featured-box .feature-content ul.address li a{color:#999}
 .featured-box .feature-content ul.address li a:hover{color:#1976d2}
 .featured-box .feature-content .listing-bottom{padding-top:15px;border-top:1px solid #eee;display:inline-block;width:100%}
-.featured-box .feature-content .listing-bottom .price{font-size:18px;color:#1976d2;margin:0;line-height:30px}
+.featured-box .feature-content .listing-bottom .price{font-size:17px;color:#1976d2;margin:0}
 .featured-box .feature-content .listing-bottom .btn-verified{color:#999;line-height:18px;font-size:13px;border:1px solid #eee;padding:4px 10px;border-radius:50px;-webkit-transition:all .2s linear;-moz-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear}
 .featured-box .feature-content .listing-bottom .btn-verified i{margin-right:3px;color:#1976d2;-webkit-transition:all .2s linear;-moz-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear}
 .featured-box .feature-content .listing-bottom .btn-verified:hover{background:#1976d2;border-color:#1976d2;color:#fff}

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 /**
  * ads, ad_description, ad_location, ad_promo, ad_resource, ad_stats
@@ -132,6 +133,8 @@ class AdResource extends Model
 
 class AdStats extends Model
 {
+    use Cachable;
+
     /**
      * Indicates if the model should be timestamped.
      *

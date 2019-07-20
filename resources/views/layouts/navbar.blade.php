@@ -18,9 +18,9 @@
                         Categorías
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="adlistinggrid.html">Ad Grid</a>
-                        <a class="dropdown-item" href="adlistinglist.html">Ad Listing</a>
-                        <a class="dropdown-item" href="ads-details.html">Listing Detail</a>
+                        @foreach($parent_categories as $parent_category)
+                        <a class="dropdown-item" href="#">{{ $parent_category->description->name }}</a>
+                        @endforeach
                     </div>
                 </li>
                 <li class="nav-item dropdown">

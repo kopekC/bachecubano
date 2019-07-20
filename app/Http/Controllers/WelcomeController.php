@@ -39,19 +39,13 @@ class WelcomeController extends Controller
         OpenGraph::addImage(asset('android-chrome-512x512.png'));
         Twitter::setTitle($seo_data['title']);
 
-        //Best Stores so far
-
-
         //Latest Ads (With Photo only)
         $latest_ads = Ad::where('active', 1)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
+            ->with(['description', 'resources', 'category.description', 'category.parent.description'])
             ->has('resources')  //Has Pictures...
             ->orderBy('created_at', 'desc')
-            ->take(6)
+            ->take(8)
             ->get();
-
-        //Counter Stats
-
 
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Ad::where('active', 1)

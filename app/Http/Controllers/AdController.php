@@ -49,10 +49,7 @@ class AdController extends Controller
         $posts_per_page = $this->mpost_per_page($request);
 
         $query = Ad::query();
-        //$query->select('user_id', 'updated_at', 'price');
         $query->where('category_id', $sub_category->category_id)->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats']);
-
-        //Bunch of conditions here? ...
 
         //Minimal Price
         if (null !== Input::get('min_price')) {

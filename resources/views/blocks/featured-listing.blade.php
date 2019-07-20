@@ -12,15 +12,16 @@
                                 <a href="{{ ad_url($ad) }}">
                                     <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
                                 </a>
-                                <div class="overlay">
-                                </div>
+                                <div class="overlay"></div>
                                 <div class="btn-product bg-red">
-                                    <a href="#">{{ ad_promotion_text_type($ad) }}</a>
+                                    <a href="{{ ad_url($ad) }}">{{ ad_promotion_text_type($ad) }}</a>
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h3 class="product-title"><a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a></h3>
-                                <p><a href="{{ ad_category_url($ad) }}">{{ $ad->category->description->name }}</a></p>
+                                <h3 class="product-title">
+                                    <a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a>
+                                </h3>
+                                <p><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></p>
                                 <span class="price">{{ ad_price($ad) }}</span>
                                 <div class="meta">
                                     <span class="icon-wrap">
