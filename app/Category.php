@@ -36,11 +36,19 @@ class Category extends Model
     }
 
     /**
-     * Aprent Category Data if $this->parent_id != null
+     * Parent Category Data if $this->parent_id != null
      */
     public function parent()
     {
         return $this->hasOne('App\Category', 'id', 'parent_id');
+    }
+
+    /**
+     * Childs cats
+     */
+    public function childs()
+    {
+        return $this->hasMany('App\Category', 'parent_id', 'id');
     }
 }
 

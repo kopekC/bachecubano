@@ -14,9 +14,11 @@
     <!-- LineIcons CDN -->
     <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
 
-
     <!-- Slicknav -->
     <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
     <!-- Nivo Lightbox -->
     <link rel="stylesheet" href="{{ asset('css/nivo-lightbox.css') }}">
     <!-- Animate -->
@@ -24,8 +26,7 @@
     <!-- Owl carousel -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
     <!-- Responsive Style -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 

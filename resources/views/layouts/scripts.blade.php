@@ -10,7 +10,10 @@
 <script src="{{ asset('js/wow.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="{{ asset('js/nivo-lightbox.js') }}"></script>
+
+<!-- Responsive Navigation Menu -->
 <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/form-validator.min.js') }}"></script>
 <script src="{{ asset('js/contact-form-script.min.js') }}"></script>

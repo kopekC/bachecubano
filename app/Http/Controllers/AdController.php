@@ -24,17 +24,23 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $category, $subcategory)
+    public function index(Request $request, $category, $subcategory = "")
     {
         //Get Super and SubCategory
         $super_category = CategoryDescription::where('slug', $category)->first();
         $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
 
-        //SEO Data
-        $seo_data = [
-            'title' => $sub_category->name,
-            'desc' => $sub_category->description,
-        ];
+        if ($sub_category != "") {
+            $seo_data = [
+                'title' => $sub_category->name,
+                'desc' => $sub_category->description,
+            ];
+        } else {
+            $seo_data = [
+                'title' => $super_category->name,
+                'desc' => $super_category->description,
+            ];
+        }
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
         Twitter::setTitle($seo_data['title']);
@@ -49,11 +55,23 @@ class AdController extends Controller
         $posts_per_page = $this->post_per_page($request);
 
         $query = Ad::query();
-        $query->where('category_id', $sub_category->category_id);
-        $query->with(['description', 'resources', 'category.description', 'category.parent.description', 'stats']);
+
+        //Select All elements
+        $query->select('ads.*', 'ad_promos.promotype');
+
+        //Category Condition if subcategory or Super Category
+        if (isset($sub_category->category_id)) {
+            $query->where('category_id', $sub_category->category_id);
+        } else {
+            $sub_categories = Category::where('parent_id', '=', $super_category->category_id)->select('id')->get();
+            $query->whereIn('category_id', $sub_categories);
+        }
+
+        //With associated elements
+        $query->with(['description', 'resources', 'category.description', 'category.parent.description']);
 
         //Join for a correct ordering?
-        $query->join('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
+        $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
 
         //Minimal Price
         if (null !== Input::get('min_price')) {
@@ -80,10 +98,12 @@ class AdController extends Controller
         $query->orderBy('ad_promos.promotype', 'desc');
         $query->latest();
 
-        $ads = $query->paginate($posts_per_page);
+        //Activated parameters
+        $query->where('active', 1);
+        $query->where('enabled', 1);
 
-        //$promos = $ads->groupBy('promo.promotype');
-        //dump($ads);
+        //Paginate all this
+        $ads = $query->paginate($posts_per_page);
 
         return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page'));
     }
