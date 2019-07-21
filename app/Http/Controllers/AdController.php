@@ -98,7 +98,7 @@ class AdController extends Controller
         //SEO Data
         $seo_data = [
             'title' => "Publicar anuncio gratis",
-            'desc' => "Promociona tu anuncio ",
+            'desc' => "Promociona tu producto, negocio o servicio en nuestra web GRATIS",
         ];
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
@@ -106,6 +106,8 @@ class AdController extends Controller
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
+
+
 
 
         return view('ads.add');
@@ -131,8 +133,7 @@ class AdController extends Controller
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad
-        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'promo', 'stats'])
-            ->findOrFail($ad_id);
+        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad_id);
 
         //SEO Data
         $seo_data = [
@@ -147,7 +148,7 @@ class AdController extends Controller
         OpenGraph::addProperty('type', 'website');
 
         //Iterate every image for OpenGrap and Owl Carousell
-        if ($ad->resources != null) {
+        if (count($ad->resources) >= 1) {
             foreach ($ad->resources as $resource) {
                 OpenGraph::addImage(ad_image_url($resource));
             }

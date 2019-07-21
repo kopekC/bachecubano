@@ -14,6 +14,23 @@
       }
     });
 
+    /* New Products ad Featured Owl Carousel
+    ========================================================*/
+    $("#new-products").owlCarousel({
+      navigation: true,
+      pagination: false,
+      slideSpeed: 1000,
+      stopOnHover: true,
+      autoPlay: false,
+      items: 4,
+      itemsDesktop: [1199, 3],
+      itemsDesktopSmall: [980, 2],
+      itemsTablet: [768, 1],
+      itemsTablet: [767, 1],
+      itemsTabletSmall: [480, 1],
+      itemsMobile: [479, 1],
+    });
+
     /* slicknav mobile menu active 
       ========================================================*/
     $('.mobile-menu').slicknav({

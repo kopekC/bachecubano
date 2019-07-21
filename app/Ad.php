@@ -42,7 +42,9 @@ class Ad extends Model
      */
     public function promo()
     {
-        return $this->hasOne('App\AdPromo');
+        return $this->hasOne('App\AdPromo')->withDefault([
+            'promotype' => "0",
+        ]);
     }
 
     /**
