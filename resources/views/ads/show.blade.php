@@ -143,8 +143,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autolinker/3.1.0/Autolinker.min.js"></script>
 <script>
     var text = $(".description").val();
+    
     var linkedText = Autolinker.link(text, {
+
         replaceFn: function(match) {
+
             console.log("href = ", match.getAnchorHref());
             console.log("text = ", match.getAnchorText());
 
@@ -178,7 +181,7 @@
                 case 'hashtag':
                     var hashtag = match.getHashtag();
                     console.log(hashtag);
-                    return '<a href="http://newplace.to.link.hashtag.handles.to/">' + hashtag + '</a>';
+                    return '<a href="https://www.bachecubano.com/search?tags=' + hashtag + '">' + hashtag + '</a>';
                     break;
                 case 'mention':
                     var mention = match.getMention();
@@ -188,6 +191,30 @@
             }
         }
     });
+
+    /**
+     * Example Code:
+        var autolinker = new Autolinker( {
+            urls : {
+                schemeMatches : true,
+                wwwMatches    : true,
+                tldMatches    : true
+            },
+            email       : true,
+            phone       : true,
+            mention     : false,
+            hashtag     : false,
+            stripPrefix : true,
+            stripTrailingSlash : true,
+            newWindow   : true,
+            truncate : {
+                length   : 0,
+                location : 'end'
+            },
+            className : ''
+        } );
+        var myLinkedHtml = autolinker.link( myText );
+     */
 </script>
 @endpush
 
