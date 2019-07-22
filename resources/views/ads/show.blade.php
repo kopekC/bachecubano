@@ -143,7 +143,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autolinker/3.1.0/Autolinker.min.js"></script>
 <script>
     var text = $(".description").val();
-    
+
     var linkedText = Autolinker.link(text, {
 
         replaceFn: function(match) {
@@ -166,11 +166,7 @@
                 case 'email':
                     var email = match.getEmail();
                     console.log("email: ", email);
-                    if (email === "my@own.address") {
-                        return false; // don't auto-link this particular email address; leave as-is
-                    } else {
-                        return; // no return value will have Autolinker perform its normal anchor tag replacement (same as returning `true`)
-                    }
+                    return;
                     break;
 
                 case 'phone':
