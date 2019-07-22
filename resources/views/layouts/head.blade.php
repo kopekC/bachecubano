@@ -29,7 +29,6 @@
     <!-- Responsive Style -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
-
     @stack('style')
 
     <!-- Icons -->
