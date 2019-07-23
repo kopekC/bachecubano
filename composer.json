@@ -16,6 +16,7 @@
         "laravel/framework": "5.8.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
+        "spatie/laravel-responsecache": "^5.0",
         "spatie/schema-org": "^2.2",
         "wearejust/laravel-amp": "^1.1"
     },
