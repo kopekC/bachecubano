@@ -14,8 +14,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="block-title">Movida en Twitter</h3>
+                        <h3 class="block-title">Movida en Instagram</h3>
                         <ul class="media-content-list">
+                            <!-- http://instafeedjs.com/ -->
                             <li>
                                 <div class="media-left">
                                     <img class="img-fluid" src="{{ asset('img/art/img1.jpg') }}" alt="">
@@ -56,6 +57,7 @@
                         </form>
                         <ul class="footer-social">
                             <li><a class="facebook" href="https://www.facebook.com/Bachecubano" rel="nofollow"><i class="lni-facebook"></i></a></li>
+                            <li><a class="instagram" href="https://www.instagram.com/Bachecubano" rel="nofollow"><i class="lni-instagram"></i></a></li>
                             <li><a class="twitter" href="https://www.twitter.com/Bachecubano" rel="nofollow"><i class="lni-twitter"></i></a></li>
                             <li><a class="linkedin" href="https://www.linkedin.com/company/bachecubano"><i class="lni-linkedin"></i></a></li>
                         </ul>
@@ -66,26 +68,26 @@
     </section>
     <!-- Footer area End -->
 
-    <!-- Copyright Start  -->
-    <div id="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="site-info float-left">
-                        <p>Todos los derechos reservados &copy; {{ date("Y") }} - Desarrollado por <a href="https://www.qvaqui.com">QvaQui</a></p>
-                    </div>
-                    <div class="float-right">
-                        <ul class="bottom-card">
-                            <li>
-                                <a href="https://www.qvapay.com"><img src="https://www.qvapay.com/favicon-32x32.png" alt="Pasarela de pagos QvaPay" width="34" height="22"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
+                            <!-- Copyright Start  -->
+                            <div id="copyright">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="site-info float-left">
+                                                <p>Todos los derechos reservados &copy; {{ date("Y") }} - Desarrollado por <a href="https://www.qvaqui.com">QvaQui</a></p>
+                                            </div>
+                                            <div class="float-right">
+                                                <ul class="bottom-card">
+                                                    <li>
+                                                        <a href="https://www.qvapay.com"><img src="https://www.qvapay.com/favicon-32x32.png" alt="Pasarela de pagos QvaPay" width="34" height="22"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Copyright End -->
 
 </footer>
 <!-- Footer Section End -->

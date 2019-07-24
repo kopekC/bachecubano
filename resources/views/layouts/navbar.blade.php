@@ -9,7 +9,7 @@
                 <span class="lni-menu"></span>
                 <span class="lni-menu"></span>
             </button>
-            <a href="{{ config('app.url') }}" class="navbar-brand"><img src="{{ asset('img/logo-bachecubano.png') }}" alt="Bachecubano" width="60" height="60"></a>
+            <a href="{{ config('app.url') }}" class="navbar-brand"><img src="{{ asset('img/logo-bachecubano-w.png') }}" alt="Bachecubano" width="60" height="60"></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto">
@@ -90,7 +90,7 @@
             </a>
         </li>
         <li>
-            <a href="category.html">Categories</a>
+            <a href="#">Categories</a>
         </li>
         <li>
             <a href="#">Blog</a>

@@ -127,10 +127,17 @@ class AdController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
+        //Featured Listing, Diamond and Gold Random
+        $promoted_ads = Ad::where('active', 1)
+            ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
+            ->whereHas('promo', function ($query) {
+                $query->where('promotype', '>=', 3);
+            })
+            ->inRandomOrder()
+            ->take(8)
+            ->get();
 
-
-
-        return view('ads.add');
+        return view('ads.add', compact('promoted_ads'));
     }
 
     /**
