@@ -28,18 +28,18 @@
                         Blog
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="blog.html">Blog - Right Sidebar</a>
-                        <a class="dropdown-item" href="blog-left-sidebar.html">Blog - Left Sidebar</a>
-                        <a class="dropdown-item" href="blog-grid-full-width.html"> Blog full width </a>
-                        <a class="dropdown-item" href="single-post.html">Blog Details</a>
+                        {{-- <a class="dropdown-item" href="blog.html">Blog - Right Sidebar</a> --}}
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">
+                    <a class="nav-link" href="#contact">
                         Contacto
                     </a>
                 </li>
             </ul>
+            <a class="tg-btn bg-primary mr-3" href="#">
+                <i class="lni-cart"></i> Carro de compra
+            </a>
             <ul class="sign-in">
                 @if (Route::has('login'))
                 <div class="top-right links">
@@ -76,7 +76,7 @@
                 </div>
                 @endif
             </ul>
-            <a class="tg-btn btn-danger" href="{{ route('add') }}">
+            <a class="tg-btn" href="{{ route('add') }}">
                 <i class="lni-pencil-alt"></i> Publicar Anuncio
             </a>
         </div>

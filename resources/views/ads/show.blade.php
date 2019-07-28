@@ -94,7 +94,9 @@
                         </div>
                     </div>
                     <hr>
-                    {{ $ad->description->description }}
+                    <div>
+                        {{ $ad->description->description }}
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12">

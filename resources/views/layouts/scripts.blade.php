@@ -1,3 +1,8 @@
+<!-- Schema Markup -->
+@if(isset($SchemaLD))
+{!! $SchemaLD !!}
+@endif
+
 <!-- Images LazyLoad -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js" async="async"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

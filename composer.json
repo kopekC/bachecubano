@@ -17,6 +17,7 @@
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "spatie/laravel-responsecache": "^5.0",
+        "spatie/laravel-sitemap": "^5.3",
         "spatie/schema-org": "^2.2",
         "wearejust/laravel-amp": "^1.1"
     },

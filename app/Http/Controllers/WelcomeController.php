@@ -10,6 +10,8 @@ use SEOMeta;
 use OpenGraph;
 use Twitter;
 
+use Spatie\SchemaOrg\Schema;
+
 class WelcomeController extends Controller
 {
     /**
@@ -63,7 +65,20 @@ class WelcomeController extends Controller
         //blog posts        
         //First Make the blog 🤣
 
+        //Schema
+        $SchemaLD = Schema::localBusiness()
+            ->name('Bachecubano')
+            ->image(asset('android-chrome-512x512.png'))
+            ->address("Calle 35 #1477 entre 26 y 28, Nuevo Vedado, La habana, Cuba")
+            ->email('contacto@bachecubano.com')
+            ->telephone("+5355149081")
+            ->priceRange('$$')
+            ->aggregateRating('5')
+            ->brand('Bachecubano')
+            ->employee('3')
+            ->contactPoint(Schema::contactPoint()->areaServed('Cuba'));
+
         //Analize the variable submit, could be better
-        return view('welcome', compact('latest_ads', 'promoted_ads'));
+        return view('welcome', compact('latest_ads', 'promoted_ads', 'SchemaLD'));
     }
 }
