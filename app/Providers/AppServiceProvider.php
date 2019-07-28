@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
+
 use App\Category;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //Schema Default String Length
+        Schema::defaultStringLength(191);
+
         //Global Cached Categories Data
         $categories = Category::with('description')->get(); //View How to Cache this!!!
 

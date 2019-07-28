@@ -183,6 +183,7 @@ return [
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Just\Amp\Laravel\AmpServiceProvider::class,
         NotificationChannels\FacebookPoster\FacebookPosterServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -241,5 +242,6 @@ return [
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
         'AmpRouter' => Just\Amp\Laravel\AmpRouteFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 ];
