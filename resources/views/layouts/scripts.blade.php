@@ -1,4 +1,4 @@
-<!-- Schema Markup -->
+<!-- Schema Markup Unescaped -->
 @if(isset($SchemaLD))
 {!! $SchemaLD !!}
 @endif

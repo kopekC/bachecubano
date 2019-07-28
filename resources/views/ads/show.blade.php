@@ -95,7 +95,7 @@
                     </div>
                     <hr>
                     <div>
-                        {{ $ad->description->description }}
+                        {!! nl2br($ad->description->description) !!}
                     </div>
                 </div>
             </div>
