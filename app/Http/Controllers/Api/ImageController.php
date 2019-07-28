@@ -7,9 +7,10 @@ use App\Http\Controllers\Controller;
 
 class ImageController extends Controller
 {
-    public function index()
+    //Testing Routes
+    public function index(Request $request)
     {
-        return view('image');
+        dd($request);
     }
 
     //Incoming Transacction

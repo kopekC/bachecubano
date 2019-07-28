@@ -126,14 +126,48 @@
 @push('script')
 <!-- AJAX Uploading -->
 <script src="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.js"></script>
+<script src="https://transloadit.edgly.net/releases/uppy/locales/v1.5.0/es_ES.min.js"></script>
 <script>
+    /*
     var uppy = Uppy.Core()
     uppy.use(Uppy.DragDrop, {
+        target: '.UppyDragDrop',
+        debug: true,
+        autoProceed: true,
+        locale: Uppy.locales.es_ES,
+        endpoint: "{{ route('save-image-ajax') }}",
+    })
+    */
+
+    var uppy = Uppy.Core({
+        id: 'ad-upload',
+        allowMultipleUploads: true,
+        restrictions: {
+            maxFileSize: 307200,
+            maxNumberOfFiles: 10,
+            allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png']
+        },
+        debug: true,
+        autoProceed: true,
+        locale: Uppy.locales.es_ES,
+        meta: {
+            destination: 'Ad'
+        },
+        
+    });
+    uppy.use(Uppy.DragDrop, {
         target: '.UppyDragDrop'
-    })
+    });
+    uppy.use(Uppy.ProgressBar, {
+        target: 'body',
+        fixed: true,
+        hideAfterFinish: false
+    });
     uppy.use(Uppy.Tus, {
-        endpoint: "{{ route('save-image-ajax') }}"
-    })
+        endpoint: "{{ route('save-image-ajax') }}",
+    });
+
+    console.log('--> Uppy pre-built version with Tus, DragDrop & Spanish language pack has loaded');
 </script>
 
 <!-- Form Validation -->
