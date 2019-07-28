@@ -2,6 +2,10 @@
 
 @section('content')
 
+@push('style')
+<link href="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.css" rel="stylesheet">
+@endpush
+
 <!-- Page Header Start -->
 <div class="page-header">
     <div class="container">
@@ -62,13 +66,10 @@
                             <div class="form-group md-3">
                                 <textarea name="description" class="form-control" rows="8" style="resize: vertical"></textarea>
                             </div>
-                            <label class="tg-fileuploadlabel" for="tg-photogallery">
-                                <span>Arrastre aquí las fotos del anuncio</span>
-                                <span>O</span>
-                                <span class="btn btn-common">Seleccione las fotos</span>
-                                <span>Tamaño máximo para cada foto: 300 KB</span>
-                                <input id="tg-photogallery" class="tg-fileinput" type="file" name="file">
-                            </label>
+
+                            <!-- Drop Zone with edgly -->
+                            <div class="UppyDragDrop"></div>
+
                         </div>
                     </div>
 
@@ -123,6 +124,19 @@
 <!-- featured Listing -->
 
 @push('script')
+<!-- AJAX Uploading -->
+<script src="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.js"></script>
+<script>
+    var uppy = Uppy.Core()
+    uppy.use(Uppy.DragDrop, {
+        target: '.UppyDragDrop'
+    })
+    uppy.use(Uppy.Tus, {
+        endpoint: "{{ route('save-image-ajax') }}"
+    })
+</script>
+
+<!-- Form Validation -->
 <script src="{{ asset('js/form-validator.min.js') }}"></script>
 @endpush
 

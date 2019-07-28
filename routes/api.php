@@ -23,3 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'mailgun',], function () {
     Route::post('widgets', 'MailgunWidgetsController@store');
 });
+
+//Save Image from AJAX Calls and API implementation
+Route::post('save-image', 'Api/ImageController@save')->name('save-image-ajax');
