@@ -16,7 +16,7 @@ class ImageController extends Controller
     //Incoming Transacction
     public function save(Request $request)
     {
-        request()->validate([
+        $validatedData = $request->validate([
             'photo_name' => 'required|image|mimes:jpeg,png,jpg|max:300',
         ]);
 
@@ -38,6 +38,7 @@ class ImageController extends Controller
         }
 
         $image = Photo::latest()->first(['photo_name']);
+        
         return Response()->json($image);
     }
 }

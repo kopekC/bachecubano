@@ -60,7 +60,9 @@ class Ad extends Model
      */
     public function stats()
     {
-        return $this->hasOne('App\AdStats');
+        return $this->hasOne('App\AdStats')->withDefault([
+            'hits' => 0,
+        ]);
     }
 }
 
@@ -72,6 +74,13 @@ class AdDescription extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'ad_id';
 
     /**
      * Get the Ad that owns the stats.
@@ -157,6 +166,8 @@ class AdStats extends Model
      */
     public function ad()
     {
-        return $this->belongsTo('App\Ad');
+        return $this->belongsTo('App\Ad')->withDefault([
+            'hits' => 0,
+        ]);
     }
 }

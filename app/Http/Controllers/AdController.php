@@ -15,6 +15,11 @@ use App\CategoryDescription;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Cookie;
 
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Carbon;
+use App\AdDescription;
+
 //use Illuminate\Support\Facades\URL;
 
 class AdController extends Controller
@@ -148,7 +153,63 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'category' => 'bail|required|numeric',
+            'title' => 'bail|required|max:255',
+            'description' => 'bail|required',
+            'contact_name' => 'bail|required',
+            'contact_email' => 'bail|required',
+            'phone' => 'bail|required',
+            "agree" => 'bail|required',
+        ]);
+
+        $category = Category::findOrFail(Input::post('category'));
+
+        $now = Carbon::now();
+        $plus_3_months = $now->addMonths(3);
+
+        //Ad Basic Elements elements
+        $ad = new Ad;
+
+        //Basic Table
+        Auth::check() ? $ad->user_id = Auth::id() : $ad->user_id = 0;
+        $ad->category_id = Input::post('category', 160);
+        $ad->price = Input::post('price', 0);
+        $ad->contact_name = Input::post('contact_name');
+        $ad->contact_email = Input::post('contact_email');
+        $ad->ip = $request->ip();
+        $ad->premium = 0;
+        $ad->enabled = 1;
+        $ad->active = 1;
+        $ad->spam = 0;
+        $ad->secret = Str::random(20);
+        $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
+
+        //dump($ad);
+        $ad->save();
+        //dump($ad);
+
+        //Description related table
+        $description = new AdDescription;
+        $description->ad_id = $ad->id;
+        $description->title = Input::post('title');
+        $description->description = Input::post('description');
+
+        //dump($description);
+        $description->save();
+        //dump($description);
+
+        //Retrieve Ad Again
+        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad->id);
+
+        //If Ad was inserted, redirect to it
+        if ($ad) {
+            return redirect(ad_url($ad));
+        } else {
+            //Error happens
+            //Log this
+        }
     }
 
     /**

@@ -3,7 +3,8 @@
 @section('content')
 
 @push('style')
-<link href="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
 @endpush
 
 <!-- Page Header Start -->
@@ -36,6 +37,16 @@
 
             <div class="col-sm-12 col-md-4 col-lg-6">
 
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
                 <form action="{{ route('ad.store') }}" method="POST" name="add" class="form">
 
                     @csrf
@@ -45,31 +56,60 @@
                             <h2 class="dashbord-title">Detalles del anuncio:</h2>
                         </div>
                         <div class="dashboard-wrapper">
-                            <div class="form-group mb-3">
-                                <label class="control-label">Título del anuncio:</label>
-                                <input class="form-control input-md" name="title" placeholder="Título del anuncio a promocionar" type="text">
-                            </div>
                             <div class="form-group mb-3 tg-inputwithicon">
                                 <label class="control-label">Categoría del anuncio:</label>
                                 <div class="tg-select form-control">
-                                    <select name="category">
-                                        <option value="none">Seleccione la categoría</option>
-                                        <option value="none">Mobiles</option>
-                                        <option value="none">Electronics</option>
+                                    <select class="form-control" name="category">
+                                        @foreach($parent_categories as $super_category)
+                                        <optgroup label="{{ $super_category->description->name }}">
+                                            @foreach($category_formatted[$super_category->id] as $category)
+                                            <option value="{{ $category->category_id }}" data-tokens="{{ $category->description }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </optgroup>
+                                        @endforeach
                                     </select>
                                 </div>
+                                @error('category')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group mb-3">
-                                <label class="control-label">Precio</label>
-                                <input class="form-control input-md" name="price" placeholder="$ 1000.00" type="text">
+                                <label class="control-label">Título del anuncio:</label>
+                                <input class="form-control input-md" name="title" placeholder="Título del anuncio a promocionar" type="text">
+                                @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label class="control-label">Precio</label>
+                                        <input class="form-control input-md" name="price" placeholder="$ 100.00" type="text">
+                                    </div>
+                                    @error('price')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+
+                                </div>
+                            </div>
+
                             <div class="form-group md-3">
+                                @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <textarea name="description" class="form-control" rows="8" style="resize: vertical"></textarea>
                             </div>
 
-                            <!-- Drop Zone with edgly -->
-                            <div class="UppyDragDrop"></div>
-
+                            <!-- Drop Zone -->
+                            <div class="dropzone" id="ad-image-upload" style="border: 2px dashed #0087F7; border-radius: 5px; background: white;">
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple />
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -79,33 +119,49 @@
                                 <h2 class="dashbord-title">Detalles de contacto:</h2>
                             </div>
                             <div class="dashboard-wrapper">
-                                <div class="form-group mb-3">
-                                    <label class="control-label">Nombre *</label>
-                                    <input class="form-control input-md" name="name" type="text">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label class="control-label">Nombre *</label>
+                                            <input class="form-control input-md" name="contact_name" type="text">
+                                            @error('name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label class="control-label">Teléfono *</label>
+                                            <input class="form-control input-md" name="phone" type="text">
+                                            @error('phone')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label class="control-label">Teléfono *</label>
-                                    <input class="form-control input-md" name="phone" type="text">
-                                </div>
+
                                 <div class="form-group mb-3">
                                     <label class="control-label">Email *</label>
-                                    <input class="form-control input-md" name="address" type="text">
-
+                                    <input class="form-control input-md" name="contact_email" type="text">
+                                    @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-3 tg-inputwithicon">
                                     <label class="control-label">Provincia</label>
                                     <div class="tg-select form-control">
-                                        <select>
-                                            <option value="none">Select State</option>
-                                            <option value="none">Select State</option>
-                                            <option value="none">Select State</option>
+                                        <select name="province">
+                                            <option value="la-habana">La Habana</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="tg-checkbox">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules">
-                                        <label class="custom-control-label" for="tg-agreetermsandrules">I agree to all <a href="javascript:void(0);">Terms of Use &amp; Posting Rules</a></label>
+                                        <input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules" name="agree" checked>
+                                        <label class="custom-control-label" for="tg-agreetermsandrules">Estoy de acuerdo con los <a href="#">Términos &amp; Condiciones</a></label>
+                                        @error('agree')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <button class="btn btn-common btn-block" type="submit">Publicar anuncio</button>
@@ -125,51 +181,23 @@
 
 @push('script')
 <!-- AJAX Uploading -->
-<script src="https://transloadit.edgly.net/releases/uppy/v1.3.0/uppy.min.js"></script>
-<script src="https://transloadit.edgly.net/releases/uppy/locales/v1.5.0/es_ES.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <script>
-    /*
-    var uppy = Uppy.Core()
-    uppy.use(Uppy.DragDrop, {
-        target: '.UppyDragDrop',
-        debug: true,
-        autoProceed: true,
-        locale: Uppy.locales.es_ES,
-        endpoint: "{{ route('save-image-ajax') }}",
-    })
-    */
-
-    var uppy = Uppy.Core({
-        id: 'ad-upload',
-        allowMultipleUploads: true,
-        restrictions: {
-            maxFileSize: 307200,
-            maxNumberOfFiles: 10,
-            allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png']
-        },
-        debug: true,
-        autoProceed: true,
-        locale: Uppy.locales.es_ES,
-        meta: {
-            destination: 'Ad'
-        },
-        
-    });
-    uppy.use(Uppy.DragDrop, {
-        target: '.UppyDragDrop'
-    });
-    uppy.use(Uppy.ProgressBar, {
-        target: 'body',
-        fixed: true,
-        hideAfterFinish: false
-    });
-    uppy.use(Uppy.Tus, {
-        endpoint: "{{ route('save-image-ajax') }}",
-    });
-
-    console.log('--> Uppy pre-built version with Tus, DragDrop & Spanish language pack has loaded');
+    Dropzone.options.adImageUpload = {
+        url: "{{ route('save-image-ajax') }}",
+        paramName: "ad-file", //The name that will be used to transfer the file
+        maxFilesize: 1,
+        uploadMultiple: true,
+        maxFiles: 10,
+        acceptedFiles: 'image/*',
+        addRemoveLinks: true,
+        dictDefaultMessage: "Arrastre sus fotos aquí",
+        dictInvalidFileType: "El fichero enviado no está permitido",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
+        }
+    };
 </script>
-
 <!-- Form Validation -->
 <script src="{{ asset('js/form-validator.min.js') }}"></script>
 @endpush
