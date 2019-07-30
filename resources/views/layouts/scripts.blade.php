@@ -15,8 +15,12 @@
 <!-- Responsive Navigation Menu -->
 <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
 
-
 <!-- Checkout This: -->
+<script>
+    var logo = "{{ asset('img/logo-bachecubano.png') }}";
+    var logo_w = "{{ asset('img/logo-bachecubano-w.png') }}";
+</script>
+
 <script src="{{ asset('js/waypoints.min.js') }}"></script>
 <script src="{{ asset('js/wow.js') }}"></script>
 <script src="{{ asset('js/nivo-lightbox.js') }}"></script>
@@ -24,6 +28,20 @@
 <!-- <script src="{{ asset('js/contact-form-script.min.js') }}"></script> -->
 
 @stack('script')
+
+<!-- FoxPush -->
+<script type="text/javascript" data-cfasync="false">
+    var _foxpush = _foxpush || [];
+    _foxpush.push(['_setDomain', 'bachecubanocom']);
+    (function() {
+        var foxscript = document.createElement('script');
+        foxscript.src = '//cdn.foxpush.net/sdk/foxpush_SDK_min.js';
+        foxscript.type = 'text/javascript';
+        foxscript.async = 'true';
+        var fox_s = document.getElementsByTagName('script')[0];
+        fox_s.parentNode.insertBefore(foxscript, fox_s);
+    })();
+</script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-3"></script>
