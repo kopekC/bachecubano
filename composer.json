@@ -19,8 +19,7 @@
         "laravel/tinker": "^1.0",
         "spatie/laravel-responsecache": "^5.0",
         "spatie/laravel-sitemap": "^5.3",
-        "spatie/schema-org": "^2.2",
-        "wearejust/laravel-amp": "^1.1"
+        "spatie/schema-org": "^2.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
