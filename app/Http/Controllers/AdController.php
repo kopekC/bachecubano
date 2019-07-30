@@ -246,13 +246,29 @@ class AdController extends Controller
 
         //Schema
         $SchemaLD = Schema::Product()
-            ->brand()
-            ->logo()
             ->name($seo_data['title'])
-            ->category()
             ->image(ad_first_image($ad))
             ->description($seo_data['desc'])
-            ->aggregateRating('5');
+            ->mpn($ad->id)
+            //->brand(Schema::Thing()->name("name"))
+            //->logo()
+            ->aggregateRating(
+                Schema::aggregateRating()
+                    ->ratingValue('5')
+                    ->reviewCount('1')
+            )
+            ->offers(
+                Schema::Offer()
+                    ->priceCurrency("CUC")
+                    ->price($ad->price)
+                    ->priceValidUntil($ad->expiration)
+                    ->itemCondition("http://schema.org/NewCondition")
+                    ->availability("http://schema.org/InStock")
+                    ->seller(
+                        Schema::Organization()
+                            ->name($ad->contact_name)
+                    )
+            );
 
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Ad::where('active', 1)

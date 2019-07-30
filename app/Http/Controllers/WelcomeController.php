@@ -73,28 +73,36 @@ class WelcomeController extends Controller
             ->priceRange("$$")
             ->image('https://www.bachecubano.com/android-chrome-512x512.png')
             ->description($seo_data['desc'])
-            ->address(Schema::PostalAddress()
-                ->streetAddress('Calle 35 #1477 entre 26 y 28, Nuevo Vedado, La habana, Cuba')
-                ->addressLocality('Plaza de la Revolución')
-                ->addressRegion('La Habana')
-                ->postalCode('10400')
-                ->addressCountry('Cuba'))
-            ->geo(Schema::GeoCoordinates()
-                ->latitude("23.117155")
-                ->longitude("-82.402568"))
+            ->address(
+                Schema::PostalAddress()
+                    ->streetAddress('Calle 35 #1477 entre 26 y 28, Nuevo Vedado, La habana, Cuba')
+                    ->addressLocality('Plaza de la Revolución')
+                    ->addressRegion('La Habana')
+                    ->postalCode('10400')
+                    ->addressCountry('Cuba')
+            )
+            ->geo(
+                Schema::GeoCoordinates()
+                    ->latitude("23.117155")
+                    ->longitude("-82.402568")
+            )
             ->hasMap("https://goo.gl/maps/y4L3FwYSWvAhmH7s7")
             ->openingHours("Mo 09:00-21:00 Tu 09:00-21:00 We 09:00-21:00 Th 09:00-21:00 Fr 09:00-21:00 Sa 09:00-21:00 Su 09:00-21:00")
-            ->aggregateRating(Schema::aggregateRating()
-                ->ratingValue('5')
-                ->reviewCount('121'))
+            ->aggregateRating(
+                Schema::aggregateRating()
+                    ->ratingValue('5')
+                    ->reviewCount('121')
+            )
             ->brand('Bachecubano')
             ->telephone("+5355149081")
             ->employee('3')
-            ->contactPoint(Schema::contactPoint()
-                ->areaServed('Cuba')
-                ->telephone("+5355149081")
-                ->contactType("sales")
-                ->email('contacto@bachecubano.com'));
+            ->contactPoint(
+                Schema::contactPoint()
+                    ->areaServed('Cuba')
+                    ->telephone("+5355149081")
+                    ->contactType("sales")
+                    ->email('contacto@bachecubano.com')
+            );
 
         //Analize the variable submit, could be better
         return view('welcome', compact('latest_ads', 'promoted_ads', 'SchemaLD'));
