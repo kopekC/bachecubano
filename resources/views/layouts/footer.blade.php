@@ -68,26 +68,26 @@
     </section>
     <!-- Footer area End -->
 
-                            <!-- Copyright Start  -->
-                            <div id="copyright">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="site-info float-left">
-                                                <p>Todos los derechos reservados &copy; {{ date("Y") }} - Desarrollado por <a href="https://www.qvaqui.com">QvaQui</a></p>
-                                            </div>
-                                            <div class="float-right">
-                                                <ul class="bottom-card">
-                                                    <li>
-                                                        <a href="https://www.qvapay.com"><img src="https://www.qvapay.com/favicon-32x32.png" alt="Pasarela de pagos QvaPay" width="34" height="22"></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Copyright End -->
+    <!-- Copyright Start  -->
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-info float-left">
+                        <p>Todos los derechos reservados &copy; {{ date("Y") }} - Desarrollado por <a href="https://www.qvaqui.com">QvaQui</a></p>
+                    </div>
+                    <div class="float-right">
+                        <ul class="bottom-card">
+                            <li>
+                                <a href="https://www.qvapay.com"><img src="https://www.qvapay.com/favicon-32x32.png" alt="Pasarela de pagos QvaPay" width="34" height="22"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
 
 </footer>
 <!-- Footer Section End -->
