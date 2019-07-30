@@ -6,21 +6,17 @@ use App\Category;
 use App\Ad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
 use SEOMeta;
 use OpenGraph;
 use Twitter;
-
 use App\CategoryDescription;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Cookie;
-
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Carbon;
 use App\AdDescription;
-
-//use Illuminate\Support\Facades\URL;
+use Spatie\SchemaOrg\Schema;
+use Illuminate\Support\Facades\URL;
 
 class AdController extends Controller
 {
@@ -153,7 +149,6 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'category' => 'bail|required|numeric',
             'title' => 'bail|required|max:255',
@@ -264,6 +259,7 @@ class AdController extends Controller
                     ->priceValidUntil($ad->expiration)
                     ->itemCondition("http://schema.org/NewCondition")
                     ->availability("http://schema.org/InStock")
+                    ->url(URL::current())
                     ->seller(
                         Schema::Organization()
                             ->name($ad->contact_name)

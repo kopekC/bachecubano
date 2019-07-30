@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Ad;
-
 use SEOMeta;
 use OpenGraph;
 use Twitter;
-
 use Spatie\SchemaOrg\Schema;
 
 class WelcomeController extends Controller
