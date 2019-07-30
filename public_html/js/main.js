@@ -9,10 +9,10 @@
     $(window).on('scroll', function () {
       if ($(window).scrollTop() > 100) {
         $('.scrolling-navbar').addClass('top-nav-collapse');
-        $('.navbar-brand > img').attr('src', '/img/logo-bachecubano.png');
+        $('.navbar-brand > img').attr('src', "{{ asset('img/logo-bachecubano.png') }}");
       } else {
         $('.scrolling-navbar').removeClass('top-nav-collapse');
-        $('.navbar-brand > img').attr('src', '/img/logo-bachecubano-w.png');
+        $('.navbar-brand > img').attr('src', "{{ asset('img/logo-bachecubano-w.png') }}");
       }
     });
 
