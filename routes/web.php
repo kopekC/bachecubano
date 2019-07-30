@@ -14,6 +14,10 @@
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
+//User Login/Register/Change Password routes
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 //Ads Routes & Resource Route
 Route::get('/add', 'AdController@create')->name('add');
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
@@ -23,10 +27,6 @@ Route::resource('ad', 'AdController');
 
 //Search route
 Route::get('/search', 'SearchController@search')->name('search');
-
-//User Login/Register/Change Password routes
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 //SubDomain Stores
 Route::domain('{store_name}.bachecubano.com')->group(function () {
