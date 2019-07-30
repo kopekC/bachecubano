@@ -244,6 +244,16 @@ class AdController extends Controller
             OpenGraph::addImage(ad_first_image($ad));
         }
 
+        //Schema
+        $SchemaLD = Schema::Product()
+            ->brand()
+            ->logo()
+            ->name($seo_data['title'])
+            ->category()
+            ->image(ad_first_image($ad))
+            ->description($seo_data['desc'])
+            ->aggregateRating('5');
+
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Ad::where('active', 1)
             ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
@@ -254,7 +264,7 @@ class AdController extends Controller
             ->take(8)
             ->get();
 
-        return view('ads.show', compact('ad', 'promoted_ads'));
+        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD'));
     }
 
     /**
