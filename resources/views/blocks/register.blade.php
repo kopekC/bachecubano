@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="lni-lock"></i>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Contraseñe" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Contraseña" name="password" required autocomplete="new-password">
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="lni-lock"></i>
-                                <input id="password-confirm" type="password" class="form-control" placeholder="Repite la Contraseñe" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" placeholder="Repite la Contraseña" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
                         <div class="form-group mb-3 text-center">

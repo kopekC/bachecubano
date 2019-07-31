@@ -29,13 +29,13 @@
 
         <div class="row">
 
-            <div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
+            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 page-sidebar">
                 @auth
                 @include('user.sidebar')
                 @endauth
             </div>
 
-            <div class="col-sm-12 col-md-4 col-lg-6">
+            <div class="col-sm-12 col-md-4 col-lg-6 col-xl-6 offset-xl-1">
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
