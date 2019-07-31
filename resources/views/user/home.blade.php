@@ -27,7 +27,8 @@
                 @endauth
             </div>
 
-            <div class="col-sm-12 col-md-4 col-lg-6 col-xl-6 offset-xl-1">
+            <div class="col-sm-12 col-md-8 col-lg-9 col-xl-8 offset-xl-1">
+
                 <div class="inner-box">
                     <div class="dashboard-box">
                         <h2 class="dashbord-title">Dashboard</h2>

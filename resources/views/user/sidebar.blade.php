@@ -12,7 +12,7 @@
         <nav class="navdashboard">
             <ul>
                 <li>
-                    <a href="dashboard.html">
+                    <a href="{{ route('home') }}" >
                         <i class="lni-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
