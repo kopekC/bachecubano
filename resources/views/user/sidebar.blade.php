@@ -18,17 +18,24 @@
                     </a>
                 </li>
                 <li>
-                    <a href="account-profile-setting.html">
-                        <i class="lni-cog"></i>
-                        <span>Ajustes</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="account-myads.html">
+                    <a href="{{ route('my_ads') }}">
                         <i class="lni-layers"></i>
                         <span>Mis anuncios</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('my_favourite') }}">
+                        <i class="lni-heart"></i>
+                        <span>Mis Favoritos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('my_settings') }}">
+                        <i class="lni-cog"></i>
+                        <span>Ajustes</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="#">
                         <i class="lni-envelope"></i>
@@ -36,19 +43,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="dashboard-payments.html">
+                    <a href="#">
                         <i class="lni-wallet"></i>
                         <span>Pagos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="account-favourite-ads.html">
-                        <i class="lni-heart"></i>
-                        <span>Mis Favoritos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="lni-enter"></i>
                         <span>Cerrar</span>
                     </a>

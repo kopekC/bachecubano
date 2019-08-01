@@ -48,8 +48,9 @@
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Mi Cuenta</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a>
-                            <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-wallet"></i> Mis Anuncios</a>
+                            <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-layers"></i> Mis Anuncios</a>
                             <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-heart"></i> Mis Favoritos</a>
+                            <a class="dropdown-item" href="{{ route('my_settings') }}"><i class="lni-heart"></i> Ajustes</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-close"></i> Salir</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -106,12 +107,11 @@
                 <li><a href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a></li>
                 <li><a href="{{ route('my_ads') }}"><i class="lni-wallet"></i> Mis Anuncios</a></li>
                 <li><a href="{{ route('my_favourite') }}"><i class="lni-heart"></i> Mis favoritos</a></li>
-                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <li><a href="{{ route('my_settings') }}"><i class="lni-heart"></i> Ajustes</a></li>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Salir') }}
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
                 </li>
             </ul>
         </li>
