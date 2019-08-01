@@ -8,7 +8,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
-                    <h2 class="product-title">Mi perfil</h2>
+                    <a href="{{ URL::current() }}">
+                        <h2 class="product-title">Mi perfil</h2>
+                    </a>
                 </div>
             </div>
         </div>

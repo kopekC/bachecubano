@@ -45,15 +45,11 @@
                 <div class="top-right links">
                     @auth
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> My Account</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Mi Cuenta</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a>
-                            <a class="dropdown-item" href="account-myads.html"><i class="lni-wallet"></i> My Ads</a>
-                            <a class="dropdown-item" href="account-favourite-ads.html"><i class="lni-heart"></i> Favourite ads</a>
-                            <a class="dropdown-item" href="account-archived-ads.html"><i class="lni-folder"></i> Archived</a>
-                            <a class="dropdown-item" href="login.html"><i class="lni-lock"></i> Log In</a>
-                            <a class="dropdown-item" href="signup.html"><i class="lni-user"></i> Signup</a>
-                            <a class="dropdown-item" href="forgot-password.html"><i class="lni-reload"></i> Forgot Password</a>
+                            <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-wallet"></i> Mis Anuncios</a>
+                            <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-heart"></i> Mis Favoritos</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-close"></i> Salir</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -107,13 +103,9 @@
         <li>
             <a>Mi Cuenta</a>
             <ul class="dropdown">
-                <li><a href="account-profile-setting.html"><i class="lni-home"></i> Account Home</a></li>
-                <li><a href="account-myads.html"><i class="lni-wallet"></i> My Ads</a></li>
-                <li><a href="account-favourite-ads.html"><i class="lni-heart"></i> Favourite ads</a></li>
-                <li><a href="account-archived-ads.html"><i class="lni-folder"></i> Archived</a></li>
-                <li><a href="login.html"><i class="lni-lock"></i> Log In</a></li>
-                <li><a href="signup.html"><i class="lni-user"></i> Signup</a></li>
-                <li><a href="forgot-password.html"><i class="lni-reload"></i> Forgot Password</a></li>
+                <li><a href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a></li>
+                <li><a href="{{ route('my_ads') }}"><i class="lni-wallet"></i> Mis Anuncios</a></li>
+                <li><a href="{{ route('my_favourite') }}"><i class="lni-heart"></i> Mis favoritos</a></li>
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Salir') }}
                     </a>

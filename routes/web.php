@@ -17,6 +17,12 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 //User Login/Register/Change Password routes
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/ads', 'HomeController@ads')->name('my_ads');
+Route::get('/home/favourite', 'HomeController@favourite')->name('my_favourite');
+Route::get('/home/favourite', 'HomeController@favourite')->name('my_favourite');
+Route::get('/home/favourite', 'HomeController@favourite')->name('my_favourite');
+Route::get('/home/favourite', 'HomeController@favourite')->name('my_favourite');
+
 
 //Ads Routes & Resource Route
 Route::get('/add', 'AdController@create')->name('add');
