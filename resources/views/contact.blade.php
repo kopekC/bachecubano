@@ -38,7 +38,7 @@
                     Envíanos un Mensaje
                 </h2>
                 <!-- Form -->
-                <form id="contactForm" class="contact-form" data-toggle="validator">
+                <form id="contactForm" class="contact-form" data-toggle="validator" action="{{ route('contact_submit') }}" method="POST">
 
                     @csrf
 
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Correo" required data-error="Por favor teclee su correo">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Correo" required data-error="Por favor teclee su correo">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -69,14 +69,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Mensaje a enviarnos" rows="10" data-error="Escriba aquí su mensaje y le respondemos en menos de 48 horas" required></textarea>
+                                        <textarea class="form-control" placeholder="Mensaje a enviarnos" name="message" rows="10" data-error="Escriba aquí su mensaje y le respondemos en menos de 48 horas" required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" id="submit" class="btn btn-common"><i class="lni-telegram"></i>Enviar</button>
+                            <button type="submit" id="submit" class="btn btn-common"><i class="lni-telegram"></i> Enviar</button>
                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                             <div class="clearfix"></div>
                         </div>

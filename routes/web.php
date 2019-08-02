@@ -15,6 +15,7 @@
 Route::get('/', 'WelcomeController@index')->name('welcome');
 //Contact
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
+Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
 
 //User Login/Register/Change Password routes
 Auth::routes();

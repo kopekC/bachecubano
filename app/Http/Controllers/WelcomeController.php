@@ -164,4 +164,27 @@ class WelcomeController extends Controller
 
         return view('contact');
     }
+
+    /**
+     * Contact Post Procedure
+     */
+    public function contact_submit(Request $request)
+    {
+        //Validate Incoming Data & create card
+        $validatedData = $request->validate([
+            'name' => 'bail|required',
+            'email' => 'bail|required',
+            'subject' => 'bail|required',
+            'message' => 'bail|required',
+            //Captcha 
+        ]);
+
+        $data = $request->only('name', 'last_name', 'email', 'phone', 'contact-text');
+
+        //Notify Admin of this registration event
+        $admin = "ecruz@bachecubano.com";
+        Mail::to($admin)->send(new ContactForm($data));
+
+        return redirect()->route('contact')->with('success', 'Gracias! En breve nos pondremos en contacto');
+    }
 }
