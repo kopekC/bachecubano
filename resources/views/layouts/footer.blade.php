@@ -60,6 +60,7 @@
                             <li><a class="instagram" href="https://www.instagram.com/Bachecubano" rel="nofollow"><i class="lni-instagram"></i></a></li>
                             <li><a class="twitter" href="https://www.twitter.com/Bachecubano" rel="nofollow"><i class="lni-twitter"></i></a></li>
                             <li><a class="linkedin" href="https://www.linkedin.com/company/bachecubano"><i class="lni-linkedin"></i></a></li>
+                            <li><a class="telegram" href="https://t.me/elBacheChannel"><i class="lni-telegram"></i></a></li>
                         </ul>
                     </div>
                 </div>

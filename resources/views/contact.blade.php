@@ -45,19 +45,19 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required data-error="Por favor teclee su nombre">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="email" placeholder="Correo" required data-error="Por favor teclee su correo">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="msg_subject" name="subject" placeholder="Asunto" required data-error="Por favor teclee el asunto de su solicitud">
                                         <div class="help-block with-errors"></div>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" id="submit" class="btn btn-common"><i class="lni-message"></i>Enviar</button>
+                            <button type="submit" id="submit" class="btn btn-common"><i class="lni-telegram"></i>Enviar</button>
                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                             <div class="clearfix"></div>
                         </div>
