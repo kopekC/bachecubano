@@ -50,8 +50,8 @@
                 </li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="lni-enter"></i>
-                        <span>Cerrar</span>
+                        <i class="lni-close"></i>
+                        <span>Salir</span>
                     </a>
                 </li>
             </ul>

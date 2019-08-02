@@ -32,8 +32,8 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">
-                        Contacto
+                    <a class="nav-link" href="{{ route('contact') }}">
+                        Contáctenos
                     </a>
                 </li>
             </ul>
@@ -80,24 +80,26 @@
     <!-- Mobile Menu Start -->
     <ul class="mobile-menu">
         <li>
-            <a class="active" href="#">
-                Home
+            <a class="active" href="{{ config('app.url') }}">
+                Inicio
             </a>
         </li>
         <li>
-            <a href="#">Categories</a>
+            <a href="#">Categorías</a>
+            <ul class="dropdown">
+                @foreach($parent_categories as $super_category)
+                <li><a href="{ route('super_category_index', ['category' => $super_category->description->slug]) }}">{{ $super_category->description->name }}</a></li>
+                @endforeach
+            </ul>
         </li>
         <li>
             <a href="#">Blog</a>
             <ul class="dropdown">
                 <li><a href="blog.html">Blog - Right Sidebar</a></li>
-                <li><a href="blog-left-sidebar.html">Blog - Left Sidebar</a></li>
-                <li><a href="blog-grid-full-width.html"> Blog full width </a></li>
-                <li><a href="single-post.html">Blog Details</a></li>
             </ul>
         </li>
         <li>
-            <a href="contact.html">Contact Us</a>
+            <a href="{{ route('contact') }}">Contáctenos</a>
         </li>
         @if (Route::has('login'))
         @auth
