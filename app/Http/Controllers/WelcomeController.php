@@ -176,7 +176,7 @@ class WelcomeController extends Controller
             'email' => 'bail|required',
             'subject' => 'bail|required',
             'message' => 'bail|required',
-            //Captcha 
+            'g-recaptcha-response' => 'recaptcha',
         ]);
 
         $data = $request->only('name', 'last_name', 'email', 'phone', 'contact-text');

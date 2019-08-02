@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-@push('style')
-{!! htmlScriptTagJsApiV3(['action' => 'homepage']) !!}
-{{-- htmlScriptTagJsApiV3(['action' => 'homepage', 'callback_then' => 'callbackThen', 'callback_catch' => 'callbackCatch']) --}}
-@endpush
-
 <!-- Page Header Start -->
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
     <div class="container">
@@ -81,10 +75,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+
+                        <div class="col-md-12 text-center">
+                            {{-- reCaptcha Robot Captcha --}}
+                            @error ('g-recaptcha-response')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                            @endif
+                            {!! htmlFormSnippet() !!}
+                        </div>
+
+                        <div class="col-md-12 text-center">
                             <button type="submit" id="submit" class="btn btn-common"><i class="lni-telegram"></i> Enviar</button>
-                            <div id="msgSubmit" class="h3 text-center hidden"></div>
-                            <div class="clearfix"></div>
                         </div>
 
                     </div>
@@ -162,7 +165,7 @@
         });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOF-FpSQpUF6bM9nPo6Zs0jNFkCysB1NI&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnQKzWiXfy41cW22A-YhWyExgJ-gmDTmM&callback=initMap"></script>
 @endpush
 
 @endsection
