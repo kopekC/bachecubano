@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+@push('style')
+{!! htmlScriptTagJsApiV3(['action' => 'homepage']) !!}
+{{-- htmlScriptTagJsApiV3(['action' => 'homepage', 'callback_then' => 'callbackThen', 'callback_catch' => 'callbackCatch']) --}}
+@endpush
+
 <!-- Page Header Start -->
 <div class="page-header" style="background: url(assets/img/banner1.jpg);">
     <div class="container">
