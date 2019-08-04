@@ -8,7 +8,9 @@
                     <h3>Entrar en su cuenta de Bachecubano</h3>
 
                     <form role="form" class="login-form" method="POST" action="{{ route('login') }}">
+
                         @csrf
+
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="lni-user"></i>
@@ -20,6 +22,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="lni-lock"></i>
@@ -31,6 +34,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group mb-3">
                             <div class="checkbox">
                                 <input type="checkbox" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -40,6 +44,7 @@
                             <a class="forgetpassword" href="{{ route('password.request') }}">Olvidaste tu contraseña?</a>
                             @endif
                         </div>
+
                         <div class="text-center">
                             <button class="btn btn-common log-btn" type="submit">Acceder</button>
                         </div>

@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Retorna Todo slos anuncios de este usuario
+     */
+    public function ads()
+    {
+        return $this->hasMany('App\Ad');
+    }
 }

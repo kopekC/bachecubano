@@ -53,6 +53,18 @@
                                 <label>Aceptas Términos y Condiciones ok?</label>
                             </div>
                         </div>
+
+                        <!-- Recaptcha Show -->
+                        <div class="form-group">
+                            {{-- reCaptcha Robot Captcha --}}
+                            @error ('g-recaptcha-response')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                            @endif
+                            {!! htmlFormSnippet() !!}
+                        </div>
+
                         <div class="text-center">
                             <button class="btn btn-common log-btn" type="submit">Registrarme</button>
                         </div>

@@ -5,8 +5,8 @@
                 <a href="#"><img src="assets/img/author/img1.jpg" alt=""></a>
             </figure>
             <div class="usercontent">
-                <h3>User</h3>
-                <h4>Administrator</h4>
+                <h3>{{ Auth::user()->name }}</h3>
+                <h4><i class="lni-hone"></i> {{ Auth::user()->phone }}</h4>
             </div>
         </div>
         <nav class="navdashboard">
@@ -18,32 +18,32 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('my_ads') }}">
+                    <a href="{{ route('my_ads') }}" class="{{ \Route::current()->getName() == 'my_ads' ? 'active' : ''}}">
                         <i class="lni-layers"></i>
                         <span>Mis anuncios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('my_favourite') }}">
+                    <a href="{{ route('my_favourite') }}" class="{{ \Route::current()->getName() == 'my_favourite' ? 'active' : ''}}">
                         <i class="lni-heart"></i>
                         <span>Mis Favoritos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('my_settings') }}">
+                    <a href="{{ route('my_settings') }}" class="{{ \Route::current()->getName() == 'my_settings' ? 'active' : ''}}">
                         <i class="lni-cog"></i>
                         <span>Ajustes</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ \Route::current()->getName() == 'offers' ? 'active' : ''}}">
                         <i class="lni-envelope"></i>
                         <span>Ofertas/Mensajes</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="{{ \Route::current()->getName() == 'my_wallet' ? 'active' : ''}}">
                         <i class="lni-wallet"></i>
                         <span>Pagos</span>
                     </a>

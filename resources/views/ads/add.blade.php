@@ -147,6 +147,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                
                                 <div class="form-group mb-3 tg-inputwithicon">
                                     <label class="control-label">Provincia</label>
                                     <div class="tg-select form-control">
@@ -155,6 +156,7 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="tg-checkbox">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules" name="agree" checked>
@@ -164,6 +166,7 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <button class="btn btn-common btn-block" type="submit">Publicar anuncio</button>
                             </div>
                         </div>
