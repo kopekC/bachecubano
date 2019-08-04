@@ -97,7 +97,7 @@ class HomeController extends Controller
 
         $my_ads = Ad::where('user_id', Auth::user()->id)
             ->with(['description', 'resources', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
-            ->get();
+            ->paginate(50);
 
         return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads'));
     }

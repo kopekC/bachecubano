@@ -46,7 +46,7 @@
                     <th>Título</th>
                     <th>Categoría</th>
                     <th>Estado</th>
-                    <th class="text-center">Ajustes</th>
+                    <th>Ajustes</th>
                 </tr>
             </thead>
             <tbody>

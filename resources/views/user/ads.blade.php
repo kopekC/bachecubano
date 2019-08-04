@@ -21,21 +21,17 @@
             <table class="table {{-- table-responsive --}} dashboardtable tablemyads">
                 <thead>
                     <tr>
-                        <th>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkedall">
-                                <label class="custom-control-label" for="checkedall"></label>
-                            </div>
-                        </th>
-                        <th>Photo</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Ad Status</th>
-                        <th>Price</th>
-                        <th>Action</th>
+                        <th>Foto</th>
+                        <th>Precio</th>
+                        <th>Título</th>
+                        <th>Categoría</th>
+                        <th>Estado</th>
+                        <th>Ajustes</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @if($popular_ads)
+                    @foreach($popular_ads as $ad)
                     <tr data-category="active">
                         <td>
                             <div class="custom-control custom-checkbox">
@@ -61,233 +57,8 @@
                             </div>
                         </td>
                     </tr>
-                    <tr data-category="active">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adtwo">
-                                <label class="custom-control-label" for="adtwo"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img2.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Jvc Haebr80b In-ear Sports Headphones</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Electronics</td>
-                        <td data-title="Ad Status"><span class="adstatus adstatusactive">Active</span></td>
-                        <td data-title="Price">
-                            <h3>$189</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="inactive">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adthree">
-                                <label class="custom-control-label" for="adthree"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img3.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Furniture Straps 4-Pack, TV Anti-Tip Metal Wall </h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Real Estate</td>
-                        <td>
-                            <span class="adstatus adstatusinactive">Inactive</span>
-                        </td>
-                        <td data-title="Price">
-                            <h3>$69</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="sold">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adfour">
-                                <label class="custom-control-label" for="adfour"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img4.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Apple iPhone X, Fully Unlocked 5.8", 64 GB - Black</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Mobile</td>
-                        <td data-title="Ad Status"><span class="adstatus adstatussold">Sold</span></td>
-                        <td data-title="Price">
-                            <h3>$89</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="active">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adfive">
-                                <label class="custom-control-label" for="adfive"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img5.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Apple Macbook Pro 13 Inch with/without Touch Bar</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Apple</td>
-                        <td data-title="Ad Status"><span class="adstatus adstatusactive">Active</span></td>
-                        <td data-title="Price">
-                            <h3>$289</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="sold">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adsix">
-                                <label class="custom-control-label" for="adsix"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img6.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Apple MQDT2CL/A 10.5-Inch 64GB Wi-Fi iPad Pro</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Apple iPad</td>
-                        <td data-title="Ad Status"><span class="adstatus adstatussold">Sold</span></td>
-                        <td data-title="Price">
-                            <h3>$159</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="expired">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adseven">
-                                <label class="custom-control-label" for="adseven"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img7.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Essential Phone 8GB Unlocked with Dual Camera</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Mobile</td>
-                        <td data-title="Ad Status"><span class="adstatus adstatusexpired">Expired</span></td>
-                        <td data-title="Price">
-                            <h3>$89</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="inactive">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adeight">
-                                <label class="custom-control-label" for="adeight"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img8.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>LG Nexus 5x LG-H791 32GB GSM Smartphone</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Mobile</td>
-                        <td>
-                            <span class="adstatus adstatusinactive">Inactive</span>
-                        </td>
-                        <td data-title="Price">
-                            <h3>$59</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="expired">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adnine">
-                                <label class="custom-control-label" for="adnine"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img9.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Samsung Galaxy G550T On5 GSM Unlocked Smartphone</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Mobile</td>
-                        <td data-title="Ad Status"><span class="adstatus adstatusexpired">Expired</span></td>
-                        <td data-title="Price">
-                            <h3>$129</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-category="deleted">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adten">
-                                <label class="custom-control-label" for="adten"></label>
-                            </div>
-                        </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img10.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>Apple iMac Pro 27" All-in-One Desktop, Space Gray</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category">Apple iMac</td>
-                        <td data-title="Ad Status"><span class="adstatus adstatusdeleted">Deleted</span></td>
-                        <td data-title="Price">
-                            <h3>$389</h3>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
