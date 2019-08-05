@@ -86,11 +86,10 @@ class HomeController extends Controller
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
+        $section_name = "Mis Anuncios";
 
         //Total active ads
         $total_active_ads = Auth::user()->ads->count();
-
-        $section_name = "Mis Anuncios";
 
         //post Per Page Custom configuration
         $posts_per_page = AdController::post_per_page($request);
@@ -100,7 +99,7 @@ class HomeController extends Controller
         //{{ $users->appends(['sort' => 'votes'])->links() }}
 
         $my_ads = Ad::where('user_id', Auth::user()->id)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
+            ->with(['description', 'resources', 'category.description', 'category.parent.description'])
             ->paginate($posts_per_page);
 
         return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads'));

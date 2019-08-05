@@ -5,17 +5,16 @@
 <div class="page-content">
     <div class="inner-box">
         <div class="dashboard-box">
-            <h2 class="dashbord-title">My Ads</h2>
+            <h2 class="dashbord-title">Mis anuncios</h2>
         </div>
         <div class="dashboard-wrapper">
             <nav class="nav-table">
                 <ul>
-                    <li class="active"><a href="#">All Ads (42)</a></li>
-                    <li><a href="#">Published (88)</a></li>
-                    <li><a href="#">Featured (12)</a></li>
-                    <li><a href="#">Sold (02)</a></li>
-                    <li><a href="#">Active (42)</a></li>
-                    <li><a href="#">Expired (01)</a></li>
+                    <li class="active"><a href="#">Todos ({{ $total_active_ads }})</a></li>
+                    <li><a href="#">Activos ()</a></li>
+                    <li><a href="#">Promovidos ()</a></li>
+                    <li><a href="#">Inactivos ()</a></li>
+                    <li><a href="#">Expirados ()</a></li>
                 </ul>
             </nav>
             <table class="table {{-- table-responsive --}} dashboardtable tablemyads">
@@ -58,10 +57,9 @@
                     </tr>
                     @endforeach
                     @endif
-                    
-                    {{ $my_ads->links() }}
                 </tbody>
             </table>
+            {{ $my_ads->links() }}
         </div>
     </div>
 </div>
