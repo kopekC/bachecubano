@@ -27,6 +27,8 @@ Route::get('/home/favourite', 'HomeController@favourite')->name('my_favourite');
 Route::get('/home/settings', 'HomeController@settings')->name('my_settings');
 Route::get('/home/payments', 'HomeController@payments')->name('my_payments');
 
+//Cart Routes
+Route::resource('cart', 'CartController');
 
 //Ads Routes & Resource Route
 Route::get('/add', 'AdController@create')->name('add');
