@@ -61,9 +61,6 @@ class HomeController extends Controller
             ->take(10)
             ->get();
 
-        //Most useful Stats about my ads
-
-
         $section_name = "Mi Panel de Anuncios";
 
         return view('user.home', compact('section_name', 'total_active_ads', 'total_promoted_ads', 'popular_ads'));
@@ -95,9 +92,16 @@ class HomeController extends Controller
 
         $section_name = "Mis Anuncios";
 
+        //post Per Page Custom configuration
+        $posts_per_page = AdController::post_per_page($request);
+
+        //Customize pagination
+        //You may append to the query string of pagination links using the appends method. For example, to append sort=votes to each pagination link, you should make the following call to appends:
+        //{{ $users->appends(['sort' => 'votes'])->links() }}
+
         $my_ads = Ad::where('user_id', Auth::user()->id)
             ->with(['description', 'resources', 'category.description', 'category.parent.description']) //<- Nested Load Category, and Parent Category
-            ->paginate(50);
+            ->paginate($posts_per_page);
 
         return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads'));
     }

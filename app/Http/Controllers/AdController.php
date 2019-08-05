@@ -52,8 +52,8 @@ class AdController extends Controller
         //Parametrice all Input elements and pass to corresponding method where
         //Getted from Input GET data
 
-        //post Per Page Custom configuration
-        $posts_per_page = $this->post_per_page($request);
+        //post Per Page Custom configuration now as static method ok?
+        $posts_per_page = AdController::post_per_page($request);
 
         $query = Ad::query();
 
@@ -102,6 +102,10 @@ class AdController extends Controller
         //Activated parameters
         $query->where('active', 1);
         $query->where('enabled', 1);
+
+        //Customize pagination
+        //You may append to the query string of pagination links using the appends method. For example, to append sort=votes to each pagination link, you should make the following call to appends:
+        //{{ $users->appends(['sort' => 'votes'])->links() }}
 
         //Paginate all this
         $ads = $query->paginate($posts_per_page);
@@ -316,7 +320,7 @@ class AdController extends Controller
     /**
      * Get Post per Page value
      */
-    private function post_per_page($request)
+    public static function post_per_page($request)
     {
         /**
          * It means – let’s try to get posts_per_page from GET request, if it’s not there, then let’s default to the data in the Cookie.

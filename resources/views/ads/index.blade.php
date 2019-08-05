@@ -109,7 +109,12 @@
                 </div>
                 <!-- Adds wrapper End -->
 
-                <!-- Start Pagination -->
+                <!-- Laravel Pagination -->
+                <div class="pagination-bar">
+                    {{ $ads->links() }}
+                </div>
+                
+                <!-- Start Pagination
                 <div class="pagination-bar">
                     <nav>
                         <ul class="pagination justify-content-center">
@@ -120,7 +125,7 @@
                         </ul>
                     </nav>
                 </div>
-                <!-- End Pagination -->
+                End Pagination -->
 
             </div>
         </div>

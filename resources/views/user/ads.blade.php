@@ -30,35 +30,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if($popular_ads)
-                    @foreach($popular_ads as $ad)
+                    @if($my_ads)
+                    @foreach($my_ads as $ad)
                     <tr data-category="active">
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="adone">
-                                <label class="custom-control-label" for="adone"></label>
-                            </div>
+                        <td class="photo">
+                            <img class="img-fluid lazyload" src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
                         </td>
-                        <td class="photo"><img class="img-fluid" src="assets/img/product/img1.jpg" alt=""></td>
-                        <td data-title="Title">
-                            <h3>HP Laptop 6560b core i3 3nd generation</h3>
-                            <span>Ad ID: ng3D5hAMHPajQrM</span>
-                        </td>
-                        <td data-title="Category"><span class="adcategories">Laptops & PCs</span></td>
-                        <td data-title="Ad Status"><span class="adstatus adstatusactive">active</span></td>
                         <td data-title="Price">
-                            <h3>139$</h3>
+                            <h3>{{ ad_price($ad) }}</h3>
                         </td>
+                        <td data-title="Title">
+                            <a href="{{ ad_url($ad) }}">
+                                <h3>{{ $ad->description->title }}</h3>
+                            </a>
+                            <span>ID: {{ $ad->id }}</span>
+                        </td>
+                        <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
+                        <!-- adstatusactive/adstatusinactive/adstatussold-->
+                        <td data-title="Ad Status"><span class="adstatus adstatusactive">activo</span></td>
                         <td data-title="Action">
                             <div class="btns-actions">
-                                <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
-                                <a class="btn-action btn-edit" href="#"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="#"><i class="lni-trash"></i></a>
+                                <!-- <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a> Analiticas -->
+                                <a class="btn-action btn-edit" href="{{ route('ad.edit', ['ad' => $ad]) }}"><i class="lni-pencil"></i></a>
+                                <a class="btn-action btn-delete" href="{{ route('ad.destroy', ['ad' => $ad]) }}"><i class="lni-trash"></i></a>
                             </div>
                         </td>
                     </tr>
                     @endforeach
                     @endif
+                    
+                    {{ $my_ads->links() }}
                 </tbody>
             </table>
         </div>
