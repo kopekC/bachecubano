@@ -11,6 +11,8 @@ use Twitter;
 use Illuminate\Support\Facades\Auth;
 use App\Ad;
 
+use Illuminate\Support\Facades\Input;
+
 class HomeController extends Controller
 {
     /**
@@ -98,9 +100,17 @@ class HomeController extends Controller
         //You may append to the query string of pagination links using the appends method. For example, to append sort=votes to each pagination link, you should make the following call to appends:
         //{{ $users->appends(['sort' => 'votes'])->links() }}
 
-        $my_ads = Ad::where('user_id', Auth::user()->id)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description'])
-            ->paginate($posts_per_page);
+        $query = Ad::query();
+
+        $query->where('user_id', Auth::user()->id);
+        $query->with(['description', 'resources', 'category.description', 'category.parent.description']);
+
+        //Category Filtering for a Better Filtering
+        if (null !== Input::get('category_id')) {
+            $query->where('category_id', Input::get('category_id'));
+        }
+
+        $my_ads = $query->paginate($posts_per_page);
 
         return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads'));
     }

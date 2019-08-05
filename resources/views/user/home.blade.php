@@ -22,7 +22,7 @@
                     <div class="dashboardbox">
                         <div class="icon"><i class="lni-star"></i></div>
                         <div class="contentbox">
-                            <h2><a href="#">Anuncios promovidos</a></h2>
+                            <h2><a href="{{ route('my_ads') }}?promoted=1">Anuncios promovidos</a></h2>
                             <h3>{{ $total_promoted_ads }} Promociones</h3>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
             <thead>
                 <tr>
                     <th>Foto</th>
-                    <th>Precio</th>
+                    <th>Visitas</th>
                     <th>Título</th>
                     <th>Categoría</th>
                     <th>Estado</th>
@@ -56,8 +56,8 @@
                     <td class="photo">
                         <img class="img-fluid lazyload" src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
                     </td>
-                    <td data-title="Price">
-                        <h3>{{ ad_price($ad) }}</h3>
+                    <td data-title="Hits">
+                        <h3>{{ $ad->hits }}</h3>
                     </td>
                     <td data-title="Title">
                         <a href="{{ ad_url($ad) }}">

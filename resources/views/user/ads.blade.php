@@ -15,6 +15,22 @@
                     <li><a href="#">Promovidos ()</a></li>
                     <li><a href="#">Inactivos ()</a></li>
                     <li><a href="#">Expirados ()</a></li>
+                    <li>
+                        <select class="form-control" name="category_id">
+                            <option value="">Agrupar Categoría</option>
+                            @foreach($parent_categories as $super_category)
+                            <optgroup label="{{ $super_category->description->name }}">
+                                @foreach($category_formatted[$super_category->id] as $category)
+                                @if(Request::input('category_id') == $category->category_id)
+                                <option value="{{ $category->category_id }}" selected>{{ $category->name }}</option>
+                                @else
+                                <option value="{{ $category->category_id }}">{{ $category->name }}</option>
+                                @endif
+                                @endforeach
+                            </optgroup>
+                            @endforeach
+                        </select>
+                    </li>
                 </ul>
             </nav>
             <table class="table {{-- table-responsive --}} dashboardtable tablemyads">
