@@ -1,7 +1,5 @@
 @extends('user.layout')
-
 @section('user_section')
-
 <div class="page-content">
     <div class="inner-box">
         <div class="dashboard-box">
@@ -16,7 +14,7 @@
                     <li><a href="#">Inactivos ()</a></li>
                     <li><a href="#">Expirados ()</a></li>
                     <li>
-                        <select class="form-control" name="category_id">
+                        <select class="form-control" name="category_id" onchange="this.options[this.selectedIndex].value && (window.location = '{{ URL::current() }}?category_id=' + this.options[this.selectedIndex].value);">
                             <option value="">Agrupar Categoría</option>
                             @foreach($parent_categories as $super_category)
                             <optgroup label="{{ $super_category->description->name }}">
@@ -79,5 +77,4 @@
         </div>
     </div>
 </div>
-
 @endsection
