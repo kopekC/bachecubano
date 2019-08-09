@@ -21,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->isLocal()) {
             $this->app->register(TelescopeServiceProvider::class);
         }
+
+        //Replace Default public folder location
+        $this->app->bind('path.public', function () {
+            return base_path('public_html');
+        });
     }
 
     /**

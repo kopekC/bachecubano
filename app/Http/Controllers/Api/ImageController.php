@@ -17,7 +17,7 @@ class ImageController extends Controller
 
     public function __construct()
     {
-        $this->photos_path = public_path('/images4');
+        $this->photos_path = public_path('/images');
     }
 
     //Testing Routes
