@@ -162,6 +162,13 @@ class AdStats extends Model
     public $timestamps = false;
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'ad_id';
+
+    /**
      * Get the Ad that owns the stats.
      */
     public function ad()

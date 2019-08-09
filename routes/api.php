@@ -25,5 +25,6 @@ Route::group(['prefix' => 'mailgun',], function () {
 });
 
 //Save Image from AJAX Calls and API implementation
-Route::get('save-image', 'Api\ImageController@index');      //Debug process
+Route::get('show-image', 'Api\ImageController@index')->name('show-image-ajax');
 Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
+Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');

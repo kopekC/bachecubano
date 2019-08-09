@@ -10,7 +10,7 @@
 
 @include('blocks.top-stores')
 
-@include('blocks.latest')
+{{-- @include('blocks.latest') --}}
 
 @include('blocks.counter')
 

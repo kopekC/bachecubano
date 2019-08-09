@@ -17,6 +17,7 @@ use Illuminate\Support\Carbon;
 use App\AdDescription;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\Support\Facades\URL;
+use App\AdStats;
 
 class AdController extends Controller
 {
@@ -95,7 +96,7 @@ class AdController extends Controller
             });
         }
 
-        //Order Bu PromoType and later as updated time
+        //Order By PromoType and later as updated time
         $query->orderBy('ad_promos.promotype', 'desc');
         $query->latest();
 
@@ -173,7 +174,7 @@ class AdController extends Controller
 
         //Basic Table
         Auth::check() ? $ad->user_id = Auth::id() : $ad->user_id = 0;
-        $ad->category_id = Input::post('category', 160);
+        $ad->category_id = $category->id;
         $ad->price = Input::post('price', 0);
         $ad->contact_name = Input::post('contact_name');
         $ad->contact_email = Input::post('contact_email');
@@ -184,20 +185,15 @@ class AdController extends Controller
         $ad->spam = 0;
         $ad->secret = Str::random(20);
         $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
-
-        //dump($ad);
+        $ad->phone = Input::post('phone', "");
         $ad->save();
-        //dump($ad);
 
         //Description related table
         $description = new AdDescription;
         $description->ad_id = $ad->id;
         $description->title = Input::post('title');
         $description->description = Input::post('description');
-
-        //dump($description);
         $description->save();
-        //dump($description);
 
         //Retrieve Ad Again
         $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad->id);
@@ -221,6 +217,11 @@ class AdController extends Controller
     {
         //Retrieve Ad
         $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad_id);
+        $stats = AdStats::findOrNew($ad->id);
+
+        //Hit Visit to this Ad
+        $stats->hits++;
+        $stats->save();
 
         //SEO Data
         $seo_data = [

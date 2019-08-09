@@ -30,6 +30,9 @@ Route::get('/home/payments', 'HomeController@payments')->name('my_payments');
 //Cart Routes
 Route::resource('cart', 'CartController');
 
+//Sharing Routes
+Route::get('/share/{network}/{url}/{text}', 'ShareController@index')->name('share');
+
 //Ads Routes & Resource Route
 Route::get('/add', 'AdController@create')->name('add');
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');

@@ -2,7 +2,7 @@
     <div class="sidebar-box">
         <div class="user">
             <figure>
-                <a href="#"><img src="assets/img/author/img1.jpg" alt=""></a>
+                <a href="#"><img src="#" alt=""></a>
             </figure>
             <div class="usercontent">
                 <h3>{{ Auth::user()->name }}</h3>
@@ -60,7 +60,7 @@
     <div class="widget">
         <h4 class="widget-title">Publicidad</h4>
         <div class="add-box">
-            <img class="img-fluid" src="assets/img/img1.jpg" alt="">
+            <img class="img-fluid" src="" alt="">
         </div>
     </div>
 </aside>

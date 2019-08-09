@@ -645,7 +645,7 @@ blockquote{border-left:none;padding:15px;line-height:36px}
 #content .contact-datails .info h3{font-size:15px;display:block}
 #content .contact-datails .info .datail{display:block;color:#888}
 .form-group{margin-bottom:30px}
-.form-control{display:block;width:100%;line-height:26px;font-size:14px;box-shadow:none;color:#848484;text-transform:capitalize;background:#fff;padding:7px 19px;border:1px solid #e5e5e5;border-radius:50px;font-weight:400;transition:all .5s ease;-webkit-transition:all .5s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease}
+.form-control{display:block;width:100%;line-height:26px;font-size:14px;box-shadow:none;color:#848484;background:#fff;padding:7px 19px;border:1px solid #e5e5e5;border-radius:50px;font-weight:400;transition:all .5s ease;-webkit-transition:all .5s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease}
 textarea{border-radius:4px!important}
 .form-control:focus{border-color:#1976d2;outline:0;box-shadow:none}
 .login-area{width:100%;background:#fafafa;border:1px solid #eaedef}

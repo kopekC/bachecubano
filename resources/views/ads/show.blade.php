@@ -30,7 +30,8 @@
     <div class="container-fluid">
         <!-- Product Info Start -->
         <div class="product-info row">
-            <div class="col-lg-3 col-md-12 col-xs-12">
+
+            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
                 @if(count($ad->resources) >= 1)
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
@@ -65,7 +66,8 @@
                 <img src="{{ ad_first_image($ad) }}" class="img-fluid">
                 @endif
             </div>
-            <div class="col-lg-6 col-md-12 col-xs-12 pr-5 pl-5">
+
+            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6 pr-5 pl-5">
                 <div class="description">
                     <div class="details-box">
                         <div class="ads-details-info">
@@ -83,10 +85,12 @@
                                 </li>
                                 -->
                             </ul>
+                            <!--
                             <ul class="list-specification">
                                 <li><i class="lni-check-mark-circle"></i> xxx</li>
                                 <li><i class="lni-check-mark-circle"></i> xxx</li>
                             </ul>
+                            -->
                             <div class="details-meta">
                                 <span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->diffForHumans() }}</a></span>
                                 <span><a href="#"><i class="lni-eye"></i> {{ $ad->stats->hits > 0 ? $ad->stats->hits : 0 }} Visitas</a></span>
@@ -99,9 +103,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-xs-12">
+
+            <div class="col-xs-12 col-md-12 col-lg-3 col-xl-3">
                 <!-- Product Description Start -->
-                <div class="description-info" style="float: right">
+                <div class="description-info">
                     <div class="short-info">
 
                         <div class="ads-btn mb-4">
@@ -113,7 +118,7 @@
                         <div class="share">
                             <span>Compartir: </span>
                             <div class="social-link">
-                                <a class="facebook" href="#"><i class="lni-facebook"></i></a>
+                                <a class="facebook" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
                                 <a class="twitter" href="#"><i class="lni-twitter"></i></a>
                                 <a class="linkedin" href="#"><i class="lni-linkedin"></i></a>
                                 <a class="google" href="#"><i class="lni-google-plus"></i></a>
@@ -125,7 +130,7 @@
                             <li><a href="#"><i class="lni-users"></i> <span>{{ $ad->contact_name }}</span></a></li>
                             <li><a href="#"><i class="lni-printer"></i> Imprimir anuncio</a></li>
                             <li><a href="#"><i class="lni-reply"></i> Enviar a un amigo</a></li>
-                            <li><a href="#"><i class="lni-warning"></i> reportar anuncio</a></li>
+                            <li><a href="#"><i class="lni-warning"></i> Reportar anuncio</a></li>
                         </ul>
                     </div>
                 </div>

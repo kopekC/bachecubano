@@ -110,6 +110,9 @@ class HomeController extends Controller
             $query->where('category_id', Input::get('category_id'));
         }
 
+        //Order latest Update
+        $query->latest();
+
         $my_ads = $query->paginate($posts_per_page);
 
         return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads'));
