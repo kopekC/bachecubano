@@ -19,6 +19,8 @@ use Spatie\SchemaOrg\Schema;
 use Illuminate\Support\Facades\URL;
 use App\AdStats;
 
+use Illuminate\Support\Facades\DB;
+
 class AdController extends Controller
 {
     /**
@@ -164,6 +166,8 @@ class AdController extends Controller
             "agree" => 'bail|required',
         ]);
 
+        dump(Input::post());
+
         $category = Category::findOrFail(Input::post('category'));
 
         $now = Carbon::now();
@@ -188,6 +192,15 @@ class AdController extends Controller
         $ad->phone = Input::post('phone', "");
         $ad->save();
 
+        //Images Logic for AdResources
+        if (null !== Input::post('imageID')) {
+            //Update every row with the actual ad_id
+            //UPDATE ad_resources SET ad_id = xx WHERE id = imageID.index
+            foreach (Input::post('imageID') as $adResourdeId) {
+                DB::table('ad_resources')->where('id', $adResourdeId)->update(['ad_id' => $ad->id]);
+            }
+        }
+
         //Description related table
         $description = new AdDescription;
         $description->ad_id = $ad->id;
@@ -197,6 +210,8 @@ class AdController extends Controller
 
         //Retrieve Ad Again
         $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad->id);
+
+        dd($ad);
 
         //If Ad was inserted, redirect to it
         if ($ad) {

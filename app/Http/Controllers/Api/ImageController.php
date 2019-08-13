@@ -54,7 +54,7 @@ class ImageController extends Controller
             }
 
             //Use the $photo_upload->id;
-            dump($photo_upload);
+            //dump($photo_upload);
 
             //Name is the actual ID of AdResource object
             $name = $photo_upload->id;
@@ -87,11 +87,17 @@ class ImageController extends Controller
                 })
                 ->save($photo_upload->path . DIRECTORY_SEPARATOR . $photo_480);
 
+            /* WaterMark Ads at Social Media Share
+            Image::make($photo)
+                ->insert(public_path('watermark.png'), 'bottom-right', 10, 10)
+                ->save();
+                */
+
             //Original Move photo
             $photo->move($photo_upload->path, $original_name);
         }
 
-        return Response::json(['message' => 'Image saved Successfully'], 200);
+        return Response::json(['message' => 'Image saved Successfully', 'imageID' => $photo_upload->id, 'status' => 200], 200);
     }
 
     /**
