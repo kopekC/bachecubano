@@ -111,24 +111,43 @@
 
                         <div class="ads-btn mb-4">
                             <h3 class="text-center h3">{{ ad_price($ad) }}</h3>
+                            <h4 class="text-center h4">{{ $ad->contact_name }}</h4>
                             <a href="mailto:{{ $ad->contact_email }}" class="btn btn-common btn-reply btn-block mb-1"><i class="lni-envelope"></i> Correo</a>
-                            <a href="tel:XXXXXXXXX" class="btn btn-common btn-block"><i class="lni-phone-handset"></i> XXXXXXXXX</a>
+                            <a href="tel:{{ $ad->phone }}" class="btn btn-common btn-block"><i class="lni-phone-handset"></i> {{ $ad->phone }}</a>
                         </div>
 
-                        <div class="share">
+                        <hr>
+                        <div class="share text-center">
                             <span>Compartir: </span>
                             <div class="social-link">
                                 <a class="facebook" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
-                                <a class="twitter" href="#"><i class="lni-twitter"></i></a>
-                                <a class="linkedin" href="#"><i class="lni-linkedin"></i></a>
-                                <a class="google" href="#"><i class="lni-google-plus"></i></a>
+                                <a class="twitter" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-twitter"></i></a>
+                                <a class="linkedin" href="{{ route('share', ['network' => 'linkedin', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-linkedin"></i></a>
                             </div>
                         </div>
 
-                        <h4 class="mt-4">Perfil de contacto</h4>
+                        @if($ad->user_id !== 0 && isset($ad->owner))
+                        <hr>
+                        <div class="text-center">
+                            <h4 class="mt-4">Perfil de contacto</h4>
+                            <!-- Photo profile -->
+                            <!-- Personal Link -->
+                            <!-- Rating Stars -->
+                            <div class="user">
+                                <figure>
+                                    <a href="#"><img src="#" alt=""></a>
+                                </figure>
+                                <div class="usercontent">
+                                    <h3></h3>
+                                    <h4><i class="lni-hone"></i> {{ $ad->owner->name }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        <hr>
                         <ul>
-                            <li><a href="#"><i class="lni-users"></i> <span>{{ $ad->contact_name }}</span></a></li>
-                            <li><a href="#"><i class="lni-printer"></i> Imprimir anuncio</a></li>
+                            <li><a href="#" onclick="window.print();return false;"><i class="lni-printer"></i> Imprimir anuncio</a></li>
                             <li><a href="#"><i class="lni-reply"></i> Enviar a un amigo</a></li>
                             <li><a href="#"><i class="lni-warning"></i> Reportar anuncio</a></li>
                         </ul>

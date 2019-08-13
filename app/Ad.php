@@ -64,6 +64,13 @@ class Ad extends Model
             'hits' => 0,
         ]);
     }
+
+    /**
+     * User Owner of the ad
+     */
+    public function owner() {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 }
 
 class AdDescription extends Model

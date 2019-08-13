@@ -229,7 +229,7 @@
         init: function() {
             this.on("removedfile", function(file) {
                 $.post({
-                    url: '/images-delete',
+                    url: "{{ route('delete-image-ajax') }}",
                     data: {
                         id: file.name,
                         _token: $('[name="_token"]').val()
@@ -251,7 +251,6 @@
                 value: response.imageID
             }).appendTo("#add");
         }
-        
     };
 </script>
 <!-- Form Validation -->

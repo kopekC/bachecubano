@@ -45,16 +45,13 @@ class ImageController extends Controller
             $photo_upload = new AdResource();                   //[id, ad_id, extension, path]
             $photo_upload->ad_id = 0;
             $photo_upload->extension = $photo->getClientOriginalExtension();
-            $photo_upload->path = $this->photos_path . DIRECTORY_SEPARATOR . rand(0, 999);
+            $photo_upload->path = "uploads/" . rand(0, 9999);
             $photo_upload->save();
 
             //Create Folder If dont exists
             if (!is_dir($photo_upload->path)) {
                 mkdir($photo_upload->path, 0777);
             }
-
-            //Use the $photo_upload->id;
-            //dump($photo_upload);
 
             //Name is the actual ID of AdResource object
             $name = $photo_upload->id;

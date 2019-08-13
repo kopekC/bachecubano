@@ -166,7 +166,7 @@ class AdController extends Controller
             "agree" => 'bail|required',
         ]);
 
-        dump(Input::post());
+        //dump(Input::post());
 
         $category = Category::findOrFail(Input::post('category'));
 
@@ -209,9 +209,7 @@ class AdController extends Controller
         $description->save();
 
         //Retrieve Ad Again
-        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad->id);
-
-        dd($ad);
+        $ad = Ad::with(['description', 'category.description', 'category.parent.description'])->findOrFail($ad->id);
 
         //If Ad was inserted, redirect to it
         if ($ad) {
@@ -231,7 +229,7 @@ class AdController extends Controller
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad
-        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad_id);
+        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner'])->findOrFail($ad_id);
 
         //Hit Visit to this Ad using increment method
         $stats = AdStats::findOrNew($ad->id);
