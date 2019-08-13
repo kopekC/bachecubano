@@ -217,10 +217,10 @@ class AdController extends Controller
     {
         //Retrieve Ad
         $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats'])->findOrFail($ad_id);
-        $stats = AdStats::findOrNew($ad->id);
 
-        //Hit Visit to this Ad
-        $stats->hits++;
+        //Hit Visit to this Ad using increment method
+        $stats = AdStats::findOrNew($ad->id);
+        $stats->increment('hits');
         $stats->save();
 
         //SEO Data

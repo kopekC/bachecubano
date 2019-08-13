@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Photo;
-
 use Illuminate\Support\Facades\Response;
 use Intervention\Image\Facades\Image;
+
+use App\AdResource;
 
 class ImageController extends Controller
 {
@@ -17,7 +17,7 @@ class ImageController extends Controller
 
     public function __construct()
     {
-        $this->photos_path = public_path('/images');
+        $this->photos_path = public_path('images');
     }
 
     //Testing Routes
@@ -42,25 +42,55 @@ class ImageController extends Controller
 
             $photo = $photos[$i];
 
-            $name = sha1(date('YmdHis') . str_random(30));
-            $save_name = $name . '.' . $photo->getClientOriginalExtension();
-            $resize_name = $name . str_random(2) . '.' . $photo->getClientOriginalExtension();
+            $photo_upload = new AdResource();                   //[id, ad_id, extension, path]
+            $photo_upload->ad_id = 0;
+            $photo_upload->extension = $photo->getClientOriginalExtension();
+            $photo_upload->path = $this->photos_path . DIRECTORY_SEPARATOR . rand(0, 999);
+            $photo_upload->save();
 
-            //Image manipulation
+            //Create Folder If dont exists
+            if (!is_dir($photo_upload->path)) {
+                mkdir($photo_upload->path, 0777);
+            }
+
+            //Use the $photo_upload->id;
+            dump($photo_upload);
+
+            //Name is the actual ID of AdResource object
+            $name = $photo_upload->id;
+
+            $original_name = $name . '_original.' . $photo->getClientOriginalExtension();
+            $photo_480 = $name . '.' . $photo->getClientOriginalExtension();
+            $photo_preview = $name . '_preview.' . $photo->getClientOriginalExtension();
+            $photo_thumbnail = $name . '_thumbnail.' . $photo->getClientOriginalExtension();
+
+            //There are four photos xxx (480), xxx_original (orig), xxx_preview (340), xxx_thumbnail (200)
+
+            //Image manipulation thumbnail
             Image::make($photo)
-                ->resize(250, null, function ($constraints) {
+                ->resize(200, null, function ($constraints) {
                     $constraints->aspectRatio();
                 })
-                ->save($this->photos_path . '/' . $resize_name);
+                ->save($photo_upload->path . DIRECTORY_SEPARATOR . $photo_thumbnail);
 
-            $photo->move($this->photos_path, $save_name);
+            //Image manipulation preview
+            Image::make($photo)
+                ->resize(340, null, function ($constraints) {
+                    $constraints->aspectRatio();
+                })
+                ->save($photo_upload->path . DIRECTORY_SEPARATOR . $photo_preview);
 
-            //$upload = new Upload();
-            //$upload->filename = $save_name;
-            //$upload->resized_name = $resize_name;
-            //$upload->original_name = basename($photo->getClientOriginalName());
-            //$upload->save();
+            //Image manipulation thumbnail
+            Image::make($photo)
+                ->resize(480, null, function ($constraints) {
+                    $constraints->aspectRatio();
+                })
+                ->save($photo_upload->path . DIRECTORY_SEPARATOR . $photo_480);
+
+            //Original Move photo
+            $photo->move($photo_upload->path, $original_name);
         }
+
         return Response::json(['message' => 'Image saved Successfully'], 200);
     }
 
