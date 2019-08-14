@@ -20,13 +20,13 @@
                 <li>
                     <a href="{{ route('my_ads') }}" class="{{ \Route::current()->getName() == 'my_ads' ? 'active' : ''}}">
                         <i class="lni-layers"></i>
-                        <span>Mis anuncios</span>
+                        <span>Anuncios</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('my_favourite') }}" class="{{ \Route::current()->getName() == 'my_favourite' ? 'active' : ''}}">
                         <i class="lni-heart"></i>
-                        <span>Mis Favoritos</span>
+                        <span>Favoritos</span>
                     </a>
                 </li>
                 <li>
@@ -39,7 +39,7 @@
                 <li>
                     <a href="#" class="{{ \Route::current()->getName() == 'offers' ? 'active' : ''}}">
                         <i class="lni-envelope"></i>
-                        <span>Ofertas/Mensajes</span>
+                        <span>Mensajes</span>
                     </a>
                 </li>
                 <li>
