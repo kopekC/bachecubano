@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\URL;
 use App\AdStats;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Filesystem\Cache;
 
 class AdController extends Controller
 {
@@ -229,9 +230,9 @@ class AdController extends Controller
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad
-        $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner'])->findOrFail($ad_id);
-
-        //dd($ad);
+        $ad = Cache::remember('ad-{$ad_id}', 5, function () {
+            return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner'])->findOrFail($ad_id);
+        });
 
         //Hit Visit to this Ad using increment method
         $stats = AdStats::findOrNew($ad->id);       //No puedes crearlo asi, hay que hacer un if
@@ -260,6 +261,18 @@ class AdController extends Controller
             OpenGraph::addImage(ad_first_image($ad));
         }
 
+        //Retrieve from Cache, Not neccesary to retrieve again
+        $promoted_ads = Cache::remember('promoted_ads', 60, function () {
+            return Ad::where('active', 1)
+                ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
+                ->whereHas('promo', function ($query) {
+                    $query->where('promotype', '>=', 3);
+                })
+                ->inRandomOrder()
+                ->take(8)
+                ->get();
+        });
+
         //Schema
         $SchemaLD = Schema::Product()
             ->name($seo_data['title'])
@@ -286,16 +299,6 @@ class AdController extends Controller
                             ->name($ad->contact_name)
                     )
             );
-
-        //Featured Listing, Diamond and Gold Random
-        $promoted_ads = Ad::where('active', 1)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
-            ->whereHas('promo', function ($query) {
-                $query->where('promotype', '>=', 3);
-            })
-            ->inRandomOrder()
-            ->take(8)
-            ->get();
 
         return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD'));
     }

@@ -168,7 +168,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3 tg-inputwithicon">
                                             <label class="control-label">Provincia</label>
-                                            <div class="tg-select form-control">
+                                            <div class="tg-select form-control  pt-0 pb-0">
                                                 <select name="province">
                                                     <option value="la-habana">La Habana</option>
                                                 </select>
