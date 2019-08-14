@@ -7,15 +7,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- Twitter Bootstrap & Behaviors -->
+<!-- Twitter Bootstrap & Behaviors Like Tooltips etc -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!-- Carousell -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- Responsive Navigation Menu -->
-<script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+<!-- <script src="{{ asset('js/jquery.slicknav.js') }}"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
 
-<!-- Checkout This: -->
+<!-- Checkout This as the img logos for use later in main.js -->
 <script>
     var logo = "{{ asset('img/logo-bachecubano.png') }}";
     var logo_w = "{{ asset('img/logo-bachecubano-w.png') }}";
@@ -23,7 +24,6 @@
 
 <script src="{{ asset('js/waypoints.min.js') }}"></script>
 <script src="{{ asset('js/wow.js') }}"></script>
-<script src="{{ asset('js/nivo-lightbox.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <!-- <script src="{{ asset('js/contact-form-script.min.js') }}"></script> -->
 

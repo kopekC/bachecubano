@@ -40,12 +40,14 @@ class WelcomeController extends Controller
         Twitter::setTitle($seo_data['title']);
 
         //Latest Ads (With Photo only)
+        /*
         $latest_ads = Ad::where('active', 1)
             ->with(['description', 'resources', 'category.description', 'category.parent.description'])
             ->has('resources')  //Has Pictures...
             ->orderBy('created_at', 'desc')
             ->take(8)
             ->get();
+            */
 
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Ad::where('active', 1)
@@ -103,7 +105,7 @@ class WelcomeController extends Controller
             );
 
         //Analize the variable submit, could be better
-        return view('welcome', compact('latest_ads', 'promoted_ads', 'SchemaLD'));
+        return view('welcome', compact('promoted_ads', 'SchemaLD'/*, 'latest_ads'*/));
     }
 
     /**

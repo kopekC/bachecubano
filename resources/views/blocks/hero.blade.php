@@ -33,7 +33,7 @@
                             </div>
                         </form>
 
-                        <div class="adverts-search-suggestion">
+                        <div class="adverts-search-suggestion d-none d-md-block">
                             <span class="search-suggestion-title">Búsquedas populares</span>
                             <div class="adverts-search-suggestion-items">
                                 <ul>

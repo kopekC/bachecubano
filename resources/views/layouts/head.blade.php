@@ -14,7 +14,8 @@
     <!-- LineIcons CDN -->
     <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
     <!-- Slicknav Responsive Menu -->
-    <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <!-- Animate -->

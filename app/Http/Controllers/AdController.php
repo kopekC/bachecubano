@@ -305,7 +305,9 @@ class AdController extends Controller
      */
     public function edit(Request $request, Ad $ad)
     {
-        //
+        //Well, here paint the ad therefore isn't
+        //Pintar la misma pagina de ADD pero con los datos prellenos y un hidden que le indique que es edicion y no adicion?
+        dd($ad);
     }
 
     /**
@@ -328,7 +330,8 @@ class AdController extends Controller
      */
     public function destroy(Request $request, Ad $ad)
     {
-        //
+        //This request came as xhr object ok?
+        
     }
 
     /**

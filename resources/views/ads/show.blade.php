@@ -32,7 +32,8 @@
         <div class="product-info row">
 
             <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
-                @if(count($ad->resources) >= 1)
+                @if(count($ad->resources) > 1)
+
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
                     <div class="item">
