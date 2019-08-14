@@ -10,6 +10,8 @@ use OpenGraph;
 use Twitter;
 use Spatie\SchemaOrg\Schema;
 
+use Illuminate\Support\Facades\Cache;
+
 class WelcomeController extends Controller
 {
     /**
@@ -49,7 +51,20 @@ class WelcomeController extends Controller
             ->get();
             */
 
+        //Remember this result a 1 hour 👇
+        $promoted_ads = Cache::remember('promoted_ads', 60, function () {
+            return Ad::where('active', 1)
+                ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
+                ->whereHas('promo', function ($query) {
+                    $query->where('promotype', '>=', 3);
+                })
+                ->inRandomOrder()
+                ->take(8)
+                ->get();
+        });
+
         //Featured Listing, Diamond and Gold Random
+        /*
         $promoted_ads = Ad::where('active', 1)
             ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
             ->whereHas('promo', function ($query) {
@@ -58,6 +73,7 @@ class WelcomeController extends Controller
             ->inRandomOrder()
             ->take(8)
             ->get();
+        */
 
         //testimonial
         //Try to fetch from facebook isn't with JS

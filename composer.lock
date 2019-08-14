@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "327060e5a0861814c741bfa810a79053",
+    "content-hash": "f13da5b00bb28e31f8259503031236fa",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -1988,6 +1988,48 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
+        },
+        {
+            "name": "nckg/laravel-minify-html",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nckg/laravel-minify-html.git",
+                "reference": "89dc2f33d055e67aa8025ae16c1c9f216970bdb1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nckg/laravel-minify-html/zipball/89dc2f33d055e67aa8025ae16c1c9f216970bdb1",
+                "reference": "89dc2f33d055e67aa8025ae16c1c9f216970bdb1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+                "mockery/mockery": "^0.9.4",
+                "orchestra/testbench": "^3.2",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nckg\\Minify\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nick Goris",
+                    "email": "nickgoris@gmail.com"
+                }
+            ],
+            "description": "Minify your responses in Laravel 5.x",
+            "time": "2018-04-26T21:25:47+00:00"
         },
         {
             "name": "nesbot/carbon",
