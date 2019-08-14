@@ -31,7 +31,6 @@
         delay: 10,
         time: 1000
     });
-
     /* Search
     ========================================================*/
     $('.search-query .form-control').on('click', function(e) {
