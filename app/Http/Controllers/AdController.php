@@ -231,9 +231,12 @@ class AdController extends Controller
         //Retrieve Ad
         $ad = Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner'])->findOrFail($ad_id);
 
+        //dd($ad);
+
         //Hit Visit to this Ad using increment method
-        $stats = AdStats::findOrNew($ad->id);
-        $stats->increment('hits');
+        $stats = AdStats::findOrNew($ad->id);       //No puedes crearlo asi, hay que hacer un if
+        $stats->ad_id = $ad->id;
+        $stats->increment('hits');                  //Default value 1
         $stats->save();
 
         //SEO Data
@@ -331,7 +334,7 @@ class AdController extends Controller
     public function destroy(Request $request, Ad $ad)
     {
         //This request came as xhr object ok?
-        
+
     }
 
     /**

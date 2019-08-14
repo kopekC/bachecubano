@@ -36,6 +36,14 @@ return [
     'cache_store' => env('RESPONSE_CACHE_DRIVER', 'file'),
 
     /*
+     * Here you may define replacers that dynamically replace content from the response.
+     * Each replacer must implement the Replacer interface.
+     */
+    'replacers' => [
+        \Spatie\ResponseCache\Replacers\CsrfTokenReplacer::class,
+    ],
+
+    /*
      * If the cache driver you configured supports tags, you may specify a tag name
      * here. All responses will be tagged. When clearing the responsecache only
      * items with that tag will be flushed.

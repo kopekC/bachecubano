@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Header Start -->
-<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+<div class="page-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
