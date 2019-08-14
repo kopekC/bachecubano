@@ -25,7 +25,6 @@
 <script src="{{ asset('js/waypoints.min.js') }}"></script>
 <script src="{{ asset('js/wow.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<!-- <script src="{{ asset('js/contact-form-script.min.js') }}"></script> -->
 
 @stack('script')
 
