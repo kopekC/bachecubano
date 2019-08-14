@@ -3,11 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class AdRegion extends Model
 {
-    //Belongs to Ad
-    //Belogs to User
-    
-    
+    use Cachable;
 }

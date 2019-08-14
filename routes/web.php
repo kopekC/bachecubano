@@ -38,7 +38,7 @@ Route::resource('cart', 'CartController');
 Route::get('/share/{network}/{url}/{text}', 'ShareController@index')->name('share');
 
 //Ads Routes & Resource Route
-Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');          //Cache daily
+Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');;          //Cache daily ->middleware('cacheResponse:86400');
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index');
 Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad');

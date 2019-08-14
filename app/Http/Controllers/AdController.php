@@ -21,6 +21,7 @@ use App\AdStats;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Filesystem\Cache;
+use App\AdRegion;
 
 class AdController extends Controller
 {
@@ -118,7 +119,7 @@ class AdController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new Ad.
      *
      * @return \Illuminate\Http\Response
      */
@@ -136,6 +137,11 @@ class AdController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
+        //get All regions of the system
+        $regions = AdRegion::all();
+
+        dd($regions);
+
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Ad::where('active', 1)
             ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
@@ -146,7 +152,7 @@ class AdController extends Controller
             ->take(8)
             ->get();
 
-        return view('ads.add', compact('promoted_ads'));
+        return view('ads.add', compact('promoted_ads', 'regions'));
     }
 
     /**
