@@ -39,7 +39,6 @@
                 </h2>
                 <!-- Form -->
                 <form id="contactForm" class="contact-form" data-toggle="validator" action="{{ route('contact_submit') }}" method="POST">
-
                     @csrf
 
                     <div class="row">

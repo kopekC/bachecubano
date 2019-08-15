@@ -25,6 +25,7 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 Auth::routes();
 
 // Posts resourcfull controllers routes
+Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post');
 Route::resource('/blog', 'PostController');
 
 //User Routes for Configuration 

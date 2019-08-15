@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <!-- Page Header Start -->
 <div class="page-header">
     <div class="container">
@@ -33,7 +32,6 @@
 
             <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
                 @if(count($ad->resources) > 1)
-
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
                     <div class="item">
@@ -41,7 +39,6 @@
                     </div>
                     @endforeach
                 </div>
-
                 @push('script')
                 <script>
                     $('#product-carousel').owlCarousel({
@@ -62,7 +59,6 @@
                     })
                 </script>
                 @endpush
-
                 @else
                 <img src="{{ ad_first_image($ad) }}" class="img-fluid">
                 @endif
@@ -102,6 +98,24 @@
                     <div id="adcontent">
                         {!! nl2br($ad->description->description) !!}
                     </div>
+                    <!-- Disqus -->
+                    <div id="disqus_thread"></div>
+                    @push('script')
+                    <script>
+                        var disqus_config = function() {
+                            this.page.url = "{{ URL:current() }}"; // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = "{{ $post->id . $post->slug }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document,
+                                s = d.createElement('script');
+                            s.src = 'https://bachecubano.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    @endpush
                 </div>
             </div>
 
@@ -189,50 +203,6 @@
             }
         }
     });
-    /**
-     * Example Code:
-     * 
-     var linkedText = Autolinker.link(text, {
-        replaceFn: function(match) {
-            console.log("href = ", match.getAnchorHref());
-            console.log("text = ", match.getAnchorText());
-            switch (match.getType()) {
-                case 'url':
-                    console.log("url: ", match.getUrl());
-                    if (match.getUrl().indexOf('mysite.com') === -1) {
-                        var tag = match.buildTag(); // returns an `Autolinker.HtmlTag` instance, which provides mutator methods for easy changes
-                        tag.setAttr('rel', 'nofollow');
-                        tag.addClass('external-link');
-                        return tag;
-                    } else {
-                        return true; // let Autolinker perform its normal anchor tag replacement
-                    }
-                    break;
-                case 'email':
-                    var email = match.getEmail();
-                    console.log("email: ", email);
-                    return;
-                    break;
-
-                case 'phone':
-                    var phoneNumber = match.getPhoneNumber();
-                    console.log(phoneNumber);
-                    return '<a href="http://newplace.to.link.phone.numbers.to/">' + phoneNumber + '</a>';
-                    break;
-                case 'hashtag':
-                    var hashtag = match.getHashtag();
-                    console.log(hashtag);
-                    return '<a href="https://www.bachecubano.com/search?tags=' + hashtag + '">' + hashtag + '</a>';
-                    break;
-                case 'mention':
-                    var mention = match.getMention();
-                    console.log(mention);
-                    return '<a href="http://newplace.to.link.mention.to/">' + mention + '</a>';
-                    break;
-            }
-        }
-    });
-     */
 </script>
 @endpush
 

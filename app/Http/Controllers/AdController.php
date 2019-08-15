@@ -6,9 +6,11 @@ use App\Category;
 use App\Ad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+
 use SEOMeta;
 use OpenGraph;
 use Twitter;
+
 use App\CategoryDescription;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Cookie;
@@ -165,11 +167,11 @@ class AdController extends Controller
     {
         $validatedData = $request->validate([
             'category' => 'bail|required|numeric',
-            'title' => 'bail|required|max:255',
-            'description' => 'bail|required',
-            'contact_name' => 'bail|required',
-            'contact_email' => 'bail|required|email',
-            'phone' => 'bail|required|numeric',
+            'title' => 'bail|required|min:10|max:255',
+            'description' => 'bail|min:10|required',
+            'contact_name' => 'bail|required|min:3|max:255',
+            'contact_email' => 'bail|required|email|min:5|max:255',
+            'phone' => 'bail|required|numeric|min:8|max:16',
             'ad_region' => 'bail|required|numeric',
             "agree" => 'bail|required',
         ]);
