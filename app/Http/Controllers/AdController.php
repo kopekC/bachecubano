@@ -140,17 +140,17 @@ class AdController extends Controller
         //get All regions of the system
         $regions = AdRegion::all();
 
-        dd($regions);
-
         //Featured Listing, Diamond and Gold Random
-        $promoted_ads = Ad::where('active', 1)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
-            ->whereHas('promo', function ($query) {
-                $query->where('promotype', '>=', 3);
-            })
-            ->inRandomOrder()
-            ->take(8)
-            ->get();
+        $promoted_ads = Cache::remember('promoted_ads', 60, function () {
+            return Ad::where('active', 1)
+                ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
+                ->whereHas('promo', function ($query) {
+                    $query->where('promotype', '>=', 3);
+                })
+                ->inRandomOrder()
+                ->take(8)
+                ->get();
+        });
 
         return view('ads.add', compact('promoted_ads', 'regions'));
     }
@@ -168,8 +168,9 @@ class AdController extends Controller
             'title' => 'bail|required|max:255',
             'description' => 'bail|required',
             'contact_name' => 'bail|required',
-            'contact_email' => 'bail|required',
-            'phone' => 'bail|required',
+            'contact_email' => 'bail|required|email',
+            'phone' => 'bail|required|numeric',
+            'ad_region' => 'bail|required|numeric',
             "agree" => 'bail|required',
         ]);
 

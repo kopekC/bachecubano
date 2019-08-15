@@ -15,6 +15,7 @@ class AddPhoneToAds extends Migration
     {
         Schema::table('ads', function (Blueprint $table) {
             $table->string('phone', 11);
+            $table->integer('region_id', 6);
         });
     }
 
@@ -27,6 +28,7 @@ class AddPhoneToAds extends Migration
     {
         Schema::table('ads', function (Blueprint $table) {
             $table->dropColumn('phone');
+            $table->dropColumn('region_id');
         });
     }
 }

@@ -29,13 +29,13 @@
 
         <div class="row">
 
-            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 page-sidebar d-none d-md-block">
+            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 page-sidebar d-none d-md-block">
                 @auth
                 @include('user.sidebar')
                 @endauth
             </div>
 
-            <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6 offset-xl-1">
+            <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6">
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -48,7 +48,6 @@
                 @endif
 
                 <form action="{{ route('ad.store') }}" method="POST" name="add" class="form" id="add">
-
                     @csrf
 
                     <div class="inner-box">
@@ -169,8 +168,13 @@
                                         <div class="form-group mb-3 tg-inputwithicon">
                                             <label class="control-label">Provincia</label>
                                             <div class="tg-select form-control  pt-0 pb-0">
-                                                <select name="province">
-                                                    <option value="la-habana">La Habana</option>
+                                                <select name="ad_region">
+                                                    @if(isset($regions))
+                                                    <option value="737586">La Habana</option>
+                                                    @foreach($regions as $region)
+                                                    <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                                    @endforeach
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>

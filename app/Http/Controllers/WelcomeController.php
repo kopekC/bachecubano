@@ -41,16 +41,6 @@ class WelcomeController extends Controller
         OpenGraph::addImage(asset('android-chrome-512x512.png'));
         Twitter::setTitle($seo_data['title']);
 
-        //Latest Ads (With Photo only)
-        /*
-        $latest_ads = Ad::where('active', 1)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description'])
-            ->has('resources')  //Has Pictures...
-            ->orderBy('created_at', 'desc')
-            ->take(8)
-            ->get();
-            */
-
         //Remember this result a 1 hour 👇
         $promoted_ads = Cache::remember('promoted_ads', 60, function () {
             return Ad::where('active', 1)
@@ -62,18 +52,6 @@ class WelcomeController extends Controller
                 ->take(8)
                 ->get();
         });
-
-        //Featured Listing, Diamond and Gold Random
-        /*
-        $promoted_ads = Ad::where('active', 1)
-            ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
-            ->whereHas('promo', function ($query) {
-                $query->where('promotype', '>=', 3);
-            })
-            ->inRandomOrder()
-            ->take(8)
-            ->get();
-        */
 
         //testimonial
         //Try to fetch from facebook isn't with JS
