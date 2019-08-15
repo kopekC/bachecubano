@@ -185,3 +185,15 @@ class AdStats extends Model
         ]);
     }
 }
+
+class AdRegion extends Model
+{
+    use Cachable;
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+}
