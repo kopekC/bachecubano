@@ -4,6 +4,11 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Mail;
+
+use Symfony\Component\Debug\Exception\FlattenException;
+use Symfony\Component\Debug\ExceptionHandler as SymfonyExceptionHandler;
+use App\Mail\Exception as ExceptionMail;
 
 class Handler extends ExceptionHandler
 {
@@ -34,7 +39,28 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        if ($this->shouldReport($exception)) {
+            $this->sendExceptionEmail($exception);
+        }
+
         parent::report($exception);
+    }
+
+    /**
+     * Parse the exception and send email
+     *
+     * @param Exception $exception
+     */
+    public function sendExceptionEmail(Exception $exception)
+    {
+        try {
+            $e = FlattenException::create($exception);
+            $handler = new SymfonyExceptionHandler();
+            $html = $handler->getHtml($e);
+            Mail::queue(new ExceptionMail($html));
+        } catch (Exception $e) {
+            //
+        }
     }
 
     /**
@@ -46,6 +72,15 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        /**
+         * Had to put this in because it was throwing an exception if the user wasn't unauthenticated
+         */
+        if (!$this->shouldReport($exception)) {
+            return parent::render($request, $exception);
+        }
+        if (config('app.debug')) {
+            return parent::render($request, $exception);
+        }
+        return response()->view('errors.custom', [], 500);
     }
 }
