@@ -24,6 +24,9 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 //User Login/Register/Change Password routes
 Auth::routes();
 
+// Posts resourcfull controllers routes
+Route::resource('/blog', 'PostController');
+
 //User Routes for Configuration 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/ads', 'HomeController@ads')->name('my_ads');
