@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 
 use App\Category;
+use App\Post;
 use App\Providers\TelescopeServiceProvider;
+
+use Illuminate\Support\Facades\Cache;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -52,9 +55,15 @@ class AppServiceProvider extends ServiceProvider
             }
         }
 
+        //get Three Blog Posts and cache it for one day?
+        $latest_blog_post = Cache::remember('latest_blog_post', 1440, function () {
+            return Post::latest()->limit(3)->get();
+        });
+
         View::share('parent_categories', $parent_categories);
         View::share('category_formatted', $category_formatted);
         View::share('total_ads', '120918');      //Load and cache this number everyday
         View::share('total_users', '15421');      //Load and cache this number everyday
+        View::share('latest_blog_post', $latest_blog_post);
     }
 }

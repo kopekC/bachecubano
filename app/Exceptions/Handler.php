@@ -33,16 +33,18 @@ class Handler extends ExceptionHandler
 
     /**
      * Report or log an exception.
+     * How to do both?
      *
      * @param  \Exception  $exception
      * @return void
      */
     public function report(Exception $exception)
     {
+        /*
         if ($this->shouldReport($exception)) {
             $this->sendExceptionEmail($exception);
         }
-
+        */
         parent::report($exception);
     }
 

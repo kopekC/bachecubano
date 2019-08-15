@@ -103,8 +103,8 @@
                     @push('script')
                     <script>
                         var disqus_config = function() {
-                            this.page.url = "{{ URL:current() }}"; // Replace PAGE_URL with your page's canonical URL variable
-                            this.page.identifier = "{{ $post->id . $post->slug }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                            this.page.url = "{{ URL::current() }}"; // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = "{{ $ad->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                         };
                         (function() { // DON'T EDIT BELOW THIS LINE
                             var d = document,

@@ -24,11 +24,13 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{{ route('blog.index') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Blog
                     </a>
                     <div class="dropdown-menu">
-                        {{-- <a class="dropdown-item" href="blog.html">Blog - Right Sidebar</a> --}}
+                        @foreach($latest_blog_post as $blog_post)
+                        <a class="dropdown-item" href="{{ route('blog_post', ['entry_slug' => $blog_post->slug]) }}">{{ $blog_post->title }}</a>
+                        @endforeach
                     </div>
                 </li>
                 <li class="nav-item">

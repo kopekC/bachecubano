@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\URL;
 use App\AdStats;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Filesystem\Cache;
+use Illuminate\Support\Facades\Cache;
+
 use App\AdRegion;
 
 class AdController extends Controller
@@ -239,7 +240,7 @@ class AdController extends Controller
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad
-        $ad = Cache::remember('ad-{$ad_id}', 5, function () {
+        $ad = Cache::remember('ad-{$ad_id}', 5, function () use ($ad_id) {
             return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner'])->findOrFail($ad_id);
         });
 

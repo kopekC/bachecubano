@@ -3,54 +3,24 @@
     <div class="container">
         <h1 class="section-title">From The Blog</h1>
         <div class="row">
+            @foreach($latest_blog_post as $blog_post)
             <div class="col-lg-4 col-md-6 col-xs-12">
                 <div class="blog-post-item">
                     <div class="post-thumb">
                         <figure>
-                            <img src="{{ asset('img/blog/img1.jpg') }}" alt="">
+                            <img src="{{ config('app.img_url') }}/blog/{{ $blog_post->cover }}" alt="{{ $blog_post->title }}">
                         </figure>
                         <div class="post-categories">
-                            <a href="#">Travel and Tourism</a>
+                            <a href="#"></a>
                         </div>
                     </div>
                     <div class="post-item-content">
-                        <div class="post-date">June 25, 2018</div>
-                        <h4 class="post-title"><a href="#">Phasellus ultrices nulla quis nibh</a></h4>
+                        <div class="post-date">{{ $blog_post->created_at->diffForHumans() }}</div>
+                        <h4 class="post-title"><a href="{{ route('blog_post', ['entry_slug' => $blog_post->slug]) }}">{{ $blog_post->title }}</a></h4>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
-                <div class="blog-post-item">
-                    <div class="post-thumb">
-                        <figure>
-                            <img src="{{ asset('img/blog/img2.jpg') }}" alt="">
-                        </figure>
-                        <div class="post-categories">
-                            <a href="#">Food & Restaurants</a>
-                        </div>
-                    </div>
-                    <div class="post-item-content">
-                        <div class="post-date">June 25, 2018</div>
-                        <h4 class="post-title"><a href="#">Morbi in sem quis dui placerat ornare</a></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
-                <div class="blog-post-item">
-                    <div class="post-thumb">
-                        <figure>
-                            <img src="{{ asset('img/blog/img3.jpg') }}" alt="">
-                        </figure>
-                        <div class="post-categories">
-                            <a href="#">Gym and Fitness</a>
-                        </div>
-                    </div>
-                    <div class="post-item-content">
-                        <div class="post-date">June 25, 2018</div>
-                        <h4 class="post-title"><a href="#">Donec nec justo eget felis facilisis fermentum</a></h4>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

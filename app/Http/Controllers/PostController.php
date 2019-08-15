@@ -10,11 +10,28 @@ use SEOMeta;
 use OpenGraph;
 use Twitter;
 
+
+
 class PostController extends Controller
 {
 
+    /**
+     * Blog Index
+     */
     public function index()
     {
+        //SEO Data
+        $seo_data = [
+            'title' => "Blog de Noticias Comercio y Compra venta en Cuba",
+            'desc' => "Noticias, ofertas, reviews e información general sobre la compra venta en Cuba",
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+
         return view('blog.index');
     }
 
@@ -38,8 +55,6 @@ class PostController extends Controller
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
-
-
 
         return view('blog.show', compact('post'));
     }

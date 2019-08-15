@@ -112,24 +112,10 @@
         </ul>
     </div>
 
-    <!-- Tag Media -->
-    <div class="widget tag">
-        <h4 class="widget-title">Tag Cloud</h4>
-        <div class="tagcloud">
-            <a style="font-size: 30px;" href="#"> fashion</a>
-            <a href="#"> clothing</a>
-            <a href="#"> trends</a>
-            <a style="font-size: 30px;" href="#"> shoes</a>
-            <a style="font-size: 30px;" href="#"> man fashion</a>
-            <a href="#"> Sell Off</a>
-            <a style="font-size: 30px;" href="#">tops</a>
-        </div>
-    </div>
-
     <div class="widget">
-        <h4 class="widget-title">Advertisement</h4>
+        <h4 class="widget-title">Publicidad</h4>
         <div class="add-box">
-            <img src="assets/img/img1.jpg" alt="">
+            
         </div>
     </div>
 </aside>
