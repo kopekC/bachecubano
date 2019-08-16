@@ -172,6 +172,11 @@
                                                     @if(isset($regions))
                                                     <option value="737586">La Habana</option>
                                                     @foreach($regions as $region)
+
+                                                    @if($region->id == 737586)
+                                                    @continue
+                                                    @endif
+                                                    
                                                     <option value="{{ $region->id }}">{{ $region->name }}</option>
                                                     @endforeach
                                                     @endif

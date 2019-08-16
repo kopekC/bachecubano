@@ -186,6 +186,7 @@ class AdStats extends Model
     }
 }
 
+
 class AdRegion extends Model
 {
     use Cachable;
