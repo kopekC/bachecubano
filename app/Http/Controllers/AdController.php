@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
 use App\AdRegion;
+use stdClass;
 
 class AdController extends Controller
 {
@@ -177,10 +178,10 @@ class AdController extends Controller
             "agree" => 'bail|required',
         ]);
 
-        //dump(Input::post());
-
+        //Category data
         $category = Category::findOrFail(Input::post('category'));
 
+        //Now + 3 months
         $now = Carbon::now();
         $plus_3_months = $now->addMonths(3);
 
@@ -221,6 +222,20 @@ class AdController extends Controller
 
         //Retrieve Ad Again
         $ad = Ad::with(['description', 'category.description', 'category.parent.description'])->findOrFail($ad->id);
+
+        //Send Notification Email to the User
+        //If is guest, always send this email, if it's registered user check for user settings and verify email.published = true 👌
+        if (Auth::check()) {
+            // The user is logged in... So check if send notifications email.add it's true
+            AdController::send_published_ad_email($ad, Auth::user());
+        } else {
+            //Send Email, it's a Guest user
+            $user = new stdClass();
+            $user->name = $ad->contact_name;
+            $user->email = $ad->contact_email;
+            $user->phone = $ad->phone;
+            AdController::send_published_ad_email($ad, $user);
+        }
 
         //If Ad was inserted, redirect to it
         if ($ad) {
@@ -379,4 +394,10 @@ class AdController extends Controller
 
         return $posts_per_page;
     }
+
+    /**
+     * Send an Email with the published Email Data ans a some welcome user
+     */
+    public static function send_published_ad_email($ad, $user_data)
+    { }
 }

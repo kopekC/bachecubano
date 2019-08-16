@@ -235,6 +235,7 @@
             'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
         },
 
+/*
         init: function() {
             this.on("removedfile", function(file) {
                 $.post({
@@ -251,6 +252,7 @@
                 });
             });
         },
+*/
 
         //Add Image IDS on every response
         success: function(file, response) {
