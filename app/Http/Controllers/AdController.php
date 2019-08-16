@@ -399,5 +399,7 @@ class AdController extends Controller
      * Send an Email with the published Email Data ans a some welcome user
      */
     public static function send_published_ad_email($ad, $user_data)
-    { }
+    {
+        
+    }
 }
