@@ -20,9 +20,14 @@ Route::group(['prefix' => 'mailgun',], function () {
     Route::post('widgets', 'MailgunWidgetsController@store');
 });
 
-//Version 1.0 API
-Route::group(['prefix' => '1.0',], function () {
+//SubDomain Mapping
+Route::group(['domain' => 'api.bachecubano.com'], function () {
     Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
+});
+
+//Version 1.0 API
+Route::group(['prefix' => 'v1',], function () {
+    //Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
     Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
 });
 
