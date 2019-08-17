@@ -24,6 +24,7 @@ Route::group(['prefix' => 'mailgun',], function () {
 Route::group(['domain' => 'api.bachecubano.com'], function () {
     Route::group(['prefix' => 'v1'], function () {
         Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
+        Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
     });
 });
 
