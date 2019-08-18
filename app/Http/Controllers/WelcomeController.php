@@ -49,7 +49,7 @@ class WelcomeController extends Controller
                     $query->where('promotype', '>=', 3);
                 })
                 ->inRandomOrder()
-                ->take(8)
+                ->take(4)
                 ->get();
         });
 

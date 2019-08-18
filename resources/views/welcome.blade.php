@@ -16,7 +16,7 @@
 
 @include('blocks.featured-listing')
 
-@include('blocks.testimonial')
+{{-- @include('blocks.testimonial') --}}
 
 @include('blocks.blog-grid')
 

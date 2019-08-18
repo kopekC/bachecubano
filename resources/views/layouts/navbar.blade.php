@@ -82,7 +82,7 @@
     <!-- Mobile Menu Start -->
     <ul class="mobile-menu">
         <li>
-            <a class="active" href="{{ config('app.url') }}">
+            <a href="{{ config('app.url') }}">
                 Inicio
             </a>
         </li>
@@ -131,8 +131,12 @@
         </li>
         @endauth
         @endif
+        <li>
+            <a class="active" href="{{ config('add') }}">
+                Publicar anuncio
+            </a>
+        </li>
     </ul>
     <!-- Mobile Menu End -->
-
 </nav>
 <!-- Navbar End -->
