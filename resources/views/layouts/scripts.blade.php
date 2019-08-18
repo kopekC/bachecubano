@@ -10,10 +10,7 @@
 <!-- Twitter Bootstrap & Behaviors Like Tooltips etc -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- Carousell -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- Responsive Navigation Menu -->
-<!-- <script src="{{ asset('js/jquery.slicknav.js') }}"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
 
 <!-- Checkout This as the img logos for use later in main.js -->

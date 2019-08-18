@@ -39,12 +39,21 @@
                     </div>
                     @endforeach
                 </div>
+                @push('style')
+                <!-- Owl carousel -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+                @endpush
                 @push('script')
+                <!-- Carousell -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
                 <script>
                     $('#product-carousel').owlCarousel({
                         center: true,
                         loop: true,
-                        margin: 10,
+                        stagePadding: 0,
+                        margin: 0,
+                        singleItem: true,
                         nav: true,
                         autoWidth: true,
                         lazyLoad: true,
@@ -55,7 +64,17 @@
                             600: {
                                 items: 2
                             }
-                        }
+                        },
+                        dots: true,
+                        navigation: true, // Show next and prev buttons
+                        slideSpeed: 300,
+                        paginationSpeed: 400
+                        // "singleItem:true" is a shortcut for:
+                        // items : 1, 
+                        // itemsDesktop : false,
+                        // itemsDesktopSmall : false,
+                        // itemsTablet: false,
+                        // itemsMobile : false
                     })
                 </script>
                 @endpush

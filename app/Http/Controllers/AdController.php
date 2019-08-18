@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Ad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Carbon;
+use Spatie\SchemaOrg\Schema;
+use Illuminate\Support\Facades\URL;
 
 use SEOMeta;
 use OpenGraph;
 use Twitter;
 
-use App\CategoryDescription;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Cookie;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Carbon;
 use App\AdDescription;
-use Spatie\SchemaOrg\Schema;
-use Illuminate\Support\Facades\URL;
 use App\AdStats;
-
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Cache;
-
 use App\AdRegion;
+use App\CategoryDescription;
+use App\Category;
+use App\Ad;
+
+use App\Mail\AdPublished;
+
 use stdClass;
 
 class AdController extends Controller
@@ -152,7 +154,7 @@ class AdController extends Controller
                     $query->where('promotype', '>=', 3);
                 })
                 ->inRandomOrder()
-                ->take(8)
+                ->take(4)
                 ->get();
         });
 
@@ -237,13 +239,7 @@ class AdController extends Controller
             AdController::send_published_ad_email($ad, $user);
         }
 
-        //If Ad was inserted, redirect to it
-        if ($ad) {
-            return redirect(ad_url($ad));
-        } else {
-            //Error happens
-            //Log this
-        }
+        return redirect(ad_url($ad));
     }
 
     /**
@@ -401,6 +397,10 @@ class AdController extends Controller
      */
     public static function send_published_ad_email($ad, $user_data)
     {
-        
+        /**
+         * Sometimes you may wish to capture the HTML content of a mailable without sending it. To accomplish this, you may call the `render` method of the mailable.
+         * return (new App\Mail\InvoicePaid($invoice))->render();
+         */
+        return Mail::to($user_data->email)->send(new AdPublished($ad, $user_data));
     }
 }

@@ -16,23 +16,6 @@
       }
     });
 
-    /* New Products ad Featured Owl Carousel
-    ========================================================*/
-    $("#new-products").owlCarousel({
-      navigation: true,
-      pagination: false,
-      slideSpeed: 1000,
-      stopOnHover: true,
-      autoPlay: false,
-      items: 4,
-      itemsDesktop: [1199, 3],
-      itemsDesktopSmall: [980, 2],
-      itemsTablet: [768, 1],
-      itemsTablet: [767, 1],
-      itemsTabletSmall: [480, 1],
-      itemsMobile: [479, 1],
-    });
-
     /* Testimonials Carousel 
     ========================================================*/
     var owl = $("#testimonials");
@@ -69,38 +52,6 @@
       mobile: false
     });
     wow.init();
-
-    /* Nivo Lightbox 
-    ========================================================*/
-    $('.lightbox').nivoLightbox({
-      effect: 'fadeScale',
-      keyboardNav: true,
-    });
-
-    /* Product Grids active
-    ========================================================*/
-    var itemList = $('.item-list');
-    var gridStyle = $('.grid');
-    var listStyle = $('.list');
-
-    $('.list,switchToGrid').on('click', function (e) {
-      e.preventDefault();
-      itemList.addClass("make-list");
-      itemList.removeClass("make-grid");
-      itemList.removeClass("make-compact");
-      gridStyle.removeClass("active");
-      listStyle.addClass("active");
-    });
-
-    gridStyle.on('click', function (e) {
-      e.preventDefault();
-      listStyle.removeClass("active");
-      $(this).addClass("active");
-      itemList.addClass("make-grid");
-      itemList.removeClass("make-list");
-      itemList.removeClass("make-compact");
-    });
-
   });
 
 }(jQuery));

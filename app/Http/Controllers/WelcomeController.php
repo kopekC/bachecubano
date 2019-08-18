@@ -23,7 +23,7 @@ class WelcomeController extends Controller
     { }
 
     /**
-     * Show the application dashboard.
+     * Show the application welcome page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

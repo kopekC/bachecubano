@@ -176,7 +176,7 @@
                                                     @if($region->id == 737586)
                                                     @continue
                                                     @endif
-                                                    
+
                                                     <option value="{{ $region->id }}">{{ $region->name }}</option>
                                                     @endforeach
                                                     @endif
@@ -235,24 +235,24 @@
             'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
         },
 
-/*
-        init: function() {
-            this.on("removedfile", function(file) {
-                $.post({
-                    url: "{{ route('delete-image-ajax') }}",
-                    data: {
-                        id: file.name,
-                        _token: $('[name="_token"]').val()
-                    },
-                    dataType: 'json',
-                    success: function(data) {
-                        total_photos_counter--;
-                        $("#counter").text("# " + total_photos_counter);
-                    }
-                });
-            });
-        },
-*/
+        /*
+                init: function() {
+                    this.on("removedfile", function(file) {
+                        $.post({
+                            url: "{{ route('delete-image-ajax') }}",
+                            data: {
+                                id: file.name,
+                                _token: $('[name="_token"]').val()
+                            },
+                            dataType: 'json',
+                            success: function(data) {
+                                total_photos_counter--;
+                                $("#counter").text("# " + total_photos_counter);
+                            }
+                        });
+                    });
+                },
+        */
 
         //Add Image IDS on every response
         success: function(file, response) {
