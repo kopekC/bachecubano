@@ -14,12 +14,8 @@
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300');         //Cache 5min
 
-//Cache response By Default
-Route::middleware('cacheResponse')->group(function () {
-    Route::get('/contact', 'WelcomeController@contact')->name('contact');
-});
-
 //Contact
+Route::get('/contact', 'WelcomeController@contact')->name('contact')->middleware('cacheResponse:86400');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
 
 //User Login/Register/Change Password routes

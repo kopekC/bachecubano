@@ -109,6 +109,5 @@
 @include('emails.blocks.pricing')
 @include('emails.blocks.testimonials')
 @include('emails.blocks.why-us')
-@include('emails.blocks.features')
 
 @endsection

@@ -37,13 +37,15 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
     Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
 
+
     //Debugging Routes
-    //mailable View
+    //Mailable View
     Route::get('mailable', function () {
         $ad = App\Ad::find(23);
         $user_data = App\User::find(23);
         return new App\Mail\AdPublished($ad, $user_data);
     });
+    
 });
 
 //Save Image from AJAX Calls and API implementation

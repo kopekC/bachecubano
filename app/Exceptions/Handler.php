@@ -41,6 +41,8 @@ class Handler extends ExceptionHandler
     public function report(Exception $exception)
     {
         /*
+         *
+         * Send Exception to email or show here?
         if ($this->shouldReport($exception)) {
             $this->sendExceptionEmail($exception);
         }

@@ -33,7 +33,7 @@
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-bottom:5px;">
                                                 <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#333333;">
-                                                    Testimonials</h2>
+                                                    Testimonios</h2>
                                             </td>
                                         </tr>
                                     </table>
@@ -50,23 +50,20 @@
                                 <td class="es-m-p0r es-m-p20b" width="120" align="center" style="padding:0;Margin:0;">
                                     <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                         <tr style="border-collapse:collapse;">
-                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img src="https://enze.stripocdn.email/content/guids/CABINET_5597dc9d38f38567a5759ba25ff27f65/images/91851507626445164.jpg" alt=" Photo" title=" Photo" class="adapt-img" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
+                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img src="{{ asset('apple-touch-icon.png') }}" alt=" Photo" title=" Photo" class="adapt-img" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    <span style="font-style:italic;line-height:150%;">The
-                                                        full and true description of the software.
-                                                        Great communication.</span></p>
+                                                    <span style="font-style:italic;line-height:150%;">Trabajando para mejorar tus anuncios, complementar el comercio electrónico en Cuba</span></p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    <span style="font-weight:bold;line-height:150%;">Dave
-                                                        Harrison</span><br></p>
+                                                    <span style="font-weight:bold;line-height:150%;">Bachecubano</span><br></p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    Motivational Speaker</p>
+                                                    Plataforma de Ventas</p>
                                             </td>
                                         </tr>
                                     </table>
@@ -80,23 +77,21 @@
                                 <td class="es-m-p0r es-m-p20b" width="120" align="center" style="padding:0;Margin:0;">
                                     <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                         <tr style="border-collapse:collapse;">
-                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img src="https://enze.stripocdn.email/content/guids/CABINET_5597dc9d38f38567a5759ba25ff27f65/images/27621507626307772.jpg" alt=" Photo" title=" Photo" class="adapt-img" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
+                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img src="https://lh5.googleusercontent.com/-OLwx2qiaKKs/AAAAAAAAAAI/AAAAAAAAAFA/zah5GeaFO0w/s40-c0x00000000-cc-rp-mo/photo.jpg" alt=" Photo" title=" Photo" class="adapt-img" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    <span style="font-style:italic;line-height:150%;">A
-                                                        real professional. I recommend
-                                                        everyone.</span></p>
+                                                    <span style="font-style:italic;line-height:150%;">Es la plataforma de compra-venta virtual en Cuba mas completa y amigable tanto para el cliente como para los que venden.
+                                                    </span></p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    <span style="font-weight:bold;line-height:150%;">Mark
-                                                        Macduff</span></p>
+                                                    <span style="font-weight:bold;line-height:150%;">Orestes de la Fe</span></p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    Barkeeper</p>
+                                                    Vendedor Destacado</p>
                                             </td>
                                         </tr>
                                     </table>
@@ -110,23 +105,20 @@
                                 <td class="es-m-p0r es-m-p20b" width="120" align="center" style="padding:0;Margin:0;">
                                     <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                         <tr style="border-collapse:collapse;">
-                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img class="adapt-img" src="https://enze.stripocdn.email/content/guids/CABINET_187958cc3053f10f86429fa00e2b9bad/images/6151505914451310.jpg" alt="Marta Vatson" title="Marta Vatson" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
+                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img class="adapt-img" src="https://lh5.googleusercontent.com/-Z-PVIBP8JIs/AAAAAAAAAAI/AAAAAAAAABk/VwCfhUcxcpQ/s40-c0x00000000-cc-rp-mo/photo.jpg" alt="Marta Vatson" title="Marta Vatson" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    <span style="font-family:tahoma, verdana, segoe, sans-serif;font-style:italic;line-height:150%;">Lorem
-                                                        ipsum dolor sit amet, consectetur adipiscing
-                                                        elit. <br></span></p>
+                                                    <span style="font-family:tahoma, verdana, segoe, sans-serif;font-style:italic;line-height:150%;">Hola Equipo me encanta su aplicación. Realmente en ella he encontrado anuncios de interés. Saludos<br></span></p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    <span style="font-weight:bold;line-height:150%;">Ella
-                                                        Adamson</span></p>
+                                                    <span style="font-weight:bold;line-height:150%;">Graciela Cambara Sanchez</span></p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    Business owner</p>
+                                                    Cliente Satisfecho</p>
                                             </td>
                                         </tr>
                                     </table>
@@ -139,23 +131,20 @@
                                 <td class="es-m-p0r es-m-p20b" width="120" align="center" style="padding:0;Margin:0;">
                                     <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                         <tr style="border-collapse:collapse;">
-                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img src="https://enze.stripocdn.email/content/guids/CABINET_5597dc9d38f38567a5759ba25ff27f65/images/27621507626307772.jpg" alt=" Photo" title=" Photo" class="adapt-img" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
+                                            <td align="center" style="padding:0;Margin:0;padding-bottom:10px;"><img src="https://lh5.googleusercontent.com/-Ai9Y6lhOnaI/AAAAAAAAAAI/AAAAAAAAABY/to92zreqbl4/s40-c0x00000000-cc-rp-mo/photo.jpg" alt=" Photo" title=" Photo" class="adapt-img" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:120px;" width="120"></td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    <span style="font-style:italic;line-height:150%;">A
-                                                        real professional. I recommend
-                                                        everyone.</span></p>
+                                                    <span style="font-style:italic;line-height:150%;">Bachecubano es una plataforma de comercio muy buena. Soy usuario de bachecubano desde el inicio del año.</span></p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    <span style="font-weight:bold;line-height:150%;">Mark
-                                                        Macduff</span></p>
+                                                    <span style="font-weight:bold;line-height:150%;">Barbara Troche</span></p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#02951E;">
-                                                    Barkeeper</p>
+                                                    Cliente Satisfecho</p>
                                             </td>
                                         </tr>
                                     </table>

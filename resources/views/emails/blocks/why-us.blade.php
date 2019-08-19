@@ -12,49 +12,43 @@
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-bottom:5px;padding-top:10px;">
                                                 <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#FFFFFF;">
-                                                    Why choose us?</h2>
+                                                    Por qué nosotros?</h2>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:15px;">
                                                 <h4 style="Margin:0;line-height:120%;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;color:#CCCCCC;">
-                                                    We are Expert</h4>
+                                                    Somos expertos</h4>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#CCCCCC;">
-                                                    <span style="font-size:13px;line-height:20px;">Unknown
-                                                        printer took a galley of type and
-                                                        scrambled.</span></p>
+                                                    <span style="font-size:13px;line-height:20px;">Nos encargaremos que tu anuncio se vea de la mejor forma siempre.</span></p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;">
                                                 <h4 style="Margin:0;line-height:120%;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;color:#CCCCCC;">
-                                                    Our software that’s simple</h4>
+                                                    Sistema simple y extendible</h4>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#CCCCCC;">
-                                                    <span style="font-size:13px;line-height:20px;">Unknown
-                                                        printer took a galley of type and scrambled
-                                                        it to make a type specimen book.</span></p>
+                                                    <span style="font-size:13px;line-height:20px;">Constantemente abiertos y mejorando nuestra plataforma.</span></p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;">
                                                 <h4 style="Margin:0;line-height:120%;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;color:#CCCCCC;">
-                                                    Easy invoicing</h4>
+                                                    Facil de usar</h4>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="left" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#CCCCCC;">
-                                                    <span style="font-size:13px;line-height:20px;">Create
-                                                        professional recurring invoices and receive
-                                                        updates when they’re opened.</span></p>
+                                                    <span style="font-size:13px;line-height:20px;">Con diversos mecanismos de uso e implementación.</span></p>
                                             </td>
                                         </tr>
                                     </table>

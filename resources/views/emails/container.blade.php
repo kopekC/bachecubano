@@ -396,7 +396,7 @@
                             </td>
                         </tr>
                     </table>
-                    
+
                     @yield('content')
 
                     <table class="es-content" cellspacing="0" cellpadding="0" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;">
@@ -440,26 +440,19 @@
                                                             <tr style="border-collapse:collapse;">
                                                                 <td align="left" style="padding:0;Margin:0;padding-top:10px;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <span class="product-name" style="font-weight:bold;line-height:150%;">Pellentesque
-                                                                            vitaeLorem ipsum dol amet</span></p>
+                                                                        <span class="product-name" style="font-weight:bold;line-height:150%;">Comenzaremos a pagar y monetizar anuncios + seguidores</span></p>
                                                                 </td>
                                                             </tr>
                                                             <tr style="border-collapse:collapse;">
                                                                 <td align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:5px;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <span class="product-description">Pellentesque
-                                                                            vitaeLorem ipsum dol amet, consectetur
-                                                                            adipiscing elit. Pellentesque vitaeLorem
-                                                                            ipsum dol amet, consectetur adipiscing elit.
-                                                                            Pellentesque vitaeLorem ipsum dol amet,
-                                                                            consectetur adipiscing elit.</span><br></p>
+                                                                        <span class="product-description">Una de las ideas que queremos implementar desde YA es una plataforma de monetización por seguirnos, compartir nuestras publicaciones y participar activamente en nuestras redes sociales...</span><br></p>
                                                                 </td>
                                                             </tr>
                                                             <tr style="border-collapse:collapse;">
                                                                 <td esdev-links-color="#02951e" align="left" style="padding:0;Margin:0;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <a href="https://viewstripo.email/" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:underline;color:#02951E;">READ
-                                                                            MORE</a></p>
+                                                                        <a href="https://www.facebook.com/notes/bachecubano/comenzaremos-a-pagar-y-monetizar-anuncios-seguidores/2386750058247726/" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:underline;color:#02951E;">Leer más</a></p>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -477,64 +470,19 @@
                                                             <tr style="border-collapse:collapse;">
                                                                 <td align="left" style="padding:0;Margin:0;padding-top:10px;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <span class="product-name" style="font-weight:bold;line-height:150%;">Pellentesque
-                                                                            vitaeLorem ipsum dol amet, consectetur
-                                                                            adipiscing elit</span></p>
+                                                                        <span class="product-name" style="font-weight:bold;line-height:150%;">Rebaja en el envío de SMS 4 centavos</span></p>
                                                                 </td>
                                                             </tr>
                                                             <tr style="border-collapse:collapse;">
                                                                 <td align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:5px;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <span class="product-description">Pellentesque
-                                                                            vitaeLorem ipsum dol amet, consectetur
-                                                                            adipiscing elit. Pellentesque vitaeLorem
-                                                                            ipsum dol amet, consectetur
-                                                                            adipiscing.</span></p>
+                                                                        <span class="product-description">Trabajamos pensando siempre en ayudarte a vivir mejor, promoviendo tus ventas, acercándote a tus clientes y comunicándote con tus seres queridos...</span></p>
                                                                 </td>
                                                             </tr>
                                                             <tr style="border-collapse:collapse;">
                                                                 <td align="left" style="padding:0;Margin:0;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <a href="https://viewstripo.email/" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:underline;color:#02951E;">READ
-                                                                            MORE</a></p>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr style="border-collapse:collapse;">
-                                        <td align="left" style="padding:0;Margin:0;padding-top:5px;padding-left:30px;padding-right:30px;">
-                                            <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
-                                                <tr style="border-collapse:collapse;">
-                                                    <td width="540" valign="top" align="center" style="padding:0;Margin:0;">
-                                                        <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
-                                                            <tr style="border-collapse:collapse;">
-                                                                <td align="left" style="padding:0;Margin:0;padding-top:10px;">
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <span class="product-name" style="font-weight:bold;line-height:150%;">Pellentesque
-                                                                            vitaeLorem ipsum dol amet, consectetur
-                                                                            adipiscing elit vitaeLorem ipsum dol
-                                                                            amet</span></p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr style="border-collapse:collapse;">
-                                                                <td align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:5px;">
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <span class="product-description">Pellentesque
-                                                                            vitaeLorem ipsum dol amet, consectetur
-                                                                            adipiscing elit. Pellentesque vitaeLorem
-                                                                            ipsum dol amet, consectetur adipiscing elit.
-                                                                            Pellentesque vitaeLorem.</span></p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr style="border-collapse:collapse;">
-                                                                <td esdev-links-color="#02951e" align="left" style="padding:0;Margin:0;">
-                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <a href="https://viewstripo.email/" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:underline;color:#02951E;">READ
-                                                                            MORE</a></p>
+                                                                        <a href="https://www.facebook.com/notes/bachecubano/rebaja-en-el-envío-de-sms-4-centavos/2320679981521401/" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:underline;color:#02951E;">Leer más</a></p>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -582,7 +530,7 @@
                                                             <tr style="border-collapse:collapse;">
                                                                 <td class="es-m-txt-c" align="center" style="padding:0;Margin:0;">
                                                                     <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#333333;">
-                                                                        Trabajando con las mejores empresas<br></h2>
+                                                                        Trabajamos con las mejores empresas<br></h2>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -599,7 +547,7 @@
                                                     <td class="es-m-p0r es-m-p20b" width="120" align="center" style="padding:0;Margin:0;">
                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                                             <tr style="border-collapse:collapse;">
-                                                                <td align="center" style="padding:0;Margin:0;"><img src="https://enze.stripocdn.email/content/guids/CABINET_1a8043ae397d8efdc3b5cbf102f89adc/images/55481509701874088.jpg" alt="Suma Studio" title="Suma Studio" width="90" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
+                                                                <td align="center" style="padding:0;Margin:0;"><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p200x200/67817455_2286905904690940_6894081714545491968_n.png?_nc_cat=104&_nc_oc=AQk6at0PKGut-VEVivzZpiQbXpYESmmqWmkYLQaOgT69hh2XvDDeqjHXHehmtpFZrOw&_nc_ht=scontent-lga3-1.xx&oh=6ca91f76cba0e92617935aeebc8bd34f&oe=5DD022AB" alt="Suma Studio" title="QvaQui Publicitaria" width="90" height="90" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -613,7 +561,7 @@
                                                     <td class="es-m-p20b" width="120" align="center" style="padding:0;Margin:0;">
                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                                             <tr style="border-collapse:collapse;">
-                                                                <td align="center" style="padding:0;Margin:0;padding-top:5px;"><img src="https://enze.stripocdn.email/content/guids/CABINET_1a8043ae397d8efdc3b5cbf102f89adc/images/20411509701833883.jpg" alt="Socaran" title="Socaran" width="120" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
+                                                                <td align="center" style="padding:0;Margin:0;padding-top:5px;"><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p200x200/44501757_723184041376700_6119584611543547904_n.png?_nc_cat=110&_nc_oc=AQncyTc5RwPAv2lb-99lYphvGYvQoQeGwAfb8LvYX15mGLMxazMpi6XnWj2q7AAleLU&_nc_ht=scontent-lga3-1.xx&oh=718a5eff4567bfc8f8cfc674662e7e37&oe=5DD386E7" alt="Socaran" title="QvaShop eCommerce Cuba" width="90" height="90" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -627,7 +575,7 @@
                                                     <td class="es-m-p20b" width="120" align="center" style="padding:0;Margin:0;">
                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                                             <tr style="border-collapse:collapse;">
-                                                                <td align="center" style="padding:0;Margin:0;"><img src="https://enze.stripocdn.email/content/guids/CABINET_1a8043ae397d8efdc3b5cbf102f89adc/images/82301509701874088.jpg" alt="Slu tech" title="Slu tech" width="85" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
+                                                                <td align="center" style="padding:0;Margin:0;"><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p200x200/48389882_210030689920061_3923468172677611520_n.png?_nc_cat=109&_nc_oc=AQllwn4AdjPgMHhn5C4HyM0WQqWOM6Ax7V0HINhGpaFclE7NvS83Kt_DRzpPoFLV0PU&_nc_ht=scontent-lga3-1.xx&oh=0490d17a6d067342e65c71fa7de55432&oe=5DD09F05" alt="Slu tech" title="ArmamePC" width="90" height="90" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -640,7 +588,7 @@
                                                     <td width="120" align="center" style="padding:0;Margin:0;">
                                                         <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                                             <tr style="border-collapse:collapse;">
-                                                                <td align="center" style="padding:0;Margin:0;"><img src="https://enze.stripocdn.email/content/guids/CABINET_1a8043ae397d8efdc3b5cbf102f89adc/images/131509701824850.png" alt="Such Sanb" title="Such Sanb" width="100" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
+                                                                <td align="center" style="padding:0;Margin:0;"><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p200x200/56252709_405839603311685_5261105745260183552_n.jpg?_nc_cat=105&_nc_oc=AQnuF7YhoEmyVwF3mj-b0uE4bCsQRpoaeJ_9gqLg0atC5Rpo__Gli8YLrK2BLbKPyZw&_nc_ht=scontent-lga3-1.xx&oh=15876f6bab8b2223645a7f7f3c5b59e5&oe=5DCF47EB" alt="Such Sanb" title="ArielitoPC" width="90" height="90" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -667,21 +615,17 @@
                                                             <tr style="border-collapse:collapse;">
                                                                 <td align="right" style="padding:0;Margin:0;">
                                                                     <h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;font-size:30px;font-style:normal;font-weight:normal;color:#FFFFFF;">
-                                                                        Want to learn more?</h1>
+                                                                        Quieres colaborar?</h1>
                                                                 </td>
                                                             </tr>
                                                             <tr style="border-collapse:collapse;">
                                                                 <td class="es-m-txt-c" align="right" style="padding:0;Margin:0;padding-top:15px;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#FFFFFF;">
-                                                                        Lorem ipsum dolor sit amet, consectetur
-                                                                        adipiscing elit. Pellentesque vitae interdum
-                                                                        ligula. Pellentesque feugiat ligula ligula, in
-                                                                        interdum dolor aliquet et.</p>
+                                                                        Nuestra platforma está buscando constantemente patrocinadores y desarrolladores que enriquezcan nuestros servicios. Estamos bajo código abierto en GitHub y escuchando tus consejos. 💻👌</p>
                                                                 </td>
                                                             </tr>
                                                             <tr style="border-collapse:collapse;">
-                                                                <td align="right" style="padding:0;Margin:0;padding-top:20px;"><span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#0077D6;border-width:0px;display:inline-block;border-radius:4px;width:auto;border-bottom-color:#2CB543;"><a href="https://viewstripo.email/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#FFFFFF;border-style:solid;border-color:#0077D6;border-width:10px 20px;display:inline-block;background:#0077D6;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;">See
-                                                                            now</a></span></td>
+                                                                <td align="right" style="padding:0;Margin:0;padding-top:20px;"><span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#0077D6;border-width:0px;display:inline-block;border-radius:4px;width:auto;border-bottom-color:#2CB543;"><a href="https://www.bachecubano.com" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#FFFFFF;border-style:solid;border-color:#0077D6;border-width:10px 20px;display:inline-block;background:#0077D6;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;">Ver ahora</a></span></td>
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -724,9 +668,7 @@
                                                             <tr style="border-collapse:collapse;">
                                                                 <td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-top:5px;padding-bottom:10px;">
                                                                     <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                                        <span class="product-description" style="line-height:150%;">Ayuda a Bachecuano
-                                                                            a ser la mejor empresa de Google en
-                                                                            Cuba.</span></p>
+                                                                        <span class="product-description" style="line-height:150%;">Ayuda a Bachecubano a ser la mejor empresa de Google en Cuba.</span></p>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -745,15 +687,15 @@
                                                                 <td style="padding:0;Margin:0;">
                                                                     <table class="es-menu" width="60%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
                                                                         <tr class="images" style="border-collapse:collapse;">
-                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-0" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6"><img src="https://my.stripo.email/static/assets/img/default-img.png" alt="1" title="1" width="16" style="display:inline-block !important;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a>
+                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-0" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6">⭐</a>
                                                                             </td>
-                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-1" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6"><img src="https://my.stripo.email/static/assets/img/default-img.png" alt="2" title="2" width="16" style="display:inline-block !important;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a>
+                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-1" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6">⭐</a>
                                                                             </td>
-                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-2" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6"><img src="https://my.stripo.email/static/assets/img/default-img.png" alt="3" title="3" width="16" style="display:inline-block !important;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a>
+                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-2" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6">⭐</a>
                                                                             </td>
-                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-3" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6"><img src="https://my.stripo.email/static/assets/img/default-img.png" alt="4" title="4" width="16" style="display:inline-block !important;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a>
+                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-3" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6">⭐</a>
                                                                             </td>
-                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-4" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6"><img src="https://my.stripo.email/static/assets/img/default-img.png" alt="5" title="5" width="16" style="display:inline-block !important;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a>
+                                                                            <td style="Margin:0;padding-left:5px;padding-right:5px;padding-top:0px;padding-bottom:10px;border:0;" id="esd-menu-id-4" esdev-border-color="#000000" width="20.00%" valign="top" bgcolor="transparent" align="center"><a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'lucida sans unicode', 'lucida grande', sans-serif;font-size:14px;text-decoration:none;display:block;color:#02951E !important;" href="http://bit.ly/33AQBF6">⭐</a>
                                                                             </td>
                                                                         </tr>
                                                                     </table>

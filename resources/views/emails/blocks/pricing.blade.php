@@ -38,9 +38,7 @@
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;padding-top:5px;padding-bottom:10px;">
-                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Nos motiva constantemente la promocion de tu
-                                                    negocio y servicios:<br></p>
+                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">Nos motiva constantemente la publicidad de tu negocio y servicios:<br></p>
                                             </td>
                                         </tr>
                                     </table>
@@ -58,8 +56,7 @@
                                     <table style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#F2F2EF;border-radius:8px;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f2f2ef">
                                         <tr style="border-collapse:collapse;">
                                             <td align="center" style="padding:0;Margin:0;padding-top:20px;">
-                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;font-weight:bold;">
-                                                    Plata</p>
+                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#333333;font-weight:bold;">Plata</p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
@@ -71,20 +68,16 @@
                                         <tr style="border-collapse:collapse;">
                                             <td align="center" style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Send 5 invoices</p>
+                                                    Primero en su categoría</p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Enter 5 bills</p>
+                                                    Destacado en el listado de anuncios</p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Reconcile 15 bank transactions</p>
-                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    <span style="color:#A9A9A9;line-height:150%;"><s>Multi-currency</s></span>
-                                                </p>
+                                                    Sugerencias de compra en otros anuncios</p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="center" style="Margin:0;padding-top:5px;padding-left:15px;padding-right:15px;padding-bottom:20px;">
-                                                <span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#F2F2EF none repeat scroll 0% 0%;border-width:2px;display:block;border-radius:4px;width:auto;"><a href="https://viewstripo.email/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#0077D6;border-style:solid;border-color:#F2F2EF;border-width:10px 25px 10px 25px;display:block;background:#F2F2EF none repeat scroll 0% 0%;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;border-left-width:0px;border-right-width:0px;">Try
-                                                        for free</a></span></td>
+                                                <span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#F2F2EF none repeat scroll 0% 0%;border-width:2px;display:block;border-radius:4px;width:auto;"><a href="{{ route('ad.promote', ['ad' => $ad]) }}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#0077D6;border-style:solid;border-color:#F2F2EF;border-width:10px 25px 10px 25px;display:block;background:#F2F2EF none repeat scroll 0% 0%;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;border-left-width:0px;border-right-width:0px;">Promover</a></span></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -111,19 +104,16 @@
                                         <tr style="border-collapse:collapse;">
                                             <td align="center" style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Send 10 invoices<br></p>
+                                                    Primero en su categoría</p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Enter 10 bills<br></p>
+                                                    Destacado en el listado de anuncios</p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Reconcile&nbsp; 25 bank transactions<br></p>
-                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Multi-currency</p>
+                                                    Sugerencias de compra en otros anuncios</p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="center" style="Margin:0;padding-top:5px;padding-left:15px;padding-right:15px;padding-bottom:20px;">
-                                                <span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#F2F2EF none repeat scroll 0% 0%;border-width:2px;display:block;border-radius:4px;width:auto;"><a href="https://viewstripo.email/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#0077D6;border-style:solid;border-color:#F2F2EF;border-width:10px 25px 10px 25px;display:block;background:#F2F2EF none repeat scroll 0% 0%;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;border-left-width:0px;border-right-width:0px;">Try
-                                                        for free</a></span></td>
+                                                <span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#F2F2EF none repeat scroll 0% 0%;border-width:2px;display:block;border-radius:4px;width:auto;"><a href="{{ route('ad.promote', ['ad' => $ad]) }}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#0077D6;border-style:solid;border-color:#F2F2EF;border-width:10px 25px 10px 25px;display:block;background:#F2F2EF none repeat scroll 0% 0%;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;border-left-width:0px;border-right-width:0px;">Promover</a></span></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -150,19 +140,16 @@
                                         <tr style="border-collapse:collapse;">
                                             <td align="center" style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Send invoices<br></p>
+                                                    Primero en su categoría</p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Enter bills</p>
+                                                    Destacado en el listado de anuncios</p>
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Reconcile bank transactions<br></p>
-                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    Multi-currency<br></p>
+                                                    Sugerencias de compra en otros anuncios</p>
                                             </td>
                                         </tr>
                                         <tr style="border-collapse:collapse;">
                                             <td align="center" style="Margin:0;padding-top:5px;padding-left:15px;padding-right:15px;padding-bottom:20px;">
-                                                <span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#F2F2EF none repeat scroll 0% 0%;border-width:2px;display:block;border-radius:4px;width:auto;"><a href="https://viewstripo.email/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#0077D6;border-style:solid;border-color:#F2F2EF;border-width:10px 25px 10px 25px;display:block;background:#F2F2EF none repeat scroll 0% 0%;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;border-left-width:0px;border-right-width:0px;">Try
-                                                        for free</a></span></td>
+                                                <span class="es-button-border" style="border-style:solid;border-color:#0077D6;background:#F2F2EF none repeat scroll 0% 0%;border-width:2px;display:block;border-radius:4px;width:auto;"><a href="{{ route('ad.promote', ['ad' => $ad]) }}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:16px;color:#0077D6;border-style:solid;border-color:#F2F2EF;border-width:10px 25px 10px 25px;display:block;background:#F2F2EF none repeat scroll 0% 0%;border-radius:4px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;border-left-width:0px;border-right-width:0px;">Promover</a></span></td>
                                         </tr>
                                     </table>
                                 </td>
