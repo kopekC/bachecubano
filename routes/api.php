@@ -16,22 +16,34 @@ use Illuminate\Http\Request;
 */
 
 //MailGun Routes WebHook
+/*
 Route::group(['prefix' => 'mailgun',], function () {
     Route::post('widgets', 'MailgunWidgetsController@store');
 });
+*/
 
 //SubDomain Mapping
 Route::group(['domain' => 'api.bachecubano.com'], function () {
     Route::group(['prefix' => 'v1'], function () {
         Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
         Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
+        Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
     });
 });
 
-//Version 1.0 API
+//Version 1.0 API This has to be remved when go to production
 Route::group(['prefix' => 'v1'], function () {
     Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
     Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
+    Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
+
+    //Debugging Routes
+    //mailable View
+    Route::get('mailable', function () {
+        $ad = App\Ad::find(23);
+        $user_data = App\User::find(23);
+        return new App\Mail\AdPublished($ad, $user_data);
+    });
 });
 
 //Save Image from AJAX Calls and API implementation

@@ -11,6 +11,15 @@ use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 class Ad extends Model
 {
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'secret'
+    ];
+
+    /**
      * Get the Ad that owns the stats.
      */
     public function category()
@@ -68,7 +77,8 @@ class Ad extends Model
     /**
      * User Owner of the ad
      */
-    public function owner() {
+    public function owner()
+    {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
 }

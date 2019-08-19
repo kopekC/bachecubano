@@ -7,6 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Ad;
+use Illuminate\Support\Str;
 
 class AdPublished extends Mailable
 {
@@ -17,6 +18,12 @@ class AdPublished extends Mailable
      */
     public $ad;
     public $user_data;
+    public $title;
+    public $email_header;
+    public $email_title;
+    public $email_subtitle;
+    public $body_text_title;
+    public $body_text_content;
 
 
     /**
@@ -28,6 +35,12 @@ class AdPublished extends Mailable
     {
         $this->ad = $ad;
         $this->user_data = $user_data;
+        $this->title = "Anuncio publicado en Bachecubano";
+        $this->email_header = "Se ha publicado su anuncio correctamente";
+        $this->email_title = "Se ha publicado su anuncio 👍";
+        $this->email_subtitle = "Ahora serás mucho más popular y visible en internet y en 🇨🇺";
+        $this->body_text_title = $ad->description->title;
+        $this->body_text_content = text_clean(Str::limit($ad->description->description, 160));
     }
 
     /**

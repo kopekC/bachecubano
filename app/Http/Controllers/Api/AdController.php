@@ -83,4 +83,21 @@ class AdController extends Controller
 
         return response()->json($ads);
     }
+
+    /**
+     * View Specific Ad Data
+     */
+    public function get_ad($ad_id) {
+
+        $ad = Cache::remember('ad_' . $ad_id, 60, function () use ($ad_id) {
+
+            $query = Ad::query();
+            $query->with(['description', 'resources', 'stats', 'owner']);
+            $ad = $query->findOrFail($ad_id);
+
+            return $ad;
+        });
+
+        return response()->json($ad);
+    }
 }

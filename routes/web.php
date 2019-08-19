@@ -14,11 +14,12 @@
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300');         //Cache 5min
 
-Route::middleware('cacheResponse')->group(function () {                             //Cache response
+//Cache response By Default
+Route::middleware('cacheResponse')->group(function () {
     Route::get('/contact', 'WelcomeController@contact')->name('contact');
 });
 
-//Contact    
+//Contact
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
 
 //User Login/Register/Change Password routes
@@ -42,10 +43,16 @@ Route::resource('cart', 'CartController');
 Route::get('/share/{network}/{url}/{text}', 'ShareController@index')->name('share');
 
 //Ads Routes & Resource Route
-Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');;          //Cache daily ->middleware('cacheResponse:86400');
+Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');          //Cache daily ->middleware('cacheResponse:86400');
+//Promote Ad
+Route::get('/promote/{ad}', 'AdController@promote')->name('ad.promote');
+//Category Listing
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
+//SubCategory Listing
 Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index');
+//Ad specific View
 Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad');
+//Ad resources route
 Route::resource('ad', 'AdController');
 
 //Search route

@@ -132,7 +132,7 @@
         @endauth
         @endif
         <li>
-            <a class="active" href="{{ config('add') }}">
+            <a class="active" href="{{ route('add') }}">
                 Publicar anuncio
             </a>
         </li>
