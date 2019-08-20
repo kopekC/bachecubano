@@ -12,11 +12,11 @@ use App\Category;
 use App\Ad;
 use App\Post;
 
-//use Spatie\Sitemap\SitemapIndex;
+use Spatie\Sitemap\SitemapIndex;
+use App\AdResource;
 
 class SitemapController extends Controller
 {
-
     private $sitemapPath;
 
     public function __construct()
@@ -27,25 +27,40 @@ class SitemapController extends Controller
     //index of Sitemaps, include here images SiteMap
     public function sitemap_index()
     {
-        /*
+        //generate every sitemap as method here, the create the sitemap container
+        $this->static();
+        $this->categories();
+        $this->ads();
+        $this->news();
+        $this->images();
+
         SitemapIndex::create()
-            ->add('/pages_sitemap.xml')
-            ->add('/posts_sitemap.xml')
-            ->writeToFile($sitemapIndexPath);
-            */ 
+            ->add(public_path('static.xml'))
+            ->add(public_path('categories.xml'))
+            ->add(public_path('ads.xml'))
+            ->add(public_path('news.xml'))
+            ->add(public_path('images.xml'))
+            //->add(public_path('promoted.xml'))
+            //->add(public_path('stores.xml'))
+            //->add(public_path('top-searches.xml'))
+            ->writeToFile($this->sitemapPath);
     }
 
-    public function create()
+    //Sitemap for Static Pages
+    public function static()
     {
         $sitemap = Sitemap::create();
-
-        //Static Routes
         $sitemap->add(route('welcome'));
         $sitemap->add(route('add'));
         $sitemap->add(route('contact'));
         $sitemap->add(route('blog.index'));
+        $sitemap->writeToFile(public_path('static.xml'));
+    }
 
-        //SomeTime Stores here ....
+    //Sitemap for Categories Pages
+    public function categories()
+    {
+        $sitemap = Sitemap::create();
 
         //Global Cached Categories Data Cache one week
         $categories = Cache::remember('cached_categories', 60 * 24 * 7, function () {
@@ -65,13 +80,13 @@ class SitemapController extends Controller
             }
         }
 
-        //News
-        $latest_blog_post = Cache::remember('latest_blog_post_10', 60 * 12, function () {
-            return Post::latest()->limit(10)->get();
-        });
-        foreach ($latest_blog_post as $blog_post) {
-            $sitemap->add(route('blog_post', ['entry_slug' => $blog_post->slug]));
-        }
+        $sitemap->writeToFile(public_path('categories.xml'));
+    }
+
+    //1000 Ads location
+    public function ads()
+    {
+        $sitemap = Sitemap::create();
 
         //Latest Ads (How Many?? 1000??)
         $ads = Cache::remember('cached_1000_ads', 30, function () {
@@ -81,6 +96,39 @@ class SitemapController extends Controller
             $sitemap->add(ad_url($ad));
         }
 
-        $sitemap->writeToFile($this->sitemapPath);
+        $sitemap->writeToFile(public_path('ads.xml'));
+    }
+
+
+    //Website News SiteMap
+    public function news()
+    {
+        $sitemap = Sitemap::create();
+
+        //News Cache Entries
+        $latest_blog_post = Cache::remember('latest_blog_post_10', 60 * 12, function () {
+            return Post::latest()->limit(10)->get();
+        });
+        foreach ($latest_blog_post as $blog_post) {
+            $sitemap->add(route('blog_post', ['entry_slug' => $blog_post->slug]));
+        }
+
+        $sitemap->writeToFile(public_path('news.xml'));
+    }
+
+    //Images Sitemap
+    public function images()
+    {
+        $sitemap = Sitemap::create();
+
+        //Images Cache Location
+        $latest_images = Cache::remember('latest_images_500', 60 * 12, function () {
+            return AdResource::latest()->limit(500)->get();
+        });
+        foreach ($latest_images as $image) {
+            $sitemap->add(config('app.img_url') . $image->path . $image->id . "." . $image->extension);
+        }
+
+        $sitemap->writeToFile(public_path('images.xml'));
     }
 }
