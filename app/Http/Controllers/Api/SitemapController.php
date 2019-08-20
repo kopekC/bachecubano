@@ -10,6 +10,9 @@ use Spatie\Sitemap\Sitemap;
 use Illuminate\Support\Facades\Cache;
 use App\Category;
 use App\Ad;
+use App\Post;
+
+//use Spatie\Sitemap\SitemapIndex;
 
 class SitemapController extends Controller
 {
@@ -21,6 +24,17 @@ class SitemapController extends Controller
         $this->sitemapPath = public_path('sitemap.xml');
     }
 
+    //index of Sitemaps, include here images SiteMap
+    public function sitemap_index()
+    {
+        /*
+        SitemapIndex::create()
+            ->add('/pages_sitemap.xml')
+            ->add('/posts_sitemap.xml')
+            ->writeToFile($sitemapIndexPath);
+            */ 
+    }
+
     public function create()
     {
         $sitemap = Sitemap::create();
@@ -29,7 +43,7 @@ class SitemapController extends Controller
         $sitemap->add(route('welcome'));
         $sitemap->add(route('add'));
         $sitemap->add(route('contact'));
-        $sitemap->add(route('blog_index'));
+        $sitemap->add(route('blog.index'));
 
         //SomeTime Stores here ....
 
