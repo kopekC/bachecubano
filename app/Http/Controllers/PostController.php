@@ -10,11 +10,10 @@ use SEOMeta;
 use OpenGraph;
 use Twitter;
 
-
+use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
 {
-
     /**
      * Blog Index
      */
@@ -42,7 +41,10 @@ class PostController extends Controller
      */
     public function show($entry_slug)
     {
-        $post = Post::where('slug', $entry_slug)->firstOrFail();
+        //Cache Post Entry
+        $post = Cache::remember('cached_post_' . $entry_slug, 60, function () use ($entry_slug) {
+            return Post::where('slug', $entry_slug)->firstOrFail();
+        });
 
         //SEO Data
         $seo_data = [

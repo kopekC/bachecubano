@@ -41,8 +41,10 @@ class AppServiceProvider extends ServiceProvider
         //Schema Default String Length
         Schema::defaultStringLength(191);
 
-        //Global Cached Categories Data
-        $categories = Category::with('description')->get(); //View How to Cache this!!!
+        //Global Cached Categories Data Cache one week
+        $categories = Cache::remember('cached_categories', 60 * 24 * 7, function () {
+            return Category::with('description')->get();
+        });
 
         //Small foreach for some organized category structure
         $parent_categories = [];
@@ -56,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         //get Three Blog Posts and cache it for one day?
-        $latest_blog_post = Cache::remember('latest_blog_post', 1440, function () {
+        $latest_blog_post = Cache::remember('latest_blog_post', 60 * 12, function () {
             return Post::latest()->limit(3)->get();
         });
 

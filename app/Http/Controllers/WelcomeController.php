@@ -11,6 +11,7 @@ use Twitter;
 use Spatie\SchemaOrg\Schema;
 
 use Illuminate\Support\Facades\Cache;
+use App\Post;
 
 class WelcomeController extends Controller
 {
@@ -55,9 +56,6 @@ class WelcomeController extends Controller
 
         //testimonial
         //Try to fetch from facebook isn't with JS
-
-        //blog posts        
-        //First Make the blog 🤣
 
         //Schema
         $SchemaLD = Schema::WholesaleStore()

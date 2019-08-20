@@ -21,7 +21,7 @@ class AdController extends Controller
      */
     public function get_categories()
     {
-        $categories = Cache::remember('cached_categpories', 60 * 24 * 7, function () {
+        $categories = Cache::remember('cached_categories', 60 * 24 * 7, function () {
             return Category::with(['description', 'stats', 'parent', 'childs'])->get();
         });
         return response()->json($categories);
