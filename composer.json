@@ -19,7 +19,6 @@
         "laravel/passport": "^7.3",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
-        "nckg/laravel-minify-html": "^1.2",
         "spatie/laravel-feed": "^2.2",
         "spatie/laravel-responsecache": "^5.0",
         "spatie/laravel-sitemap": "^5.3",
