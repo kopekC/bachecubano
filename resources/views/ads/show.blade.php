@@ -30,7 +30,7 @@
         <!-- Product Info Start -->
         <div class="product-info row">
 
-            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
+            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3 text-center mb-3">
                 @if(count($ad->resources) > 1)
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
@@ -147,7 +147,9 @@
                             <h3 class="text-center h3">{{ ad_price($ad) }}</h3>
                             <h4 class="text-center h4">{{ $ad->contact_name }}</h4>
                             <a href="mailto:{{ $ad->contact_email }}" class="btn btn-common btn-reply btn-block mb-1"><i class="lni-envelope"></i> Correo</a>
+                            @if(isset($ad->phone) && $ad->phone != "")
                             <a href="tel:{{ $ad->phone }}" class="btn btn-common btn-block"><i class="lni-phone-handset"></i> {{ $ad->phone }}</a>
+                            @endif
                         </div>
 
                         <hr>
@@ -182,7 +184,7 @@
                         <hr>
                         <ul>
                             <li><a href="#" onclick="window.print();return false;"><i class="lni-printer"></i> Imprimir anuncio</a></li>
-                            <li><a href="#"><i class="lni-reply"></i> Enviar a un amigo</a></li>
+                            <li><a href="{{ route('invite', ['item' => 'ad', 'misc' => $ad->id]) }}"><i class="lni-reply"></i> Enviar a un amigo</a></li>
                             <li><a href="#"><i class="lni-warning"></i> Reportar anuncio</a></li>
                         </ul>
                     </div>

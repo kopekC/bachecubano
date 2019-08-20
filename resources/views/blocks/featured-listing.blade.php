@@ -6,7 +6,7 @@
             @foreach($promoted_ads as $ad)
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="product-item">
-                    <div class="carousel-thumb">
+                    <div class="carousel-thumb text-center">
                         <a href="{{ ad_url($ad) }}">
                             <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
                         </a>

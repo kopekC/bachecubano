@@ -11,17 +11,9 @@ class ShareController extends Controller
      */
     public function index(Request $request, $network, $url, $text)
     {
-        /**
-         * <ul class="share-buttons">
-         * <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bachecubano.com&quote=Bachecuano%20Short" target="_blank" title="Share on Facebook">Facebook</a></li>
-         * <li><a href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fwww.bachecubano.com&text=Bachecuano%20Short:%20https%3A%2F%2Fwww.bachecubano.com&via=Bachecubano" target="_blank" title="Tweet">Twitter</a></li>
-         * <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.bachecubano.com&title=Bachecuano%20Short&summary=adsasdasadsas%20asdasdasd&source=https%3A%2F%2Fwww.bachecubano.com" target="_blank" title="Share on LinkedIn">LinkedIn</a></li>
-         * <li><a href="mailto:?subject=Bachecuano%20Short&body=adsasdasadsas%20asdasdasd:%20https%3A%2F%2Fwww.bachecubano.com" target="_blank" title="Send email">Send email</a></li>
-         * </ul>
-         */
 
-         //Find Out How to track this!!!
-
+        //Find Out How to track this!!!
+        //Google Analytics Calls for API https://github.com/irazasyed/laravel-gamp
         switch ($network) {
             case "facebook":
                 return redirect("https://www.facebook.com/sharer/sharer.php?u=" . base64_decode($url) . "&quote=" . base64_decode($text));
@@ -35,5 +27,15 @@ class ShareController extends Controller
                 return redirect("http://www.linkedin.com/shareArticle?mini=true&url=" . base64_decode($url) . "&title=" . base64_decode($text) . "&source=https%3A%2F%2Fwww.bachecubano.com");
                 break;
         }
+    }
+
+
+    //Show an Invite intercafe for Viralizae content like facebook, twitter, Email etc.
+    public function invite($item, $misc)
+    {
+        //Iterate Over Diferent points
+
+
+        return $item . $misc;
     }
 }
