@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
+use Illuminate\Support\Str;
 
 class Post extends Model implements Feedable
 {
@@ -37,7 +38,7 @@ class Post extends Model implements Feedable
         return FeedItem::create()
             ->id($this->id)
             ->title($this->title)
-            ->summary($this->summary)
+            ->summary(text_clean(Str::limit($this->description, 160)))
             ->updated($this->updated_at)
             ->link(route('blog_post', ['entry_slug' => $this->slug]))
             ->author("Admin");
