@@ -11,14 +11,14 @@ return [
              * You can also pass an argument to that method:
              * ['App\Model@getAllFeedItems', 'argument']
              */
-            'items' => '',
+            'items' => 'App\Post@getFeedItems',
 
             /*
              * The feed will be available on this url.
              */
-            'url' => '',
+            'url' => '/feed',
 
-            'title' => 'My feed',
+            'title' => 'Noticias Bachecubano, información sobre negocios y descuentos',
 
             /*
              * The view that will render the feed.

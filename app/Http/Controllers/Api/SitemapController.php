@@ -123,7 +123,7 @@ class SitemapController extends Controller
 
         //Images Cache Location
         $latest_images = Cache::remember('latest_images_500', 60 * 12, function () {
-            return AdResource::latest()->limit(500)->get();
+            return AdResource::orderBy('id', 'desc')->limit(500)->get();
         });
         foreach ($latest_images as $image) {
             $sitemap->add(config('app.img_url') . $image->path . $image->id . "." . $image->extension);
