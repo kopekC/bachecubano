@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPhoneToAds extends Migration
+class AddIndexesToAds extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,11 @@ class AddPhoneToAds extends Migration
     public function up()
     {
         Schema::table('ads', function (Blueprint $table) {
-            $table->string('phone', 11);
-            $table->integer('region_id', 6)->default(737586);
+            $table->index('user_id');
+            $table->index('category_id');
+            $table->index('active');
+            $table->index('phone');
+            $table->index('region_id');
         });
     }
 
@@ -27,8 +30,7 @@ class AddPhoneToAds extends Migration
     public function down()
     {
         Schema::table('ads', function (Blueprint $table) {
-            $table->dropColumn('phone');
-            $table->dropColumn('region_id');
+            
         });
     }
 }
