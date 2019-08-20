@@ -16,7 +16,7 @@ use App\Mail\AdPublished;
 |
 */
 
-//MailGun Routes WebHook
+//MailGun Routes WebHook for LaChopi Incoming Requests
 /*
 Route::group(['prefix' => 'mailgun',], function () {
     Route::post('widgets', 'MailgunWidgetsController@store');
@@ -26,37 +26,31 @@ Route::group(['prefix' => 'mailgun',], function () {
 //SubDomain Mapping
 Route::group(['domain' => 'api.bachecubano.com'], function () {
     Route::group(['prefix' => 'v1'], function () {
-
         //Get Categories
         Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
-
         //Get Ads From certain Category
         Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
-
         //Get Specific Ad
         Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
-
         //Sitemap Creator
         Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
     });
 });
 
-//Version 1.0 API This has to be remved when go to production
+//Version 1.0 API This has to be remved when go to production Just Testing Here at localhost
 Route::group(['prefix' => 'v1'], function () {
-    
-    Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
-    Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
-    Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
 
-    //Debugging Routes
+    //Get Categories
+    Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
+    //Get Ads From certain Category
+    Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
+    //Get Specific Ad
+    Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
     //Mailable View
     Route::get('mailable', 'Api\MailableController@view');
-
     //Sitemap Creator
     Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
 });
-
-
 
 //Save Image from AJAX Calls and API implementation
 Route::get('show-image', 'Api\ImageController@index')->name('show-image-ajax');
