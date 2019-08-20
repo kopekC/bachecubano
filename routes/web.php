@@ -22,7 +22,7 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 Auth::routes();
 
 // Posts resourcfull controllers routes
-Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post');
+Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post')->middleware('cacheResponse:86400', 'cache.headers:no-cache,private,max-age=300;etag');      //Cached for 5 minutes
 Route::resource('/blog', 'PostController');
 
 //User Routes for Configuration (Mainly registered area)
@@ -45,9 +45,9 @@ Route::get('/promote/{ad}', 'AdController@promote')->name('ad.promote');
 //Category Listing
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 //SubCategory Listing
-Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index');
-//Ad specific View
-Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad');
+Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:no-cache,private,max-age=30;etag');
+//Ad specific Show
+Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:60', 'cache.headers:no-cache,private,max-age=120;etag');
 //Ad resources route
 Route::resource('ad', 'AdController');
 
