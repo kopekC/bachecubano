@@ -18,6 +18,7 @@
 
     /* slicknav mobile menu active 
       ========================================================*/
+    var $bg;
     $('.mobile-menu').slicknav({
       prependTo: '.navbar-header',
       parentTag: 'liner',
@@ -25,7 +26,16 @@
       duplicate: true,
       label: '',
       closedSymbol: '<i class="lni-chevron-right"></i>',
-      openedSymbol: '<i class="lni-chevron-down"></i>'
+      openedSymbol: '<i class="lni-chevron-down"></i>',
+      init: function () {
+        $bg = $('.slicknav_menu');
+      },
+      afterOpen: function () {
+        $bg.css({ 'background': 'rgba(25,118,210,.95)' });
+      },
+      afterClose: function () {
+        $bg.css({ 'background': 'transparent' });
+      }
     });
 
     /* WOW Scroll Spy

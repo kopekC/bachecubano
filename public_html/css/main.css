@@ -78,7 +78,7 @@ to{opacity:1}
 .menu-bg .navbar-nav .nav-link{color:#333!important}
 .bg-black{background:#111011}
 .navbar-brand{position:relative;padding:0}
-.navbar-brand img{width:60px}
+.navbar-brand img{width:50px;padding:5px}
 .top-nav-collapse{background:#fff;z-index:999999;top:0!important;min-height:58px;box-shadow:0 3px 6px 3px rgba(0,0,0,.06);-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:fadeInDown;animation-name:fadeInDown;background:#fff!important}
 .top-nav-collapse .navbar-brand{top:0}
 .top-nav-collapse .navbar-nav .nav-link{color:#333!important}
