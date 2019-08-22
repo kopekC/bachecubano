@@ -86,19 +86,19 @@ class AdController extends Controller
 
         //Minimal Price
         if (null !== $request->input('min_price')) {
-            $query->when($request->input('min_price') >= 0, function ($q) {
+            $query->when($request->input('min_price') >= 0, function ($q) use ($request) {
                 return $q->where('price', '>=', $request->input('min_price', 0));
             });
         }
 
         //Maximum Price
         if (null !== $request->input('max_price')) {
-            $query->when($request->input('max_price') >= 0, function ($q) {
+            $query->when($request->input('max_price') >= 0, function ($q) use ($request) {
                 return $q->where('price', '<=', $request->input('max_price', 0));
             });
         }
 
-        //Search Query With on;y Photos ads
+        //Search Query With only Photos ads
         if (null !== $request->input('only_photos')) {
             $query->when($request->input('only_photos') == 1, function ($q) {
                 return $q->whereHas('resources');

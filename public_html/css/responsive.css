@@ -174,6 +174,7 @@ footer .footer-logo img{width:68%}
 .blog-post-item{margin-bottom:30px}
 }
 @media (min-width:320px) and (max-width:480px){
+body{font-weight:300;line-height:20px}
 .search-bar .form-group{width:100%}
 .error-content .error-message h2{font-size:90px}
 .details-box .owl-pagination{display:none}
@@ -190,4 +191,8 @@ footer .footer-logo img{width:50%}
 .services-tow-area .service-two-item-wrapper:nth-child(2){border-right:0}
 .blog-post-item{margin-bottom:30px}
 .img-box:hover .img-box-content{bottom:25px}
+.page-header .breadcrumb-wrapper .product-title{font-weight:300;line-height:20px;font-size:18px;letter-spacing:0}
+.page-header{padding:50px 0 5px}
+.product-item .product-title a{font-weight:500}
+.product-item .price{font-size:16px;font-weight:500}
 }

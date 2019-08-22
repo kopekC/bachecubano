@@ -123,6 +123,13 @@ class AdController extends Controller
         $query->where('active', 1);
         $query->where('enabled', 1);
 
+        /*
+        $query->whereHas('tableB', function ($query) {
+            // Now querying on tableB
+            $query->where('fieldB', $valueB);
+        })->orderBy('created_at', 'DESC');
+        */
+
         $query->where('ad_descriptions.title', 'LIKE', "%{$searchTerm}%");
         $query->orWhere('ad_descriptions.description', 'LIKE', "%{$searchTerm}%");
 
