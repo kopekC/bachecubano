@@ -51,7 +51,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="widget d-none d-md-block">
+                    <div class="widget d-none d-lg-block">
                         <h4 class="widget-title">Publicidad</h4>
                         <div class="add-box"></div>
                     </div>
@@ -60,7 +60,7 @@
             <div class="col-lg-10 col-md-12 col-xs-12 page-content">
                 <!-- Product filter Start -->
                 <div class="product-filter">
-                    <div class="short-name d-none d-md-block">
+                    <div class="short-name d-none d-lg-block">
                         @if($ads)
                         <span>Mostrando (1 - {{ count($ads) }} anuncios de {{ $total_ads }})</span>
                         @else

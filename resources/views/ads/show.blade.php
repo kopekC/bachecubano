@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-3 col-xl-3">
+            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
                 <!-- Product Description Start -->
                 <div class="description-info">
                     <div class="short-info">
