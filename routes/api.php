@@ -34,6 +34,8 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
         //Sitemap Creator
         Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
+        //Search model
+        Route::get('search', 'Api\AdController@search')->name('api_search');
     });
 });
 
@@ -50,6 +52,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('mailable', 'Api\MailableController@view');
     //Sitemap Creator
     Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
+    //Search model
+    Route::get('search', 'Api\AdController@search')->name('api_search');
 });
 
 //Save Image from AJAX Calls and API implementation

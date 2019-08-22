@@ -87,7 +87,8 @@ class AdController extends Controller
     /**
      * View Specific Ad Data
      */
-    public function get_ad($ad_id) {
+    public function get_ad($ad_id)
+    {
 
         $ad = Cache::remember('ad_' . $ad_id, 60, function () use ($ad_id) {
 
@@ -99,5 +100,18 @@ class AdController extends Controller
         });
 
         return response()->json($ad);
+    }
+
+    /**
+     * Search Ad API
+     */
+    public function search(Request $request)
+    {
+        $search = $request->get('query');
+
+        $query = Ad::query();
+        $ads = $query->get();
+
+        return response()->json($ads);
     }
 }
