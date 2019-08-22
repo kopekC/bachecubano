@@ -38,7 +38,6 @@ class AdController extends Controller
      */
     public function get_ads(Request $request, $category_id)
     {
-
         $ads = Cache::remember('cached_ads_' . $category_id, 60, function () use ($request, $category_id) {
 
             $query = Ad::query();
@@ -54,24 +53,28 @@ class AdController extends Controller
 
             //Join for a correct ordering?
             $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
+
             //Minimal Price
             if (null !== $request->input('min_price')) {
                 $query->when(request('min_price') >= 0, function ($q) {
                     return $q->where('price', '>=', request('min_price', 0));
                 });
             }
+
             //Maximum Price
             if (null !== $request->input('max_price')) {
                 $query->when(request('max_price') >= 0, function ($q) {
                     return $q->where('price', '<=', request('max_price', 0));
                 });
             }
-            //Search Query With on;y Photos ads
+
+            //Search Query With only Photos ads
             if (null !== $request->input('only_photos')) {
                 $query->when(request('only_photos') == 1, function ($q) {
                     return $q->whereHas('resources');
                 });
             }
+
             //Order By PromoType and later as updated time
             $query->orderBy('ad_promos.promotype', 'desc');
             $query->latest();
@@ -107,7 +110,26 @@ class AdController extends Controller
      */
     public function search(Request $request)
     {
-        //$request->input('query')
+        $searchTerm = $request->input('query');
+
+        $query = Ad::query();
+
+        $query->join('ad_descriptions', 'ads.id', '=', 'ad_descriptions.ad_id');
+
+        //Select All elements
+        $query->select('ads.id', 'ads.user_id', 'ads.category_id', 'ads.updated_at', 'ads.price', 'ads.contact_name', 'ad_descriptions.title', 'ad_descriptions.description');
+
+        //Activated parameters
+        $query->where('active', 1);
+        $query->where('enabled', 1);
+
+        $query->where('ad_descriptions.title', 'LIKE', "%{$searchTerm}%");
+        $query->orWhere('ad_descriptions.description', 'LIKE', "%{$searchTerm}%");
+
+        $query->latest();
+
+        //Paginate all this
+        $searchResults = $query->paginate(50);
 
         return response()->json($searchResults);
     }

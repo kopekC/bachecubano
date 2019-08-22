@@ -86,21 +86,21 @@ class AdController extends Controller
 
         //Minimal Price
         if (null !== $request->input('min_price')) {
-            $query->when(request('min_price') >= 0, function ($q) {
-                return $q->where('price', '>=', request('min_price', 0));
+            $query->when($request->input('min_price') >= 0, function ($q) {
+                return $q->where('price', '>=', $request->input('min_price', 0));
             });
         }
 
         //Maximum Price
         if (null !== $request->input('max_price')) {
-            $query->when(request('max_price') >= 0, function ($q) {
-                return $q->where('price', '<=', request('max_price', 0));
+            $query->when($request->input('max_price') >= 0, function ($q) {
+                return $q->where('price', '<=', $request->input('max_price', 0));
             });
         }
 
         //Search Query With on;y Photos ads
         if (null !== $request->input('only_photos')) {
-            $query->when(request('only_photos') == 1, function ($q) {
+            $query->when($request->input('only_photos') == 1, function ($q) {
                 return $q->whereHas('resources');
             });
         }
@@ -112,10 +112,6 @@ class AdController extends Controller
         //Activated parameters
         $query->where('active', 1);
         $query->where('enabled', 1);
-
-        //Customize pagination
-        //You may append to the query string of pagination links using the appends method. For example, to append sort=votes to each pagination link, you should make the following call to appends:
-        //{{ $users->appends(['sort' => 'votes'])->links() }}
 
         //Paginate all this
         $ads = $query->paginate($posts_per_page);
