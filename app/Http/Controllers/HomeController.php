@@ -106,8 +106,8 @@ class HomeController extends Controller
         $query->with(['description', 'resources', 'category.description', 'category.parent.description']);
 
         //Category Filtering for a Better Filtering
-        if (null !== Input::get('category_id')) {
-            $query->where('category_id', Input::get('category_id'));
+        if (null !== $request->input('category_id')) {
+            $query->where('category_id', $request->input('category_id'));
         }
 
         //Order latest Update

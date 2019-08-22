@@ -34,8 +34,6 @@ class ShareController extends Controller
     public function invite($item, $misc)
     {
         //Iterate Over Diferent points
-
-
         return $item . $misc;
     }
 }

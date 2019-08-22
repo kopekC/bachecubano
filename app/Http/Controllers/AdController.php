@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -86,21 +85,21 @@ class AdController extends Controller
         $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
 
         //Minimal Price
-        if (null !== Input::get('min_price')) {
+        if (null !== $request->input('min_price')) {
             $query->when(request('min_price') >= 0, function ($q) {
                 return $q->where('price', '>=', request('min_price', 0));
             });
         }
 
         //Maximum Price
-        if (null !== Input::get('max_price')) {
+        if (null !== $request->input('max_price')) {
             $query->when(request('max_price') >= 0, function ($q) {
                 return $q->where('price', '<=', request('max_price', 0));
             });
         }
 
         //Search Query With on;y Photos ads
-        if (null !== Input::get('only_photos')) {
+        if (null !== $request->input('only_photos')) {
             $query->when(request('only_photos') == 1, function ($q) {
                 return $q->whereHas('resources');
             });
@@ -181,7 +180,7 @@ class AdController extends Controller
         ]);
 
         //Category data
-        $category = Category::findOrFail(Input::post('category'));
+        $category = Category::findOrFail($request->input('category'));
 
         //Now + 3 months
         $now = Carbon::now();
@@ -193,9 +192,9 @@ class AdController extends Controller
         //Basic Table
         Auth::check() ? $ad->user_id = Auth::id() : $ad->user_id = 0;
         $ad->category_id = $category->id;
-        $ad->price = Input::post('price', 0);
-        $ad->contact_name = Input::post('contact_name');
-        $ad->contact_email = Input::post('contact_email');
+        $ad->price = $request->input('price', 0);
+        $ad->contact_name = $request->input('contact_name');
+        $ad->contact_email = $request->input('contact_email');
         $ad->ip = $request->ip();
         $ad->premium = 0;
         $ad->enabled = 1;
@@ -203,14 +202,14 @@ class AdController extends Controller
         $ad->spam = 0;
         $ad->secret = Str::random(20);
         $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
-        $ad->phone = Input::post('phone', "");
+        $ad->phone = $request->input('phone', "");
         $ad->save();
 
         //Images Logic for AdResources
-        if (null !== Input::post('imageID')) {
+        if (null !== $request->input('imageID')) {
             //Update every row with the actual ad_id
             //UPDATE ad_resources SET ad_id = xx WHERE id = imageID.index
-            foreach (Input::post('imageID') as $adResourdeId) {
+            foreach ($request->input('imageID') as $adResourdeId) {
                 DB::table('ad_resources')->where('id', $adResourdeId)->update(['ad_id' => $ad->id]);
             }
         }
@@ -218,8 +217,8 @@ class AdController extends Controller
         //Description related table
         $description = new AdDescription;
         $description->ad_id = $ad->id;
-        $description->title = Input::post('title');
-        $description->description = Input::post('description');
+        $description->title = $request->input('title');
+        $description->description = $request->input('description');
         $description->save();
 
         //Retrieve Ad Again

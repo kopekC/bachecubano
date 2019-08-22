@@ -11,6 +11,10 @@ use App\Ad;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Cache;
 
+use Spatie\Searchable\Search;
+use App\AdDescription;
+use App\Post;
+
 class AdController extends Controller
 {
     /**
@@ -36,7 +40,7 @@ class AdController extends Controller
     public function get_ads(Request $request, $category_id)
     {
 
-        $ads = Cache::remember('cached_ads_' . $category_id, 60, function () use ($category_id) {
+        $ads = Cache::remember('cached_ads_' . $category_id, 60, function () use ($request, $category_id) {
 
             $query = Ad::query();
 
@@ -52,19 +56,19 @@ class AdController extends Controller
             //Join for a correct ordering?
             $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
             //Minimal Price
-            if (null !== Input::get('min_price')) {
+            if (null !== $request->input('min_price')) {
                 $query->when(request('min_price') >= 0, function ($q) {
                     return $q->where('price', '>=', request('min_price', 0));
                 });
             }
             //Maximum Price
-            if (null !== Input::get('max_price')) {
+            if (null !== $request->input('max_price')) {
                 $query->when(request('max_price') >= 0, function ($q) {
                     return $q->where('price', '<=', request('max_price', 0));
                 });
             }
             //Search Query With on;y Photos ads
-            if (null !== Input::get('only_photos')) {
+            if (null !== $request->input('only_photos')) {
                 $query->when(request('only_photos') == 1, function ($q) {
                     return $q->whereHas('resources');
                 });
@@ -89,13 +93,10 @@ class AdController extends Controller
      */
     public function get_ad($ad_id)
     {
-
         $ad = Cache::remember('ad_' . $ad_id, 60, function () use ($ad_id) {
-
             $query = Ad::query();
             $query->with(['description', 'resources', 'stats', 'owner']);
             $ad = $query->findOrFail($ad_id);
-
             return $ad;
         });
 
@@ -107,11 +108,8 @@ class AdController extends Controller
      */
     public function search(Request $request)
     {
-        $search = $request->get('query');
+        //$request->input('query')
 
-        $query = Ad::query();
-        $ads = $query->get();
-
-        return response()->json($ads);
+        return response()->json($searchResults);
     }
 }
