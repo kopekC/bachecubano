@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Category;
 use App\Ad;
 
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Cache;
 
 use Spatie\Searchable\Search;

@@ -11,8 +11,6 @@ use Twitter;
 use Illuminate\Support\Facades\Auth;
 use App\Ad;
 
-use Illuminate\Support\Facades\Input;
-
 class HomeController extends Controller
 {
     /**
