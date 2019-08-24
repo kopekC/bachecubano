@@ -1,4 +1,5 @@
 @extends('user.layout')
+
 @section('user_section')
 <div class="page-content">
     <div class="inner-box">
@@ -6,7 +7,7 @@
             <h2 class="dashbord-title">Mis anuncios</h2>
         </div>
         <div class="dashboard-wrapper">
-            <nav class="nav-table">
+            <nav class="nav-table d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="#">Todos ({{ $total_active_ads }})</a></li>
                     <li><a href="#">Activos ()</a></li>

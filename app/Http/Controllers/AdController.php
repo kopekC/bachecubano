@@ -42,15 +42,9 @@ class AdController extends Controller
         $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
 
         if ($sub_category != "") {
-            $seo_data = [
-                'title' => $sub_category->name,
-                'desc' => $sub_category->description,
-            ];
+            $seo_data = ['title' => $sub_category->name, 'desc' => $sub_category->description];
         } else {
-            $seo_data = [
-                'title' => $super_category->name,
-                'desc' => $super_category->description,
-            ];
+            $seo_data = ['title' => $super_category->name, 'desc' => $super_category->description];
         }
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
@@ -59,62 +53,22 @@ class AdController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
-        //Parametrice all Input elements and pass to corresponding method where
-        //Getted from Input GET data
-
         //post Per Page Custom configuration now as static method ok?
         $posts_per_page = AdController::post_per_page($request);
 
-        $query = Ad::query();
-
-        //Select All elements
-        $query->select('ads.*', 'ad_promos.promotype');
-
         //Category Condition if subcategory or Super Category
+        //If Pass a single ID, its  asubcategory, i pass an array its a supercategory
         if (isset($sub_category->category_id)) {
-            $query->where('category_id', $sub_category->category_id);
+            $ids = $sub_category->category_id;
         } else {
             $sub_categories = Category::where('parent_id', '=', $super_category->category_id)->select('id')->get();
-            $query->whereIn('category_id', $sub_categories);
+            $ids = [];
+            foreach ($sub_categories as $subcategory)
+                $ids[] = $subcategory->id;
         }
-
-        //With associated elements
-        $query->with(['description', 'resources', 'category.description', 'category.parent.description']);
-
-        //Join for a correct ordering?
-        $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
-
-        //Minimal Price
-        if (null !== $request->input('min_price')) {
-            $query->when($request->input('min_price') >= 0, function ($q) use ($request) {
-                return $q->where('price', '>=', $request->input('min_price', 0));
-            });
-        }
-
-        //Maximum Price
-        if (null !== $request->input('max_price')) {
-            $query->when($request->input('max_price') >= 0, function ($q) use ($request) {
-                return $q->where('price', '<=', $request->input('max_price', 0));
-            });
-        }
-
-        //Search Query With only Photos ads
-        if (null !== $request->input('only_photos')) {
-            $query->when($request->input('only_photos') == 1, function ($q) {
-                return $q->whereHas('resources');
-            });
-        }
-
-        //Order By PromoType and later as updated time
-        $query->orderBy('ad_promos.promotype', 'desc');
-        $query->latest();
-
-        //Activated parameters
-        $query->where('active', 1);
-        $query->where('enabled', 1);
 
         //Paginate all this
-        $ads = $query->paginate($posts_per_page);
+        $ads = AdController::getAds($request, $ids);
 
         return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page'));
     }
@@ -139,7 +93,9 @@ class AdController extends Controller
         OpenGraph::addProperty('type', 'website');
 
         //get All regions of the system
-        $regions = AdRegion::all();
+        $regions = Cache::rememberForever('regions', function () {
+            return AdRegion::all();
+        });
 
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Cache::remember('promoted_ads', 60, function () {
@@ -164,7 +120,7 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'category' => 'bail|required|numeric',
             'title' => 'bail|required|min:10|max:255',
             'description' => 'bail|min:10|required',
@@ -199,6 +155,7 @@ class AdController extends Controller
         $ad->secret = Str::random(20);
         $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
         $ad->phone = $request->input('phone', "");
+        $ad->region_id = $request->input('ad_region', "737586");
         $ad->save();
 
         //Images Logic for AdResources
@@ -285,7 +242,7 @@ class AdController extends Controller
                     $query->where('promotype', '>=', 3);
                 })
                 ->inRandomOrder()
-                ->take(8)
+                ->take(4)
                 ->get();
         });
 
@@ -326,10 +283,28 @@ class AdController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Ad $ad)
-    {
-        //Well, here paint the ad therefore isn't
+    {        
         //Pintar la misma pagina de ADD pero con los datos prellenos y un hidden que le indique que es edicion y no adicion?
-        dd($ad);
+        $edit = true;
+
+        //get All regions of the system
+        $regions = Cache::rememberForever('regions', function () {
+            return AdRegion::all();
+        });
+
+        //Featured Listing, Diamond and Gold Random
+        $promoted_ads = Cache::remember('promoted_ads', 60, function () {
+            return Ad::where('active', 1)
+                ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
+                ->whereHas('promo', function ($query) {
+                    $query->where('promotype', '>=', 3);
+                })
+                ->inRandomOrder()
+                ->take(4)
+                ->get();
+        });
+
+        return view('ads.add', compact('ad', 'promoted_ads', 'regions', 'edit'));
     }
 
     /**
@@ -341,7 +316,29 @@ class AdController extends Controller
      */
     public function update(Request $request, Ad $ad)
     {
-        //
+        //So Ad exists ok?
+        //Just Modify it
+        $request->validate([
+            'category' => 'bail|required|numeric',
+            'title' => 'bail|required|min:10|max:255',
+            'description' => 'bail|min:10|required',
+            'contact_name' => 'bail|required|min:3|max:255',
+            'contact_email' => 'bail|required|email|min:5|max:255',
+            'phone' => 'bail|required|numeric|min:8|max:16',
+            'ad_region' => 'bail|required|numeric',
+            "agree" => 'bail|required',
+        ]);
+
+        //Category data
+        $category = Category::findOrFail($request->input('category'));
+
+        //Now + 3 months
+        $now = Carbon::now();
+        $plus_3_months = $now->addMonths(3);
+
+
+        
+        dd($request);
     }
 
     /**
@@ -397,5 +394,66 @@ class AdController extends Controller
          * return (new App\Mail\InvoicePaid($invoice))->render();
          */
         return Mail::to($user_data->email)->send(new AdPublished($ad, $user_data));
+    }
+
+    /**
+     * Static Get Ads for API and Web Controller
+     * $category_ids could be an ID or ID array, based on the subcategory or parent category
+     */
+    public static function getAds($request, $category_ids = null)
+    {
+        //Beguin Query
+        $query = Ad::query();
+
+        //Select All elements
+        $query->select('ads.*', 'ad_promos.promotype');
+
+        //Category Condition if subcategory or Super Category
+        //If Parent this is arrays
+        if (is_array($category_ids)) {
+            $query->whereIn('category_id', $category_ids);
+        } elseif (isset($category_ids)) {
+            $query->where('category_id', $category_ids);
+        }
+
+        //With associated elements
+        $query->with(['description', 'resources', 'category.description', 'category.parent.description']);
+
+        //Join for a correct ordering?
+        $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
+
+        //Minimal Price
+        if (null !== $request->input('min_price')) {
+            $query->when($request->input('min_price') >= 0, function ($q) use ($request) {
+                return $q->where('price', '>=', $request->input('min_price', 0));
+            });
+        }
+
+        //Maximum Price
+        if (null !== $request->input('max_price')) {
+            $query->when($request->input('max_price') >= 0, function ($q) use ($request) {
+                return $q->where('price', '<=', $request->input('max_price', 0));
+            });
+        }
+
+        //Search Query With only Photos ads
+        if (null !== $request->input('only_photos')) {
+            $query->when($request->input('only_photos') == 1, function ($q) {
+                return $q->whereHas('resources');
+            });
+        }
+
+        //Order By PromoType and later as updated time
+        $query->orderBy('ad_promos.promotype', 'desc');
+        $query->latest();
+
+        //Activated parameters
+        $query->where('active', 1);
+        $query->where('enabled', 1);
+
+        //Paginate all this
+        $ads = $query->paginate(AdController::post_per_page($request));
+
+        return $ads;
     }
 }

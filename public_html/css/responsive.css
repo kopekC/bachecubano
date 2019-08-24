@@ -50,7 +50,7 @@
 .counter-section .counter .counterUp{font-size:26px}
 .counter-section .counter p{font-size:14px}
 .featured-box .feature-content ul.address li a{font-size:13px}
-.featured-box .feature-content h4{font-size:14px}
+.featured-box .feature-content h4{font-size:14px;font-weight:500}
 #new-products .owl-controls .owl-buttons{top:-240px}
 #new-products .owl-controls .owl-buttons div.owl-prev{margin-left:-10px}
 #new-products .owl-controls .owl-buttons div.owl-next{margin-right:-10px}
@@ -88,8 +88,8 @@ footer .footer-Content .footer-logo img{width:60%}
 .futere-ad-widget .ctl-content-wrapper .ctl-content p{font-size:13px}
 .blog-post-item{margin-bottom:30px}
 #about .intro-title{font-size:16px;line-height:30px}
-.page-header .breadcrumb-wrapper .product-title{font-weight: 500;}
-.page-header{padding: 80px 0 40px;}
+.page-header .breadcrumb-wrapper .product-title{font-weight:500}
+.page-header{padding:80px 0 40px}
 }
 @media (max-width:767px){
 .section-title{font-size:15px}

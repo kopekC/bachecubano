@@ -50,7 +50,8 @@ class AdPublished extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.published')
+        return $this->subject("Se ha publicado su anuncio en Bachecubano")
+            ->view('emails.published')
             ->text('emails.published_plain');
     }
 }

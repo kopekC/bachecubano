@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         //Global Cached Categories Data Cache one week
-        $categories = Cache::remember('cached_categories', 60 * 24 * 7, function () {
+        $categories = Cache::rememberForever('cached_categories', function () {
             return Category::with('description')->get();
         });
 

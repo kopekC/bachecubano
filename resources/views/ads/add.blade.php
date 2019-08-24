@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
-                    <a href="{{ route('add') }}">
-                        <h1 class="h2 product-title">Publicar anuncio</h1>
+                    <a href="{{ URL::current() }}">
+                        <h1 class="h2 product-title">@if($edit) Modificar anuncio @else Publicar anuncio @endif</h1>
                     </a>
                 </div>
             </div>
@@ -47,8 +47,13 @@
                 </div>
                 @endif
 
-                <form action="{{ route('ad.store') }}" method="POST" name="add" class="form" id="add">
+                <form action="@if($edit){{ route('ad.update', ['ad' => $ad]) }}@else{{ route('ad.store') }}@endif" method="POST" name="add" class="form" id="add">
                     @csrf
+
+                    @if($edit)
+                    <input type="hidden" name="edit" value="{{ $ad->id }}">
+                    @method('PUT')
+                    @endif
 
                     <div class="inner-box">
                         <div class="dashboard-box">
@@ -62,7 +67,7 @@
                                         @foreach($parent_categories as $super_category)
                                         <optgroup label="{{ $super_category->description->name }}">
                                             @foreach($category_formatted[$super_category->id] as $category)
-                                            <option value="{{ $category->category_id }}" data-tokens="{{ $category->description }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->category_id }}" @if($edit==true && $ad->category_id == $category->category_id) selected="" @endif>{{ $category->name }}</option>
                                             @endforeach
                                         </optgroup>
                                         @endforeach
@@ -75,7 +80,7 @@
 
                             <div class="form-group mb-3">
                                 <label class="control-label">Título del anuncio:</label>
-                                <input class="form-control input-md" name="title" placeholder="Título del anuncio" type="text">
+                                <input class="form-control input-md" name="title" placeholder="Título del anuncio" type="text" value="@if($edit){{ $ad->description->title }}@else{{ old('title') }}@endif">
                                 @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -85,7 +90,7 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group mb-3">
                                         <label class="control-label">Precio</label>
-                                        <input class="form-control input-md" name="price" placeholder="$ 100.00" type="text">
+                                        <input class="form-control input-md" name="price" placeholder="$ 100.00" type="text" value="@if($edit){{ $ad->price }}@else{{ old('price') }}@endif">
                                     </div>
                                     @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -109,7 +114,7 @@
                                 @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <textarea name="description" class="form-control" rows="8" style="resize: vertical"></textarea>
+                                <textarea name="description" class="form-control" rows="8" style="resize: vertical">@if($edit){!! nl2br($ad->description->description) !!}@else{!! old('description') !!}@endif</textarea>
                             </div>
 
                             <!-- Drop Zone -->
@@ -133,7 +138,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Nombre *</label>
-                                            <input class="form-control input-md" name="contact_name" type="text">
+                                            <input class="form-control input-md" name="contact_name" type="text" value="@if($edit){{ $ad->contact_name }}@else{{ old('contact_name') }}@endif">
                                             @error('name')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -143,7 +148,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Teléfono *</label>
-                                            <input class="form-control input-md" name="phone" type="text">
+                                            <input class="form-control input-md" name="phone" type="text" value="@if($edit){{ $ad->phone }}@else{{ old('phone') }}@endif">
                                             @error('phone')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -157,7 +162,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Email *</label>
-                                            <input class="form-control input-md" name="contact_email" type="text">
+                                            <input class="form-control input-md" name="contact_email" type="text" value="@if($edit){{ $ad->contact_email }}@else{{ old('contact_email') }}@endif">
                                             @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -170,14 +175,12 @@
                                             <div class="tg-select form-control  pt-0 pb-0">
                                                 <select name="ad_region">
                                                     @if(isset($regions))
-                                                    <option value="737586">La Habana</option>
+                                                    <option value="737586" @if($edit==true && $ad->region_id == 737586) selected="" @endif>La Habana</option>
                                                     @foreach($regions as $region)
-
                                                     @if($region->id == 737586)
                                                     @continue
                                                     @endif
-
-                                                    <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                                    <option value="{{ $region->id }}" @if($edit==true && $ad->region_id == $region->id) selected="" @endif>{{ $region->name }}</option>
                                                     @endforeach
                                                     @endif
                                                 </select>
@@ -197,7 +200,7 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-common btn-block" type="submit">Publicar anuncio</button>
+                                <button class="btn btn-common btn-block" type="submit">@if($edit) Modificar anuncio @else Publicar anuncio @endif</button>
                             </div>
                         </div>
                     </div>

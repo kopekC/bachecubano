@@ -63,7 +63,7 @@ class SitemapController extends Controller
         $sitemap = Sitemap::create();
 
         //Global Cached Categories Data Cache one week
-        $categories = Cache::remember('cached_categories', 60 * 24 * 7, function () {
+        $categories = Cache::rememberForever('cached_categories', function () {
             return Category::with('description')->get();
         });
 

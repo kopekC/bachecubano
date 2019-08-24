@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Cache;
 use Spatie\Searchable\Search;
 use App\AdDescription;
 use App\Post;
+use App\Http\Controllers\AdController;
 
-class AdController extends Controller
+class AdsController extends Controller
 {
     /**
      * Get All Right Now Categories
@@ -24,7 +25,7 @@ class AdController extends Controller
      */
     public function get_categories()
     {
-        $categories = Cache::remember('cached_categories', 60 * 24 * 7, function () {
+        $categories = Cache::rememberForever('cached_categories', function () {
             return Category::with(['description', 'stats', 'parent', 'childs'])->get();
         });
         return response()->json($categories);
@@ -39,52 +40,8 @@ class AdController extends Controller
     public function get_ads(Request $request, $category_id)
     {
         $ads = Cache::remember('cached_ads_' . $category_id, 60, function () use ($request, $category_id) {
-
-            $query = Ad::query();
-
-            //Select All elements
-            $query->select('ads.id', 'ads.user_id', 'ads.category_id', 'ads.updated_at', 'ads.price', 'ads.contact_name', 'ad_promos.promotype');
-
-            //Category Condition
-            $query->where('category_id', $category_id);
-
-            //With associated elements
-            $query->with(['description', 'resources']);
-
-            //Join for a correct ordering?
-            $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
-
-            //Minimal Price
-            if (null !== $request->input('min_price')) {
-                $query->when(request('min_price') >= 0, function ($q) {
-                    return $q->where('price', '>=', request('min_price', 0));
-                });
-            }
-
-            //Maximum Price
-            if (null !== $request->input('max_price')) {
-                $query->when(request('max_price') >= 0, function ($q) {
-                    return $q->where('price', '<=', request('max_price', 0));
-                });
-            }
-
-            //Search Query With only Photos ads
-            if (null !== $request->input('only_photos')) {
-                $query->when(request('only_photos') == 1, function ($q) {
-                    return $q->whereHas('resources');
-                });
-            }
-
-            //Order By PromoType and later as updated time
-            $query->orderBy('ad_promos.promotype', 'desc');
-            $query->latest();
-
-            //Activated parameters
-            $query->where('active', 1);
-            $query->where('enabled', 1);
-
-            //Paginate all this
-            return $query->paginate(50);
+            $ads = AdController::getAds($request, $category_id);
+            return $ads;
         });
 
         return response()->json($ads);

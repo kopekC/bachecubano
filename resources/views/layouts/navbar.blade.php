@@ -90,14 +90,16 @@
             <a href="#">Categorías</a>
             <ul class="dropdown">
                 @foreach($parent_categories as $super_category)
-                <li><a href="{ route('super_category_index', ['category' => $super_category->description->slug]) }}">{{ $super_category->description->name }}</a></li>
+                <li><a href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">{{ $super_category->description->name }}</a></li>
                 @endforeach
             </ul>
         </li>
         <li>
             <a href="#">Blog</a>
             <ul class="dropdown">
-                <li><a href="blog.html">Blog - Right Sidebar</a></li>
+                @foreach($latest_blog_post as $blog_post)
+                <li><a href="{{ route('blog_post', ['entry_slug' => $blog_post->slug]) }}">{{ $blog_post->title }}</a></li>
+                @endforeach
             </ul>
         </li>
         <li>

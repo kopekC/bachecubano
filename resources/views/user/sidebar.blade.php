@@ -57,7 +57,7 @@
             </ul>
         </nav>
     </div>
-    <div class="widget">
+    <div class="widget d-none d-lg-block">
         <h4 class="widget-title">Publicidad</h4>
         <div class="add-box">
             <img class="img-fluid" src="" alt="">

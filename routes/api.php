@@ -27,15 +27,15 @@ Route::group(['prefix' => 'mailgun',], function () {
 Route::group(['domain' => 'api.bachecubano.com'], function () {
     Route::group(['prefix' => 'v1'], function () {
         //Get Categories
-        Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
+        Route::get('categories', 'Api\AdsController@get_categories')->name('api_get_categories');
         //Get Ads From certain Category
-        Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
+        Route::get('ads/{category_id}', 'Api\AdsController@get_ads')->name('api_get_ads');
         //Get Specific Ad
-        Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
+        Route::get('ad/{ad_id}', 'Api\AdsController@get_ad')->name('api_get_ad');
         //Sitemap Creator
         Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
         //Search model
-        Route::get('search', 'Api\AdController@search')->name('api_search');
+        Route::get('search', 'Api\AdsController@search')->name('api_search');
     });
 });
 
@@ -43,17 +43,17 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
 Route::group(['prefix' => 'v1'], function () {
 
     //Get Categories
-    Route::get('categories', 'Api\AdController@get_categories')->name('api_get_categories');
+    Route::get('categories', 'Api\AdsController@get_categories')->name('api_get_categories');
     //Get Ads From certain Category
-    Route::get('ads/{category_id}', 'Api\AdController@get_ads')->name('api_get_ads');
+    Route::get('ads/{category_id}', 'Api\AdsController@get_ads')->name('api_get_ads');
     //Get Specific Ad
-    Route::get('ad/{ad_id}', 'Api\AdController@get_ad')->name('api_get_ad');
+    Route::get('ad/{ad_id}', 'Api\AdsController@get_ad')->name('api_get_ad');
     //Mailable View
     Route::get('mailable', 'Api\MailableController@view');
     //Sitemap Creator
     Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
     //Search model
-    Route::get('search', 'Api\AdController@search')->name('api_search');
+    Route::get('search', 'Api\AdsController@search')->name('api_search');
 });
 
 //Save Image from AJAX Calls and API implementation
