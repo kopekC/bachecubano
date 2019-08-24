@@ -283,7 +283,7 @@ class AdController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Ad $ad)
-    {        
+    {
         //Pintar la misma pagina de ADD pero con los datos prellenos y un hidden que le indique que es edicion y no adicion?
         $edit = true;
 
@@ -324,7 +324,7 @@ class AdController extends Controller
             'description' => 'bail|min:10|required',
             'contact_name' => 'bail|required|min:3|max:255',
             'contact_email' => 'bail|required|email|min:5|max:255',
-            'phone' => 'bail|required|numeric|min:8|max:16',
+            'phone' => 'bail|required|numeric',
             'ad_region' => 'bail|required|numeric',
             "agree" => 'bail|required',
         ]);
@@ -336,9 +336,29 @@ class AdController extends Controller
         $now = Carbon::now();
         $plus_3_months = $now->addMonths(3);
 
+        $ad->category_id = $category->id;
+        $ad->price = $request->input('price', 0);
+        $ad->contact_name = $request->input('contact_name');
+        $ad->contact_email = $request->input('contact_email');
+        $ad->ip = $request->ip();
+        $ad->premium = 0;
+        $ad->enabled = 1;
+        $ad->active = 1;
+        $ad->spam = 0;
+        $ad->secret = Str::random(20);
+        $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
+        $ad->phone = $request->input('phone', "");
+        $ad->region_id = $request->input('ad_region', "737586");
+        $ad->update();
 
-        
-        dd($request);
+        //Description related table
+        $description = AdDescription::where('ad_id', $ad->id)->first();
+
+        $description->title = $request->input('title');
+        $description->description = $request->input('description');
+        $description->update();
+
+        return redirect(ad_url($ad));
     }
 
     /**
@@ -423,21 +443,21 @@ class AdController extends Controller
         $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
 
         //Minimal Price
-        if (null !== $request->input('min_price')) {
+        if ($request->has('min_price')) {
             $query->when($request->input('min_price') >= 0, function ($q) use ($request) {
                 return $q->where('price', '>=', $request->input('min_price', 0));
             });
         }
 
         //Maximum Price
-        if (null !== $request->input('max_price')) {
+        if ($request->has('max_price')) {
             $query->when($request->input('max_price') >= 0, function ($q) use ($request) {
                 return $q->where('price', '<=', $request->input('max_price', 0));
             });
         }
 
         //Search Query With only Photos ads
-        if (null !== $request->input('only_photos')) {
+        if ($request->has('only_photos')) {
             $query->when($request->input('only_photos') == 1, function ($q) {
                 return $q->whereHas('resources');
             });
