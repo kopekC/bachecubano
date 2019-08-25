@@ -153,6 +153,10 @@
                         </div>
 
                         <hr>
+                        <a class="btn btn-info btn-block" href="{{ route('ad.edit', ['ad' => $ad]) }}"><i class="lni-pencil"></i> Editar anuncio</a>
+                        <a class="btn btn-danger btn-block" href="{{ route('ad.destroy', ['ad' => $ad]) }}"><i class="lni-trash"></i> Eliminar anuncio</a>
+
+                        <hr>
                         <div class="share text-center">
                             <span>Compartir: </span>
                             <div class="social-link">
@@ -180,7 +184,6 @@
                             </div>
                         </div>
                         @endif
-
                         <hr>
                         <ul>
                             <li><a href="#" onclick="window.print();return false;"><i class="lni-printer"></i> Imprimir anuncio</a></li>

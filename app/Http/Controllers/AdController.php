@@ -465,7 +465,7 @@ class AdController extends Controller
 
         //Order By PromoType and later as updated time
         $query->orderBy('ad_promos.promotype', 'desc');
-        $query->latest();
+        $query->latest('updated_at');
 
         //Activated parameters
         $query->where('active', 1);
