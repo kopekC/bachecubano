@@ -10,6 +10,7 @@ use Twitter;
 
 use Illuminate\Support\Facades\Auth;
 use App\Ad;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -41,6 +42,12 @@ class HomeController extends Controller
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
+
+        //Create the initial token for first time use for old users
+        if (is_null(Auth::user()->api_token)) {
+            $token = Str::random(60);
+            Auth::user()->forceFill(['api_token' => $token])->save();
+        }
 
         //Total active ads
         $total_active_ads = Auth::user()->ads->count();
