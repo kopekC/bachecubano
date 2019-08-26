@@ -166,8 +166,10 @@
 
                                 <a href="#!" class="facebook like" data-ad_id="{{ $ad->id }}">
                                     @if(Auth::getUser()->hasLiked($ad))
+                                    <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
                                     <i class="lni-thumbs-down"></i>
                                     @else
+                                    <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
                                     <i class="lni-thumbs-up"></i>
                                     @endif
                                 </a>

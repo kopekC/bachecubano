@@ -41,9 +41,19 @@
     //Like button behavior
     //like or dislike ad, animate it.
     $('.like').on('click', function (rsp) {
+      var like_btn = $(this);
+      //Show spinner
+      like_btn.children("div").toggleClass('d-none');
+      //Hide i element
+      like_btn.children("i").toggleClass('d-none');
       $.get(api_server + "v1/ad_hit_like/" + $(this).data("ad_id") + "?api_token=" + user_token, function (data) {
-        $('.like > i').toggleClass('lni-thumbs-down');
-        $('.like > i').toggleClass('lni-thumbs-up');
+        //Toggle Thumbs
+        like_btn.children("i").toggleClass('lni-thumbs-down');
+        like_btn.children("i").toggleClass('lni-thumbs-up');
+        //Hide spinner
+        like_btn.children("div").toggleClass('d-none');
+        //Show i element
+        like_btn.children("i").toggleClass('d-none');
       });
     });
 
