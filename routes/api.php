@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-use App\Mail\AdPublished;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,9 +34,9 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
         //Like/Dislike behavior
-        Route::get('like', 'Api\LikeController@like')->name('ad_like');
+        Route::get('like/{ad}', 'Api\LikeController@like')->name('ad_like');
         //Like/Dislike behavior
-        Route::get('dislike', 'Api\LikeController@dislike')->name('ad_dislike');
+        Route::get('dislike/{ad}', 'Api\LikeController@dislike')->name('ad_dislike');
     });
 });
 
@@ -59,9 +56,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('search', 'Api\AdsController@search')->name('api_search');
 
     //Like/Dislike behavior
-    Route::get('like', 'Api\LikeController@like')->name('ad_like');
+    Route::get('like/{ad}', 'Api\LikeController@like')->name('ad_like');
     //Like/Dislike behavior
-    Route::get('dislike', 'Api\LikeController@dislike')->name('ad_dislike');
+    Route::get('dislike/{ad}', 'Api\LikeController@dislike')->name('ad_dislike');
 });
 
 //Save Image from AJAX Calls and API implementation
