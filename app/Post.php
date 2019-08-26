@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 use Illuminate\Support\Str;
+use Overtrue\LaravelLike\Traits\CanBeLiked;
 
 class Post extends Model implements Feedable
 {
+    use CanBeLiked;
+    
     // table name to be used
     protected $table = 'posts';
 

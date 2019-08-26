@@ -185,6 +185,7 @@ return [
         NotificationChannels\FacebookPoster\FacebookPosterServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
+        //Overtrue\LaravelFollow\FollowServiceProvider::class,
     ],
 
     /*

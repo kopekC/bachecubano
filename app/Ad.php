@@ -4,12 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
+use Overtrue\LaravelLike\Traits\CanBeLiked;
 
 /**
  * ads, ad_description, ad_location, ad_promo, ad_resource, ad_stats
  */
 class Ad extends Model
 {
+    use CanBeLiked;
+    
     /**
      * The attributes that should be hidden for arrays.
      *

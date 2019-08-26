@@ -51,7 +51,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a>
                             <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-layers"></i> Mis Anuncios</a>
-                            <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-heart"></i> Mis Favoritos</a>
+                            <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-thumbs-up"></i> Mis Likes</a>
                             <a class="dropdown-item" href="{{ route('my_settings') }}"><i class="lni-cog"></i> Ajustes</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-close"></i> Salir</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -112,8 +112,8 @@
             <ul class="dropdown">
                 <li><a href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a></li>
                 <li><a href="{{ route('my_ads') }}"><i class="lni-wallet"></i> Mis Anuncios</a></li>
-                <li><a href="{{ route('my_favourite') }}"><i class="lni-heart"></i> Mis favoritos</a></li>
-                <li><a href="{{ route('my_settings') }}"><i class="lni-heart"></i> Ajustes</a></li>
+                <li><a href="{{ route('my_favourite') }}"><i class="lni-thumbs-up"></i> Mis Likes</a></li>
+                <li><a href="{{ route('my_settings') }}"><i class="lni-cog"></i> Ajustes</a></li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Salir') }}

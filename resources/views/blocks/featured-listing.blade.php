@@ -39,7 +39,7 @@
                             </div>
                             <div class="float-right">
                                 <div class="icon">
-                                    <i class="lni-heart"></i>
+                                    <i class="lni-thumbs-up"></i>
                                 </div>
                             </div>
                         </div>

@@ -36,11 +36,10 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
-        
         //Like/Dislike behavior
-        Route::get('like', 'Api\AdsController@search')->name('ad_like');
+        Route::get('like', 'Api\LikeController@like')->name('ad_like');
         //Like/Dislike behavior
-        Route::get('dislike', 'Api\AdsController@search')->name('ad_dislike');
+        Route::get('dislike', 'Api\LikeController@dislike')->name('ad_dislike');
     });
 });
 
@@ -60,9 +59,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('search', 'Api\AdsController@search')->name('api_search');
 
     //Like/Dislike behavior
-    Route::get('like', 'Api\AdsController@search')->name('ad_like');
+    Route::get('like', 'Api\LikeController@like')->name('ad_like');
     //Like/Dislike behavior
-    Route::get('dislike', 'Api\AdsController@search')->name('ad_dislike');
+    Route::get('dislike', 'Api\LikeController@dislike')->name('ad_dislike');
 });
 
 //Save Image from AJAX Calls and API implementation
