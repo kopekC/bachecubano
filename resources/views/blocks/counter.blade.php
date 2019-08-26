@@ -1,5 +1,5 @@
 <!-- Counter Area Start-->
-<section class="counter-section section-padding" style="background: url(../img/background-bachecubano.png) repeat;">
+<section class="counter-section section-padding">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">

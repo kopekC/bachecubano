@@ -25,12 +25,6 @@
 @push('script')
 <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
 <script>
-    /* Counter
-    ========================================================*/
-    $('.counterUp').counterUp({
-        delay: 10,
-        time: 1000
-    });
     /* Search
     ========================================================*/
     $('.search-query .form-control').on('click', function(e) {

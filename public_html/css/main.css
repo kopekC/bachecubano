@@ -225,8 +225,8 @@ to{opacity:1}
 .product-item .product-content{padding:15px 15px 0;position:relative}
 .product-item .product-content a{color:#999;font-size:14px;font-weight:400;margin-right:5px}
 .product-item .product-content a i{margin-right:5px}
-.product-item .product-title{margin:0;overflow:hidden;font-size:14px;padding:10px 0;position:relative;text-overflow:ellipsis;white-space:nowrap}
-.product-item .product-title a{color:#484848;font-weight:700;font-size:14px}
+.product-item .product-title{margin:0;overflow:hidden;font-size:14px;padding:5px 0;position:relative;text-overflow:ellipsis;display:-webkit-box!important;height:50px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.product-item .product-title a{color:#484848;font-weight:500;font-size:14px}
 .product-item .product-title a:hover{color:#1976d2}
 .product-item p{margin-bottom:10px}
 .product-item .price{color:#1976d2;display:block;font-size:18px;font-weight:700}

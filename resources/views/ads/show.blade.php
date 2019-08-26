@@ -31,6 +31,7 @@
         <div class="product-info row">
 
             <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3 text-center mb-3">
+
                 @if(count($ad->resources) > 1)
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
@@ -78,9 +79,11 @@
                     })
                 </script>
                 @endpush
+
                 @else
                 <img src="{{ ad_first_image($ad) }}" class="img-fluid">
                 @endif
+
             </div>
 
             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6 pr-5 pl-5">
@@ -165,6 +168,7 @@
                             <div class="social-link">
 
                                 <a href="#!" class="facebook like" data-ad_id="{{ $ad->id }}">
+                                    @auth
                                     @if(Auth::getUser()->hasLiked($ad))
                                     <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
                                     <i class="lni-thumbs-down"></i>
@@ -172,6 +176,9 @@
                                     <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
                                     <i class="lni-thumbs-up"></i>
                                     @endif
+                                    @else
+                                    <i class="lni-thumbs-up"></i>
+                                    @endauth
                                 </a>
                                 <a class="facebook" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
                                 <a class="twitter" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-twitter"></i></a>
