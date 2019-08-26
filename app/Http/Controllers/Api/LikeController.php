@@ -40,6 +40,8 @@ class LikeController extends Controller
     {
         $user = Auth::guard('api')->user();
         $user->like($ad);
+        
+        return response()->json(['message' => 'Ad ' . $ad->id . ' liked', 'status' => 200], 200);
     }
 
     //Dislike Ad
@@ -47,6 +49,8 @@ class LikeController extends Controller
     {
         $user = Auth::guard('api')->user();
         $user->unlike($ad);
+
+        return response()->json(['message' => 'Ad ' . $ad->id . ' disliked', 'status' => 200], 200);
     }
 
     //Like if no liked, Dislike if liked
@@ -55,5 +59,7 @@ class LikeController extends Controller
         //Toggle way
         $user = Auth::guard('api')->user();
         $user->toggleLike($ad);
+
+        return response()->json(['message' => 'Ad ' . $ad->id . ' hit', 'status' => 200], 200);
     }
 }
