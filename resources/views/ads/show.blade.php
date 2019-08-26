@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div id="adcontent">
+                    <div id="content">
                         {!! nl2br($ad->description->description) !!}
                     </div>
                     <!-- Disqus -->
@@ -218,8 +218,8 @@
 @push('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autolinker/3.1.0/Autolinker.min.js"></script>
 <script>
-    var adcontent = document.getElementById('adcontent');
-    adcontent.innerHTML = Autolinker.link(adcontent.innerHTML, {
+    var content = document.getElementById('content');
+    content.innerHTML = Autolinker.link(content.innerHTML, {
         hashtag: 'twitter',
         mention: 'twitter',
         replaceFn: function(match) {
