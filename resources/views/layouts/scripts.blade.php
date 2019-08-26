@@ -43,7 +43,6 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-3"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-
     function gtag() {
         dataLayer.push(arguments);
     }
@@ -52,4 +51,4 @@
 </script>
 
 <!-- ManyChat -->
-<script src="//widget.manychat.com/1407854356137306.js" async="async"></script>
+<script src="//widget.manychat.com/1407854356137306.js" async></script>

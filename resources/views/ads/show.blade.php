@@ -152,9 +152,11 @@
                             @endif
                         </div>
 
+                        @if(Auth::check() && Auth::getUser()->id == $ad->user_id)
                         <hr>
                         <a class="btn btn-info btn-block" href="{{ route('ad.edit', ['ad' => $ad]) }}"><i class="lni-pencil"></i> Editar anuncio</a>
                         <a class="btn btn-danger btn-block" href="{{ route('ad.destroy', ['ad' => $ad]) }}"><i class="lni-trash"></i> Eliminar anuncio</a>
+                        @endif
 
                         <hr>
                         <div class="share text-center">
@@ -216,7 +218,7 @@
                 case 'hashtag':
                     var hashtag = match.getHashtag();
                     console.log(hashtag);
-                    return '<a href="https://www.bachecubano.com/search?tags=' + hashtag + '">#' + hashtag + '</a>';
+                    return '<a href="https://www.bachecubano.com/search?ht=' + hashtag + '">#' + hashtag + '</a>';
                     break;
 
                 case 'mention':

@@ -47,7 +47,7 @@
                 <div class="top-right links">
                     @auth
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Mi Cuenta</a>
+                        <a class="nav-link dropdown-toggle" href="{{ route('home') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Mi Cuenta</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a>
                             <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-layers"></i> Mis Anuncios</a>

@@ -284,6 +284,10 @@ class AdController extends Controller
      */
     public function edit(Request $request, Ad $ad)
     {
+        if (!Auth::check() || $ad->user_id != Auth::getUser()->id) {
+            abort(403, 'Acción no autorizada');
+        }
+
         //Pintar la misma pagina de ADD pero con los datos prellenos y un hidden que le indique que es edicion y no adicion?
         $edit = true;
 
@@ -359,6 +363,16 @@ class AdController extends Controller
         $description->update();
 
         return redirect(ad_url($ad));
+    }
+
+    /**
+     * general Search motor
+     */
+    public function search(Request $request)
+    {
+        //Global Search
+        //HashTag Search
+
     }
 
     /**
@@ -462,6 +476,14 @@ class AdController extends Controller
                 return $q->whereHas('resources');
             });
         }
+
+        //hashTag Search
+        if ($request->has('ht')) {
+            $query->when($request->input('ht') == 1, function ($q) use ($request) {
+                return $q->where('body', 'LIKE', "%#{$request->input('ht', "#bache")}%");
+            });
+        }
+
 
         //Order By PromoType and later as updated time
         $query->orderBy('ad_promos.promotype', 'desc');

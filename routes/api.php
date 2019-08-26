@@ -36,12 +36,16 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
+        
+        //Like/Dislike behavior
+        Route::get('like', 'Api\AdsController@search')->name('ad_like');
+        //Like/Dislike behavior
+        Route::get('dislike', 'Api\AdsController@search')->name('ad_dislike');
     });
 });
 
 //Version 1.0 API This has to be remved when go to production Just Testing Here at localhost
 Route::group(['prefix' => 'v1'], function () {
-
     //Get Categories
     Route::get('categories', 'Api\AdsController@get_categories')->name('api_get_categories');
     //Get Ads From certain Category
@@ -54,6 +58,11 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
     //Search model
     Route::get('search', 'Api\AdsController@search')->name('api_search');
+
+    //Like/Dislike behavior
+    Route::get('like', 'Api\AdsController@search')->name('ad_like');
+    //Like/Dislike behavior
+    Route::get('dislike', 'Api\AdsController@search')->name('ad_dislike');
 });
 
 //Save Image from AJAX Calls and API implementation
