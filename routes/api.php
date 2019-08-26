@@ -33,11 +33,13 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
-        
+
         //Like/Dislike behavior
-        Route::get('like/{ad}', 'Api\LikeController@like')->name('ad_like')->middleware('auth:api');
+        Route::get('ad_like/{ad}', 'Api\LikeController@ad_like')->name('ad_like')->middleware('auth:api');
         //Like/Dislike behavior
-        Route::get('dislike/{ad}', 'Api\LikeController@dislike')->name('ad_dislike')->middleware('auth:api');
+        Route::get('ad_dislike/{ad}', 'Api\LikeController@ad_dislike')->name('ad_dislike')->middleware('auth:api');
+        //Like/Dislike behavior
+        Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like')->middleware('auth:api');
     });
 });
 
@@ -57,9 +59,11 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('search', 'Api\AdsController@search')->name('api_search');
 
     //Like/Dislike behavior
-    Route::get('like/{ad}', 'Api\LikeController@like')->name('ad_like')->middleware('auth:api');
+    Route::get('ad_like/{ad}', 'Api\LikeController@ad_like')->name('ad_like')->middleware('auth:api');
     //Like/Dislike behavior
-    Route::get('dislike/{ad}', 'Api\LikeController@dislike')->name('ad_dislike')->middleware('auth:api');
+    Route::get('ad_dislike/{ad}', 'Api\LikeController@ad_dislike')->name('ad_dislike')->middleware('auth:api');
+    //Like/Dislike behavior
+    Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like')->middleware('auth:api');
 });
 
 //Save Image from AJAX Calls and API implementation

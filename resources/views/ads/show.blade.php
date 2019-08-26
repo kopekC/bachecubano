@@ -159,9 +159,18 @@
                         @endif
 
                         <hr>
+                        <!-- Like and Share Buttons -->
                         <div class="share text-center">
-                            <span>Compartir: </span>
+                            <span>Like y Comparte: </span>
                             <div class="social-link">
+
+                                <a href="#!" class="facebook like" data-ad_id="{{ $ad->id }}">
+                                    @if(Auth::getUser()->hasLiked($ad))
+                                    <i class="lni-thumbs-down"></i>
+                                    @else
+                                    <i class="lni-thumbs-up"></i>
+                                    @endif
+                                </a>
                                 <a class="facebook" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
                                 <a class="twitter" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-twitter"></i></a>
                                 <a class="linkedin" href="{{ route('share', ['network' => 'linkedin', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-linkedin"></i></a>

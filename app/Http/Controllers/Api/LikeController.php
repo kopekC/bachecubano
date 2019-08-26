@@ -36,7 +36,7 @@ class LikeController extends Controller
         //dump(Auth::guard('api')->user());     User object
     }
 
-    public function like(Request $request, Ad $ad)
+    public function ad_like(Request $request, Ad $ad)
     {
         $user = Auth::guard('api')->user();
         $user->like($ad);
@@ -45,7 +45,7 @@ class LikeController extends Controller
     }
 
     //Dislike Ad
-    public function dislike(Request $request, Ad $ad)
+    public function ad_dislike(Request $request, Ad $ad)
     {
         $user = Auth::guard('api')->user();
         $user->unlike($ad);
@@ -54,12 +54,12 @@ class LikeController extends Controller
     }
 
     //Like if no liked, Dislike if liked
-    public function hit_like(Request $request, Ad $ad)
+    public function ad_hit_like(Request $request, Ad $ad)
     {
         //Toggle way
         $user = Auth::guard('api')->user();
         $user->toggleLike($ad);
 
-        return response()->json(['message' => 'Ad ' . $ad->id . ' hit', 'status' => 200], 200);
+        return response()->json(['message' => 'Ad ' . $ad->id . ' hit', 'status' => 201], 200);
     }
 }

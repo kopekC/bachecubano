@@ -52,11 +52,13 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://www.bachecubano.com/'),
 
     'asset_url' => env('ASSET_URL', null),
 
-    'img_url' => env('IMG_URL'),        //IMG_URL=https://img.bachecubano.com/
+    'img_url' => env('IMG_URL', 'https://img.bachecubano.com/'),        //IMG_URL=https://img.bachecubano.com/
+
+    'api_url' => env('API_URL', 'https://api.bachecubano.com/'),        //API_URL=https://api.bachecubano.com/v1, v2, v3
 
     /*
     |--------------------------------------------------------------------------

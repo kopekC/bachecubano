@@ -38,6 +38,15 @@
       }
     });
 
+    //Like button behavior
+    //like or dislike ad, animate it.
+    $('.like').on('click', function (rsp) {
+      $.get(api_server + "v1/ad_hit_like/" + $(this).data("ad_id") + "?api_token=" + user_token, function (data) {
+        $('.like > i').toggleClass('lni-thumbs-down');
+        $('.like > i').toggleClass('lni-thumbs-up');
+      });
+    });
+
     /* WOW Scroll Spy
       ========================================================*/
     var wow = new WOW({

@@ -58,8 +58,6 @@ Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')-
 //Ad resources route
 Route::resource('ad', 'AdController');
 
-
-
 //SubDomain Stores
 Route::domain('{store_name}.bachecubano.com')->group(function () {
     Route::get('store/{store_name}', 'StoreController@show')->name('store_index');

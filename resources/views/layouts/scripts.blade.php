@@ -17,6 +17,8 @@
 <script>
     var logo = "{{ asset('img/logo-bachecubano.png') }}";
     var logo_w = "{{ asset('img/logo-bachecubano-w.png') }}";
+    var user_token = "{{ Auth::user()->api_token }}";
+    var api_server = "{{ config('app.api_url') }}";
 </script>
 
 <script src="{{ asset('js/waypoints.min.js') }}"></script>
@@ -43,6 +45,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-3"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
         dataLayer.push(arguments);
     }
