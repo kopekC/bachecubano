@@ -38,9 +38,19 @@
                                 <a href="#"><i class="lni-map-marker"></i> Louis, Missouri, US</a>
                             </div>
                             <div class="float-right">
-                                <div class="icon">
+                                <a href="#!" class="icon like" data-ad_id="{{ $ad->id }}">
+                                    @auth
+                                    @if(Auth::getUser()->hasLiked($ad))
+                                    <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
+                                    <i class="lni-thumbs-down"></i>
+                                    @else
+                                    <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
                                     <i class="lni-thumbs-up"></i>
-                                </div>
+                                    @endif
+                                    @else
+                                    <i class="lni-thumbs-up"></i>
+                                    @endauth
+                                </a>
                             </div>
                         </div>
                     </div>

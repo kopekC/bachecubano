@@ -30,7 +30,7 @@
         <!-- Product Info Start -->
         <div class="product-info row">
 
-            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3 text-center mb-3">
+            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3 text-center mb-3 affixbar">
 
                 @if(count($ad->resources) > 1)
                 <div class="owl-carousel owl-theme" id="product-carousel">
@@ -247,6 +247,30 @@
             }
         }
     });
+</script>
+
+<script>
+    var target = $('.affixbar')
+    target.after('<div class="affix" id="affix"></div>')
+
+    var affix = $('.affix')
+    affix.append(target.clone(true))
+
+    // Show affix on scroll.
+    var element = document.getElementById('affix')
+    if (element !== null) {
+        var position = target.position()
+        window.addEventListener('scroll', function() {
+            var height = $(window).scrollTop()
+            if (height > position.top) {
+                target.css('visibility', 'hidden')
+                affix.css('display', 'block')
+            } else {
+                affix.css('display', 'none')
+                target.css('visibility', 'visible')
+            }
+        })
+    }
 </script>
 @endpush
 

@@ -773,3 +773,4 @@ footer .menu li a:hover{color:#1976d2}
 .error-content .description a{color:#55acee}
 .error-content .description a:hover{color:#1976d2}
 .slicknav_menu{background:0 0}
+.affix{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;margin-top:100px}

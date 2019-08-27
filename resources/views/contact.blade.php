@@ -132,6 +132,8 @@
                         <div class="info">
                             <h3>Celular</h3>
                             <span class="detail">(+53) 5 514 9081</span>
+                            <br>
+                            <span class="detail">(+53) 5 514 9081</span>
                         </div>
                     </div>
                 </div>
