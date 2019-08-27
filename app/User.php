@@ -39,6 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $dates = [
+        'banned_until'
+    ];
+
     /**
      * Retorna Todo slos anuncios de este usuario
      */

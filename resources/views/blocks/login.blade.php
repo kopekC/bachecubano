@@ -7,6 +7,10 @@
 
                     <h3>Entrar en su cuenta de Bachecubano</h3>
 
+                    @if (session('message'))
+                    <div class="alert alert-danger">{{ session('message') }}</div>
+                    @endif
+
                     <form role="form" class="login-form" method="POST" action="{{ route('login') }}">
 
                         @csrf
