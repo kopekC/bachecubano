@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "263d5640ec31b8b43977b4d77853440d",
+    "content-hash": "5fd4266d236bd94a884b8075357415e3",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -2942,6 +2942,67 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "rennokki/rating",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rennokki/rating.git",
+                "reference": "61324f08fe726994d583480441c889b98c757837"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rennokki/rating/zipball/61324f08fe726994d583480441c889b98c757837",
+                "reference": "61324f08fe726994d583480441c889b98c757837",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5"
+            },
+            "require-dev": {
+                "orchestra/database": "~3.5.0|~3.6.0",
+                "orchestra/testbench": "~3.5.0|~3.6.0",
+                "phpunit/phpunit": "^6.2|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rennokki\\Rating\\RatingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rennokki\\Rating\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Renoki",
+                    "role": "Developer",
+                    "email": "rennokki@gmail.com",
+                    "homepage": "https://twitter.com/rennokki"
+                }
+            ],
+            "description": "Laravel Eloquent Rating allows you to assign ratings to any model.",
+            "homepage": "https://github.com/rennokki/rating",
+            "keywords": [
+                "Rate",
+                "Rating",
+                "eloquent",
+                "laravel",
+                "model",
+                "star",
+                "stars",
+                "system"
+            ],
+            "time": "2019-02-27T17:03:44+00:00"
         },
         {
             "name": "spatie/browsershot",

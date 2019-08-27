@@ -308,6 +308,8 @@ class AdController extends Controller
                 ->get();
         });
 
+        $ad_images = $ad->
+
         return view('ads.add', compact('ad', 'promoted_ads', 'regions', 'edit'));
     }
 
@@ -320,6 +322,10 @@ class AdController extends Controller
      */
     public function update(Request $request, Ad $ad)
     {
+        if (!Auth::check() || $ad->user_id != Auth::getUser()->id) {
+            abort(403, 'Acción no autorizada');
+        }
+
         //So Ad exists ok?
         //Just Modify it
         $request->validate([
