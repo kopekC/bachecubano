@@ -1,6 +1,7 @@
 {
     "name": "Bachecubano",
     "short_name": "Bachecubano",
+    "description": "Negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -15,5 +16,8 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/?utm_source=web_app_manifest&utm_medium=navigator&utm_campaign=manifest"
 }

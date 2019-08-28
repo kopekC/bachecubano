@@ -7,7 +7,7 @@ return [
          */
         'defaults'       => [
             'title'        => "Bachecubano", // set false to total remove
-            'description'  => 'Web de negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.', // set false to total remove
+            'description'  => 'Negocios, tiendas y clasificados en Cuba. Especialidad en computadoras, celulares, accesorios, electrodomésticos, casas, carros y compras online.', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => ['clasificados cuba', 'compra venta cuba', 'tiendas online cuba', 'ecommerce cuba', 'amazon cuba', 'revolico cuba', 'porlalivre cuba', 'compras online cuba'],
             'canonical'    => null, // Set null for using Url::current(), set false to total remove
