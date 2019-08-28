@@ -83,7 +83,6 @@
                 @else
                 <img src="{{ ad_first_image($ad) }}" class="img-fluid">
                 @endif
-
             </div>
 
             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6 pr-5 pl-5">

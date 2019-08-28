@@ -28,6 +28,8 @@ use App\Mail\AdPublished;
 
 use stdClass;
 
+use App\User;
+
 class AdController extends Controller
 {
     /**
@@ -177,6 +179,11 @@ class AdController extends Controller
         //Retrieve Ad Again
         $ad = Ad::with(['description', 'category.description', 'category.parent.description'])->findOrFail($ad->id);
 
+        //AutoRate this for a first time?
+        if (Auth::check()) {
+            Auth::getUser()->rate($ad, 5);
+        }
+
         //Send Notification Email to the User
         //If is guest, always send this email, if it's registered user check for user settings and verify email.published = true 👌
         if (Auth::check()) {
@@ -202,15 +209,15 @@ class AdController extends Controller
      */
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
-        //Retrieve Ad
-        $ad = Cache::remember('ad-{$ad_id}', 5, function () use ($ad_id) {
-            return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner'])->findOrFail($ad_id);
+        //Retrieve Ad with aditional data
+        $ad = Cache::remember('ad-{$ad_id}', 60, function () use ($ad_id) {
+            return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner', 'likes', 'likers'])->findOrFail($ad_id);
         });
 
         //Hit Visit to this Ad using increment method
-        $stats = AdStats::findOrNew($ad->id);       //No puedes crearlo asi, hay que hacer un if
+        $stats = AdStats::findOrNew($ad->id);
         $stats->ad_id = $ad->id;
-        $stats->increment('hits');                  //Default value 1
+        $stats->increment('hits');
         $stats->save();
 
         //SEO Data
@@ -246,6 +253,10 @@ class AdController extends Controller
                 ->get();
         });
 
+        //Rating Variables
+        $averageRating = $ad->raters(User::class)->count() > 0 ? $ad->averageRating(User::class) : '5';
+        $raters = $ad->raters(User::class)->count() > 0 ? $ad->raters(User::class)->count() : '1';
+
         //Schema
         $SchemaLD = Schema::Product()
             ->name($seo_data['title'])
@@ -256,8 +267,8 @@ class AdController extends Controller
             //->logo()
             ->aggregateRating(
                 Schema::aggregateRating()
-                    ->ratingValue('5')
-                    ->reviewCount('1')
+                    ->ratingValue($averageRating)
+                    ->reviewCount($raters)
             )
             ->offers(
                 Schema::Offer()
@@ -273,7 +284,7 @@ class AdController extends Controller
                     )
             );
 
-        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD'));
+        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters'));
     }
 
     /**
@@ -308,7 +319,7 @@ class AdController extends Controller
                 ->get();
         });
 
-        $ad_images = $ad->
+        //$ad_images = $ad->
 
         return view('ads.add', compact('ad', 'promoted_ads', 'regions', 'edit'));
     }

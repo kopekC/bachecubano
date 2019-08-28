@@ -7,10 +7,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Overtrue\LaravelLike\Traits\CanLike;
+use Rennokki\Rating\Traits\CanRate;
+use Rennokki\Rating\Contracts\Rater;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Rater
 {
-    use HasApiTokens, Notifiable, CanLike;
+    use HasApiTokens, Notifiable, CanLike, CanRate;
 
     /**
      * The attributes that are mass assignable.
@@ -49,5 +51,13 @@ class User extends Authenticatable
     public function ads()
     {
         return $this->hasMany('App\Ad');
+    }
+
+    /**
+     * Retorna Todo slos anuncios de este usuario
+     */
+    public function wallet()
+    {
+        return $this->hasOne('App\Wallet');
     }
 }

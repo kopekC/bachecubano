@@ -114,7 +114,7 @@
                                 @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <textarea name="description" class="form-control" rows="8" style="resize: vertical">@if($edit){!! nl2br($ad->description->description) !!}@else{!! old('description') !!}@endif</textarea>
+                                <textarea name="description" class="form-control" rows="8" style="resize: vertical">@if($edit){!! $ad->description->description !!}@else{!! old('description') !!}@endif</textarea>
                             </div>
 
                             <!-- Drop Zone -->

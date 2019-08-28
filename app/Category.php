@@ -67,7 +67,7 @@ class CategoryDescription extends Model
     public $timestamps = false;
 
     /**
-     * Get the user that owns the phone.
+     * Get the category which this belongs.
      */
     public function category()
     {

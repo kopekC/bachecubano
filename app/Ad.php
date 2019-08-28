@@ -5,13 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Overtrue\LaravelLike\Traits\CanBeLiked;
+use Rennokki\Rating\Traits\CanBeRated;
+use Rennokki\Rating\Contracts\Rateable;
 
 /**
  * ads, ad_description, ad_location, ad_promo, ad_resource, ad_stats
  */
-class Ad extends Model
+class Ad extends Model implements Rateable
 {
-    use CanBeLiked;
+    use CanBeLiked, CanBeRated;
     
     /**
      * The attributes that should be hidden for arrays.

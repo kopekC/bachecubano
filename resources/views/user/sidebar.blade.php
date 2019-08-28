@@ -1,11 +1,17 @@
 <aside>
     <div class="sidebar-box">
         <div class="user">
-            <figure>
-                <a href="#"><img src="#" alt=""></a>
-            </figure>
-            <div class="usercontent">
+            <div class="d-flex justify-content-center h-100">
+                <div class="image_outer_container">
+                    <div class="green_icon"></div>
+                    <div class="image_inner_container">
+                        <img src="https://i0.wp.com/tricksmaze.com/wp-content/uploads/2017/04/Stylish-Girls-Profile-Pictures-36.jpg?resize=300%2C300&ssl=1">
+                    </div>
+                </div>
+            </div>
+            <div class="usercontent text-center">
                 <h3>{{ Auth::user()->name }}</h3>
+                <h4><i class="lni-hone"></i> {{ Auth::user()->phone }}</h4>
                 <h4><i class="lni-hone"></i> {{ Auth::user()->phone }}</h4>
             </div>
         </div>
@@ -25,8 +31,8 @@
                 </li>
                 <li>
                     <a href="{{ route('my_favourite') }}" class="{{ \Route::current()->getName() == 'my_favourite' ? 'active' : ''}}">
-                        <i class="lni-heart"></i>
-                        <span>Favoritos</span>
+                        <i class="lni-thumbs-up"></i>
+                        <span>Me Gusta</span>
                     </a>
                 </li>
                 <li>
