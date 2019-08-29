@@ -39,6 +39,11 @@
                     </a>
                 </li>
             </ul>
+            @auth
+            <a class="tg-btn bg-primary mr-3" href="#">
+                <i class="lni-money-protection"></i> {{ Auth::user()->wallet->credits }}
+            </a>
+            @endauth
             <a class="tg-btn bg-primary mr-3" href="#">
                 <i class="lni-cart"></i> Carrito
             </a>
@@ -53,7 +58,7 @@
                             <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-layers"></i> Mis Anuncios</a>
                             <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-thumbs-up"></i> Mis Likes</a>
                             <a class="dropdown-item" href="{{ route('my_settings') }}"><i class="lni-cog"></i> Ajustes</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-close"></i> Salir</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-exit"></i> Salir</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>

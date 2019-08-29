@@ -10,9 +10,9 @@
                 </div>
             </div>
             <div class="usercontent text-center">
-                <h3>{{ Auth::user()->name }}</h3>
-                <h4><i class="lni-hone"></i> {{ Auth::user()->phone }}</h4>
-                <h4><i class="lni-hone"></i> {{ Auth::user()->phone }}</h4>
+                <h3 title="{{ Auth::user()->id }}"><i class="lni-user"></i> {{ Auth::user()->name }}</h3>
+                <h4><i class="lni-mobile"></i> {{ Auth::user()->phone }}</h4>
+                <h4><i class="lni-money-protection"></i> {{ Auth::user()->wallet->credits }}</h4>
             </div>
         </div>
         <nav class="navdashboard">
@@ -56,7 +56,7 @@
                 </li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="lni-close"></i>
+                        <i class="lni-exit"></i>
                         <span>Salir</span>
                     </a>
                 </li>

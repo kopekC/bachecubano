@@ -319,9 +319,10 @@ class AdController extends Controller
                 ->get();
         });
 
-        //$ad_images = $ad->
+        //Ad Images for prefill
+        $ad_images = $ad->resources;
 
-        return view('ads.add', compact('ad', 'promoted_ads', 'regions', 'edit'));
+        return view('ads.add', compact('ad', 'promoted_ads', 'regions', 'edit', 'ad_images'));
     }
 
     /**

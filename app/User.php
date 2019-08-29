@@ -54,10 +54,12 @@ class User extends Authenticatable implements Rater
     }
 
     /**
-     * Retorna Todo slos anuncios de este usuario
+     * Retorna la billetera de este user
      */
     public function wallet()
     {
-        return $this->hasOne('App\Wallet');
+        return $this->hasOne('App\Wallet')->withDefault([
+            'credits' => 0.00
+        ]);
     }
 }

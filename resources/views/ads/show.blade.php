@@ -85,7 +85,7 @@
                 @endif
             </div>
 
-            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6 pr-5 pl-5">
+            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-7 pr-5 pl-5">
                 <div class="description">
                     <div class="details-box">
                         <div class="ads-details-info">
@@ -140,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
+            <div class="col-xs-12 col-md-6 col-lg-3 col-xl-2">
                 <!-- Product Description Start -->
                 <div class="description-info">
                     <div class="short-info">
@@ -193,12 +193,16 @@
                             <!-- Personal Link -->
                             <!-- Rating Stars -->
                             <div class="user">
-                                <figure>
-                                    <a href="#"><img src="#" alt=""></a>
-                                </figure>
-                                <div class="usercontent">
-                                    <h3></h3>
-                                    <h4><i class="lni-hone"></i> {{ $ad->owner->name }}</h4>
+                                <div class="d-flex justify-content-center h-100">
+                                    <div class="image_outer_container">
+                                        <div class="green_icon"></div>
+                                        <div class="image_inner_container">
+                                            <img src="https://i0.wp.com/tricksmaze.com/wp-content/uploads/2017/04/Stylish-Girls-Profile-Pictures-36.jpg?resize=300%2C300&ssl=1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="usercontent text-center pt-3">
+                                    <h4><i class="lni-user"></i> {{ $ad->owner->name }}</h4>
                                 </div>
                             </div>
                         </div>

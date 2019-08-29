@@ -257,6 +257,8 @@
                 },
         */
 
+
+
         //Add Image IDS on every response
         success: function(file, response) {
             $('<input>', {
@@ -266,6 +268,31 @@
             }).appendTo("#add");
         }
     };
+
+
+    @if($edit)
+
+    // Create the mock file:
+    var mockFile = {
+        name: "Filename",
+        size: 12345
+    };
+    // Call the default addedfile event handler
+    Dropzone.options.adImageUpload.emit("addedfile", mockFile);
+    // And optionally show the thumbnail of the file:
+    Dropzone.options.adImageUpload.emit("thumbnail", mockFile, "/image/url");
+    // Or if the file on your server is not yet in the right
+    // size, you can let Dropzone download and resize it
+    // callback and crossOrigin are optional.
+    Dropzone.options.adImageUpload.createThumbnailFromUrl(file, imageUrl, callback, crossOrigin);
+    // Make sure that there is no progress bar, etc...
+    Dropzone.options.adImageUpload.emit("complete", mockFile);
+    // If you use the maxFiles option, make sure you adjust it to the
+    // correct amount:
+    var existingFileCount = 1; // The number of files already uploaded
+    Dropzone.options.adImageUpload.options.maxFiles = Dropzone.options.adImageUpload.options.maxFiles - existingFileCount;
+
+    @endif
 </script>
 <!-- Form Validation -->
 <script src="{{ asset('js/form-validator.min.js') }}"></script>
