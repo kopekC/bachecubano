@@ -25,7 +25,7 @@
 -->
 
 <!-- Ads Details Start -->
-<div class="section-padding">
+<section class="section-padding">
     <div class="container-fluid">
         <!-- Product Info Start -->
         <div class="product-info row">
@@ -119,24 +119,6 @@
                     <div id="content">
                         {!! nl2br($ad->description->description) !!}
                     </div>
-                    <!-- Disqus -->
-                    <div id="disqus_thread"></div>
-                    @push('script')
-                    <script>
-                        var disqus_config = function() {
-                            this.page.url = "{{ URL::current() }}"; // Replace PAGE_URL with your page's canonical URL variable
-                            this.page.identifier = "{{ $ad->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                            var d = document,
-                                s = d.createElement('script');
-                            s.src = 'https://bachecubano.disqus.com/embed.js';
-                            s.setAttribute('data-timestamp', +new Date());
-                            (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                    @endpush
                 </div>
             </div>
 
@@ -165,8 +147,7 @@
                         <div class="share text-center">
                             <span>Like y Comparte: </span>
                             <div class="social-link">
-
-                                <a href="#!" class="facebook like" data-ad_id="{{ $ad->id }}">
+                                <a href="#!" class="facebook like mb-2" data-ad_id="{{ $ad->id }}">
                                     @auth
                                     @if(Auth::getUser()->hasLiked($ad))
                                     <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
@@ -179,9 +160,9 @@
                                     <i class="lni-thumbs-up"></i>
                                     @endauth
                                 </a>
-                                <a class="facebook" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
-                                <a class="twitter" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-twitter"></i></a>
-                                <a class="linkedin" href="{{ route('share', ['network' => 'linkedin', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-linkedin"></i></a>
+                                <a class="facebook mb-2" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
+                                <a class="twitter mb-2" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-twitter"></i></a>
+                                <a class="linkedin mb-2" href="{{ route('share', ['network' => 'linkedin', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-linkedin"></i></a>
                             </div>
                         </div>
 
@@ -220,8 +201,44 @@
         </div>
         <!-- Product Info End -->
     </div>
-</div>
+</section>
 <!-- Ads Details End -->
+
+<!-- Some Ad Meta Data -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Rating Setting -->
+        <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
+            
+        </div>
+        <!-- Disqus Chat -->
+        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-7">
+            <!-- Disqus -->
+            <div id="disqus_thread"></div>
+            @push('script')
+            <script>
+                var disqus_config = function() {
+                    this.page.url = "{{ URL::current() }}"; // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = "{{ $ad->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                        s = d.createElement('script');
+                    s.src = 'https://bachecubano.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            @endpush
+        </div>
+        <!-- Advertising -->
+        <div class="col-xs-12 col-md-6 col-lg-3 col-xl-2">
+            Avertising
+        </div>
+    </div>
+</div>
+<!-- Some Ad Meta Data End -->
 
 <!-- featured Listing -->
 @include('blocks.featured-listing')
