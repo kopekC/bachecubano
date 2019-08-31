@@ -386,7 +386,7 @@ to{opacity:1}
 .description-info .short-info h4{font-size:18px;margin-bottom:20px}
 .description-info .short-info ul li{margin-bottom:20px}
 .description-info .short-info ul li i{font-size:18px;margin-right:10px}
-.description-info .short-info ul li a{color:#484848;font-size:16px}
+.description-info .short-info ul li a{color:#484848;font-size:13px}
 .description-info .short-info ul li a span{color:#1976d2}
 .description-info .short-info ul li a:hover{color:#1976d2}
 .sidebar-box{background:#fafafa;width:100%;display:inline-block;margin-bottom:30px}
@@ -634,7 +634,7 @@ blockquote{border-left:none;padding:15px;line-height:36px}
 #container-map{width:100%;height:480px}
 #google-map-area{position:relative}
 #google-map-area .container-fluid{padding-left:0;padding-right:0}
-#content{position:relative}
+#content{position:relative;word-wrap:break-word}
 #content .contact-form,#content .information{margin-top:40px}
 #content .contact-title{font-size:20px;font-weight:500;margin-bottom:30px;padding-bottom:25px;position:relative}
 #content .contact-title:before{content:"";height:3px;width:40px;background:#1976d2;position:absolute;left:0;bottom:0;z-index:1}
@@ -778,3 +778,4 @@ footer .menu li a:hover{color:#1976d2}
 .image_inner_container{border-radius:50%;padding:5px;background:#bbdefb;background:-webkit-linear-gradient(to bottom,#1976d2,#2196f3,#bbdefb);background:linear-gradient(to bottom,#1976d2,#2196f3,#bbdefb)}
 .image_inner_container img{height:150px;width:150px;border-radius:50%;border:2px solid #fff}
 .image_outer_container .green_icon{background-color:#4cd137;position:absolute;right:20px;bottom:10px;height:20px;width:20px;border:2.5px solid #fff;border-radius:50%}
+.img-fluid{width:100%}

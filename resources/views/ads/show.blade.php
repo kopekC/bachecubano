@@ -110,8 +110,9 @@
                             </ul>
                             -->
                             <div class="details-meta">
+                                <span><a href="#" title="ID del anuncio"><i class="lni-information"></i> {{ $ad->id }}</a></span>
                                 <span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->diffForHumans() }}</a></span>
-                                <span><a href="#"><i class="lni-eye"></i> {{ $ad->stats->hits > 0 ? $ad->stats->hits : 0 }} Visitas</a></span>
+                                <span><a href="#" title="Total de visitas válidas del anuncio"><i class="lni-eye"></i> {{ $ad->stats->hits > 0 ? $ad->stats->hits : 0 }} Visitas</a></span>
                             </div>
                         </div>
                     </div>
@@ -129,8 +130,12 @@
 
                         <div class="ads-btn mb-4">
                             <h3 class="text-center h3">{{ ad_price($ad) }}</h3>
+                            @if(isset($ad->contact_name) && $ad->contact_name != "")
                             <h4 class="text-center h4">{{ $ad->contact_name }}</h4>
+                            @endif
+                            @if(isset($ad->contact_email) && $ad->contact_email != "")
                             <a href="mailto:{{ $ad->contact_email }}" class="btn btn-common btn-reply btn-block mb-1"><i class="lni-envelope"></i> Correo</a>
+                            @endif
                             @if(isset($ad->phone) && $ad->phone != "")
                             <a href="tel:{{ $ad->phone }}" class="btn btn-common btn-block"><i class="lni-phone-handset"></i> {{ $ad->phone }}</a>
                             @endif
@@ -209,7 +214,7 @@
     <div class="row">
         <!-- Rating Setting -->
         <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
-            
+
         </div>
         <!-- Disqus Chat -->
         <div class="col-xs-12 col-md-6 col-lg-6 col-xl-7">
