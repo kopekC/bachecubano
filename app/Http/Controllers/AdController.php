@@ -99,6 +99,9 @@ class AdController extends Controller
             return AdRegion::all();
         });
 
+        //Tell view that this is not an edit page
+        $edit = false;
+
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Cache::remember('promoted_ads', 60, function () {
             return Ad::where('active', 1)
@@ -111,7 +114,7 @@ class AdController extends Controller
                 ->get();
         });
 
-        return view('ads.add', compact('promoted_ads', 'regions'));
+        return view('ads.add', compact('promoted_ads', 'regions', 'edit'));
     }
 
     /**

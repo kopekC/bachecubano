@@ -9,10 +9,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Overtrue\LaravelLike\Traits\CanLike;
 use Rennokki\Rating\Traits\CanRate;
 use Rennokki\Rating\Contracts\Rater;
+use Rennokki\Befriended\Traits\Follow;
+use Rennokki\Befriended\Contracts\Following;
 
-class User extends Authenticatable implements Rater
+class User extends Authenticatable implements Rater, Following
 {
-    use HasApiTokens, Notifiable, CanLike, CanRate;
+    use HasApiTokens, Notifiable, CanLike, CanRate, Follow;
 
     /**
      * The attributes that are mass assignable.
@@ -61,5 +63,13 @@ class User extends Authenticatable implements Rater
         return $this->hasOne('App\Wallet')->withDefault([
             'credits' => 0.00
         ]);
+    }
+
+    /**
+     * Get This User based on its token ??
+     */
+    public function getByToken($token)
+    {
+        return self::where('api_token', $token)->first();
     }
 }
