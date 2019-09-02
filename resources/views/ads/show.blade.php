@@ -36,7 +36,7 @@
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
                     <div class="item">
-                        <img src="{{ ad_image_url($resource) }}" class="img-fluid">
+                        <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
                     </div>
                     @endforeach
                 </div>
@@ -81,7 +81,7 @@
                 @endpush
 
                 @else
-                <img src="{{ ad_first_image($ad) }}" class="img-fluid">
+                <img src="{{ ad_first_image($ad) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
                 @endif
             </div>
 
@@ -134,10 +134,11 @@
                             <h4 class="text-center h4">{{ $ad->contact_name }}</h4>
                             @endif
                             @if(isset($ad->contact_email) && $ad->contact_email != "")
-                            <a href="mailto:{{ $ad->contact_email }}" class="btn btn-common btn-reply btn-block mb-1"><i class="lni-envelope"></i> Correo</a>
+                            <a href="mailto:{{ $ad->contact_email }}" class="btn btn-common btn-reply btn-block mb-1" title="Enviar Email a {{ $ad->contact_name }}"><i class="lni-envelope"></i> Correo</a>
                             @endif
                             @if(isset($ad->phone) && $ad->phone != "")
-                            <a href="tel:{{ $ad->phone }}" class="btn btn-common btn-block"><i class="lni-phone-handset"></i> {{ $ad->phone }}</a>
+                            <a href="tel:{{ $ad->phone }}" class="btn btn-common btn-block" title="Llamar a {{ $ad->contact_name }}"><i class="lni-phone-handset"></i> {{ $ad->phone }}</a>
+                            <a href="#!" class="btn btn-common btn-block" title="Enviar SMS a {{ $ad->contact_name }}"><i class="lni-bubble"></i> {{ $ad->phone }}</a>
                             @endif
                         </div>
 

@@ -90,7 +90,7 @@ if (!function_exists('text_clean')) {
         // Remove all characters except A-Z, a-z, 0-9, dots, hyphens and spaces
         // Note that the hyphen must go last not to be confused with a range (A-Z)
         // and the dot, being special, is escaped with \
-        $str = preg_replace('/[^A-Za-z0-9\. -]/', '', $str);
+        $str = preg_replace('/[^A-Za-z0-9\. -]/', ' ', $str);
 
         return $str;
     }

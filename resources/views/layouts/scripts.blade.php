@@ -27,7 +27,7 @@
 @stack('script')
 
 <!-- FoxPush -->
-<script type="text/javascript" data-cfasync="false">
+<script data-cfasync="false">
     var _foxpush = _foxpush || [];
     _foxpush.push(['_setDomain', 'bachecubanocom']);
     (function() {

@@ -49,33 +49,31 @@
             </a>
             <ul class="sign-in">
                 @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ route('home') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Mi Cuenta</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a>
-                            <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-layers"></i> Mis Anuncios</a>
-                            <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-thumbs-up"></i> Mis Likes</a>
-                            <a class="dropdown-item" href="{{ route('my_settings') }}"><i class="lni-cog"></i> Ajustes</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-exit"></i> Salir</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @else
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ route('login') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Acceder</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('login') }}"><i class="lni-home"></i> Iniciar sesión</a>
-                            @if (Route::has('register'))
-                            <a class="dropdown-item" href="{{ route('register') }}"><i class="lni-wallet"></i> Registrarme</a>
-                            @endif
-                        </div>
-                    </li>
-                    @endauth
-                </div>
+                @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ route('home') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Mi Cuenta</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a>
+                        <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-layers"></i> Mis Anuncios</a>
+                        <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-thumbs-up"></i> Mis Likes</a>
+                        <a class="dropdown-item" href="{{ route('my_settings') }}"><i class="lni-cog"></i> Ajustes</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-exit"></i> Salir</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ route('login') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni-user"></i> Acceder</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('login') }}"><i class="lni-home"></i> Iniciar sesión</a>
+                        @if (Route::has('register'))
+                        <a class="dropdown-item" href="{{ route('register') }}"><i class="lni-wallet"></i> Registrarme</a>
+                        @endif
+                    </div>
+                </li>
+                @endauth
                 @endif
             </ul>
             <a class="tg-btn" href="{{ route('add') }}">
