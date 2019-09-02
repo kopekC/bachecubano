@@ -43,10 +43,11 @@ class Handler extends ExceptionHandler
         /*
          *
          * Send Exception to email or show here?
+         */
         if ($this->shouldReport($exception)) {
             $this->sendExceptionEmail($exception);
         }
-        */
+
         parent::report($exception);
     }
 
