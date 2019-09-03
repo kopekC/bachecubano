@@ -177,7 +177,6 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        //App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
         /**
@@ -187,7 +186,6 @@ return [
         NotificationChannels\FacebookPoster\FacebookPosterServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
-        //Overtrue\LaravelFollow\FollowServiceProvider::class,
     ],
 
     /*
