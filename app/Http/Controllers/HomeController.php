@@ -122,4 +122,27 @@ class HomeController extends Controller
 
         return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads'));
     }
+
+    /**
+     * user Settings
+     */
+    public function settings(Request $request)
+    {
+        //SEO Data
+        $seo_data = [
+            'title' => "Configuración de mi cuenta",
+            'desc' => "Configurar las preferencias generales e informacion de usuario en la web",
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+        $section_name = "Configuración de mi cuenta";
+
+        $user = Auth::getUser();
+
+        return view('user.settings', compact('section_name', 'user'));
+    }
 }
