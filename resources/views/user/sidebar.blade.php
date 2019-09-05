@@ -5,7 +5,7 @@
                 <div class="image_outer_container">
                     <div class="green_icon"></div>
                     <div class="image_inner_container">
-                        <img src="https://i0.wp.com/tricksmaze.com/wp-content/uploads/2017/04/Stylish-Girls-Profile-Pictures-36.jpg?resize=300%2C300&ssl=1">
+                        <img src="{{ profile_logo(Auth::getUser()) }}">
                     </div>
                 </div>
             </div>

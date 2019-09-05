@@ -266,8 +266,8 @@
         }
     };
 </script>
-<!-- Form Validation -->
-<script src="{{ asset('js/form-validator.min.js') }}"></script>
+<!-- Form Validation 
+<script src="{{ asset('js/form-validator.min.js') }}"></script>-->
 @endpush
 
 @endsection

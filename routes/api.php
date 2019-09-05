@@ -33,7 +33,6 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
-
         //Like/Dislike behavior
         Route::get('ad_like/{ad}', 'Api\LikeController@ad_like')->name('ad_like')->middleware('auth:api');
         //Like/Dislike behavior
@@ -57,7 +56,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
     //Search model
     Route::get('search', 'Api\AdsController@search')->name('api_search');
-
     //Like/Dislike behavior
     Route::get('ad_like/{ad}', 'Api\LikeController@ad_like')->name('ad_like')->middleware('auth:api');
     //Like/Dislike behavior
@@ -70,3 +68,4 @@ Route::group(['prefix' => 'v1'], function () {
 Route::get('show-image', 'Api\ImageController@index')->name('show-image-ajax');
 Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
 Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
+Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');

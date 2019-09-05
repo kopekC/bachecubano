@@ -126,4 +126,23 @@ class ImageController extends Controller
 
         return Response::json(['message' => 'File successfully delete'], 200);
     }
+
+    /**
+     * Save Profile Picture into database
+     */
+    public function save_profile_image(Request $request)
+    {
+        //Photos Contains all fotos
+        $photo = $request->file('photo');
+
+        //Myself
+        $user = Auth::guard('api')->user();
+
+        //Create Folder If dont exists
+        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . $user->id)) {
+            mkdir($this->photos_path . DIRECTORY_SEPARATOR . $user->id, 0777);
+        }
+
+        dd($photo);
+    }
 }

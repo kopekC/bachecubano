@@ -154,4 +154,13 @@ class HomeController extends Controller
         $me = Auth::getUser();
         dd($me);
     }
+
+    /**
+     * Update User Data
+     */
+    public function update_user(Request $request) {
+        //Validate incoming data
+        //Save incoming data
+        //flash sesion message
+    }
 }

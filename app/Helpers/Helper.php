@@ -1,6 +1,9 @@
 <?php
 
 //Constructed ad url
+
+use App\User;
+
 if (!function_exists('ad_url')) {
     /**
      * Obtiene la URL de un anuncio pasando el $ad object
@@ -93,5 +96,20 @@ if (!function_exists('text_clean')) {
         $str = preg_replace('/[^A-Za-z0-9\. -]/', ' ', $str);
 
         return $str;
+    }
+}
+
+
+//Get Profile image route
+if (!function_exists('profile_logo')) {
+    /**
+     * Limpia el texto para uso en etiquetas SEO
+     */
+    function profile_logo(User $user)
+    {
+        if (!is_null($user->profile_picture)) {
+            return config('app.img_url') . "uploads" . DIRECTORY_SEPARATOR . $user->id . DIRECTORY_SEPARATOR . $user->profile_picture;
+        }
+        return asset('android-chrome-192x192.png');
     }
 }

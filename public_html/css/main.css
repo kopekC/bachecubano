@@ -440,7 +440,7 @@ label{display:inline}
 .tg-checkbox{margin-bottom:10px}
 .tg-checkbox a{font-size:13px;color:#333}
 .tg-inputwithicon .tg-select{color:#666;width:100%;position:relative;text-transform:uppercase}
-.tg-inputwithicon .tg-select:after{top:10px;right:15px;z-index:2;color:#666;display:block;content:'\e93a';position:absolute;text-align:center;font-size:inherit;line-height:40px;font-family:LineIcons}
+.tg-inputwithicon .tg-select:after{top:10px;right:15px;z-index:2;color:#666;display:block;content:'\e93a';position:absolute;text-align:center;font-size:inherit;line-height:30px;font-family:LineIcons}
 .tg-inputwithicon .tg-select select{border:0;border-radius:0;font-size:16px;width:100%;line-height:30px;background:#fff;z-index:1;width:100%;position:relative;appearance:none;-moz-appearance:none;-webkit-appearance:none}
 .dashboard-wrapper .tg-inputwithicon .tg-select:after{top:2px}
 .dashboard-wrapper .tg-select select:focus{outline:0}
