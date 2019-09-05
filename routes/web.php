@@ -21,6 +21,7 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 //User Login/Register/Change Password routes
 Auth::routes();
 
+
 //Feeds
 Route::feeds();
 
@@ -34,6 +35,7 @@ Route::get('/home/ads', 'HomeController@ads')->name('my_ads');
 Route::get('/home/favourite', 'HomeController@favourite')->name('my_favourite');
 Route::get('/home/settings', 'HomeController@settings')->name('my_settings');
 Route::get('/home/payments', 'HomeController@payments')->name('my_payments');
+Route::post('/home/delete', 'HomeController@delete_account')->name('delete_account');
 
 //Cart Routes
 Route::resource('cart', 'CartController');

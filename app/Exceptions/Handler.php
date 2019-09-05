@@ -44,7 +44,7 @@ class Handler extends ExceptionHandler
          *
          * Send Exception to email or show here?
          */
-        if ($this->shouldReport($exception)) {
+        if ($this->shouldReport($exception) && config('app.env') != 'local') {
             $this->sendExceptionEmail($exception);
         }
 

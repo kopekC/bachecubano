@@ -145,4 +145,13 @@ class HomeController extends Controller
 
         return view('user.settings', compact('section_name', 'user'));
     }
+
+    /**
+     * Delete this account
+     */
+    public function delete_account(Request $request)
+    {
+        $me = Auth::getUser();
+        dd($me);
+    }
 }
