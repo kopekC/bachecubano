@@ -156,10 +156,7 @@ class ImageController extends Controller
 
         //Image manipulation thumbnail
         Image::make($photo)
-            ->fit(240)
-            //->resize(240, null, function ($constraints) {
-            //    $constraints->aspectRatio();
-            //})
+            ->fit(240)                                                      //Get the most important data from center of the image
             ->save($this->photos_path . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . $user->id . DIRECTORY_SEPARATOR . $photo_name);
 
         //dump($user);
