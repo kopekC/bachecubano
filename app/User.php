@@ -22,7 +22,7 @@ class User extends Authenticatable implements Rater, Following
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'website'. 'phone', 'profile_picture'
     ];
 
     /**

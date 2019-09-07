@@ -17,16 +17,14 @@
 
                         <div class="dashboardholder mb-md-5">
                             <div class="user">
-                                <div class="d-flex justify-content-center h-100">
-                                    <div class="image_outer_container">
-                                        <div class="green_icon"></div>
-                                        <div class="image_inner_container">
-                                            <img src="https://i0.wp.com/tricksmaze.com/wp-content/uploads/2017/04/Stylish-Girls-Profile-Pictures-36.jpg?resize=300%2C300&ssl=1">
-                                        </div>
+                                <!-- Drop Zone -->
+                                <div class="dropzone" id="profile-photo-update" style="border: 2px dashed #0087F7; border-radius: 5px; background: white;">
+                                    <div class="fallback">
+                                        <input name="file" type="file" />
                                     </div>
                                 </div>
                                 <div class="usercontent mt-3">
-                                    <form class="" method="post" action="{{ route('update_user') }}">
+                                    <form class="" method="post" action="{{ route('update_user') }}" id="user-data">
                                         @csrf
                                         <div class="form-group mb-3">
                                             <label for="name">Su nombre:</label>
@@ -112,38 +110,33 @@
 
 @push('script')
 <!-- Dropzone for the profile picture -->
-<!-- Hover behavior -->
-<style>
-
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
 @endpush
 
 @push('script')
 <!-- Dropzone for the profile picture -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <script>
-    Dropzone.options.imageInnerContainer = {
-        uploadMultiple: false,
+    Dropzone.options.profilePhotoUpdate = {
+        uploadMultiple: false, //False this
         maxFilesize: 0.3,
         addRemoveLinks: false,
-        dictDefaultMessage: "",
-        dictInvalidFileType: "",
+        dictDefaultMessage: "Arrastre su foto de perfil aquí",
         dictFileTooBig: "La imagen es demasiado grande",
         timeout: 10000,
-        url: "{{ route('save-profile-image-ajax') }}",
+        url: "{{ route('save-profile-image-ajax') }}?api_token=" + user_token,
         paramName: "photo",
         maxFiles: 1,
         acceptedFiles: 'image/*',
         headers: {
             'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
         },
-        //Add Image IDS on every response
+
+        //Submit form if saved name or ther data
         success: function(file, response) {
-            $('<input>', {
-                type: 'hidden',
-                name: 'imageID[]',
-                value: response.imageID
-            }).appendTo("#add");
+            if (response.status == 200) {
+                $('#user-data').submit();
+            }
         }
     };
 </script>

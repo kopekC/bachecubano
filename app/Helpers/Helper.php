@@ -107,8 +107,8 @@ if (!function_exists('profile_logo')) {
      */
     function profile_logo(User $user)
     {
-        if (!is_null($user->profile_picture)) {
-            return config('app.img_url') . "uploads" . DIRECTORY_SEPARATOR . $user->id . DIRECTORY_SEPARATOR . $user->profile_picture;
+        if (!is_null($user->profile_picture) && $user->profile_picture != "") {
+            return config('app.img_url') . "uploads/" . $user->id . "/" . $user->profile_picture;
         }
         return asset('android-chrome-192x192.png');
     }

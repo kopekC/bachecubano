@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Response;
 use Intervention\Image\Facades\Image;
 
 use App\AdResource;
+use Illuminate\Support\Facades\Auth;
 
 class ImageController extends Controller
 {
@@ -45,7 +46,7 @@ class ImageController extends Controller
             $photo_upload = new AdResource();                   //[id, ad_id, extension, path]
             $photo_upload->ad_id = 0;
             $photo_upload->extension = $photo->getClientOriginalExtension();
-            $photo_upload->path = "uploads/" . rand(0, 9999) . "/";
+            $photo_upload->path = $this->photos_path . DIRECTORY_SEPARATOR . rand(0, 9999) . DIRECTORY_SEPARATOR;
             $photo_upload->save();
 
             //Create Folder If dont exists
@@ -135,14 +136,38 @@ class ImageController extends Controller
         //Photos Contains all fotos
         $photo = $request->file('photo');
 
+        //dump($photo);
+
         //Myself
         $user = Auth::guard('api')->user();
 
         //Create Folder If dont exists
-        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . $user->id)) {
-            mkdir($this->photos_path . DIRECTORY_SEPARATOR . $user->id, 0777);
+        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "/uploads")) {
+            mkdir($this->photos_path . DIRECTORY_SEPARATOR . "uploads", 0777);
         }
 
-        dd($photo);
+        //Create Folder If dont exists
+        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . $user->id)) {
+            mkdir($this->photos_path . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . $user->id, 0777);
+        }
+
+        //name of the uploaded picture
+        $photo_name = "profile" . rand(0, 9999) . "." . $photo->getClientOriginalExtension();
+
+        //Image manipulation thumbnail
+        Image::make($photo)
+            ->fit(240)
+            //->resize(240, null, function ($constraints) {
+            //    $constraints->aspectRatio();
+            //})
+            ->save($this->photos_path . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . $user->id . DIRECTORY_SEPARATOR . $photo_name);
+
+        //dump($user);
+
+        //Update User Profile picture name
+        $user->profile_picture = $photo_name;
+        $user->update();
+
+        return Response::json(['message' => 'Profile picture updated', 'status' => 200], 200);
     }
 }
