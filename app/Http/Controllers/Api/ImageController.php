@@ -110,8 +110,8 @@ class ImageController extends Controller
             return Response::json(['message' => 'Sorry file does not exist'], 400);
         }
 
-        $file_path = $this->photos_path . '/' . $uploaded_image->filename;
-        $resized_file = $this->photos_path . '/' . $uploaded_image->resized_name;
+        $file_path = $this->photos_path . DIRECTORY_SEPARATOR . $uploaded_image->filename;
+        $resized_file = $this->photos_path . DIRECTORY_SEPARATOR . $uploaded_image->resized_name;
 
         if (file_exists($file_path)) {
             unlink($file_path);
@@ -136,13 +136,11 @@ class ImageController extends Controller
         //Photos Contains all fotos
         $photo = $request->file('photo');
 
-        //dump($photo);
-
         //Myself
         $user = Auth::guard('api')->user();
 
         //Create Folder If dont exists
-        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "/uploads")) {
+        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "uploads")) {
             mkdir($this->photos_path . DIRECTORY_SEPARATOR . "uploads", 0777);
         }
 
@@ -158,8 +156,6 @@ class ImageController extends Controller
         Image::make($photo)
             ->fit(240)                                                      //Get the most important data from center of the image
             ->save($this->photos_path . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . $user->id . DIRECTORY_SEPARATOR . $photo_name);
-
-        //dump($user);
 
         //Update User Profile picture name
         $user->profile_picture = $photo_name;
