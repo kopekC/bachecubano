@@ -64,6 +64,18 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like')->middleware('auth:api');
 });
 
+//Passport Routes for login/signup/logout/getUser
+Route::group(['prefix' => 'auth'], function () {
+    Route::group(['middleware' => ['guest:api']], function () {
+        Route::post('login', 'Api\AuthController@login');
+        Route::post('signup', 'Api\AuthController@signup');
+    });
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('logout', 'Api\AuthController@logout');
+        Route::get('getuser', 'Api\AuthController@getUser');
+    });
+});
+
 //Save Image from AJAX Calls and API implementation
 Route::get('show-image', 'Api\ImageController@index')->name('show-image-ajax');
 Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');

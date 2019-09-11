@@ -41,6 +41,7 @@
                             </div>
                         </div>
 
+                        <!--
                         <div class="dashboardholder">
                             <form class="" method="post" action="{{ route('update_user') }}">
                                 @csrf
@@ -84,6 +85,8 @@
                                 <button class="btn btn-common btn-block" type="submit">Actualizar</button>
                             </form>
                         </div>
+                        -->
+                        
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
