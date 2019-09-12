@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="form-group mb-3">
                                             <label for="name" class="text-left">Su celular:</label>
-                                            <input class="form-control" name="name" value="{{ Auth::user()->phone }}">
+                                            <input class="form-control" name="phone" value="{{ Auth::user()->phone }}">
                                         </div>
 
                                         <button class="btn btn-common btn-block" type="submit">Actualizar</button>
@@ -86,7 +86,7 @@
                             </form>
                         </div>
                         -->
-                        
+
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

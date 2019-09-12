@@ -14,7 +14,7 @@
                     <li><a href="#">Promovidos ()</a></li>
                     <li><a href="#">Inactivos ()</a></li>
                     <li><a href="#">Expirados ()</a></li>
-                    <li>
+                    <li class="float-right">
                         <select class="form-control" name="category_id" onchange="this.options[this.selectedIndex].value && (window.location = '{{ URL::current() }}?category_id=' + this.options[this.selectedIndex].value);">
                             <option value="">Agrupar Categoría</option>
                             @foreach($parent_categories as $super_category)
@@ -35,12 +35,12 @@
             <table class="table {{-- table-responsive --}} dashboardtable tablemyads">
                 <thead>
                     <tr>
-                        <th>Foto</th>
+                        <th class="text-center">Foto</th>
                         <th>Precio</th>
                         <th>Título</th>
-                        <th>Categoría</th>
-                        <th>Estado</th>
-                        <th>Ajustes</th>
+                        <th class="text-center">Categoría</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">Ajustes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,8 +65,9 @@
                         <td data-title="Action">
                             <div class="btns-actions">
                                 <!-- <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a> Analiticas -->
-                                <a class="btn-action btn-edit" href="{{ route('ad.edit', ['ad' => $ad]) }}"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="{{ route('ad.destroy', ['ad' => $ad]) }}"><i class="lni-trash"></i></a>
+                                <a class="btn-action btn-view" href="{{ route('promote_ad', ['ad' => $ad]) }}" title="Patrocinar anuncio"><i class="lni-dollar"></i></a>
+                                <a class="btn-action btn-edit" href="{{ route('ad.edit', ['ad' => $ad]) }}" title="Editar anuncio"><i class="lni-pencil"></i></a>
+                                <a class="btn-action btn-delete" href="{{ route('ad.destroy', ['ad' => $ad]) }}" title="Eliminar anuncio"><i class="lni-trash"></i></a>
                             </div>
                         </td>
                     </tr>

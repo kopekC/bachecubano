@@ -58,6 +58,8 @@ Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag');
 //Ad specific Show
 Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag');
+//Ad promotion Page
+Route::get('/promote/{ad}', 'AdController@promote_ad')->name('promote_ad');
 //Ad resources route
 Route::resource('ad', 'AdController');
 

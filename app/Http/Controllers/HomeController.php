@@ -159,9 +159,20 @@ class HomeController extends Controller
      * Update User Data
      */
     public function update_user(Request $request) {
-        //Validate incoming data
-        //Save incoming data
-        //flash sesion message
         
+        //Validate incoming data
+        $request->validate([
+            'name' => 'bail|required',
+            'phone' => 'bail|required|numeric|min:10|max:18'               //5355149081
+        ]);
+
+        //Save incoming data
+        $me = Auth::getUser();
+        $me->name = $request->input('name');
+        $me->phone = $request->input('phone');
+        $me->update();
+
+        //flash sesion message
+        return redirect()->route('my_settings')->with('success', 'Se ha actualizado la información de usuario correctamente');
     }
 }

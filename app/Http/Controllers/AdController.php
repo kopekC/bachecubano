@@ -387,6 +387,46 @@ class AdController extends Controller
     }
 
     /**
+     * promote Page for Ad
+     */
+    public function promote_ad(Request $request, Ad $ad)
+    {
+
+
+        //Get Ad info
+        //Check User Balance
+        //Show As preview and pricing options
+        //Submit for with post value
+
+        //SEO Data
+        $seo_data = [
+            'title' => "Promocionar anuncio: " . text_clean(Str::limit($ad->description->title, 30)),
+            'desc' => "Promocionar anuncio: " . text_clean(Str::limit($ad->description->description, 130)),
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+
+
+        //Retrieve from Cache, Not neccesary to retrieve again
+        $promoted_ads = Cache::remember('promoted_ads', 60, function () {
+            return Ad::where('active', 1)
+                ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
+                ->whereHas('promo', function ($query) {
+                    $query->where('promotype', '>=', 3);
+                })
+                ->inRandomOrder()
+                ->take(4)
+                ->get();
+        });
+
+        return view('ads.promote', compact('ad', 'promoted_ads'));
+     }
+
+    /**
      * general Search motor
      */
     public function search(Request $request)
