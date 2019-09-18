@@ -3506,9 +3506,15 @@ mississippi@^3.0.0:
     stream-each "^1.1.0"
     through2 "^2.0.0"
 
+<<<<<<< HEAD
 mixin-deep@^1.3.2:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/mixin-deep/-/mixin-deep-1.3.1.tgz#a49e7268dce1a0d9698e45326c5626df3543d0fe"
+=======
+mixin-deep@^1.2.0:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/mixin-deep/-/mixin-deep-1.3.2.tgz#1120b43dc359a785dce65b55b82e257ccf479566"
+>>>>>>> 18872a6482753b4fd0f58e81e3e98b7ef3f94d96
   dependencies:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
