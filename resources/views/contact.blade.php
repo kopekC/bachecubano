@@ -97,7 +97,7 @@
                     Mantenerte en contacto
                 </h2>
                 <div class="information">
-                    <p>Con 5 años en el negocio de clasificados y compra/venta en Cuba. Somos pioneros en el comercio electrónico cubano así como la gestion de tiendas virtuales para sus productos.</p>
+                    <p>Con {{ date('Y') - 2014 }} años en el negocio de clasificados y compra/venta en Cuba. Somos pioneros en el comercio electrónico cubano así como la gestion de tiendas virtuales para sus productos.</p>
                     <div class="contact-datails">
                         <div class="icon">
                             <i class="lni-map-marker icon-radius"></i>
@@ -133,7 +133,7 @@
                             <h3>Celular</h3>
                             <span class="detail">(+53) 5 514 9081</span>
                             <br>
-                            <span class="detail">(+53) 5 514 9081</span>
+                            <span class="detail">(+53) 5 466 3598</span>
                         </div>
                     </div>
                 </div>

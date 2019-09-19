@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use SEOMeta;
+use OpenGraph;
+use Twitter;
+
 class RegisterController extends Controller
 {
     /*
@@ -38,6 +42,28 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+        /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        //SEO Data
+        $seo_data = [
+            'title' => "Crear cuenta de usuario",
+            'desc' => "Regístrese en la plataforma de clasficados, compra venta y tiendas online en Cuba",
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+
+        return view('auth.register');
     }
 
     /**

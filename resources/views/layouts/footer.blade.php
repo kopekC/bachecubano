@@ -42,7 +42,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
                         <h3 class="block-title">Subscríbete a nosotros</h3>
-                        <p class="text-sub">Llevamos más de 5 años ofreciendo lo mejor de la compra venta en Cuba, subscríbete a nuestras alertas de gangas por correo.</p>
+                        <p class="text-sub">Llevamos más de {{ date('Y') - 2014 }} años ofreciendo lo mejor de la compra venta en Cuba, subscríbete a nuestras alertas de gangas por correo.</p>
                         <form method="post" id="subscribe-form" name="subscribe-form" class="validate">
                             <div class="form-group is-empty">
                                 <input type="email" value="" name="Email" class="form-control" id="EMAIL" placeholder="Dirección de correo" required="">
