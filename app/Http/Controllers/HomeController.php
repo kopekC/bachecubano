@@ -108,11 +108,23 @@ class HomeController extends Controller
         $query = Ad::query();
 
         $query->where('user_id', Auth::user()->id);
-        $query->with(['description', 'resources', 'category.description', 'category.parent.description']);
+        $query->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']);
 
         //Category Filtering for a Better Filtering
-        if (null !== $request->input('category_id')) {
+        if ($request->has('category_id')) {
             $query->where('category_id', $request->input('category_id'));
+        }
+
+        //Filter only promoted ads with the whereHas method
+        if ($request->has('promoted')) {
+            $query->when($request->input('promoted') == 1, function ($q) {
+                return $q->whereHas('promo');
+            });
+        }
+
+        //Filter only promoted ads with the whereHas method
+        if ($request->has('active') && $request->input('active') == 1) {
+            $query->where('active', 1);
         }
 
         //Order latest Update

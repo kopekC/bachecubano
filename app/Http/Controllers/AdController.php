@@ -545,7 +545,6 @@ class AdController extends Controller
             });
         }
 
-
         //Order By PromoType and later as updated time
         $query->orderBy('ad_promos.promotype', 'desc');
         $query->latest('updated_at');
