@@ -11,6 +11,7 @@
         "php": "^7.2",
         "anlutro/l4-settings": "^0.8.3",
         "artesaos/seotools": "^0.14.0",
+        "binarytorch/larecipe": "^2.2",
         "biscolab/laravel-recaptcha": "^3.5",
         "fideloper/proxy": "^4.0",
         "genealabs/laravel-model-caching": "^0.5.6",

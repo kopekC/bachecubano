@@ -103,12 +103,6 @@
                                 </li>
                                 -->
                             </ul>
-                            <!--
-                            <ul class="list-specification">
-                                <li><i class="lni-check-mark-circle"></i> xxx</li>
-                                <li><i class="lni-check-mark-circle"></i> xxx</li>
-                            </ul>
-                            -->
                             <div class="details-meta">
                                 <span><a href="#" title="ID del anuncio"><i class="lni-information"></i> {{ $ad->id }}</a></span>
                                 <span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->diffForHumans() }}</a></span>
@@ -120,11 +114,29 @@
                     <div id="content">
                         {!! nl2br($ad->description->description) !!}
                     </div>
+                    <!-- Disqus -->
+                    <div id="disqus_thread"></div>
+                    @push('script')
+                    <script>
+                        var disqus_config = function() {
+                            this.page.url = "{{ URL::current() }}"; // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = "{{ $ad->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document,
+                                s = d.createElement('script');
+                            s.src = 'https://bachecubano.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    @endpush
                 </div>
             </div>
 
             <div class="col-xs-12 col-md-6 col-lg-3 col-xl-2">
-                <!-- Product Description Start -->
+                <!-- Product Contact Start -->
                 <div class="description-info">
                     <div class="short-info">
 
@@ -184,7 +196,7 @@
                                     <div class="image_outer_container">
                                         <div class="green_icon"></div>
                                         <div class="image_inner_container">
-                                            <img src="https://i0.wp.com/tricksmaze.com/wp-content/uploads/2017/04/Stylish-Girls-Profile-Pictures-36.jpg?resize=300%2C300&ssl=1">
+                                            <img src="{{ profile_logo($ad->owner) }}">
                                         </div>
                                     </div>
                                 </div>
@@ -209,42 +221,6 @@
     </div>
 </section>
 <!-- Ads Details End -->
-
-<!-- Some Ad Meta Data -->
-<div class="container-fluid">
-    <div class="row">
-        <!-- Rating Setting -->
-        <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3">
-
-        </div>
-        <!-- Disqus Chat -->
-        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-7">
-            <!-- Disqus -->
-            <div id="disqus_thread"></div>
-            @push('script')
-            <script>
-                var disqus_config = function() {
-                    this.page.url = "{{ URL::current() }}"; // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = "{{ $ad->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                (function() { // DON'T EDIT BELOW THIS LINE
-                    var d = document,
-                        s = d.createElement('script');
-                    s.src = 'https://bachecubano.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            @endpush
-        </div>
-        <!-- Advertising -->
-        <div class="col-xs-12 col-md-6 col-lg-3 col-xl-2">
-            Avertising
-        </div>
-    </div>
-</div>
-<!-- Some Ad Meta Data End -->
 
 <!-- featured Listing -->
 @include('blocks.featured-listing')

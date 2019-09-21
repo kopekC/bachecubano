@@ -12,7 +12,7 @@
                     <li class="active"><a href="{{ route('my_ads') }}">Todos ({{ $total_active_ads }})</a></li>
                     <li><a href="{{ route('my_ads') }}?active=1">Activos</a></li>
                     <li><a href="{{ route('my_ads') }}?promoted=1">Promovidos</a></li>
-                    <li><a href="{{ route('my_ads') }}?active=0">Inactivos</a></li>
+                    <li><a href="{{ route('my_ads') }}?inactive=1">Inactivos</a></li>
                     <li class="float-right">
                         <select class="form-control" name="category_id" onchange="this.options[this.selectedIndex].value && (window.location = '{{ URL::current() }}?category_id=' + this.options[this.selectedIndex].value);">
                             <option value="">Agrupar Categoría</option>

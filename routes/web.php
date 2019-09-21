@@ -60,6 +60,7 @@ Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_i
 Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag');
 //Ad promotion Page
 Route::get('/promote/{ad}', 'AdController@promote_ad')->name('promote_ad');
+Route::post('/promote/{ad}', 'AdController@post_promote_ad')->name('post_promote_ad');
 //Ad resources route
 Route::resource('ad', 'AdController');
 

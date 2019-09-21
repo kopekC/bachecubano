@@ -391,8 +391,6 @@ class AdController extends Controller
      */
     public function promote_ad(Request $request, Ad $ad)
     {
-
-
         //Get Ad info
         //Check User Balance
         //Show As preview and pricing options
@@ -424,7 +422,14 @@ class AdController extends Controller
         });
 
         return view('ads.promote', compact('ad', 'promoted_ads'));
-     }
+    }
+
+    /**
+     * POST request with the promotion ad
+     */
+    public function post_promote_ad(Request $request) {
+
+    }
 
     /**
      * general Search motor
@@ -433,7 +438,6 @@ class AdController extends Controller
     {
         //Global Search
         //HashTag Search
-
     }
 
     /**

@@ -122,14 +122,20 @@ class HomeController extends Controller
             });
         }
 
-        //Filter only promoted ads with the whereHas method
+        //Filter only active ads
         if ($request->has('active') && $request->input('active') == 1) {
             $query->where('active', 1);
+        }
+
+        //Filter only inactive ads
+        if ($request->has('inactive') && $request->input('inactive') == 1) {
+            $query->where('active', 0);
         }
 
         //Order latest Update
         $query->latest();
 
+        //Paginate for every ads
         $my_ads = $query->paginate($posts_per_page);
 
         return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads'));
