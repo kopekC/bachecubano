@@ -388,14 +388,13 @@ class AdController extends Controller
 
     /**
      * promote Page for Ad
+     * //Get Ad info
+     *  //Check User Balance
+     *  //Show As preview and pricing options
+     *  //Submit for with post value
      */
     public function promote_ad(Request $request, Ad $ad)
     {
-        //Get Ad info
-        //Check User Balance
-        //Show As preview and pricing options
-        //Submit for with post value
-
         //SEO Data
         $seo_data = [
             'title' => "Promocionar anuncio: " . text_clean(Str::limit($ad->description->title, 30)),
@@ -427,10 +426,39 @@ class AdController extends Controller
     /**
      * POST request with the promotion ad
      */
-    public function post_promote_ad(Request $request) {
+    public function post_promote_ad(Request $request)
+    {
+        //Request Validator
+        $request->validate([
+            'ad_id' => 'bail|required|numeric',
+            'promotype' => 'bail|required|numeric'
+        ]);
+
+        //Promotions Plans Pricing
+        $princing = [1 => 1, 2 => 5, 3 => 10, 4 => 20];
+
         //Get registered user
-        
-        dd($request);
+        $myself = Auth::getUser();
+
+        //Check User balance
+        $balance = $myself->wallet->credits;
+
+        // Condition if Balance is not enough
+        if ($balance >= $princing[$request->input('promotype')]) {
+            //Do your magic
+            echo 'Has Money';
+
+            //If balance its ok, deduce it
+            //The apply promotion plan
+            //Viralice ad
+            //Redirect to ads listing with a flash messaje
+
+            
+
+        } else {
+            //Redirecto to a non balance page or ads listing
+            return redirect()->route('my_ads')->with('error', 'Lo sentimos, no posee saldo suficiente en su cuenta. Consulte con nuestros comerciales para acreditar su saldo');
+        }
     }
 
     /**

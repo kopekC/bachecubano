@@ -50,6 +50,7 @@
                         </del>
                     </ul>
                     <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
+                        @csrf
                         <input type="hidden" name="ad_id" value="{{ $ad->id }}">
                         <input type="hidden" name="promotype" value="1">
                         <button class="btn btn-common" type="submit">Activar Bronce</button>
@@ -80,6 +81,7 @@
                         </del>
                     </ul>
                     <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
+                        @csrf
                         <input type="hidden" name="ad_id" value="{{ $ad->id }}">
                         <input type="hidden" name="promotype" value="1">
                         <button class="btn btn-common" type="submit">Activar Plata</button>
@@ -106,6 +108,7 @@
                         <li><strong>Viral</strong> Facebook</li>
                     </ul>
                     <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
+                        @csrf
                         <input type="hidden" name="ad_id" value="{{ $ad->id }}">
                         <input type="hidden" name="promotype" value="1">
                         <button class="btn btn-common" type="submit">Activar Oro</button>

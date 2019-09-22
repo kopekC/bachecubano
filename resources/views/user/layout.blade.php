@@ -30,6 +30,16 @@
             </div>
 
             <div class="col-sm-12 col-md-8 col-lg-9 col-xl-10">
+                
+                <!-- notifications area -->
+                @if (session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
+                @if (session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+
+                <!-- Dinamic section -->
                 @yield('user_section')
             </div>
         </div>
