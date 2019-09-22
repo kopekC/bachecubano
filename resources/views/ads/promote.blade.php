@@ -83,7 +83,7 @@
                     <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
                         @csrf
                         <input type="hidden" name="ad_id" value="{{ $ad->id }}">
-                        <input type="hidden" name="promotype" value="1">
+                        <input type="hidden" name="promotype" value="2">
                         <button class="btn btn-common" type="submit">Activar Plata</button>
                     </form>
                 </div>
@@ -110,7 +110,7 @@
                     <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
                         @csrf
                         <input type="hidden" name="ad_id" value="{{ $ad->id }}">
-                        <input type="hidden" name="promotype" value="1">
+                        <input type="hidden" name="promotype" value="3">
                         <button class="btn btn-common" type="submit">Activar Oro</button>
                     </form>
                 </div>

@@ -23,6 +23,7 @@ use App\AdRegion;
 use App\CategoryDescription;
 use App\Category;
 use App\Ad;
+use App\AdPromo;
 
 use App\Mail\AdPublished;
 
@@ -426,7 +427,7 @@ class AdController extends Controller
     /**
      * POST request with the promotion ad
      */
-    public function post_promote_ad(Request $request)
+    public function post_promote_ad(Request $request, Ad $ad)
     {
         //Request Validator
         $request->validate([
@@ -445,16 +446,46 @@ class AdController extends Controller
 
         // Condition if Balance is not enough
         if ($balance >= $princing[$request->input('promotype')]) {
-            //Do your magic
-            echo 'Has Money';
 
-            //If balance its ok, deduce it
-            //The apply promotion plan
+            //Find a better and pretty way to do this
+            $myself->wallet()->update(['credits' => $balance - $princing[$request->input('promotype')]]);
+
+            //Now + 3 months
+            $now = Carbon::now();
+            $plus_1_month = $now->addMonths(1);
+
+            //Then apply promotion plan
+            //Search for a current promotion existence
+            //FindOrCreate
+            $promotion_ad = AdPromo::firstOrNew(['ad_id' => $ad->id]);
+            $promotion_ad->promotype = $request->input('promotype');
+            $promotion_ad->end_promo = $plus_1_month;                                     //Today plus 30 dias
+            $promotion_ad->save();
+
             //Viralice ad
+            //Promotion 1 -> Telegram
+            //Promotion 2 -> Telegram, Twitter
+            //Promotion 3 -> Telegram, Twitter, Facebook
+            //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications
+            if ($request->input('promotype') >= 1) {
+                
+            }
+
+            if ($request->input('promotype') >= 2) {
+
+            }
+
+            if ($request->input('promotype') >= 3) {
+
+            }
+
+            if ($request->input('promotype') >= 4) {
+
+            }
+
+
             //Redirect to ads listing with a flash messaje
-
-            
-
+            return redirect()->route('my_ads')->with('success', 'Felicidades! Ha promocionado su anuncio correctamente.');
         } else {
             //Redirecto to a non balance page or ads listing
             return redirect()->route('my_ads')->with('error', 'Lo sentimos, no posee saldo suficiente en su cuenta. Consulte con nuestros comerciales para acreditar su saldo');

@@ -14,7 +14,7 @@ use Rennokki\Rating\Contracts\Rateable;
 class Ad extends Model implements Rateable
 {
     use CanBeLiked, CanBeRated;
-    
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -142,6 +142,10 @@ class AdPromo extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    protected $fillable = [
+        'ad_id', 'promotype', 'end_promo'
+    ];
 
     /**
      * Get the Ad that owns the stats.
