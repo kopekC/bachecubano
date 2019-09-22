@@ -428,7 +428,9 @@ class AdController extends Controller
      * POST request with the promotion ad
      */
     public function post_promote_ad(Request $request) {
-
+        //Get registered user
+        
+        dd($request);
     }
 
     /**

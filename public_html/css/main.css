@@ -286,8 +286,8 @@ to{opacity:1}
 .category-box .category-counter{margin-right:15px}
 .category-counter{font-size:12px;color:#888;float:right}
 #list-view .featured-box{display:inline-block}
-#list-view .featured-box figure{float:left;width:49%}
-#list-view .featured-box .feature-content{float:left;text-align:left;padding:0 15px 10px 30px;width:49.667%}
+#list-view .featured-box figure{float:left;width:33.33%}
+#list-view .featured-box .feature-content{float:left;text-align:left;padding:0 15px 10px 30px;width:66.667%}
 #list-view .list-box figure{float:left;width:38%}
 #list-view .list-box figure img{height:218px;width:100%}
 #list-view .list-box .feature-content{float:left;text-align:left;padding:0;width:58%;margin-left:20px}

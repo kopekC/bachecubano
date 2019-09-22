@@ -114,7 +114,7 @@ return [
     */
 
     'ui'                 => [
-        'code_theme'     => 'dark', // or: light
+        'code_theme'     => 'dark', // or: light or dark
         'fav'            => '',     // eg: fav.png
         'fa_v4_shims'    => true, // Add FontAwesome v4 shims prevent BC break
         'colors'         => [
