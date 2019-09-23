@@ -20,4 +20,20 @@ class Wallet extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Deduce certain amount of money
+     */
+    public function deduce($amount) {
+        $this->credits -= $amount;
+        $this->update();
+    }
+
+    /**
+     * Acredit some menoy to the user
+     */
+    public function credit($amount) {
+        $this->credits += $amount;
+        $this->update();
+    }
 }

@@ -448,7 +448,8 @@ class AdController extends Controller
         if ($balance >= $princing[$request->input('promotype')]) {
 
             //Find a better and pretty way to do this
-            $myself->wallet()->update(['credits' => $balance - $princing[$request->input('promotype')]]);
+            //$myself->wallet()->update(['credits' => $balance - $princing[$request->input('promotype')]]);     //Working solution
+            $myself->wallet->deduce($princing[$request->input('promotype')]);             //Try to do this with the Wallet model
 
             //Now + 3 months
             $now = Carbon::now();
