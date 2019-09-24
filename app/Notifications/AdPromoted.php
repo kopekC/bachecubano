@@ -39,12 +39,18 @@ class AdPromoted extends Notification
 
     /**
      * Send this to Telegram Channel
+     * <b>bold</b>, <strong>bold</strong>
+     *<i>italic</i>, <em>italic</em>
+     *<a href="http://www.example.com/">inline URL</a>
+     *<a href="tg://user?id=123456789">inline mention of a user</a>
+     *<code>inline fixed-width code</code>
+     *<pre>pre-formatted fixed-width code block</pre>
      */
     public function toTelegram($ad)
     {
         $telegram_notif = TelegramMessage::create();
         $telegram_notif->to('@elBacheChannel');
-        $telegram_notif->content(text_clean(Str::limit($ad->description->title, 60)));                  // Markdown supported.
+        $telegram_notif->content(text_clean(Str::limit($ad->description->title, 60)) . "\n\n" . text_clean(Str::limit($ad->description->description, 160)));                  // Markdown supported.
 
         //Production or Testing URL
         if (config('app.env') == "production") {
@@ -54,7 +60,9 @@ class AdPromoted extends Notification
         }
 
         //Photo test option
-        $telegram_notif->options(['photo' => ad_image_url($ad, 'original'), 'caption' => $ad->description->title]);
+        $telegram_notif->options(['photo' => ad_image_url($ad, 'original'), 'caption' => $ad->description->title, 'parse_mode' => 'HTML']);
+
+        //dd($telegram_notif);
 
         return $telegram_notif;
     }
