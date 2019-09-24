@@ -7,13 +7,18 @@ use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Overtrue\LaravelLike\Traits\CanBeLiked;
 use Rennokki\Rating\Traits\CanBeRated;
 use Rennokki\Rating\Contracts\Rateable;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * ads, ad_description, ad_location, ad_promo, ad_resource, ad_stats
  */
 class Ad extends Model implements Rateable
 {
+    //Like and Rating Traits
     use CanBeLiked, CanBeRated;
+
+    //Allow this model to be used as Notifications feature for paid ads
+    use Notifiable;
 
     /**
      * The attributes that should be hidden for arrays.

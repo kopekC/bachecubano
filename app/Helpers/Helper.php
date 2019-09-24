@@ -1,9 +1,8 @@
 <?php
 
-//Constructed ad url
-
 use App\User;
 
+//Constructed ad url
 if (!function_exists('ad_url')) {
     /**
      * Obtiene la URL de un anuncio pasando el $ad object
@@ -14,10 +13,13 @@ if (!function_exists('ad_url')) {
     }
 }
 
-//Show forst image assets url
+/**
+ * Show first image assets url
+ */
 if (!function_exists('ad_first_image')) {
     /**
      * Obtiene la primera imagen de un anuncio, pasa el segundo parametro como la calidad del mismo
+     * Qualyties: [original, preview, thumbnail]
      */
     function ad_first_image($ad, $quality = 'thumbnail')
     {
@@ -29,7 +31,9 @@ if (!function_exists('ad_first_image')) {
     }
 }
 
-//shortcut to ad image
+/**
+ * Shortcut to first Image
+ */
 if (!function_exists('ad_image_url')) {
     /**
      * Obten la url construida de un recurso de anuncios
@@ -93,7 +97,7 @@ if (!function_exists('text_clean')) {
         // Remove all characters except A-Z, a-z, 0-9, dots, hyphens and spaces
         // Note that the hyphen must go last not to be confused with a range (A-Z)
         // and the dot, being special, is escaped with \
-        $str = preg_replace('/[^A-Za-z0-9\. -]/', ' ', $str);
+        $str = preg_replace('/[^A-Za-z0-9\. -]/', '', $str);
 
         return $str;
     }

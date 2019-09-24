@@ -2435,25 +2435,25 @@
         },
         {
             "name": "overtrue/laravel-like",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/laravel-like.git",
-                "reference": "d0f4e3856b489334f8f498e9fb30344a79cf876f"
+                "reference": "3744c007fdbb2275809d7d5a7d75487b1c6125c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/laravel-like/zipball/d0f4e3856b489334f8f498e9fb30344a79cf876f",
-                "reference": "d0f4e3856b489334f8f498e9fb30344a79cf876f",
+                "url": "https://api.github.com/repos/overtrue/laravel-like/zipball/3744c007fdbb2275809d7d5a7d75487b1c6125c9",
+                "reference": "3744c007fdbb2275809d7d5a7d75487b1c6125c9",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.5"
+                "laravel/framework": "^5.5||~6.0"
             },
             "require-dev": {
-                "laravel/framework": "^5.7",
+                "laravel/framework": "^6.0",
                 "mockery/mockery": "^1.2",
-                "orchestra/testbench": "^3.7",
+                "orchestra/testbench": "^4.0",
                 "phpunit/phpunit": "~8"
             },
             "type": "library",
@@ -2480,7 +2480,7 @@
                 }
             ],
             "description": "👍 User-like features for Laravel Application.",
-            "time": "2019-04-09T13:46:00+00:00"
+            "time": "2019-09-22T14:54:49+00:00"
         },
         {
             "name": "paragonie/random_compat",

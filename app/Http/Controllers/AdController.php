@@ -26,7 +26,7 @@ use App\Ad;
 use App\AdPromo;
 
 use App\Mail\AdPublished;
-
+use App\Notifications\AdPromoted;
 use stdClass;
 
 use App\User;
@@ -465,24 +465,16 @@ class AdController extends Controller
 
             //Viralice ad
             //Promotion 1 -> Telegram
-            //Promotion 2 -> Telegram, Twitter
-            //Promotion 3 -> Telegram, Twitter, Facebook
-            //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications
             if ($request->input('promotype') >= 1) {
-                
+                $ad->notify(new AdPromoted);
             }
-
-            if ($request->input('promotype') >= 2) {
-
-            }
-
-            if ($request->input('promotype') >= 3) {
-
-            }
-
-            if ($request->input('promotype') >= 4) {
-
-            }
+            
+            //Promotion 2 -> Telegram, Twitter
+            if ($request->input('promotype') >= 2) { }
+            //Promotion 3 -> Telegram, Twitter, Facebook
+            if ($request->input('promotype') >= 3) { }
+            //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications
+            if ($request->input('promotype') >= 4) { }
 
 
             //Redirect to ads listing with a flash messaje
