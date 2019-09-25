@@ -44,6 +44,11 @@ class AdController extends Controller
         $super_category = CategoryDescription::where('slug', $category)->first();
         $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
 
+        //Blow up all of this if not supercategory met requirements
+        if (is_null($super_category)) {
+            abort(404);
+        }
+
         if ($sub_category != "") {
             $seo_data = ['title' => $sub_category->name, 'desc' => $sub_category->description];
         } else {
@@ -468,7 +473,7 @@ class AdController extends Controller
             if ($request->input('promotype') >= 1) {
                 $ad->notify(new AdPromoted);
             }
-            
+
             //Promotion 2 -> Telegram, Twitter
             if ($request->input('promotype') >= 2) { }
             //Promotion 3 -> Telegram, Twitter, Facebook

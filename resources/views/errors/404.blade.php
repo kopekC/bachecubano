@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
                     <a href="{{ URL::current() }}">
-                        <h2 class="product-title">Ups, parece que ya esto no existe</h2>
+                        <h2 class="product-title">Ups, parece que esto ya esto no existe</h2>
                     </a>
                 </div>
             </div>
@@ -18,15 +18,31 @@
 <!-- Page Header End -->
 
 <!-- Start Contact Us Section -->
-<section id="content" class="section-padding">
+<section id="content" class="section-padding  bg-primary">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                <h5>La página que estás tratando de alcanzar no existe.</h5>
+            <div class="col-12 text-center">                
+                <!-- Include Here a Big Search bar -->
+                <form class="search-two" action="{{ route('search') }}" method="get">
+                    <div class="search-inner">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9">
+                                <div class="form-group search-query">
+                                    <input type="text" name="query" class="form-control" placeholder="Qué estas buscando hoy" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                <button class="btn btn-common search-two-submit" type="submit" form="search-two"><i class="lni-search"></i> Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
                 <img src="{{ asset('img/bachecubano-working.png') }}" class="img-fluid">
             </div>
         </div>
     </div>
 </section>
 <!-- End Contact Us Section  -->
+
 @endsection
