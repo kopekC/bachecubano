@@ -9,19 +9,18 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
-                        <h3 class="block-title">Movida en Instagram</h3>
+                        <h3 class="block-title">Lo mejor de la semana:</h3>
                         <ul class="media-content-list">
-                            <!-- http://instafeedjs.com/ -->
                             <li>
                                 <div class="media-left">
-                                    <img class="img-fluid" src="{{ asset('img/art/img1.jpg') }}" alt="">
+                                    <img class="img-fluid" src="https://www.bachecubano.com/oc-content/uploads/1249/151756.jpg" alt="Xiaomi Mi Band 4">
                                     <div class="overlay">
-                                        <span class="price">$ 79</span>
+                                        <span class="price">$ 50</span>
                                     </div>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="post-title"><a href="ads-details.html">Brand New Macbook Pro</a></h4>
-                                    <span class="date">12 Jan 2018</span>
+                                    <h4 class="post-title"><a href="http://bit.ly/2n117oq">Xiaomi Mi Band 4</a></h4>
+                                    <span class="date">5 514 9081</span>
                                 </div>
                             </li>
                         </ul>

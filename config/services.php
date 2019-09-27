@@ -30,10 +30,19 @@ return [
         'redirect' => 'https://your-callback-url',
     ],
 
+    /*
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
         'redirect' => 'https://your-callback-url',
+    ],
+    */
+
+    'twitter' => [
+        'consumer_key'    => env('TWITTER_CONSUMER_KEY'),
+        'consumer_secret' => env('TWITTER_CONSUMER_SECRET'),
+        'access_token'    => env('TWITTER_ACCESS_TOKEN'),
+        'access_secret'   => env('TWITTER_ACCESS_SECRET')
     ],
 
     'google' => [

@@ -695,7 +695,7 @@ footer .menu li a:hover{color:#1976d2}
 .contact-footer li span a:hover{color:#1976d2}
 .text-sub{margin-bottom:10px}
 #subscribe-form .form-group{position:relative}
-#subscribe-form .form-group .btn-common{position:absolute;top:0;right:0;padding:10px 22px;border-top-left-radius:0;border-bottom-left-radius:0;height:42px}
+#subscribe-form .form-group .btn-common{position:absolute;top:0;right:0;padding:10px 22px;border-top-left-radius:0;border-bottom-left-radius:0;height:35px}
 .footer-social li{display:inline-block;margin-right:12px}
 .footer-social li a{background-color:#1976d2;border-radius:50%;color:#fff;height:32px;line-height:32px;text-align:center;width:32px;display:inline-block;-webkit-transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;transition:all .4s ease-in-out}
 .footer-social li .facebook:hover{background-color:#3b5998}
