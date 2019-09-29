@@ -39,7 +39,7 @@ class AdPromotedTwitter extends Notification
     public function toTwitter($ad)
     {
         //return new TwitterStatusUpdate('Laravel notifications are awesome!');
-        return (new TwitterStatusUpdate(text_clean(Str::limit($ad->description->title, 60)) . "\n\n" . ad_url($ad)))->withImage(ad_image_url($ad, 'original'));
+        return (new TwitterStatusUpdate(text_clean(Str::limit($ad->description->title, 60)) . "\n\n #Bachecubano #Cuba \n\n" . ad_url($ad)))->withImage(ad_image_url($ad, 'original'));
     }
 
     /**
