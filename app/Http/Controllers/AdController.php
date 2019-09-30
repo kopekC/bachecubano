@@ -482,7 +482,7 @@ class AdController extends Controller
 
             //Promotion 3 -> Telegram, Twitter, Facebook
             if ($request->input('promotype') >= 3) { }
-            
+
             //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications
             if ($request->input('promotype') >= 4) { }
 

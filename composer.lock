@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45bf6b31ba0c1f7081104f895f567505",
+    "content-hash": "b6d00032fe14eb48d33efc26fbab0115",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1382,6 +1382,59 @@
             ],
             "description": "A small utility to count characters and shorten posts to tweet-length.",
             "time": "2017-11-25T19:51:26+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/facebook",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/facebook.git",
+                "reference": "033aaa9782c93146a60c4243cd1440d80202526c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/facebook/zipball/033aaa9782c93146a60c4243cd1440d80202526c",
+                "reference": "033aaa9782c93146a60c4243cd1440d80202526c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "illuminate/notifications": "^5.3",
+                "illuminate/support": "^5.1",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\Facebook\\FacebookServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Facebook\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Syed Irfaq R.",
+                    "email": "syed@lukonet.com",
+                    "homepage": "https://lukonet.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Facebook Notifications Channel for Laravel 5.3",
+            "homepage": "https://github.com/laravel-notification-channels/facebook",
+            "time": "2018-09-09T21:55:18+00:00"
         },
         {
             "name": "laravel-notification-channels/facebook-poster",

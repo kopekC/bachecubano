@@ -32,6 +32,24 @@ if (!function_exists('ad_first_image')) {
 }
 
 /**
+ * Show first phisical image asset url
+ */
+if (!function_exists('ad_first_physical_image')) {
+    /**
+     * Obtiene la primera imagen de un anuncio, pasa el segundo parametro como la calidad del mismo
+     * Qualyties: [original, preview, thumbnail]
+     */
+    function ad_first_physical_image($ad, $quality = 'thumbnail')
+    {
+        if (isset($ad->resources[0]->id) && isset($ad->resources[0]->extension)) {
+            return public_path('images') . $ad->resources[0]->path . $ad->resources[0]->id . "_" . $quality . "." . $ad->resources[0]->extension;
+        } else {
+            return asset("android-chrome-512x512.png");
+        }
+    }
+}
+
+/**
  * Shortcut to first Image
  */
 if (!function_exists('ad_image_url')) {

@@ -8,6 +8,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use NotificationChannels\Twitter\TwitterChannel;
 use NotificationChannels\Twitter\TwitterStatusUpdate;
 
+use Illuminate\Support\Str;
+
 class AdPromotedTwitter extends Notification
 {
     use Queueable;
@@ -38,8 +40,10 @@ class AdPromotedTwitter extends Notification
      */
     public function toTwitter($ad)
     {
-        //return new TwitterStatusUpdate('Laravel notifications are awesome!');
-        return (new TwitterStatusUpdate(text_clean(Str::limit($ad->description->title, 60)) . "\n\n #Bachecubano #Cuba \n\n" . ad_url($ad)))->withImage(ad_image_url($ad, 'original'));
+        //Add fotos
+        //Mention direct people
+        return (new TwitterStatusUpdate(text_clean(Str::limit($ad->description->title, 60)) . "\n\n #Bachecubano #Cuba \n\n" . ad_url($ad)));
+        //->withImage('marcel.png'); //Point to the direct image here 
     }
 
     /**
