@@ -522,6 +522,8 @@ class AdController extends Controller
     public function destroy(Request $request, Ad $ad)
     {
         //This request came as xhr object ok?
+        dump($ad);
+        dd($request);
 
     }
 
