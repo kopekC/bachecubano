@@ -148,7 +148,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Teléfono *</label>
-                                            <input class="form-control input-md" name="phone" type="text" value="@if($edit){{ $ad->phone }}@else{{ old('phone') }}@endif">
+                                            <input class="form-control input-md" name="phone" type="number" value="@if($edit){{ $ad->phone }}@else{{ old('phone') }}@endif">
                                             @error('phone')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror

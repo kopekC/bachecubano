@@ -386,9 +386,18 @@ class AdController extends Controller
         //Description related table
         $description = AdDescription::where('ad_id', $ad->id)->first();
 
-        $description->title = $request->input('title');
-        $description->description = $request->input('description');
-        $description->update();
+        //Check if sometime there is no Description yet
+        if (is_null($description)) {
+            $description = new AdDescription();
+            $description->ad_id = $ad->id;
+            $description->title = $request->input('title');
+            $description->description = $request->input('description');
+            $description->save();
+        } else {
+            $description->title = $request->input('title');
+            $description->description = $request->input('description');
+            $description->update();
+        }
 
         return redirect(ad_url($ad));
     }

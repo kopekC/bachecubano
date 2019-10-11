@@ -25,8 +25,8 @@
 
     @stack('style')
 
-    <!-- blog Feeds -->
-    @include('feed::links')
+    <!-- blog Feeds 
+    include('feed::links')-->
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">

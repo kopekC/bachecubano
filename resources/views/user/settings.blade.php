@@ -8,7 +8,7 @@
         </div>
         <div class="dashboard-wrapper">
             <div class="row form-dashboard">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-md-5">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 mb-md-5">
                     <div class="privacy-box privacysetting">
 
                         <div class="dashboardboxtitle">
@@ -18,6 +18,7 @@
                         <div class="dashboardholder mb-md-5">
                             <div class="user">
                                 <!-- Drop Zone -->
+                                <label for="name">Su foto de perfil:</label>
                                 <div class="dropzone" id="profile-photo-update" style="border: 2px dashed #0087F7; border-radius: 5px; background: white;">
                                     <div class="fallback">
                                         <input name="file" type="file" />
@@ -26,13 +27,15 @@
                                 <div class="usercontent mt-3">
                                     <form class="" method="post" action="{{ route('update_user') }}" id="user-data">
                                         @csrf
+
                                         <div class="form-group mb-3">
                                             <label for="name">Su nombre:</label>
                                             <input class="form-control" name="name" value="{{ Auth::user()->name }}">
                                         </div>
+
                                         <div class="form-group mb-3">
                                             <label for="name" class="text-left">Su celular:</label>
-                                            <input class="form-control" name="phone" value="{{ Auth::user()->phone }}">
+                                            <input class="form-control" name="phone" value="{{ Auth::user()->phone }}" type="number">
                                         </div>
 
                                         <button class="btn btn-common btn-block" type="submit">Actualizar</button>
@@ -89,7 +92,11 @@
 
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+                    <hr>
                     <div class="privacy-box deleteaccount">
                         <div class="dashboardboxtitle">
                             <h2>Eliminar mi cuenta:</h2>

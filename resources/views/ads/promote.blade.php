@@ -105,13 +105,42 @@
                         <li><strong>30</strong> días</li>
                         <li><strong>100%</strong> activo</li>
                         <li><strong>SMS</strong> masivo</li>
-                        <li><strong>Viral</strong> Facebook</li>
+                        <del>
+                            <li><strong>Viral</strong> Facebook</li>
+                        </del>
                     </ul>
                     <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
                         @csrf
                         <input type="hidden" name="ad_id" value="{{ $ad->id }}">
                         <input type="hidden" name="promotype" value="3">
                         <button class="btn btn-common" type="submit">Activar Oro</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="table">
+                    <div class="icon">
+                        <i class="lni-invest-monitor"></i>
+                    </div>
+                    <div class="title">
+                        <h3>DIAMANTE</h3>
+                    </div>
+                    <div class="pricing-header">
+                        <p class="price-value"><sup>$</sup>20<span>/ Mes</span></p>
+                    </div>
+                    <ul class="description">
+                        <li><strong>Primero</strong> siempre</li>
+                        <li>Listado en <strong>LaChopi</strong></li>
+                        <li><strong>30</strong> días</li>
+                        <li><strong>100%</strong> activo</li>
+                        <li><strong>SMS</strong> masivo</li>
+                        <li><strong>Viral</strong> Facebook</li>
+                    </ul>
+                    <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="ad_id" value="{{ $ad->id }}">
+                        <input type="hidden" name="promotype" value="4">
+                        <button class="btn btn-common" type="submit">Activar Diamante</button>
                     </form>
                 </div>
             </div>

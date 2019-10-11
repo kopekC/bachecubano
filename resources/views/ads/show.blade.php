@@ -156,6 +156,7 @@
 
                         @if(Auth::check() && Auth::getUser()->id == $ad->user_id)
                         <hr>
+                        <a class="btn btn-success btn-block" href="{{ route('promote_ad', ['ad' => $ad]) }}"><i class="lni-dollar"></i> Pomocionar</a>
                         <a class="btn btn-info btn-block" href="{{ route('ad.edit', ['ad' => $ad]) }}"><i class="lni-pencil"></i> Editar anuncio</a>
                         <a class="btn btn-danger btn-block" href="{{ route('ad.destroy', ['ad' => $ad]) }}"><i class="lni-trash"></i> Eliminar anuncio</a>
                         @endif
