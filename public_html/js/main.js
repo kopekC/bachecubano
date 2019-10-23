@@ -57,6 +57,31 @@
       });
     });
 
+    //Delete Ad behavior
+    $('.delete-ad').on('click', function (rsp) {
+
+      //Initialize variables
+      var delete_btn = $(this);
+      var delete_url = $(this).data("href");
+
+      $.ajax({
+        url: delete_url + "?api_token=" + user_token,
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        async: true,
+        cache: false,
+        type: 'DELETE',
+        beforeSend: function () {
+          return confirm("¿Está seguro? Esta operación es irreversible.");
+        },
+        success: function (result) {
+          // Do something with the result
+          
+        }
+      });
+    });
+
     /* WOW Scroll Spy
       ========================================================*/
     var wow = new WOW({

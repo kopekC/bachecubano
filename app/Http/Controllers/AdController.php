@@ -515,6 +515,7 @@ class AdController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * route(ad.destroy, ['ad' => $ad])
      *
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
@@ -522,6 +523,8 @@ class AdController extends Controller
     public function destroy(Request $request, Ad $ad)
     {
         //This request came as xhr object ok?
+        //Delete Ad assets, ad likes, adDescription, Ad promotions
+
         dump($ad);
         dd($request);
 

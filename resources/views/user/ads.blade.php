@@ -66,7 +66,7 @@
                                 <!-- <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a> Analiticas -->
                                 <a class="btn-action btn-view" href="{{ route('promote_ad', ['ad' => $ad]) }}" title="Promocionar anuncio"><i class="lni-dollar"></i></a>
                                 <a class="btn-action btn-edit" href="{{ route('ad.edit', ['ad' => $ad]) }}" title="Editar anuncio"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="{{ route('ad.destroy', ['ad' => $ad]) }}" title="Eliminar anuncio"><i class="lni-trash"></i></a>
+                                <a class="btn-action btn-delete delete-ad" href="#" data-href="{{ route('ad.destroy', ['ad' => $ad]) }}" title="Eliminar anuncio"><i class="lni-trash"></i></a>
                             </div>
                         </td>
                     </tr>
