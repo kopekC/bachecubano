@@ -19,6 +19,7 @@
     var logo_w = "{{ asset('img/logo-bachecubano-w.png') }}";
     var user_token = "@auth {{ Auth::user()->api_token }} @else 123456789 @endauth";
     var api_server = "{{ config('app.api_url') }}";
+    var current_url = "{{ URL::current() }}";
 </script>
 
 <script src="{{ asset('js/wow.js') }}"></script>

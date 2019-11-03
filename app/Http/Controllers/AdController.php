@@ -524,6 +524,7 @@ class AdController extends Controller
     {
         //This request came as xhr object ok?
         //Delete Ad assets, ad likes, adDescription, Ad promotions
+        //Check if came from a valid 
 
         dump($ad);
         dd($request);

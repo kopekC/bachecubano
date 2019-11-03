@@ -77,7 +77,8 @@
         },
         success: function (result) {
           // Do something with the result
-          
+          //Redirect this self page
+          window.location("");
         }
       });
     });
