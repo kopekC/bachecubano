@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Mail\Exception;
 use Illuminate\Database\Eloquent\Model;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Overtrue\LaravelLike\Traits\CanBeLiked;
@@ -90,6 +91,35 @@ class Ad extends Model implements Rateable
     public function owner()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+
+    // this is a recommended way to declare event handlers
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($ad) { // before delete() method call this
+
+            try {
+                $ad->description()->delete();
+            } catch (Exception $e) { }
+
+            try {
+                $ad->promo()->delete();
+            } catch (Exception $e) { }
+
+            try {
+                $ad->stats()->delete();
+            } catch (Exception $e) { }
+
+            try {
+                $ad->resources()->delete();
+            } catch (Exception $e) { }
+/*
+            try {
+                $ad->location()->delete();
+            } catch (Exception $e) { }
+*/
+        });
     }
 }
 

@@ -523,12 +523,20 @@ class AdController extends Controller
     public function destroy(Request $request, Ad $ad)
     {
         //This request came as xhr object ok?
-        //Delete Ad assets, ad likes, adDescription, Ad promotions
-        //Check if came from a valid 
 
-        dump($ad);
-        dd($request);
+        //Delete Ad assets, ad likes, adDescription, Ad promotions, favourites, etc
 
+        //Check if came from a valid user
+        $user = (new User())->getByToken($request->input('api_token'));
+
+        if (!is_null($user) && $ad->user_id == $user->id) {
+            //proceed, the user owns the ad and cascade the deletion
+            $ad->delete();
+
+            return response()->json(['message' => 'Ad deleted ' . $ad->id, 'status' => 200], 200);
+        } else {
+            echo "Wrong data, check again";
+        }
     }
 
     /**
