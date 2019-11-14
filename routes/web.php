@@ -36,6 +36,8 @@ Route::get('/home/settings', 'HomeController@settings')->name('my_settings');
 Route::get('/home/payments', 'HomeController@payments')->name('my_payments');
 Route::post('/home/delete', 'HomeController@delete_account')->name('delete_account');
 Route::post('/home/update', 'HomeController@update_user')->name('update_user');
+Route::post('/home/update_password', 'HomeController@update_user_password')->name('update_user_password');
+
 
 //Cart Routes
 Route::resource('cart', 'CartController');

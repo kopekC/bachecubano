@@ -43,58 +43,49 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!--
-                        <div class="dashboardholder">
-                            <form class="" method="post" action="{{ route('update_user') }}">
-                                @csrf
-                                <ul>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="privacysettingsone">
-                                            <label class="custom-control-label" for="privacysettingsone">Make my profile photo
-                                                public</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="privacysettingstwo">
-                                            <label class="custom-control-label" for="privacysettingstwo">I want to receive monthly
-                                                newsletter</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="privacysettingsthree">
-                                            <label class="custom-control-label" for="privacysettingsthree">I want to receive e-mail
-                                                notifications of offers/messages</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="privacysettingsfour">
-                                            <label class="custom-control-label" for="privacysettingsfour">I want to receive e-mail
-                                                alerts about new listings</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="privacysettingsfive">
-                                            <label class="custom-control-label" for="privacysettingsfive">Enable offers/messages
-                                                option in all my ads Post</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-common btn-block" type="submit">Actualizar</button>
-                            </form>
-                        </div>
-                        -->
-
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-dashboard">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 mb-md-5">
+                    <div class="privacy-box privacysetting">
+
+                        <div class="dashboardboxtitle">
+                            <h2>Cambiar contraseña:</h2>
+                        </div>
+
+                        <div class="dashboardholder mb-md-5">
+                            <div class="user">
+                                <div class="usercontent mt-3">
+                                    <form class="" method="post" action="{{ route('update_user_password') }}" id="user-data">
+                                        @csrf
+
+                                        <div class="form-group mb-3">
+                                            <label for="name">Contraseña actual:</label>
+                                            <input class="form-control" name="current_password" value="****************">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label for="name">Nueva contraseña:</label>
+                                            <input class="form-control" name="new_password" value="****************">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label for="name">Repita nueva contraseña:</label>
+                                            <input class="form-control" name="new_password2" value="****************">
+                                        </div>
+
+                                        <button class="btn btn-common btn-block" type="submit">Actualizar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-dashboard">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
                     <hr>
                     <div class="privacy-box deleteaccount">

@@ -176,8 +176,9 @@ class HomeController extends Controller
     /**
      * Update User Data
      */
-    public function update_user(Request $request) {
-        
+    public function update_user(Request $request)
+    {
+
         //Validate incoming data
         $request->validate([
             'name' => 'bail|required',
@@ -192,5 +193,27 @@ class HomeController extends Controller
 
         //flash sesion message
         return redirect()->route('my_settings')->with('success', 'Se ha actualizado la información de usuario correctamente');
+    }
+
+
+    /**
+     * Reset User password
+     * Using the Rule in 
+     * https://www.itsolutionstuff.com/post/laravel-change-password-with-current-password-validation-exampleexample.html
+     * 
+     * Forst check a lot of security gates to get here.
+     */
+    public function update_user_password(Request $request)
+    {
+
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+
+        User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+
+        dd('Password change successfully.');
     }
 }
