@@ -9,6 +9,17 @@
         <div class="dashboard-wrapper">
             <div class="row form-dashboard">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 mb-md-5">
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <div class="privacy-box privacysetting">
 
                         <div class="dashboardboxtitle">
@@ -63,17 +74,17 @@
 
                                         <div class="form-group mb-3">
                                             <label for="name">Contraseña actual:</label>
-                                            <input class="form-control" name="current_password" value="****************">
+                                            <input class="form-control" type="password" name="current_password" placeholder="****************">
                                         </div>
 
                                         <div class="form-group mb-3">
                                             <label for="name">Nueva contraseña:</label>
-                                            <input class="form-control" name="new_password" value="****************">
+                                            <input class="form-control" type="password" name="new_password" placeholder="****************">
                                         </div>
 
                                         <div class="form-group mb-3">
                                             <label for="name">Repita nueva contraseña:</label>
-                                            <input class="form-control" name="new_password2" value="****************">
+                                            <input class="form-control" type="password" name="new_password2" placeholder="****************">
                                         </div>
 
                                         <button class="btn btn-common btn-block" type="submit">Actualizar</button>

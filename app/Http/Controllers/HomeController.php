@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Ad;
 use Illuminate\Support\Str;
 
+use App\Rules\MatchOldPassword;
+
 class HomeController extends Controller
 {
     /**
@@ -178,11 +180,10 @@ class HomeController extends Controller
      */
     public function update_user(Request $request)
     {
-
         //Validate incoming data
         $request->validate([
             'name' => 'bail|required',
-            'phone' => 'bail|required|numeric|min:10|max:18'               //5355149081
+            'phone' => 'bail|required|numeric'               //5355149081
         ]);
 
         //Save incoming data
@@ -205,7 +206,6 @@ class HomeController extends Controller
      */
     public function update_user_password(Request $request)
     {
-
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
             'new_password' => ['required'],
