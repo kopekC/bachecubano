@@ -13,6 +13,9 @@ use App\Ad;
 use Illuminate\Support\Str;
 
 use App\Rules\MatchOldPassword;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -172,7 +175,17 @@ class HomeController extends Controller
     public function delete_account(Request $request)
     {
         $me = Auth::getUser();
-        dd($me);
+
+        //elete account
+        $me->delete();
+        //Delete Ads
+        //Delete Likes
+        //Delete email subscriptions
+        //Delete all contents
+
+        //close session
+        Session::flush();
+        return redirect()->route('welcome');
     }
 
     /**
@@ -214,6 +227,7 @@ class HomeController extends Controller
 
         User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
 
-        dd('Password change successfully.');
+        //flash sesion message
+        return redirect()->route('my_settings')->with('success', 'Se ha actualizado la contraseña correctamente');
     }
 }
