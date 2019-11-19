@@ -12,6 +12,8 @@ use SEOMeta;
 use OpenGraph;
 use Twitter;
 
+use Illuminate\Support\Str;
+
 class RegisterController extends Controller
 {
     /*
