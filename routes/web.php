@@ -51,8 +51,6 @@ Route::get('/search', 'SearchController@search')->name('search');
 
 //Ads Routes & Resource Route
 Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');          //Cache daily ->middleware('cacheResponse:86400');
-//Promote Ad
-Route::get('/promote/{ad}', 'AdController@promote')->name('ad.promote');
 //Category Listing
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 //SubCategory Listing

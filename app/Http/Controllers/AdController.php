@@ -132,13 +132,14 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'category' => 'bail|required|numeric',
-            'title' => 'bail|required|min:10|max:255',
-            'description' => 'bail|min:10|required',
-            'contact_name' => 'bail|required|min:3|max:255',
-            'contact_email' => 'bail|required|email|min:5|max:255',
-            'phone' => 'bail|required|numeric|min:8|max:16',
+            'title' => 'bail|required',
+            'description' => 'bail|required',
+            'contact_name' => 'bail|required',
+            'contact_email' => 'bail|required|email',
+            'phone' => 'bail|required|numeric',
             'ad_region' => 'bail|required|numeric',
             "agree" => 'bail|required',
         ]);
@@ -197,15 +198,19 @@ class AdController extends Controller
         //Send Notification Email to the User
         //If is guest, always send this email, if it's registered user check for user settings and verify email.published = true 👌
         if (Auth::check()) {
+
             // The user is logged in... So check if send notifications email.add it's true
             AdController::send_published_ad_email($ad, Auth::user());
+
         } else {
+
             //Send Email, it's a Guest user
             $user = new stdClass();
             $user->name = $ad->contact_name;
             $user->email = $ad->contact_email;
             $user->phone = $ad->phone;
             AdController::send_published_ad_email($ad, $user);
+
         }
 
         return redirect(ad_url($ad));
@@ -530,6 +535,7 @@ class AdController extends Controller
         $user = (new User())->getByToken($request->input('api_token'));
 
         if (!is_null($user) && $ad->user_id == $user->id) {
+
             //proceed, the user owns the ad and cascade the deletion
             $ad->delete();
 

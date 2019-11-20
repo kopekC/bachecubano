@@ -228,6 +228,7 @@
 <!-- featured Listing -->
 
 @push('script')
+
 <!-- Autolinker hashtags and Mentions to stores -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autolinker/3.1.0/Autolinker.min.js"></script>
 <script>
