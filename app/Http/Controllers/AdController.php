@@ -609,9 +609,10 @@ class AdController extends Controller
         }
 
         //With associated elements
-        $query->with(['description', 'resources', 'category.description', 'category.parent.description']);
+        $query->with(['resources', 'category.description', 'category.parent.description']);
 
         //Join for a correct ordering?
+        $query->leftjoin('ad_descriptions', 'ads.id', '=', 'ad_descriptions.ad_id');
         $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
 
         //Minimal Price
@@ -637,8 +638,17 @@ class AdController extends Controller
 
         //hashTag Search
         if ($request->has('ht')) {
-            $query->when($request->input('ht') == 1, function ($q) use ($request) {
+            $query->when($request->input('ht') != "", function ($q) use ($request) {
                 return $q->where('body', 'LIKE', "%#{$request->input('ht', "#bache")}%");
+            });
+        }
+
+        //Search terms
+        if ($request->has('s')) {
+            $query->when(strlen($request->input('s')) >= 2, function ($q) use ($request) {
+                $q->where('ad_descriptions.description', 'LIKE', "%{$request->input('s')}%");
+                $q->orWhere('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");
+                return $q;
             });
         }
 

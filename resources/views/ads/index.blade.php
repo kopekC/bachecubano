@@ -34,7 +34,11 @@
                 <aside>
                     <!-- Searcg Widget -->
                     <div class="widget_search">
-                        <form role="search" id="search-form">
+                        <form role="search" id="search-form" method="get">
+
+                            <!-- Show here as hidden elements all input parameters by now -->
+                            
+
                             <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Buscar..." id="search-input" value="" name="search">
                             <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
                         </form>

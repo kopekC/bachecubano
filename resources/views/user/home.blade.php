@@ -46,7 +46,6 @@
                     <th>Título</th>
                     <th>Categoría</th>
                     <th>Estado</th>
-                    <th>Ajustes</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,13 +67,6 @@
                     <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
                     <!-- adstatusactive/adstatusinactive/adstatussold-->
                     <td data-title="Ad Status"><span class="adstatus adstatusactive">activo</span></td>
-                    <td data-title="Action">
-                        <div class="btns-actions">
-                            <!-- <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a> Analiticas -->
-                            <a class="btn-action btn-edit" href="{{ route('ad.edit', ['ad' => $ad]) }}"><i class="lni-pencil"></i></a>
-                            <a class="btn-action btn-delete delete-ad" href="#" data-href="{{ route('ad.destroy', ['ad' => $ad]) }}" title="Eliminar anuncio"><i class="lni-trash"></i></a>
-                        </div>
-                    </td>
                 </tr>
                 @endforeach
                 @endif
