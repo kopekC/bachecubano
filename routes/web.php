@@ -46,9 +46,6 @@ Route::resource('cart', 'CartController');
 Route::get('/share/{network}/{url}/{text}', 'ShareController@index')->name('share');
 Route::get('/invite/{item}/{misc}', 'ShareController@invite')->name('invite');
 
-//Search route
-Route::get('/search', 'SearchController@search')->name('search');
-
 //Ads Routes & Resource Route
 Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');          //Cache daily ->middleware('cacheResponse:86400');
 //Category Listing

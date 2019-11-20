@@ -33,28 +33,19 @@
             <div class="col-lg-2 col-md-12 col-xs-12 page-sidebar">
                 <aside>
                     <!-- Searcg Widget -->
-                    <div class="widget_search">
-                        <form role="search" id="search-form" method="get">
-
+                    <form role="search" id="search-form" method="get">
+                        <div class="widget_search">
                             <!-- Show here as hidden elements all input parameters by now -->
-                            
-
-                            <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Buscar..." id="search-input" value="" name="search">
+                            <!--TODO Un foreach de cada input? -->
+                            <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Buscar..." id="search-input" value="@if($request->has('s')) {{$request->input('s')}} @endif" name="search">
                             <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
-                        </form>
-                    </div>
-                    <!-- Categories Widget -->
-                    <div class="widget categories">
-                        <h4 class="widget-title">Filtrado</h4>
-                        <ul class="categories-list">
-                            <li>
-                                <a href="#">
-                                    <i class="lni-dinner"></i>
-                                    Hotel & Travels <span class="category-counter">(5)</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                        </div>
+                        <!-- Categories Widget -->
+                        <div class="widget categories">
+                            <h4 class="widget-title">Filtrado</h4>
+                            
+                        </div>
+                    </form>
                     <div class="widget d-none d-lg-block">
                         <h4 class="widget-title">Publicidad</h4>
                         <div class="add-box"></div>

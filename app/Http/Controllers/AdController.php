@@ -46,15 +46,18 @@ class AdController extends Controller
         $sub_category =  CategoryDescription::where('slug', $subcategory)->first();
 
         //Blow up all of this if not supercategory met requirements
-        if (is_null($super_category)) {
+        if (is_null($super_category) && $category != "search") {
             abort(404);
         }
 
         if ($sub_category != "") {
             $seo_data = ['title' => $sub_category->name, 'desc' => $sub_category->description];
+        } elseif ($category == "search") {
+            $seo_data = ['title' => $super_category->name, 'desc' => $super_category->description];
         } else {
             $seo_data = ['title' => $super_category->name, 'desc' => $super_category->description];
         }
+
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
         Twitter::setTitle($seo_data['title']);
@@ -79,7 +82,7 @@ class AdController extends Controller
         //Paginate all this
         $ads = AdController::getAds($request, $ids);
 
-        return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page'));
+        return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page', 'request'));
     }
 
     /**
