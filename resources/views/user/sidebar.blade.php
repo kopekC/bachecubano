@@ -46,18 +46,22 @@
                     </a>
                 </li>
 
+                <!--
                 <li>
                     <a href="#" class="{{ \Route::current()->getName() == 'offers' ? 'active' : ''}}">
                         <i class="lni-envelope"></i>
                         <span>Mensajes</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="#" class="{{ \Route::current()->getName() == 'my_wallet' ? 'active' : ''}}">
                         <i class="lni-wallet"></i>
                         <span>Pagos</span>
                     </a>
                 </li>
+                -->
+
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="lni-exit"></i>

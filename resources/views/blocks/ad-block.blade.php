@@ -21,16 +21,22 @@
                     <i class="lni-star-filled"></i>
                     <i class="lni-star-filled"></i>
                     <i class="lni-star-filled"></i>
-                    <i class="lni-star"></i>
+                    <i class="lni-star-filled"></i>
                 </span>
+                @if(isset($ad->reviews))
                 <span class="count-review">
-                    <span>1</span> Reviews
+                    <span>{{ $ad->reviews->count }}</span> Valoraciones
                 </span>
+                @endif
             </div>
             <div class="card-text">
+
                 <div class="float-left">
-                    <a href="#"><i class="lni-map-marker"></i> Louis, Missouri, US</a>
+                    @if(isset($ad->location))
+                    <a href="#{{ $ad->location->slug }}"><i class="lni-map-marker"></i> {{ $ad->location->title }}</a>
+                    @endif
                 </div>
+
                 <div class="float-right">
                     <a href="#!" class="icon like" data-ad_id="{{ $ad->id }}">
                         @auth

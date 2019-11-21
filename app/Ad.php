@@ -54,7 +54,7 @@ class Ad extends Model implements Rateable
      */
     public function location()
     {
-        return $this->hasOne('App\AdLocation');
+        return $this->hasOne('App\AdLocation', 'id', 'region_id');
     }
 
     /**
@@ -114,7 +114,7 @@ class Ad extends Model implements Rateable
             try {
                 $ad->resources()->delete();
             } catch (Exception $e) { }
-/*
+            /*
             try {
                 $ad->location()->delete();
             } catch (Exception $e) { }
@@ -176,6 +176,24 @@ class AdPromo extends Model
 }
 
 class AdResource extends Model
+{
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the Ad that owns the stats.
+     */
+    public function ad()
+    {
+        return $this->belongsTo('App\Ad');
+    }
+}
+
+class AdLocation extends Model
 {
     /**
      * Indicates if the model should be timestamped.

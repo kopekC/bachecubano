@@ -623,7 +623,7 @@ class AdController extends Controller
         }
 
         //With associated elements
-        $query->with(['resources', 'category.description', 'category.parent.description']);
+        $query->with(['resources', 'category.description', 'category.parent.description', 'location']);
 
         //Join for a correct ordering?
         $query->leftjoin('ad_descriptions', 'ads.id', '=', 'ad_descriptions.ad_id');

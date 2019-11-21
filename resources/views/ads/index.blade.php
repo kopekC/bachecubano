@@ -52,9 +52,9 @@
                             <input type="number" class="form-control mb-1" autocomplete="on" name="max_price" placeholder="Precio Max" value="{{$request->input('max_price', '')}}">
 
                             <!-- CheckBox with only photos -->
-                            <div class="custom-checkbox">
+                            <div class="custom-checkbox ml-2">
                                 <input type="checkbox" class="form-control-input mb-1" name="only_photos" @if($request->has('only_photos')) checked @endif>
-                                <label>Sólo fotos</label>
+                                <label>Sólo anuncios con fotos</label>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>

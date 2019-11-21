@@ -169,6 +169,30 @@ class HomeController extends Controller
         return view('user.settings', compact('section_name', 'user'));
     }
 
+    public function favourite(Request $request)
+    {
+
+        //SEO Data
+        $seo_data = [
+            'title' => "Mis anuncios favoritos",
+            'desc' => "Ver todos los anuncios a los que le has dado \"Me Gusta\"",
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+        $section_name = "Mis anuncios favoritos";
+
+        $user = Auth::getUser();
+
+        //Likes
+        $my_likes = $user->likes()->with('likable')->paginate(20);
+
+        return view('user.likes', compact('section_name', 'user', 'my_likes'));
+    }
+
     /**
      * Delete this account
      */

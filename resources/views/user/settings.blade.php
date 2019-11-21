@@ -143,7 +143,6 @@
         headers: {
             'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
         },
-
         //Submit form if saved name or ther data
         success: function(file, response) {
             if (response.status == 200) {

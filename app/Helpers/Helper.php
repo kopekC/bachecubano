@@ -95,14 +95,18 @@ if (!function_exists('ad_promotion_text_type')) {
     function ad_promotion_text_type($ad)
     {
         $promo_types = [
-            0 => 'gratis',
+            0 => "gratis",
             1 => 'elbache',
             2 => 'plata',
             3 => 'oro',
             4 => 'diamante',
         ];
 
-        return $promo_types[$ad->promo->promotype];
+        if (!isset($ad->promotype)) {
+            return "Diamante";
+        } else {
+            return $promo_types[$ad->promotype];
+        }
     }
 }
 
