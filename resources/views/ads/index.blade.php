@@ -105,10 +105,41 @@
                     <div class="tab-content">
                         <div id="grid-view" class="tab-pane fade active show">
                             <div class="row">
-                                @if($ads)
+                                @if($ads->total() >= 1)
                                 @foreach($ads as $ad)
                                 @include('blocks.ad-block')
                                 @endforeach
+                                @else
+                                <div class="col-md-12 col-lg-12 col-xs-12 text-center">
+                                    <div class="contents">
+                                        <div class="search-two-form">
+                                            <form class="search-two" action="{{ route('welcome') }}/search" method="get">
+                                                <div class="search-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-9 col-md-9">
+                                                            <div class="form-group search-query">
+                                                                <input type="text" name="s" class="form-control" placeholder="Qué estas buscando hoy" autocomplete="on">
+                                                                <div class="search-suggestion">
+                                                                    <div class="search-suggestion-items">
+                                                                        <ul>
+                                                                            <li><a href="#"><i class="lni-display"></i> Computadoras</a></li>
+                                                                            <li><a href="#"><i class="lni-tshirt"></i> Ropa</a></li>
+                                                                            <li><a href="#"><i class="lni-mobile"></i> Celulares</a></li>
+                                                                            <li><a href="#"><i class="lni-paint-roller"></i> Servicios</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3">
+                                                            <button class="btn btn-common search-two-submit" type="submit" form="search-two"><i class="lni-search"></i> Buscar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endif
                             </div>
                         </div>

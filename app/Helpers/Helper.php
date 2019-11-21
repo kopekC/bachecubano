@@ -95,6 +95,7 @@ if (!function_exists('ad_promotion_text_type')) {
     function ad_promotion_text_type($ad)
     {
         $promo_types = [
+            0 => 'gratis',
             1 => 'elbache',
             2 => 'plata',
             3 => 'oro',

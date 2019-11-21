@@ -23,7 +23,6 @@
             </ul>
             <div class="listing-bottom">
                 <h3 class="price float-left">{{ ad_price($ad) }}</h3>
-                <!-- <a href="#" class="btn-verified float-right"><i class="lni-check-box"></i> Verificado</a> -->
             </div>
         </div>
     </div>
