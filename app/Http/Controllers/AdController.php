@@ -133,7 +133,7 @@ class AdController extends Controller
                     $query->where('promotype', '>=', 3);
                 })
                 ->inRandomOrder()
-                ->take(4)
+                ->take(6)
                 ->get();
         });
 
@@ -278,7 +278,7 @@ class AdController extends Controller
                     $query->where('promotype', '>=', 3);
                 })
                 ->inRandomOrder()
-                ->take(4)
+                ->take(6)
                 ->get();
         });
 
@@ -344,7 +344,7 @@ class AdController extends Controller
                     $query->where('promotype', '>=', 3);
                 })
                 ->inRandomOrder()
-                ->take(4)
+                ->take(6)
                 ->get();
         });
 
@@ -451,7 +451,7 @@ class AdController extends Controller
                     $query->where('promotype', '>=', 3);
                 })
                 ->inRandomOrder()
-                ->take(4)
+                ->take(6)
                 ->get();
         });
 

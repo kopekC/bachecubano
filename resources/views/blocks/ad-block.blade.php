@@ -1,36 +1,3 @@
-<!--
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-    <div class="featured-box">
-        <figure>
-            <div class="icon">
-                <a href="#!" class="like" data-ad_id="{{ $ad->id }}"><i class="lni-thumbs-up"></i></a>
-            </div>
-            <a href="{{ ad_url($ad) }}">
-                <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
-            </a>
-        </figure>
-        <div class="feature-content">
-            <div class="product">
-                <a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a>
-            </div>
-            <h4>
-                <a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a>
-            </h4>
-            <ul class="address">
-                <li>
-                    <a href="@if(isset($ad->phone) && $ad->phone != '')tel:{{ $ad->phone }}@endif"><i class="lni-user"></i> {{ $ad->contact_name }}</a>
-                </li>
-            </ul>
-            @if(ad_price($ad) != "")
-            <div class="listing-bottom">
-                <h3 class="price">{{ ad_price($ad) }}</h3>
-            </div>
-            @endif
-        </div>
-    </div>
-</div>
--->
-
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
     <div class="product-item featured-box">
         <div class="carousel-thumb text-center">
