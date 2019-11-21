@@ -13,7 +13,7 @@
                                 <div class="row">
                                     <div class="col-lg-9 col-md-9">
                                         <div class="form-group search-query">
-                                            <input type="text" name="s" class="form-control" placeholder="Qué estas buscando hoy" autocomplete="off">
+                                            <input type="text" name="s" class="form-control" placeholder="Qué estas buscando hoy" autocomplete="on">
                                             <div class="search-suggestion">
                                                 <div class="search-suggestion-items">
                                                     <ul>

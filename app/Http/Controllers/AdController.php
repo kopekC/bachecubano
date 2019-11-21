@@ -31,6 +31,7 @@ use App\Notifications\AdPromotedTwitter;
 use stdClass;
 
 use App\User;
+use Illuminate\Database\Eloquent\Builder;
 
 class AdController extends Controller
 {
@@ -76,7 +77,7 @@ class AdController extends Controller
 
             //Retrieve here all ids
             $all_cats = Cache::get('cached_categories');
-            
+
             $super_category = new stdClass();
             $super_category->name = $seo_data['title'];
             $super_category->description = $seo_data['desc'];
@@ -84,7 +85,6 @@ class AdController extends Controller
 
             foreach ($all_cats as $subcategory)
                 $ids[] = $subcategory->id;
-
         } else {
             $sub_categories = Category::where('parent_id', '=', $super_category->category_id)->select('id')->get();
             $ids = [];
@@ -630,16 +630,16 @@ class AdController extends Controller
         $query->leftjoin('ad_promos', 'ads.id', '=', 'ad_promos.ad_id');
 
         //Minimal Price
-        if ($request->has('min_price')) {
+        if ($request->has('min_price') && is_numeric($request->input('min_price'))) {
             $query->when($request->input('min_price') >= 0, function ($q) use ($request) {
-                return $q->where('price', '>=', $request->input('min_price', 0));
+                return $q->where('price', '>=', $request->input('min_price'));
             });
         }
 
         //Maximum Price
-        if ($request->has('max_price')) {
+        if ($request->has('max_price') && is_numeric($request->input('max_price'))) {
             $query->when($request->input('max_price') >= 0, function ($q) use ($request) {
-                return $q->where('price', '<=', $request->input('max_price', 0));
+                return $q->where('price', '<=', $request->input('max_price'));
             });
         }
 
@@ -658,10 +658,14 @@ class AdController extends Controller
         }
 
         //Search terms
-        if ($request->has('s')) {
+        if ($request->has('s') && $request->input('s') != "") {
             $query->when(strlen($request->input('s')) >= 2, function ($q) use ($request) {
-                $q->where('ad_descriptions.description', 'LIKE', "%{$request->input('s')}%");
-                $q->orWhere('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");
+
+                /* Encapsulate this into (query) */
+                $q->where(function (Builder $query) use ($request) {
+                    return $query->where('ad_descriptions.description', 'LIKE', "%{$request->input('s')}%")->orWhere('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");
+                });
+                
                 return $q;
             });
         }

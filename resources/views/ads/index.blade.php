@@ -34,16 +34,30 @@
                 <aside>
                     <!-- Searcg Widget -->
                     <form role="search" id="search-form" method="get">
-                        <div class="widget_search">
-                            <!-- Show here as hidden elements all input parameters by now -->
-                            <!--TODO Un foreach de cada input? -->
-                            <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Buscar..." id="search-input" value="@if($request->has('s')) {{$request->input('s')}} @endif" name="search">
-                            <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
-                        </div>
-                        <!-- Categories Widget -->
-                        <div class="widget categories">
+
+                        <!-- Show here as hidden elements all input parameters by now -->
+                        <!--TODO Un foreach de cada input? -->
+
+                        <div class="widget categories p-2">
+
                             <h4 class="widget-title">Filtrado</h4>
-                            
+
+                            <!-- Search Box -->
+                            <input type="search" class="form-control mb-1" autocomplete="on" name="s" placeholder="Buscar..." id="search-input" value="@if($request->has('s')){{$request->input('s')}}@endif">
+
+                            <!-- Min Price -->
+                            <input type="number" class="form-control mb-1" autocomplete="on" name="min_price" placeholder="Precio Min" value="{{$request->input('min_price', '')}}">
+
+                            <!-- Max Price -->
+                            <input type="number" class="form-control mb-1" autocomplete="on" name="max_price" placeholder="Precio Max" value="{{$request->input('max_price', '')}}">
+
+                            <!-- CheckBox with only photos -->
+                            <div class="custom-checkbox">
+                                <input type="checkbox" class="form-control-input mb-1" name="only_photos" @if($request->has('only_photos')) checked @endif>
+                                <label>Sólo fotos</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>
                         </div>
                     </form>
                     <div class="widget d-none d-lg-block">
@@ -56,7 +70,7 @@
                 <!-- Product filter Start -->
                 <div class="product-filter">
                     <div class="short-name d-none d-lg-block">
-                        @if($ads)
+                        @if($ads->total() >= 1)
                         <span>Mostrando (1 - {{ count($ads) }} anuncios de {{ $total_ads }})</span>
                         @else
                         <span>No se han encontrado anuncios</span>
