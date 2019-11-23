@@ -57,6 +57,12 @@
                                 <label>Sólo anuncios con fotos</label>
                             </div>
 
+                            <!-- CheckBox with only Affiliates Stores -->
+                            <div class="custom-checkbox ml-2">
+                                <input type="checkbox" class="form-control-input mb-1" name="only_stores" @if($request->has('only_stores')) checked @endif>
+                                <label>Sólo tiendas asociadas</label>
+                            </div>
+
                             <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>
                         </div>
                     </form>
