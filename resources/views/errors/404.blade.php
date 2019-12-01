@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-12 text-center">                
                 <!-- Include Here a Big Search bar -->
-                <form class="search-two" action="{{ route('search') }}" method="get">
+                <form class="search-two" action="{{ route('welcome') }}/search" method="get">
                     <div class="search-inner">
                         <div class="row">
                             <div class="col-lg-9 col-md-9">

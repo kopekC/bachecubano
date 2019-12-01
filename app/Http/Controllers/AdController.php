@@ -32,6 +32,7 @@ use stdClass;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
+use PhpParser\Node\Stmt\TryCatch;
 
 class AdController extends Controller
 {
@@ -442,7 +443,6 @@ class AdController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
-
         //Retrieve from Cache, Not neccesary to retrieve again
         $promoted_ads = Cache::remember('promoted_ads', 60, function () {
             return Ad::where('active', 1)
@@ -470,7 +470,7 @@ class AdController extends Controller
         ]);
 
         //Promotions Plans Pricing
-        $princing = [1 => 1, 2 => 5, 3 => 10, 4 => 20];
+        $princing = [1 => 1, 2 => 5, 3 => 10, 4 => 20, 5 => 50, 6 => 100];
 
         //Get registered user
         $myself = Auth::getUser();
@@ -500,12 +500,16 @@ class AdController extends Controller
             //Viralice ad
             //Promotion 1 -> Telegram
             if ($request->input('promotype') >= 1) {
-                $ad->notify(new AdPromotedTelegram);
+                try {
+                    $ad->notify(new AdPromotedTelegram);
+                } catch (Exception $e) { }
             }
 
             //Promotion 2 -> Telegram, Twitter
             if ($request->input('promotype') >= 2) {
-                $ad->notify(new AdPromotedTwitter);
+                try {
+                    $ad->notify(new AdPromotedTwitter);
+                } catch (Exception $e) { }
             }
 
             //Promotion 3 -> Telegram, Twitter, Facebook
@@ -514,6 +518,12 @@ class AdController extends Controller
             //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications
             if ($request->input('promotype') >= 4) { }
 
+            //Promotion 5 -> Youtube Video
+            if ($request->input('promotype') >= 5) { }
+
+            //Promotion 6 -> Substore on subdomain
+            if ($request->input('promotype') >= 6) { }
+
 
             //Redirect to ads listing with a flash messaje
             return redirect()->route('my_ads')->with('success', 'Felicidades! Ha promocionado su anuncio correctamente.');
@@ -521,15 +531,6 @@ class AdController extends Controller
             //Redirecto to a non balance page or ads listing
             return redirect()->route('my_ads')->with('error', 'Lo sentimos, no posee saldo suficiente en su cuenta. Consulte con nuestros comerciales para acreditar su saldo');
         }
-    }
-
-    /**
-     * general Search motor
-     */
-    public function search(Request $request)
-    {
-        //Global Search
-        //HashTag Search
     }
 
     /**
@@ -645,8 +646,15 @@ class AdController extends Controller
 
         //Search Query With only Photos ads
         if ($request->has('only_photos')) {
-            $query->when($request->input('only_photos') == 1, function ($q) {
+            $query->when($request->input('only_photos') == "on", function ($q) {
                 return $q->whereHas('resources');
+            });
+        }
+
+        //Search Query With only Photos ads
+        if ($request->has('only_stores')) {
+            $query->when($request->input('only_stores') == "on", function ($q) {
+                return $q->where('ads.user_id', '!=', 0);
             });
         }
 
@@ -660,12 +668,10 @@ class AdController extends Controller
         //Search terms
         if ($request->has('s') && $request->input('s') != "") {
             $query->when(strlen($request->input('s')) >= 2, function ($q) use ($request) {
-
-                /* Encapsulate this into (query) */
+                // Encapsulate this into (query)
                 $q->where(function (Builder $query) use ($request) {
                     return $query->where('ad_descriptions.description', 'LIKE', "%{$request->input('s')}%")->orWhere('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");
                 });
-                
                 return $q;
             });
         }

@@ -19,14 +19,14 @@
 
 <!-- Pricing section Start -->
 <section id="pricing-table" class="section-padding">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="mainHeading">
                     <h2 class="section-title">Seleccione el plan de promoción</h2>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="col-lg-2 col-md-6 col-xs-12">
                 <div class="table">
                     <div class="icon">
                         <i class="lni-invest-monitor"></i>
@@ -57,7 +57,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="col-lg-2 col-md-6 col-xs-12">
                 <div class="table" id="active-tb">
                     <div class="icon">
                         <i class="lni-invest-monitor"></i>
@@ -88,7 +88,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="col-lg-2 col-md-6 col-xs-12">
                 <div class="table">
                     <div class="icon">
                         <i class="lni-invest-monitor"></i>
@@ -117,7 +117,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="col-lg-2 col-md-6 col-xs-12">
                 <div class="table">
                     <div class="icon">
                         <i class="lni-invest-monitor"></i>
@@ -141,6 +141,60 @@
                         <input type="hidden" name="ad_id" value="{{ $ad->id }}">
                         <input type="hidden" name="promotype" value="4">
                         <button class="btn btn-common" type="submit">Activar Diamante</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-xs-12">
+                <div class="table">
+                    <div class="icon">
+                        <i class="lni-invest-monitor"></i>
+                    </div>
+                    <div class="title">
+                        <h3>YOUTUBE</h3>
+                    </div>
+                    <div class="pricing-header">
+                        <p class="price-value"><sup>$</sup>50<span>/ Pago único</span></p>
+                    </div>
+                    <ul class="description">
+                        <li><strong>Primero</strong> siempre * 1 mes</li>
+                        <li>Listado en <strong>LaChopi</strong></li>
+                        <li><strong>30</strong> días</li>
+                        <li><strong>100%</strong> activo</li>
+                        <li><strong>SMS</strong> masivo</li>
+                        <li><strong>Video</strong> en Youtube</li>
+                    </ul>
+                    <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="ad_id" value="{{ $ad->id }}">
+                        <input type="hidden" name="promotype" value="5">
+                        <button class="btn btn-common" type="submit">Activar Youtube</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-xs-12">
+                <div class="table">
+                    <div class="icon">
+                        <i class="lni-invest-monitor"></i>
+                    </div>
+                    <div class="title">
+                        <h3>PARTNER</h3>
+                    </div>
+                    <div class="pricing-header">
+                        <p class="price-value"><sup>$</sup>100<span>/ Pago único</span></p>
+                    </div>
+                    <ul class="description">
+                        <li><strong>Primero</strong> siempre * 1 mes</li>
+                        <li>Listado en <strong>LaChopi</strong></li>
+                        <li><strong>30</strong> días</li>
+                        <li><strong>100%</strong> activo</li>
+                        <li><strong>SMS</strong> masivo</li>
+                        <li><strong>Tienda</strong> Online</li>
+                    </ul>
+                    <form action="{{ route('post_promote_ad', ['ad' => $ad]) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="ad_id" value="{{ $ad->id }}">
+                        <input type="hidden" name="promotype" value="6">
+                        <button class="btn btn-common" type="submit">Activar Partner</button>
                     </form>
                 </div>
             </div>

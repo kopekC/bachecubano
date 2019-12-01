@@ -37,10 +37,10 @@
                             <span class="search-suggestion-title">Búsquedas populares</span>
                             <div class="adverts-search-suggestion-items">
                                 <ul>
-                                    <li><a href="/search?s=Xiaomi">Xiaomi</a></li>
-                                    <li><a href="/search?s=Asus">Asus</a></li>
-                                    <li><a href="/search?s=2Tb">2Tb</a></li>
-                                    <li><a href="/search?s=Apto Casino Deportivo">Apto Casino Deportivo</a></li>
+                                    <li><a href="{{ config('app.url') }}/search?s=Xiaomi">Xiaomi</a></li>
+                                    <li><a href="{{ config('app.url') }}/search?s=Asus">Asus</a></li>
+                                    <li><a href="{{ config('app.url') }}/search?s=2Tb">2Tb</a></li>
+                                    <li><a href="{{ config('app.url') }}/search?s=Apto Casino Deportivo">Apto Casino Deportivo</a></li>
                                 </ul>
                             </div>
                         </div>

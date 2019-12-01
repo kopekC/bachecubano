@@ -46,6 +46,9 @@ Route::resource('cart', 'CartController');
 Route::get('/share/{network}/{url}/{text}', 'ShareController@index')->name('share');
 Route::get('/invite/{item}/{misc}', 'ShareController@invite')->name('invite');
 
+//Ad promotion Page
+Route::get('/promote/{ad}', 'AdController@promote_ad')->name('promote_ad')->middleware('auth');
+Route::post('/promote/{ad}', 'AdController@post_promote_ad')->name('post_promote_ad')->middleware('auth');      //Access only if its registere4d user
 //Ads Routes & Resource Route
 Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');          //Cache daily ->middleware('cacheResponse:86400');
 //Category Listing
@@ -54,9 +57,6 @@ Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag');
 //Ad specific Show
 Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag');
-//Ad promotion Page
-Route::get('/promote/{ad}', 'AdController@promote_ad')->name('promote_ad');
-Route::post('/promote/{ad}', 'AdController@post_promote_ad')->name('post_promote_ad')->middleware('auth');      //Access only if its registere4d user
 //Ad resources route
 Route::resource('ad', 'AdController');
 
