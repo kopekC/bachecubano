@@ -18,10 +18,14 @@ class LaChopiGeneration extends Controller
     public function generate() {
         //Get all category ID's
 
-        
+
     }
 
+    /**
+     * Get alls ads from specifica category
+     */
     public function getCategoryAds($category_id) {
-
+        //This is called every category ID, so retrieve ads from it
+        
     }
 }

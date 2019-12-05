@@ -5,9 +5,11 @@
                 <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
             </a>
             <div class="overlay"></div>
+            @if(isset($ad->promotype))
             <div class="btn-product bg-red">
                 <a href="{{ ad_url($ad) }}">{{ ad_promotion_text_type($ad) }}</a>
             </div>
+            @endif
         </div>
         <div class="product-content">
             <h3 class="product-title">

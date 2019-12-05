@@ -95,11 +95,13 @@ if (!function_exists('ad_promotion_text_type')) {
     function ad_promotion_text_type($ad)
     {
         $promo_types = [
-            0 => "gratis",
-            1 => 'elbache',
-            2 => 'plata',
-            3 => 'oro',
-            4 => 'diamante',
+            0 => "Gratis",
+            1 => 'Elbache',
+            2 => 'Plata',
+            3 => 'Oro',
+            4 => 'Diamante',
+            5 => 'Youtube',
+            6 => 'Partner'
         ];
 
         if (!isset($ad->promotype)) {

@@ -94,11 +94,11 @@
                         <span class="ml-3">Orden: </span>
                         <form class="woocommerce-ordering" method="post">
                             <label>
-                                <select name="order" class="orderby">
-                                    <option selected="selected" value="updated_at">Fecha Modificación</option>
-                                    <option value="popularity">Popularidad</option>
-                                    <option value="lower_price">Menor Precio</option>
-                                    <option value="greather_price">Mayor Precio</option>
+                                <select name="order" class="orderby" onchange="this.options[this.selectedIndex].value && (window.location = '?order_by=' + this.options[this.selectedIndex].value);">
+                                    <option @if($request->has('order_by') && $request->order_by == 'updated_at') selected @endif value="updated_at">Fecha Modificación</option>
+                                    <option @if($request->has('order_by') && $request->order_by == 'popularity') selected @endif value="popularity">Popularidad</option>
+                                    <option @if($request->has('order_by') && $request->order_by == 'lower_price') selected @endif value="lower_price">Menor Precio</option>
+                                    <option @if($request->has('order_by') && $request->order_by == 'greather_price') selected @endif value="greather_price">Mayor Precio</option>
                                 </select>
                             </label>
                         </form>
