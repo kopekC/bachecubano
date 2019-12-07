@@ -76,6 +76,12 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
+//La Chopi Routes
+Route::group(['prefix' => 'chopi'], function () {
+    //Get Categories
+    Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
+});
+
 //Save Image from AJAX Calls and API implementation
 Route::get('show-image', 'Api\ImageController@index')->name('show-image-ajax');
 Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');

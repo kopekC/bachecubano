@@ -10,7 +10,6 @@ use App\Ad;
 
 use Illuminate\Support\Facades\Cache;
 
-use Spatie\Searchable\Search;
 use App\AdDescription;
 use App\Post;
 use App\Http\Controllers\AdController;
@@ -69,28 +68,7 @@ class AdsController extends Controller
     {
         $searchTerm = $request->input('query');
 
-        $query = Ad::query();
-
-        $query->join('ad_descriptions', 'ads.id', '=', 'ad_descriptions.ad_id');
-
-        //Select All elements
-        $query->select('ads.id', 'ads.user_id', 'ads.category_id', 'ads.updated_at', 'ads.price', 'ads.contact_name', 'ad_descriptions.title', 'ad_descriptions.description');
-
-        //Activated parameters
-        $query->where('active', 1);
-        $query->where('enabled', 1);
-
-        /*
-        $query->whereHas('tableB', function ($query) {
-            // Now querying on tableB
-            $query->where('fieldB', $valueB);
-        })->orderBy('created_at', 'DESC');
-        */
-
-        $query->where('ad_descriptions.title', 'LIKE', "%{$searchTerm}%");
-        $query->orWhere('ad_descriptions.description', 'LIKE', "%{$searchTerm}%");
-
-        $query->latest();
+        //get ads from the static Ad Search method
 
         //Paginate all this
         $searchResults = $query->paginate(50);

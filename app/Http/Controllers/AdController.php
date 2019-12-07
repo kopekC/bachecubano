@@ -73,7 +73,9 @@ class AdController extends Controller
         //Category Condition if subcategory or Super Category
         //If Pass a single ID, its  asubcategory, i pass an array its a supercategory
         if (isset($sub_category->category_id)) {
+
             $ids = $sub_category->category_id;
+
         } elseif ($category == "search") {
 
             //Retrieve here all ids
@@ -83,14 +85,16 @@ class AdController extends Controller
             $super_category->name = $seo_data['title'];
             $super_category->description = $seo_data['desc'];
 
-
             foreach ($all_cats as $subcategory)
                 $ids[] = $subcategory->id;
+
         } else {
+
             $sub_categories = Category::where('parent_id', '=', $super_category->category_id)->select('id')->get();
             $ids = [];
             foreach ($sub_categories as $subcategory)
                 $ids[] = $subcategory->id;
+
         }
 
         //Paginate all this
@@ -607,7 +611,7 @@ class AdController extends Controller
      * Static Get Ads for API and Web Controller
      * $category_ids could be an ID or ID array, based on the subcategory or parent category
      */
-    public static function getAds($request, $category_ids = null)
+    public static function getAds(Request $request, $category_ids = null, $limit = null, $number_of_days = null)
     {
         //Beguin Query
         $query = Ad::query();
@@ -676,6 +680,15 @@ class AdController extends Controller
             });
         }
 
+        //latest Date from
+        /*
+        if ($request->has('latest_days') && is_numeric($request->latest_days)) {
+            //Today - $request->latest_days
+            $start_date = '2017-10-01 00:00:01';
+            $query->where('updated_at', '>=', $start_date);
+        }
+        */
+
         //Order By PromoType and later as updated time
         $query->orderBy('ad_promos.promotype', 'desc');
         $query->latest('updated_at');
@@ -684,8 +697,11 @@ class AdController extends Controller
         $query->where('active', 1);
         $query->where('enabled', 1);
 
-        //Paginate all this
-        $ads = $query->paginate(AdController::post_per_page($request));
+        //Debug Query
+        //dump($query->getQuery());
+
+        //Paginate all this if not come from API call with limit parameter
+        $ads = $query->paginate($limit ? $limit : AdController::post_per_page($request));
 
         return $ads;
     }

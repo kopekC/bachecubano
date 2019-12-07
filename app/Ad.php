@@ -9,7 +9,6 @@ use Overtrue\LaravelLike\Traits\CanBeLiked;
 use Rennokki\Rating\Traits\CanBeRated;
 use Rennokki\Rating\Contracts\Rateable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Scout\Searchable;
 
 /**
  * ads, ad_description, ad_location, ad_promo, ad_resource, ad_stats
@@ -17,7 +16,7 @@ use Laravel\Scout\Searchable;
 class Ad extends Model implements Rateable
 {
     //Like and Rating Traits
-    use CanBeLiked, CanBeRated, Searchable;
+    use CanBeLiked, CanBeRated;
 
     //Allow this model to be used as Notifications feature for paid ads
     use Notifiable;
@@ -126,9 +125,6 @@ class Ad extends Model implements Rateable
 
 class AdDescription extends Model
 {
-
-    use Searchable;
-
     /**
      * Indicates if the model should be timestamped.
      *

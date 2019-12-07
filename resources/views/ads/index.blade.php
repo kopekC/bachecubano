@@ -63,6 +63,11 @@
                                 <label>Sólo tiendas asociadas</label>
                             </div>
 
+                            <!--Hidden Fields -->
+                            @if($request->has('order_by'))
+                            <input type="hidden" name="order_by" value="{{ $request->order_by }}">
+                            @endif
+
                             <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>
                         </div>
                     </form>
