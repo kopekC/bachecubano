@@ -22,6 +22,8 @@ class LachopigenerationController extends Controller
     private $categories_parsed;
     private $final_cats;
     private $db;
+    private $logs;
+    private $cant_ads_total;
 
     /**
      * Initialize variables, check for security first
@@ -33,21 +35,54 @@ class LachopigenerationController extends Controller
         ob_flush();
         flush();
 
-        //Get All Categories
-        //Global Cached Categories Data Cache one week
-        $this->categories = Cache::rememberForever('cached_categories', function () {
-            return Category::with('description')->get();
-        });
-
         //Get DB Link and perform somr cleaning operations
         /*
         $this->bd = new \SQLite3('../sitios/lachopi/chcenter.db');
-        $this->bd->exec("DELETE FROM cats");
+        
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
         $this->bd->exec("DELETE FROM imagenes");
         $this->bd->exec("VACUUM");
         */
+    }
+
+    /**
+     * Wrapper method for all them
+     */
+    public function generate()
+    {
+        //Genmerate and Save Categories
+        $this->generate_categories();
+
+        //Meta INFO saved
+        //Update Date
+        $now = new \DateTime();
+        $now = $now->format('Y-m-d H:i:s');
+        $sql = "INSERT INTO meta ('key', 'value') VALUES ('upd', '" . $this->leoDate($now) . "')";
+        //$this->bd->exec($sql);
+
+        echo "<h2>Información de fechas guardada upd: " . $this->leoDate($now) . " </h2>";
+        ob_flush();
+        flush();
+
+        //Generate and save Ads
+        $this->generate_ads();
+    }
+
+    /**
+     * Generate and save Categories
+     */
+    public function generate_categories()
+    {
+        //Clean Categories table
+        //$this->bd->exec("DELETE FROM cats");
+        //$this->bd->exec("VACUUM");
+
+        //Get All Categories
+        //Global Cached Categories Data Cache one week
+        $this->categories = Cache::rememberForever('cached_categories', function () {
+            return Category::with('description')->get();
+        });
 
         //Save Categories, Flush and Optimize
         foreach ($this->categories as $category) {
@@ -64,7 +99,7 @@ class LachopigenerationController extends Controller
             $this->categories_parsed[] = $cat;
         }
 
-        //CuperCateories instance
+        //SuperCateories instance
         $i = 1;
         $this->superCats = [
             (object) ['name' => 'Computación', 'cat' => 0],
@@ -112,18 +147,25 @@ class LachopigenerationController extends Controller
     /**
      * Full generation logic here
      */
-    public function generate()
+    public function generate_ads()
     {
         //Iterate here over evey category
         foreach ($this->categories_parsed as $category) {
 
             //Echo the Categories Generated Complete
-            echo "<h2>Retrieve Ads from: $category->name</h2>";
+            echo "<h2>Retrieve Ads from: $category->name - $category->id - $category->original_id </h2>";
             ob_flush();
             flush();
 
             //Get all ads from this category
             $ads = $this->getCategoryAds($category->original_id);
+
+            echo "<h2>Consiguiendo anuncios de la categoría " . $category->original_id . ": </h2>";
+            $cant_ads = $ads->total();
+            echo "<h3>Cantidad de anuncios: " . $cant_ads . "</h3>";
+            $this->cant_ads_total += $cant_ads;
+            ob_flush();
+            flush();
 
             //Iterate over this ads resul set
             if ($ads->total() >= 1) {
@@ -203,5 +245,15 @@ class LachopigenerationController extends Controller
 
         $id_cat = array_keys($superCtas, (int) $id_cat);
         return (string) $id_cat[0];
+    }
+
+    //Transfor Leo Date
+    private function leoDate($date)
+    {
+        $strtotime = strtotime($date);
+        $arrDate = getdate($strtotime);
+        $meses = array('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre');
+        $semana = array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+        return $semana[$arrDate['wday']] . " " . $arrDate['mday'] . " de " . $meses[$arrDate['mon'] - 1];
     }
 }
