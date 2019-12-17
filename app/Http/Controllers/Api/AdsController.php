@@ -60,19 +60,4 @@ class AdsController extends Controller
 
         return response()->json($ad);
     }
-
-    /**
-     * Search Ad API
-     */
-    public function search(Request $request)
-    {
-        $searchTerm = $request->input('query');
-
-        //get ads from the static Ad Search method
-
-        //Paginate all this
-        $searchResults = $query->paginate(50);
-
-        return response()->json($searchResults);
-    }
 }

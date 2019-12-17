@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Category;
 use App\Http\Controllers\AdController;
 
-set_time_limit(180);
+set_time_limit(0);
 
 /**
  * Class for LaChopi DB Generation
