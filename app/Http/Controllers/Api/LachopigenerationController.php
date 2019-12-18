@@ -36,14 +36,14 @@ class LachopigenerationController extends Controller
         flush();
 
         //Get DB Link and perform somr cleaning operations
-        /*
-        $this->bd = new \SQLite3('../sitios/lachopi/chcenter.db');
+        $this->bd = new \SQLite3(config('app.') . 'sitios/lachopi/chcenter.db');
         
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
         $this->bd->exec("DELETE FROM imagenes");
         $this->bd->exec("VACUUM");
-        */
+
+        exit;
     }
 
     /**
