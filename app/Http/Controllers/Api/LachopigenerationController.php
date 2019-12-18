@@ -36,14 +36,13 @@ class LachopigenerationController extends Controller
         flush();
 
         //Get DB Link and perform somr cleaning operations
-        $this->bd = new \SQLite3(config('app.') . 'sitios/lachopi/chcenter.db');
+        $this->bd = new \SQLite3('sitios/lachopi/chcenter.db');
         
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
         $this->bd->exec("DELETE FROM imagenes");
+        $this->bd->exec("DELETE FROM cats");
         $this->bd->exec("VACUUM");
-
-        exit;
     }
 
     /**
@@ -54,12 +53,11 @@ class LachopigenerationController extends Controller
         //Genmerate and Save Categories
         $this->generate_categories();
 
-        //Meta INFO saved
-        //Update Date
+        //Meta INFO
         $now = new \DateTime();
         $now = $now->format('Y-m-d H:i:s');
         $sql = "INSERT INTO meta ('key', 'value') VALUES ('upd', '" . $this->leoDate($now) . "')";
-        //$this->bd->exec($sql);
+        $this->bd->exec($sql);
 
         echo "<h2>Información de fechas guardada upd: " . $this->leoDate($now) . " </h2>";
         ob_flush();
@@ -74,10 +72,6 @@ class LachopigenerationController extends Controller
      */
     public function generate_categories()
     {
-        //Clean Categories table
-        //$this->bd->exec("DELETE FROM cats");
-        //$this->bd->exec("VACUUM");
-
         //Get All Categories
         //Global Cached Categories Data Cache one week
         $this->categories = Cache::rememberForever('cached_categories', function () {
@@ -119,9 +113,6 @@ class LachopigenerationController extends Controller
         ob_flush();
         flush();
 
-        //Dump this final category
-        //dd($this->final_cats);
-
         //Iterate and save categories in DB and add a 7 if is a subcategory
         foreach ($this->final_cats as &$category) {
             if (!isset($category->subcat))
@@ -140,7 +131,7 @@ class LachopigenerationController extends Controller
             flush();
 
             //Save this category in DataBase
-            //$this->bd->exec($sql);
+            $this->bd->exec($sql);
         }
     }
 
