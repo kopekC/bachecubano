@@ -21,9 +21,11 @@ class LachopigenerationController extends Controller
     private $superCats;
     private $categories_parsed;
     private $final_cats;
-    private $db;
+    private $bd;
     private $logs;
+    private $now;
     private $cant_ads_total;
+    private $fotos;
 
     /**
      * Initialize variables, check for security first
@@ -31,13 +33,17 @@ class LachopigenerationController extends Controller
     public function __construct()
     {
         //Echo the Categories Generated Complete
-        echo "<h2>Begin Process \"LaChopi Generation\"</h2>";
-        ob_flush();
-        flush();
+        //Save Logs about operations
+        $this->logs .= "<h2>Begin Process \"LaChopi Generation\"</h2>";
+
+        $this->cant_ads_total = 0;
+        $this->fotos = 0;
 
         //Get DB Link and perform somr cleaning operations
         $this->bd = new \SQLite3('sitios/lachopi/chcenter.db');
-        
+
+        $this->logs .= "<h2>Delete All tables data (TRUNCATE)</h2>";
+
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
         $this->bd->exec("DELETE FROM imagenes");
@@ -50,21 +56,22 @@ class LachopigenerationController extends Controller
      */
     public function generate()
     {
-        //Genmerate and Save Categories
+        //Generate and Save Categories
         $this->generate_categories();
 
         //Meta INFO
-        $now = new \DateTime();
-        $now = $now->format('Y-m-d H:i:s');
-        $sql = "INSERT INTO meta ('key', 'value') VALUES ('upd', '" . $this->leoDate($now) . "')";
+        $this->now = new \DateTime();
+        $this->now = $this->now->format('Y-m-d H:i:s');
+        $sql = "INSERT INTO meta ('key', 'value') VALUES ('upd', '" . $this->leoDate($this->now) . "')";
         $this->bd->exec($sql);
 
-        echo "<h2>Información de fechas guardada upd: " . $this->leoDate($now) . " </h2>";
-        ob_flush();
-        flush();
+        $this->logs .= "<h2>Información de fechas guardada upd: " . $this->leoDate($this->now) . " </h2>";
 
         //Generate and save Ads
         $this->generate_ads();
+
+        //Cleanup and notification tasks
+        $this->clean_up();
     }
 
     /**
@@ -80,6 +87,7 @@ class LachopigenerationController extends Controller
 
         //Save Categories, Flush and Optimize
         foreach ($this->categories as $category) {
+
             //If this is a Parent Catgory, skip loop
             if (is_null($category->parent_id))
                 continue;
@@ -109,9 +117,8 @@ class LachopigenerationController extends Controller
         $this->final_cats = array_merge($this->superCats, $this->categories_parsed);
 
         //Echo the Categories Generated Complete
-        echo "<h2>Generando categorias: Done!</h2>";
-        ob_flush();
-        flush();
+
+        $this->logs .= "<h2>Generando categorias DONE!</h2>";
 
         //Iterate and save categories in DB and add a 7 if is a subcategory
         foreach ($this->final_cats as &$category) {
@@ -124,11 +131,7 @@ class LachopigenerationController extends Controller
                 $sql = "INSERT INTO cats (id_cat, name, parent, name_bc) VALUES (" . $i++ . ", '" . $category->name . "', '" . $category->cat . "', '" . $category->subcat . "')";
             }
 
-            //Echo the Categories Generated Complete
-            echo "<h2>Insertando Categorías</h2>";
-            echo "<h3>$sql</h3>";
-            ob_flush();
-            flush();
+            $this->logs .= "<h2>Insertando categorías</h2>";
 
             //Save this category in DataBase
             $this->bd->exec($sql);
@@ -144,42 +147,83 @@ class LachopigenerationController extends Controller
         foreach ($this->categories_parsed as $category) {
 
             //Echo the Categories Generated Complete
-            echo "<h2>Retrieve Ads from: $category->name - $category->id - $category->original_id </h2>";
-            ob_flush();
-            flush();
+            $this->logs .= "<h2>Retrieve Ads from: $category->name - $category->id - $category->original_id </h2>";
 
             //Get all ads from this category
             $ads = $this->getCategoryAds($category->original_id);
 
-            echo "<h2>Consiguiendo anuncios de la categoría " . $category->original_id . ": </h2>";
+            $this->logs .= "<h2>Consiguiendo anuncios de la categoría " . $category->original_id . ": </h2>";
             $cant_ads = $ads->total();
-            echo "<h3>Cantidad de anuncios: " . $cant_ads . "</h3>";
+
+            $this->logs .= "<h3>Cantidad de anuncios: " . $cant_ads . "</h3>";
             $this->cant_ads_total += $cant_ads;
-            ob_flush();
-            flush();
 
             //Iterate over this ads resul set
             if ($ads->total() >= 1) {
 
+                //Iterate over every Ad
                 foreach ($ads as $ad) {
 
                     //Small dump of this AD:
-                    echo $ad->id . " **|** " . $ad->description->title . " **|** "  . substr($ad->description->description, 0, 60) . " **|** " . $ad->price . "<br>";
+                    $this->logs .= $ad->id . " **|** " . $ad->description->title . " **|** " . $ad->price . "<br>";
 
                     //Save this list to the sqlite DB
-
+                    $this->logs .= "Saving Ad:";
 
                     //Get ready all variables
-                    //Insert into Query
+                    $smtm = $this->bd->prepare("INSERT INTO anuncios (anuncio_id, cat_id, precio, header, body, email, nombre, phone, cant_fotos, date, dateformated, banner, prioridad, province_id, date_expire, tipo) VALUES (:anuncioid, :cat_id, :anuncioprecio, :header, :body, :email, :nombre, :phone, :cant_fotos, :date, :dateformated, :banner, :prioridad, :province_id, :date_expire, :tipo)");
+                    $smtm->bindValue(':anuncioid', $ad->id, SQLITE3_INTEGER);
+                    $smtm->bindValue(':cat_id', $this->get_key_based_category($category->original_id), SQLITE3_INTEGER);
+                    $smtm->bindValue(':anuncioprecio', is_null($ad->price) ? 0 : $ad->price, SQLITE3_TEXT);
+                    $smtm->bindValue(':header', $ad->description->title, SQLITE3_TEXT);
+                    $smtm->bindValue(':body', $ad->description->description, SQLITE3_TEXT);
+                    $smtm->bindValue(':email', $ad->contact_email, SQLITE3_TEXT);
+                    $smtm->bindValue(':nombre', $ad->contact_name, SQLITE3_TEXT);
+                    $smtm->bindValue(':phone', $ad->phone, SQLITE3_TEXT);
+                    $smtm->bindValue(':cant_fotos', $ad->resources->count(), SQLITE3_INTEGER);
+                    $smtm->bindValue(':date', is_null($ad->updated_at) ? $this->now : $ad->updated_at, SQLITE3_TEXT);
+                    $smtm->bindValue(':dateformated', $this->leoDate(is_null($ad->updated_at) ? $this->now : $ad->updated_at), SQLITE3_TEXT);
+                    $smtm->bindValue(':tipo', 'bc', SQLITE3_TEXT);
+                    $smtm->bindValue(':banner', '', SQLITE3_BLOB);
+                    $smtm->bindValue(':prioridad', 100000, SQLITE3_INTEGER);
+                    $smtm->bindValue(':province_id', $ad->region_id, SQLITE3_INTEGER);
+                    $smtm->bindValue(':date_expire', '', SQLITE3_TEXT);
+                    $smtm->execute();
 
-                    //Try to combine 10 o more queries on one
-                    //Fetch images also to do a BLOB object
+                    //Break if has some resources
+                    /*
+                    if ($ad->resources->count() > 0) {
+                        dump($ad->resources[0]);
+                        echo ad_first_physical_image($ad, $quality = 'original');
+                        dump(file_exists(ad_first_physical_image($ad, $quality = 'original')));
+                        dd($ad->resources);                    
+                    }
+                    */
 
+                    //Phootos save
+                    if ($ad->resources->count() > 0 && file_exists(ad_first_physical_image($ad, $quality = 'original'))) {
+                        $ad_image = file_get_contents(ad_first_physical_image($ad, $quality = 'original'));
+                        $sm = $this->bd->prepare("INSERT INTO imagenes (anuncio_id, imagen) VALUES (:anuncioid, :imagen)");
+                        $sm->bindValue(':anuncioid', $ad->id, SQLITE3_INTEGER);
+                        $sm->bindValue(':imagen', $ad_image, SQLITE3_BLOB);
+                        $sm->execute();
+                        $this->fotos++;
+                    }
                 }
             }
-
-            exit;
         }
+    }
+
+    /**
+     * Final adjustments
+     */
+    public function clean_up()
+    {
+        //Send email about completion
+        //Send some logs about task
+        //Cleanup other things?
+
+        echo $this->logs;
     }
 
     /**
@@ -189,7 +233,7 @@ class LachopigenerationController extends Controller
     {
         //This is called every category ID, so retrieve ads from it
         $request = new Request();
-        $limit = 1000;
+        $limit = 100;
         $latest_days = 7;
 
         return AdController::getAds($request, $category_id, $limit, $latest_days);
@@ -213,7 +257,7 @@ class LachopigenerationController extends Controller
         ];
 
         //Search for the Key of this value $category_id
-        $cat = array_keys($cats, (int) $category_id);
+        $cat = array_keys($cats, $category_id);
 
         return $cat[0];
     }

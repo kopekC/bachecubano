@@ -42,7 +42,7 @@ if (!function_exists('ad_first_physical_image')) {
     function ad_first_physical_image($ad, $quality = 'thumbnail')
     {
         if (isset($ad->resources[0]->id) && isset($ad->resources[0]->extension)) {
-            return public_path('images') . $ad->resources[0]->path . $ad->resources[0]->id . "_" . $quality . "." . $ad->resources[0]->extension;
+            return public_path('images') . DIRECTORY_SEPARATOR . $ad->resources[0]->path . $ad->resources[0]->id . "_" . $quality . "." . $ad->resources[0]->extension;
         } else {
             return asset("android-chrome-512x512.png");
         }
