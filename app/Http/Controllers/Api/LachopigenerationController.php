@@ -132,6 +132,7 @@ class LachopigenerationController extends Controller
             }
 
             $this->logs .= "<h2>Insertando categorías</h2>";
+            $this->logs .= "<h3>" . $category->name . "</h3>";
 
             //Save this category in DataBase
             $this->bd->exec($sql);
@@ -173,7 +174,7 @@ class LachopigenerationController extends Controller
                     //Get ready all variables
                     $smtm = $this->bd->prepare("INSERT INTO anuncios (anuncio_id, cat_id, precio, header, body, email, nombre, phone, cant_fotos, date, dateformated, banner, prioridad, province_id, date_expire, tipo) VALUES (:anuncioid, :cat_id, :anuncioprecio, :header, :body, :email, :nombre, :phone, :cant_fotos, :date, :dateformated, :banner, :prioridad, :province_id, :date_expire, :tipo)");
                     $smtm->bindValue(':anuncioid', $ad->id, SQLITE3_INTEGER);
-                    $smtm->bindValue(':cat_id', $this->get_key_based_category($category->original_id), SQLITE3_INTEGER);
+                    $smtm->bindValue(':cat_id', $this->get_key_based_category($category->original_id) + 7, SQLITE3_INTEGER);
                     $smtm->bindValue(':anuncioprecio', is_null($ad->price) ? 0 : $ad->price, SQLITE3_TEXT);
                     $smtm->bindValue(':header', $ad->description->title, SQLITE3_TEXT);
                     $smtm->bindValue(':body', $ad->description->description, SQLITE3_TEXT);
