@@ -565,6 +565,27 @@ class AdController extends Controller
     }
 
     /**
+     * Update all ads
+     * 
+     */
+    public function update_all() {
+        
+        //Get User ID
+        $user_id = Auth::id();
+        //Get right now time
+        $now = Carbon::now();
+
+        //TODO
+        //Check for a abbusse use of this function with throttle?
+
+        //Query for a massive update
+        $affected = DB::update('UPDATE ads SET updated_at = "'.$now.'" WHERE user_id = ?', [$user_id]);
+
+        //redirect to ads page with success notification
+        return redirect()->route('my_ads')->with('success', ($affected > 0) ? 'Felicidades! Se han actualizado sus anuncios.' : 'No hay anuncios a actualizar');
+    }
+
+    /**
      * Get Post per Page value
      */
     public static function post_per_page($request)

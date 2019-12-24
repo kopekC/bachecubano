@@ -34,6 +34,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('update_all') }}">
+                        <i class="lni-layers"></i>
+                        <span>Actualizar todo</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('my_favourite') }}" class="{{ \Route::current()->getName() == 'my_favourite' ? 'active' : ''}}">
                         <i class="lni-thumbs-up"></i>
                         <span>Me Gusta</span>
