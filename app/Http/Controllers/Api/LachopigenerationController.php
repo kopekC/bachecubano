@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Cache;
 use App\Category;
 use App\Http\Controllers\AdController;
 
+use SQLite3;
+
 set_time_limit(0);
 
 /**
@@ -38,9 +40,15 @@ class LachopigenerationController extends Controller
 
         $this->cant_ads_total = 0;
         $this->fotos = 0;
+    }
 
+    /**
+     * Wrapper method for all them
+     */
+    public function generate()
+    {
         //Get DB Link and perform somr cleaning operations
-        $this->bd = new \SQLite3('sitios/lachopi/chcenter.db');
+        $this->bd = new SQLite3('./sitios/lachopi/chcenter.db');
 
         $this->logs .= "<h2>Delete All tables data (TRUNCATE)</h2>";
 
@@ -49,13 +57,7 @@ class LachopigenerationController extends Controller
         $this->bd->exec("DELETE FROM imagenes");
         $this->bd->exec("DELETE FROM cats");
         $this->bd->exec("VACUUM");
-    }
-
-    /**
-     * Wrapper method for all them
-     */
-    public function generate()
-    {
+        
         //Generate and Save Categories
         $this->generate_categories();
 

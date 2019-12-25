@@ -21,9 +21,6 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 //User Login/Register/Change Password routes
 Auth::routes();
 
-//Feeds
-//Route::feeds();
-
 // Posts resourcfull controllers routes
 Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post')->middleware('cacheResponse:86400', 'cache.headers:private,max-age=300;etag');      //Cached for 5 minutes
 Route::resource('/blog', 'PostController');
