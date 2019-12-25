@@ -15,7 +15,7 @@ class AddPhoneToAds extends Migration
     {
         Schema::table('ads', function (Blueprint $table) {
             $table->string('phone', 11);
-            $table->integer('region_id', 6)->default(737586);
+            $table->integer('region_id')->default(737586);
         });
     }
 
