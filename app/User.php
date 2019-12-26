@@ -12,6 +12,8 @@ use Rennokki\Rating\Contracts\Rater;
 use Rennokki\Befriended\Traits\Follow;
 use Rennokki\Befriended\Contracts\Following;
 
+use App\Notifications\ResetPassword;
+
 class User extends Authenticatable implements Rater, Following
 {
     use HasApiTokens, Notifiable, CanLike, CanRate, Follow;
@@ -22,7 +24,7 @@ class User extends Authenticatable implements Rater, Following
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'website'. 'phone', 'profile_picture'
+        'name', 'email', 'password', 'website' . 'phone', 'profile_picture'
     ];
 
     /**
@@ -71,5 +73,11 @@ class User extends Authenticatable implements Rater, Following
     public function getByToken($token)
     {
         return self::where('api_token', $token)->first();
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        // Your your own implementation.
+        $this->notify(new ResetPassword($token));
     }
 }
