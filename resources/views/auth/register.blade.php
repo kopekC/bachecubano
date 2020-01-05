@@ -27,4 +27,8 @@
 
 @include('blocks.register')
 
+@push('script')
+{!! ReCaptcha::htmlScriptTagJsApi() !!}
+@endpush
+
 @endsection

@@ -144,6 +144,10 @@
 <!-- End Contact Us Section  -->
 
 @push('script')
+{!! ReCaptcha::htmlScriptTagJsApi() !!}
+@endpush
+
+@push('script')
 <!-- load for map -->
 <script>
     // Initialize and add the map
