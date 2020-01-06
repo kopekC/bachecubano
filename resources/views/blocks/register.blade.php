@@ -47,13 +47,7 @@
                                 <input id="password-confirm" type="password" class="form-control" placeholder="Repite la Contraseña" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        <div class="form-group mb-3 text-center">
-                            <div class="checkbox">
-                                <input type="checkbox" name="rememberme" value="rememberme">
-                                <label>Aceptas Términos y Condiciones ok?</label>
-                            </div>
-                        </div>
-
+                        
                         <!-- Recaptcha Show -->
                         <div class="form-group">
                             {{-- reCaptcha Robot Captcha --}}
@@ -63,6 +57,13 @@
                             </div>
                             @endif
                             {!! htmlFormSnippet() !!}
+                        </div>
+
+                        <div class="form-group mb-3 text-center">
+                            <div class="checkbox">
+                                <input type="checkbox" name="rememberme" value="rememberme">
+                                <label>Aceptas Términos y Condiciones ok?</label>
+                            </div>
                         </div>
 
                         <div class="text-center">
