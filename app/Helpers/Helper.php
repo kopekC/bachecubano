@@ -56,9 +56,9 @@ if (!function_exists('ad_image_url')) {
     /**
      * Obten la url construida de un recurso de anuncios
      */
-    function ad_image_url($ad_resurce_intance, $quality = 'thumbnail')
+    function ad_image_url($ad_resource_intance, $quality = 'thumbnail')
     {
-        return config('app.img_url') . $ad_resurce_intance->path . $ad_resurce_intance->id  . "_" . $quality . "." . $ad_resurce_intance->extension;
+        return config('app.img_url') . $ad_resource_intance->path . $ad_resource_intance->id  . "_" . $quality . "." . $ad_resource_intance->extension;
     }
 }
 
