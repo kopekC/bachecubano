@@ -139,6 +139,8 @@ class ImageController extends Controller
         //Myself
         $user = Auth::guard('api')->user();
 
+        dump($user);
+
         //Create Folder If dont exists
         if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "uploads")) {
             mkdir($this->photos_path . DIRECTORY_SEPARATOR . "uploads", 0777);
