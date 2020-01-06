@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Response;
 use Intervention\Image\Facades\Image;
 
 use App\AdResource;
-use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class ImageController extends Controller
 {
@@ -137,9 +137,7 @@ class ImageController extends Controller
         $photo = $request->file('photo');
 
         //Myself
-        $user = Auth::guard('api')->user();
-
-        dump($user);
+        $user = (new User())->getByToken($request->input('api_token'));
 
         //Create Folder If dont exists
         if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "uploads")) {
