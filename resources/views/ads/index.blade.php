@@ -19,12 +19,11 @@
 </div>
 <!-- Page Header End -->
 
-<!--
-    <ol class="breadcrumb">
-    <li><a href="#">Home /</a></li>
+<!-- Bread Crumbs -->
+<ol class="breadcrumb">
+    <li><a href="{{ config('app.url') }}">Inicio</a></li>
     <li class="current">Listing</li>
-    </ol>
--->
+</ol>
 
 <!-- Main container Start -->
 <div class="main-container section-padding">
