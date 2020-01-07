@@ -182,6 +182,7 @@
                                 <a class="facebook mb-2" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
                                 <a class="twitter mb-2" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-twitter"></i></a>
                                 <a class="linkedin mb-2" href="{{ route('share', ['network' => 'linkedin', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-linkedin"></i></a>
+                                <a class="facebook mb-2" href="fb-messenger://share/?link={{URL::current()}}&app_id={{config('services.facebook_poster.app_id')}}"><i class="lni-facebook-messenger"></i></a>
                             </div>
                         </div>
 

@@ -24,7 +24,7 @@ class ShareController extends Controller
                 break;
 
             case "linkedin":
-                return redirect("http://www.linkedin.com/shareArticle?mini=true&url=" . base64_decode($url) . "&title=" . base64_decode($text) . "&source=https%3A%2F%2Fwww.bachecubano.com");
+                return redirect("https://www.linkedin.com/shareArticle?mini=true&url=" . base64_decode($url) . "&title=" . base64_decode($text) . "&source=https%3A%2F%2Fwww.bachecubano.com");
                 break;
         }
     }
