@@ -60,10 +60,13 @@ class AdController extends Controller
             } else {
                 //Old Bachecubano search pattern fix if found something
                 $search_term = str_replace("+", " ", explode(",", $subcategory));
-                if (isset($search_term[1]))
-                    $seo_data = ['title' => "Buscando " . $search_term . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $search_term . " en Bachecubano "];
-                else
+                if (isset($search_term[1])) {
+                    //Merge Request Data
+                    Request::merge(['s' => $search_term[1]]);
+                    $seo_data = ['title' => "Buscando " . $search_term[1] . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $search_term[1] . " en Bachecubano "];
+                } else {
                     abort(404);
+                }
             }
         } else {
             $seo_data = ['title' => $super_category->name, 'desc' => $super_category->description];
