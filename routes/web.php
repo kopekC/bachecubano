@@ -55,7 +55,8 @@ Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 //SubCategory Listing
 Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag');
 //Ad specific Show
-Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag')->where('ad_id', '[0-9]+'); //only allow numeric ID
+//Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag')->where('ad_id', '[0-9]+'); //only allow numeric ID
+Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120')->where('ad_id', '[0-9]+'); //only allow numeric ID
 
 //Laravel Images redirection to subdomain
 Route::get('/oc-content/uploads/{folder_id}/{resource_name}', 'AdController@redirectto_image');
