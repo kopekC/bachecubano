@@ -257,7 +257,7 @@ class AdController extends Controller
         });
 
         //Hit Visit to this Ad using increment method
-        $stats = AdStats::findOrNew($ad->id);
+        $stats = AdStats::findOrNew(['ad_id' => $ad->id]);
         $stats->ad_id = $ad->id;
         $stats->increment('hits');
         $stats->save();
