@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
-    use Cachable;
-
     /**
      * Indicates if the model should be timestamped.
      *
@@ -56,8 +54,6 @@ class Category extends Model
  */
 class CategoryDescription extends Model
 {
-    use Cachable;
-
     /**
      * Indicates if the model should be timestamped.
      *
