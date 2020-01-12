@@ -161,11 +161,11 @@ class AdController extends Controller
     {
         $request->validate([
             'category' => 'bail|required|numeric',
-            'title' => 'bail|required',
+            'title' => 'bail|required|max:160',
             'description' => 'bail|required',
-            'contact_name' => 'bail|required',
-            'contact_email' => 'bail|required|email',
-            'phone' => 'bail|required|numeric',
+            'contact_name' => 'bail|required|max:100',
+            'contact_email' => 'bail|required|email|max:140',
+            'phone' => 'bail|required|numeric|max:20',
             'ad_region' => 'bail|required|numeric',
             "agree" => 'bail|required',
         ]);
