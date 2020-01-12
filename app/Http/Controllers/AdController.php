@@ -62,7 +62,7 @@ class AdController extends Controller
                 $search_term = str_replace("+", " ", explode(",", $subcategory));
                 if (isset($search_term[1])) {
                     //Merge Request Data
-                    Request::merge(['s' => $search_term[1]]);
+                    $request->merge(['s' => $search_term[1]]);
                     $seo_data = ['title' => "Buscando " . $search_term[1] . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $search_term[1] . " en Bachecubano "];
                 } else {
                     abort(404);
