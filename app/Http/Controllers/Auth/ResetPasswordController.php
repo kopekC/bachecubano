@@ -66,8 +66,6 @@ class ResetPasswordController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
-        return view('auth.passwords.reset')->with(
-            ['token' => $token, 'email' => $request->email]
-        );
+        return view('auth.passwords.reset')->with(['token' => $token, 'email' => $request->email]);
     }
 }

@@ -55,7 +55,13 @@ class AdController extends Controller
         if ($sub_category != "") {
             $seo_data = ['title' => $sub_category->name, 'desc' => $sub_category->description];
         } elseif ($category == "search") {
-            $seo_data = ['title' => "Buscando " . $request->input('s') . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $request->input('s') . " en Bachecubano "];
+            if ($request->has('s')) {
+                $seo_data = ['title' => "Buscando " . $request->input('s') . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $request->input('s') . " en Bachecubano "];
+            } else {
+                //Old Bachecubano search pattern fix
+                $search_term = str_replace("+", " ", explode(",", $subcategory)[1]);
+                $seo_data = ['title' => "Buscando " . $search_term . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $search_term . " en Bachecubano "];
+            }
         } else {
             $seo_data = ['title' => $super_category->name, 'desc' => $super_category->description];
         }
