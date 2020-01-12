@@ -74,9 +74,7 @@ class CategoryDescription extends Model
  * SubClass which says the total adas from category
  */
 class CategoryStats extends Model
-{
-    use Cachable;
-    
+{    
     /**
      * Indicates if the model should be timestamped.
      *

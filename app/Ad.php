@@ -212,8 +212,6 @@ class AdLocation extends Model
 
 class AdStats extends Model
 {
-    use Cachable;
-
     /**
      * Indicates if the model should be timestamped.
      *
@@ -242,8 +240,6 @@ class AdStats extends Model
 
 class AdRegion extends Model
 {
-    use Cachable;
-
     /**
      * Indicates if the model should be timestamped.
      *
