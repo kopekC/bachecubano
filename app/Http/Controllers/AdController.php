@@ -249,7 +249,7 @@ class AdController extends Controller
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad with aditional data
-        $ad = Cache::remember('ad-{$ad_id}', 60, function () use ($ad_id) {
+        $ad = Cache::remember('ad-' . $ad_id, 60, function () use ($ad_id) {
             return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner', 'likes', 'likers'])->findOrFail($ad_id);
         });
 
@@ -742,7 +742,8 @@ class AdController extends Controller
     /**
      * Images from primary domain to img subdomain redirector.
      */
-    public function redirectto_image($folder_id, $resource_name) {
+    public function redirectto_image($folder_id, $resource_name)
+    {
         return redirect('https://img.bachecubano.com/uploads' . DIRECTORY_SEPARATOR . $folder_id . DIRECTORY_SEPARATOR . $resource_name);
     }
 }
