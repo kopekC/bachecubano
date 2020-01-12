@@ -58,9 +58,12 @@ class AdController extends Controller
             if ($request->has('s')) {
                 $seo_data = ['title' => "Buscando " . $request->input('s') . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $request->input('s') . " en Bachecubano "];
             } else {
-                //Old Bachecubano search pattern fix
-                $search_term = str_replace("+", " ", explode(",", $subcategory)[1]);
-                $seo_data = ['title' => "Buscando " . $search_term . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $search_term . " en Bachecubano "];
+                //Old Bachecubano search pattern fix if found something
+                $search_term = str_replace("+", " ", explode(",", $subcategory));
+                if (isset($search_term[1]))
+                    $seo_data = ['title' => "Buscando " . $search_term . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $search_term . " en Bachecubano "];
+                else
+                    abort(404);
             }
         } else {
             $seo_data = ['title' => $super_category->name, 'desc' => $super_category->description];
@@ -81,7 +84,6 @@ class AdController extends Controller
         if (isset($sub_category->category_id)) {
 
             $ids = $sub_category->category_id;
-
         } elseif ($category == "search") {
 
             //Retrieve here all ids from cached categories
@@ -93,14 +95,12 @@ class AdController extends Controller
             //Iterate over all result cats for search query
             foreach ($all_cats as $subcategory)
                 $ids[] = $subcategory->id;
-
         } else {
 
             $sub_categories = Category::where('parent_id', '=', $super_category->category_id)->select('id')->get();
             $ids = [];
             foreach ($sub_categories as $subcategory)
                 $ids[] = $subcategory->id;
-
         }
 
         //Paginate all this
@@ -511,27 +511,33 @@ class AdController extends Controller
             if ($request->input('promotype') >= 1) {
                 try {
                     $ad->notify(new AdPromotedTelegram);
-                } catch (Exception $e) { }
+                } catch (Exception $e) {
+                }
             }
 
             //Promotion 2 -> Telegram, Twitter
             if ($request->input('promotype') >= 2) {
                 try {
                     $ad->notify(new AdPromotedTwitter);
-                } catch (Exception $e) { }
+                } catch (Exception $e) {
+                }
             }
 
             //Promotion 3 -> Telegram, Twitter, Facebook
-            if ($request->input('promotype') >= 3) { }
+            if ($request->input('promotype') >= 3) {
+            }
 
             //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications
-            if ($request->input('promotype') >= 4) { }
+            if ($request->input('promotype') >= 4) {
+            }
 
             //Promotion 5 -> Youtube Video
-            if ($request->input('promotype') >= 5) { }
+            if ($request->input('promotype') >= 5) {
+            }
 
             //Promotion 6 -> Substore on subdomain
-            if ($request->input('promotype') >= 6) { }
+            if ($request->input('promotype') >= 6) {
+            }
 
 
             //Redirect to ads listing with a flash messaje
@@ -573,8 +579,9 @@ class AdController extends Controller
      * Update all ads
      * 
      */
-    public function update_all() {
-        
+    public function update_all()
+    {
+
         //Get User ID
         $user_id = Auth::id();
         //Get right now time
@@ -584,7 +591,7 @@ class AdController extends Controller
         //Check for a abbusse use of this function with throttle?
 
         //Query for a massive update
-        $affected = DB::update('UPDATE ads SET updated_at = "'.$now.'" WHERE user_id = ?', [$user_id]);
+        $affected = DB::update('UPDATE ads SET updated_at = "' . $now . '" WHERE user_id = ?', [$user_id]);
 
         //redirect to ads page with success notification
         return redirect()->route('my_ads')->with('success', ($affected > 0) ? 'Felicidades! Se han actualizado sus anuncios.' : 'No hay anuncios a actualizar');
@@ -730,5 +737,12 @@ class AdController extends Controller
         $ads = $query->paginate($limit ? $limit : AdController::post_per_page($request));
 
         return $ads;
+    }
+
+    /**
+     * Images from primary domain to img subdomain redirector.
+     */
+    public function redirectto_image($folder_id, $resource_name) {
+        return redirect('https://img.bachecubano.com/uploads' . DIRECTORY_SEPARATOR . $folder_id . DIRECTORY_SEPARATOR . $resource_name);
     }
 }
