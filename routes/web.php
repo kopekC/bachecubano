@@ -22,7 +22,7 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 Auth::routes();
 
 // Posts resourcfull controllers routes
-Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post');      //Cached for 5 minutes
+Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post')->middleware('cacheResponse:86400', 'cache.headers:private,max-age=300;etag');      //Cached for 5 minutes
 Route::resource('/blog', 'PostController');
 
 //User Routes for Configuration (Mainly registered area)
@@ -53,10 +53,10 @@ Route::get('/update_all', 'AdController@update_all')->middleware('throttle:1,30'
 //Category Listing
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 //SubCategory Listing
-Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index');
+Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag');
 //Ad specific Show
 //Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag')->where('ad_id', '[0-9]+'); //only allow numeric ID
-Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->where('ad_id', '[0-9]+'); //only allow numeric ID
+Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag')->where('ad_id', '[0-9]+'); //only allow numeric ID
 
 //Laravel Images redirection to subdomain
 Route::get('/oc-content/uploads/{folder_id}/{resource_name}', 'AdController@redirectto_image');
