@@ -219,6 +219,8 @@ class AdStats extends Model
      */
     public $timestamps = false;
 
+    protected $fillable = ['ad_id', 'hits'];
+
     /**
      * The primary key associated with the table.
      *
