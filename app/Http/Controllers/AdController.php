@@ -257,10 +257,13 @@ class AdController extends Controller
         });
 
         //Hit Visit to this Ad using increment method
+        /*
         $stats = AdStats::findOrNew(['ad_id' => $ad->id]);
+        dd();
         $stats->ad_id = $ad->id;
         $stats->hits = $stats->hits + 1;
         $stats->save();
+        */
 
         //SEO Data
         $seo_data = [
