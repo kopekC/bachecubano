@@ -4,7 +4,6 @@ namespace App;
 
 use App\Mail\Exception;
 use Illuminate\Database\Eloquent\Model;
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Overtrue\LaravelLike\Traits\CanBeLiked;
 use Rennokki\Rating\Traits\CanBeRated;
 use Rennokki\Rating\Contracts\Rateable;

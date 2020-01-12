@@ -77,20 +77,20 @@ class AdController extends Controller
         $posts_per_page = AdController::post_per_page($request);
 
         //Category Condition if subcategory or Super Category
-        //If Pass a single ID, its  asubcategory, i pass an array its a supercategory
+        //If Pass a single ID, its  asubcategory, I pass an array its a supercategory
         if (isset($sub_category->category_id)) {
 
             $ids = $sub_category->category_id;
 
         } elseif ($category == "search") {
 
-            //Retrieve here all ids
+            //Retrieve here all ids from cached categories
             $all_cats = Cache::get('cached_categories');
-
             $super_category = new stdClass();
             $super_category->name = $seo_data['title'];
             $super_category->description = $seo_data['desc'];
 
+            //Iterate over all result cats for search query
             foreach ($all_cats as $subcategory)
                 $ids[] = $subcategory->id;
 
