@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Schema;
 
 use App\Category;
 use App\Post;
-use App\Providers\TelescopeServiceProvider;
 
 use Illuminate\Support\Facades\Cache;
 
@@ -21,10 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->isLocal()) {
-            $this->app->register(TelescopeServiceProvider::class);
-        }
-
         //Replace Default public folder location
         $this->app->bind('path.public', function () {
             return base_path('public_html');
