@@ -55,5 +55,7 @@ return [
     */
 	'defaults' => [
 		'foo' => 'bar',
-	]
+	],
+
+	'lachopi_token' => env("LACHOPI_TOKEN", '')
 ];

@@ -42,28 +42,6 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
     });
 });
 
-//Version 1.0 API This has to be remved when go to production Just Testing Here at localhost
-Route::group(['prefix' => 'v1'], function () {
-    //Get Categories
-    Route::get('categories', 'Api\AdsController@get_categories')->name('api_get_categories');
-    //Get Ads From certain Category
-    Route::get('ads/{category_id}', 'Api\AdsController@get_ads')->name('api_get_ads');
-    //Get Specific Ad
-    Route::get('ad/{ad_id}', 'Api\AdsController@get_ad')->name('api_get_ad');
-    //Mailable View
-    Route::get('mailable', 'Api\MailableController@view');
-    //Sitemap Creator
-    Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
-    //Search model
-    Route::get('search', 'Api\AdsController@search')->name('api_search');
-    //Like/Dislike behavior
-    Route::get('ad_like/{ad}', 'Api\LikeController@ad_like')->name('ad_like')->middleware('auth:api');
-    //Like/Dislike behavior
-    Route::get('ad_dislike/{ad}', 'Api\LikeController@ad_dislike')->name('ad_dislike')->middleware('auth:api');
-    //Like/Dislike behavior
-    Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like')->middleware('auth:api');
-});
-
 //Passport Routes for login/signup/logout/getUser
 Route::group(['prefix' => 'auth'], function () {
     Route::group(['middleware' => ['guest:api']], function () {
@@ -77,7 +55,7 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 //La Chopi Routes
-Route::group(['prefix' => 'chopi'], function () {
+Route::group(['prefix' => 'lachopi'], function () {
     //Get Categories
     Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
 });
