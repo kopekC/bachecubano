@@ -39,8 +39,8 @@ class SitemapController extends Controller
         echo "Generating Category Pages";
         $this->categories();
 
-        echo "Generating Ads Pages";
-        $this->ads();
+        //echo "Generating Ads Pages";
+        //$this->ads();
 
         echo "Generating News Pages";
         $this->news();
