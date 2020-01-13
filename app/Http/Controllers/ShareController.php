@@ -16,15 +16,15 @@ class ShareController extends Controller
         //Google Analytics Calls for API https://github.com/irazasyed/laravel-gamp
         switch ($network) {
             case "facebook":
-                return redirect("https://www.facebook.com/sharer/sharer.php?u=" . base64_decode($url) . "&quote=" . base64_decode($text));
+                return redirect("https://www.facebook.com/sharer/sharer.php?u=" . base64_decode($url) . "&quote=" . urlencode(base64_decode($text)));
                 break;
 
             case "twitter":
-                return redirect("https://twitter.com/intent/tweet?source=" . base64_decode($url) . "&text=" . base64_decode($text) . ":%20https%3A%2F%2Fwww.bachecubano.com&via=Bachecubano");
+                return redirect("https://twitter.com/intent/tweet?source=" . base64_decode($url) . "&text=" . urlencode(base64_decode($text)) . ":%20https%3A%2F%2Fwww.bachecubano.com&via=Bachecubano");
                 break;
 
             case "linkedin":
-                return redirect("https://www.linkedin.com/shareArticle?mini=true&url=" . base64_decode($url) . "&title=" . base64_decode($text) . "&source=https%3A%2F%2Fwww.bachecubano.com");
+                return redirect("https://www.linkedin.com/shareArticle?mini=true&url=" . base64_decode($url) . "&title=" . urlencode(base64_decode($text)) . "&source=https%3A%2F%2Fwww.bachecubano.com");
                 break;
         }
     }
