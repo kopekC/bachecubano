@@ -147,4 +147,5 @@ return [
 
     'attributes' => [],
 
+    'banned_words' => 'Se han encontrado palabras en lista negra, contacte a un administrador',
 ];
