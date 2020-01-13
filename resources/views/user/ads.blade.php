@@ -57,7 +57,7 @@
                                 <h3>{{ $ad->description->title }}</h3>
                             </a>
                             <span>ID: {{ $ad->id }}</span>
-                            <span>Promo: {{ $ad->promo->promotype }} Vence: {{ $ad->promo->end_promo }}</span>
+                            <span>Promo: {{ ad_promotion_text_type($ad->promo) }} Vence: {{ $ad->promo->end_promo }}</span>
                         </td>
                         <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
                         <!-- adstatusactive/adstatusinactive/adstatussold-->
