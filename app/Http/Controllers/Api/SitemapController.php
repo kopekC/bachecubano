@@ -16,6 +16,7 @@ use Spatie\Sitemap\SitemapIndex;
 use App\AdResource;
 
 error_reporting(E_ALL);
+set_time_limit();
 
 class SitemapController extends Controller
 {
