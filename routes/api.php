@@ -23,6 +23,7 @@ Route::group(['prefix' => 'mailgun',], function () {
 //SubDomain Mapping
 Route::group(['domain' => 'api.bachecubano.com'], function () {
     Route::group(['prefix' => 'v1'], function () {
+        
         //Get Categories
         Route::get('categories', 'Api\AdsController@get_categories')->name('api_get_categories');
         //Get Ads From certain Category
@@ -39,6 +40,14 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('ad_dislike/{ad}', 'Api\LikeController@ad_dislike')->name('ad_dislike')->middleware('auth:api');
         //Like/Dislike behavior
         Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like')->middleware('auth:api');
+
+
+        //La Chopi Routes
+        Route::group(['prefix' => 'lachopi'], function () {
+            //Get Categories
+            Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
+        });
+
     });
 });
 
@@ -52,12 +61,6 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('logout', 'Api\AuthController@logout');
         Route::get('getuser', 'Api\AuthController@getUser');
     });
-});
-
-//La Chopi Routes
-Route::group(['prefix' => 'lachopi'], function () {
-    //Get Categories
-    Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
 });
 
 //Save Image from AJAX Calls and API implementation
