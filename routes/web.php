@@ -47,7 +47,7 @@ Route::get('/invite/{item}/{misc}', 'ShareController@invite')->name('invite');
 Route::get('/promote/{ad}', 'AdController@promote_ad')->name('promote_ad')->middleware('auth');
 Route::post('/promote/{ad}', 'AdController@post_promote_ad')->name('post_promote_ad')->middleware('auth');      //Access only if its registere4d user
 //Ads Routes & Resource Route
-Route::get('/add', 'AdController@create')->name('add')->middleware('cacheResponse:86400');          //Cache daily ->middleware('cacheResponse:86400');
+Route::get('/add', 'AdController@create')->name('add');
 //update_all
 Route::get('/update_all', 'AdController@update_all')->middleware('throttle:1,30')->name('update_all');      //Update All ads every 30 minutes only
 //Category Listing

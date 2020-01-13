@@ -32,7 +32,6 @@ use stdClass;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
-use PhpParser\Node\Stmt\TryCatch;
 
 class AdController extends Controller
 {
@@ -162,13 +161,16 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $request->validate([
             'category' => 'bail|required|numeric',
-            'title' => 'bail|required|max:160',
-            'description' => 'bail|required',
+            'title' => 'bail|required|max:160|banned_words',
+            'description' => 'bail|required|banned_words',
             'contact_name' => 'bail|required|max:100',
             'contact_email' => 'bail|required|email|max:140',
-            'phone' => 'bail|required|numeric|max:20',
+            'phone' => 'bail|required|max:20',
             'ad_region' => 'bail|required|numeric',
             "agree" => 'bail|required',
         ]);
@@ -227,11 +229,9 @@ class AdController extends Controller
         //Send Notification Email to the User
         //If is guest, always send this email, if it's registered user check for user settings and verify email.published = true 👌
         if (Auth::check()) {
-
             // The user is logged in... So check if send notifications email.add it's true
             AdController::send_published_ad_email($ad, Auth::user());
         } else {
-
             //Send Email, it's a Guest user
             $user = new stdClass();
             $user->name = $ad->contact_name;

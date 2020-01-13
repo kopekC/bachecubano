@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Schema;
 use App\Category;
 use App\Post;
 
+use Illuminate\Support\Facades\Validator;
+
 use Illuminate\Support\Facades\Cache;
 
 class AppServiceProvider extends ServiceProvider
@@ -51,6 +53,16 @@ class AppServiceProvider extends ServiceProvider
                 $category_formatted[$cat->parent_id][] = $cat->description;
             }
         }
+
+        //Ad Submit Validation
+        Validator::extend('banned_words', function ($attribute, $value, $parameters) {
+            // Banned words
+            $words = array('prestamo', 'finanzas');
+            foreach ($words as $word) {
+                if (stripos($value, $word) !== false) return false;
+            }
+            return true;
+        });
 
         //get Three Blog Posts and cache it for one day?
         $latest_blog_post = Cache::remember('latest_blog_post', 60 * 12, function () {
