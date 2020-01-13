@@ -90,7 +90,7 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group mb-3">
                                         <label class="control-label">Precio</label>
-                                        <input class="form-control input-md" name="price" placeholder="$ 100.00" type="text" value="@if($edit){{ $ad->price }}@else{{ old('price') }}@endif">
+                                        <input class="form-control input-md" name="price" placeholder="$ 100.00" type="text" value="@if($edit){{ $ad->price }}@else{{ old('price', '0') }}@endif">
                                     </div>
                                     @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>

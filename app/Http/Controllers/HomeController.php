@@ -26,6 +26,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        //Only autenticated users can use this controller
         $this->middleware('auth');
     }
 
@@ -169,9 +170,11 @@ class HomeController extends Controller
         return view('user.settings', compact('section_name', 'user'));
     }
 
+    /**
+     * Favorites or liked ads
+     */
     public function favourite(Request $request)
     {
-
         //SEO Data
         $seo_data = [
             'title' => "Mis anuncios favoritos",
@@ -233,7 +236,6 @@ class HomeController extends Controller
         return redirect()->route('my_settings')->with('success', 'Se ha actualizado la información de usuario correctamente');
     }
 
-
     /**
      * Reset User password
      * Using the Rule in 
@@ -253,5 +255,37 @@ class HomeController extends Controller
 
         //flash sesion message
         return redirect()->route('my_settings')->with('success', 'Se ha actualizado la contraseña correctamente');
+    }
+
+    /**
+     * Transfermoney form
+     */
+    public function transfer_money(Request $request)
+    {
+        //SEO Data
+        $seo_data = [
+            'title' => "Transferir dinero entre cuentas",
+            'desc' => "Enviar saldo Bachecubano entre cuentas del sistema de anuncios para Cuba",
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+        $section_name = "Enviar saldo a otra cuenta";
+
+        $user = Auth::getUser();
+
+        return view('user.transfer', compact('section_name', 'user'));
+    }
+
+    /**
+     * Transfermoney Post
+     */
+    public function transfer_money_post(Request $request)
+    {
+        $user = Auth::getUser();
+        
     }
 }

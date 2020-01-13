@@ -51,6 +51,12 @@
                         <span>Ajustes</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('transfer_money') }}" class="{{ \Route::current()->getName() == 'transfer_money' ? 'active' : ''}}">
+                        <i class="lni-money-protection"></i>
+                        <span>Transferir</span>
+                    </a>
+                </li>
 
                 <!--
                 <li>

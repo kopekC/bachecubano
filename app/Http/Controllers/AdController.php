@@ -164,6 +164,7 @@ class AdController extends Controller
         $request->validate([
             'category' => 'bail|required|numeric',
             'title' => 'bail|required|max:160|banned_words',
+            'price' => 'numeric',
             'description' => 'bail|required|banned_words',
             'contact_name' => 'bail|required|max:100',
             'contact_email' => 'bail|required|email|max:140',
