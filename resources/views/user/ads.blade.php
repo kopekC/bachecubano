@@ -7,12 +7,12 @@
             <h2 class="dashbord-title">Mis anuncios</h2>
         </div>
         <div class="dashboard-wrapper">
-            <nav class="nav-table d-none d-lg-block">
+            <nav class="nav-table mb-1">
                 <ul>
-                    <li class="active"><a href="{{ route('my_ads') }}">Todos ({{ $total_active_ads }})</a></li>
-                    <li><a href="{{ route('my_ads') }}?active=1">Activos</a></li>
-                    <li><a href="{{ route('my_ads') }}?promoted=1">Promovidos</a></li>
-                    <li><a href="{{ route('my_ads') }}?inactive=1">Inactivos</a></li>
+                    <li @if($request->has('all')) class="active" @endif><a href="{{ route('my_ads') }}?all=1">Todos ({{ $total_active_ads }})</a></li>
+                    <li @if($request->has('active')) class="active" @endif><a href="{{ route('my_ads') }}?active=1">Activos</a></li>
+                    <li @if($request->has('promoted')) class="active" @endif><a href="{{ route('my_ads') }}?promoted=1">Promovidos</a></li>
+                    <li @if($request->has('inactive')) class="active" @endif><a href="{{ route('my_ads') }}?inactive=1">Inactivos</a></li>
                     <li class="float-right">
                         <select class="form-control" name="category_id" onchange="this.options[this.selectedIndex].value && (window.location = '{{ URL::current() }}?category_id=' + this.options[this.selectedIndex].value);">
                             <option value="">Agrupar Categoría</option>
@@ -57,6 +57,7 @@
                                 <h3>{{ $ad->description->title }}</h3>
                             </a>
                             <span>ID: {{ $ad->id }}</span>
+                            <span>Promo: {{ $ad->promo->promotype }} Vence: {{ $ad->promo->end_promo }}</span>
                         </td>
                         <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
                         <!-- adstatusactive/adstatusinactive/adstatussold-->
