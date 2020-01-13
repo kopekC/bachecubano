@@ -45,15 +45,15 @@ class SitemapController extends Controller
         echo "Generating Images Pages";
         $this->images();
 
-        //echo "Generating Ads Pages";
-        //$this->ads();
+        echo "Generating Ads Pages";
+        $this->ads();
 
         SitemapIndex::create()
             ->add(public_path('static.xml'))
             ->add(public_path('categories.xml'))
-            ->add(public_path('ads.xml'))
             ->add(public_path('news.xml'))
             ->add(public_path('images.xml'))
+            ->add(public_path('ads.xml'))
             //->add(public_path('promoted.xml'))
             //->add(public_path('stores.xml'))
             //->add(public_path('top-searches.xml'))
