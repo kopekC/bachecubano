@@ -16,7 +16,7 @@ use Spatie\Sitemap\SitemapIndex;
 use App\AdResource;
 
 error_reporting(E_ALL);
-set_time_limit();
+set_time_limit(0);
 
 class SitemapController extends Controller
 {
@@ -32,15 +32,20 @@ class SitemapController extends Controller
     {
         //generate every sitemap as method here, the create the sitemap container
         //Static Pages
+        echo "Generating Static Pages";
         $this->static();
 
         //All Category Pages
+        echo "Generating Category Pages";
         $this->categories();
 
+        echo "Generating Ads Pages";
         $this->ads();
 
+        echo "Generating News Pages";
         $this->news();
 
+        echo "Generating Images Pages";
         $this->images();
 
         SitemapIndex::create()
