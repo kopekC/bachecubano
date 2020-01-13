@@ -1,13 +1,12 @@
-@extends('emails.container')
-
-@section('content')
-
-{{ $remitente_data['name'] }}
-
-{{ $remitente_data['email'] }}
-
-{{ $remitente_data['subject'] }}
-
-{{ $remitente_data['message'] }}
-
-@endsection
+<h1>
+    {{ $remitente_data['name'] }}
+</h1>
+<h1>
+    {{ $remitente_data['email'] }}
+</h1>
+<h1>
+    {{ $remitente_data['subject'] }}
+</h1>
+<h1>
+    {{ $remitente_data['message'] }}
+</h1>
