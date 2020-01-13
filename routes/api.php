@@ -46,6 +46,7 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         //La Chopi Routes
         Route::group(['prefix' => 'lachopi'], function () {
             //Generate LaChopi
+            Route::get('status', 'Api\LachopigenerationController@status')->name('api_status_lachopi');
             Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
         });
 

@@ -43,12 +43,20 @@ class LachopigenerationController extends Controller
     }
 
     /**
+     * la Chpopi Status Generation
+     */
+    public function status()
+    {
+        echo "Todo fresa";
+    }
+
+    /**
      * Wrapper method for all them
      */
     public function generate(Request $request)
     {
         //Security tokenized call
-        if(!$request->has('token') || $request->input('token') != config('app.lachopi_token')) {
+        if (!$request->has('token') || $request->input('token') != config('app.lachopi_token')) {
             abort(404);
         }
 
@@ -62,7 +70,7 @@ class LachopigenerationController extends Controller
         $this->bd->exec("DELETE FROM imagenes");
         $this->bd->exec("DELETE FROM cats");
         $this->bd->exec("VACUUM");
-        
+
         //Generate and Save Categories
         $this->generate_categories();
 
