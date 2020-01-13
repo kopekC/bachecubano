@@ -148,4 +148,5 @@ return [
     'attributes' => [],
 
     'banned_words' => 'Se han encontrado palabras en lista negra, contacte a un administrador',
+    'recaptcha' => 'No se ha podido confirmar que no eres un robot 🤖',
 ];
