@@ -22,8 +22,10 @@ Route::group(['prefix' => 'mailgun',], function () {
 
 //SubDomain Mapping
 Route::group(['domain' => 'api.bachecubano.com'], function () {
+
+    Route::get('/', 'HomaController@index')->name('welcome_api')->middleware('cacheResponse:300');         //Cache 5min
+
     Route::group(['prefix' => 'v1'], function () {
-        
         //Get Categories
         Route::get('categories', 'Api\AdsController@get_categories')->name('api_get_categories');
         //Get Ads From certain Category
