@@ -161,9 +161,6 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-
-
-
         $request->validate([
             'category' => 'bail|required|numeric',
             'title' => 'bail|required|max:160|banned_words',

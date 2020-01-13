@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Ad;
+use App\Mail\Contact;
 use SEOMeta;
 use OpenGraph;
 use Twitter;
@@ -12,6 +13,7 @@ use Spatie\SchemaOrg\Schema;
 
 use Illuminate\Support\Facades\Cache;
 use App\Post;
+use Illuminate\Support\Facades\Mail;
 
 class WelcomeController extends Controller
 {
@@ -177,7 +179,7 @@ class WelcomeController extends Controller
 
         //Notify Admin of this registration event
         $admin = "ecruz@bachecubano.com";
-        Mail::to($admin)->send(new ContactForm($data));
+        Mail::to($admin)->send(new Contact($data));
 
         return redirect()->route('contact')->with('success', 'Gracias! En breve nos pondremos en contacto');
     }
