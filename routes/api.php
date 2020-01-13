@@ -26,6 +26,9 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
     Route::get('/', 'Api\HomeController@index')->name('welcome_api')->middleware('cacheResponse:300');         //Cache 5min
 
     Route::group(['prefix' => 'v1'], function () {
+
+        Route::get('/', 'Api\HomeController@index')->name('welcome_api')->middleware('cacheResponse:300');         //Cache 5min
+
         //Get Categories
         Route::get('categories', 'Api\AdsController@get_categories')->name('api_get_categories');
         //Get Ads From certain Category

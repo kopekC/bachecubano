@@ -55,11 +55,6 @@ class LachopigenerationController extends Controller
      */
     public function generate(Request $request)
     {
-        //Security tokenized call
-        if (!$request->has('token') || $request->input('token') != config('app.lachopi_token')) {
-            abort(404);
-        }
-
         //Get DB Link and perform somr cleaning operations
         $this->bd = new SQLite3('./sitios/lachopi/chcenter.db');
 
