@@ -15,6 +15,8 @@ use App\Post;
 use Spatie\Sitemap\SitemapIndex;
 use App\AdResource;
 
+error_reporting(E_ALL);
+
 class SitemapController extends Controller
 {
     private $sitemapPath;
@@ -28,10 +30,16 @@ class SitemapController extends Controller
     public function sitemap_index()
     {
         //generate every sitemap as method here, the create the sitemap container
+        //Static Pages
         $this->static();
+
+        //All Category Pages
         $this->categories();
+
         $this->ads();
+
         $this->news();
+
         $this->images();
 
         SitemapIndex::create()
