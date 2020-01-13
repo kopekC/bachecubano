@@ -43,10 +43,9 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         //Like/Dislike behavior
         Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like')->middleware('auth:api');
 
-
         //La Chopi Routes
         Route::group(['prefix' => 'lachopi'], function () {
-            //Get Categories
+            //Generate LaChopi
             Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
         });
 
