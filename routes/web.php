@@ -35,6 +35,8 @@ Route::post('/home/delete', 'HomeController@delete_account')->name('delete_accou
 Route::post('/home/update', 'HomeController@update_user')->name('update_user');
 Route::post('/home/update_password', 'HomeController@update_user_password')->name('update_user_password');
 
+//Sitemap Creator Has to be here, On Api breaks Urls from generated indexes
+Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
 
 //Cart Routes
 Route::resource('cart', 'CartController');

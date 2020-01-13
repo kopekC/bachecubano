@@ -35,8 +35,6 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('ads/{category_id}', 'Api\AdsController@get_ads')->name('api_get_ads');
         //Get Specific Ad
         Route::get('ad/{ad_id}', 'Api\AdsController@get_ad')->name('api_get_ad');
-        //Sitemap Creator
-        Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
         //Like/Dislike behavior
