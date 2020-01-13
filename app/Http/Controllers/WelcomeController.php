@@ -175,7 +175,7 @@ class WelcomeController extends Controller
             'g-recaptcha-response' => 'recaptcha',              //Recaptcha Google Check
         ]);
 
-        $data = $request->only('name', 'last_name', 'email', 'phone', 'contact-text');
+        $data = $request->only('name', 'last_name', 'email', 'phone', 'contact-text', 'subject');
 
         //Notify Admin of this registration event
         $admin = "ecruz@bachecubano.com";
