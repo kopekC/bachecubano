@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 use SEOMeta;
@@ -68,6 +69,13 @@ class PostController extends Controller
      */
     public function create()
     {
+        //Get logged in user
+        $user = Auth::getUser();
+
+        if (is_null($user) || $user->id != 1) {
+            abort(404);
+        }
+
         // view create form
         return view('blog.create');
     }

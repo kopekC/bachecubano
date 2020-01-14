@@ -22,7 +22,7 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 Auth::routes();
 
 // Posts resourcfull controllers routes
-Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post')->middleware('cacheResponse:86400', 'cache.headers:private,max-age=300;etag');      //Cached for 5 minutes
+Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post');      //Cached for 5 minutes
 Route::resource('/blog', 'PostController');
 
 //User Routes for Configuration (Mainly registered area)
