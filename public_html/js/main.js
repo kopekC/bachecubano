@@ -46,7 +46,7 @@
       like_btn.children("div").toggleClass('d-none');
       //Hide i element
       like_btn.children("i").toggleClass('d-none');
-      $.get(api_server + "v1/ad_hit_like/" + $(this).data("ad_id") + "?api_token=" + user_token, function (data) {
+      $.get(api_server + "v1/ad_hit_like/" + $(this).data("ad_id") + "?api_token="+ user_token, function (data) {
         //Toggle Thumbs
         like_btn.children("i").toggleClass('lni-thumbs-down');
         like_btn.children("i").toggleClass('lni-thumbs-up');
@@ -65,7 +65,7 @@
       var delete_url = $(this).data("href");
 
       $.ajax({
-        url: delete_url + "?api_token=" + user_token,
+        url: delete_url + "?api_token="+ user_token,
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },

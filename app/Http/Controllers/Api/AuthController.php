@@ -7,8 +7,7 @@ use App\Http\Controllers\API\ResponseController as ResponseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use Validator;
-
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends ResponseController
 {

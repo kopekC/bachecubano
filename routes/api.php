@@ -38,11 +38,11 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
         //Like/Dislike behavior
-        Route::get('ad_like/{ad}', 'Api\LikeController@ad_like')->name('ad_like')->middleware('auth:api');
+        Route::get('ad_like/{ad}', 'Api\LikeController@ad_like')->name('ad_like');
         //Like/Dislike behavior
-        Route::get('ad_dislike/{ad}', 'Api\LikeController@ad_dislike')->name('ad_dislike')->middleware('auth:api');
+        Route::get('ad_dislike/{ad}', 'Api\LikeController@ad_dislike')->name('ad_dislike');
         //Like/Dislike behavior
-        Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like')->middleware('auth:api');
+        Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like');
 
         //La Chopi Routes
         Route::group(['prefix' => 'lachopi'], function () {

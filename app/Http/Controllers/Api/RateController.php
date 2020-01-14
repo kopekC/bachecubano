@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Ad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Api listener for rating Ads from user Class
