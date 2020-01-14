@@ -79,7 +79,7 @@ class AdController extends Controller
         OpenGraph::addProperty('type', 'website');
 
         //post Per Page Custom configuration now as static method ok?
-        $posts_per_page = AdController::post_per_page($request);
+        $posts_per_page = 144;
 
         //Category Condition if subcategory or Super Category
         //If Pass a single ID, its  asubcategory, I pass an array its a supercategory
@@ -597,36 +597,6 @@ class AdController extends Controller
     }
 
     /**
-     * Get Post per Page value
-     */
-    public static function post_per_page($request)
-    {
-        /**
-         * It means – let’s try to get posts_per_page from GET request, if it’s not there, then let’s default to the data in the Cookie.
-         */
-        $cookie_value = Cookie::get('posts_per_page');
-        $posts_per_page = $request->get('posts_per_page', $cookie_value);
-
-        /**
-         * But what if there’s no Cookie? That’s the second block:
-         * We save possible pagination values, and a default value in config file – in my case it’s config/constants.php:
-         */
-        $options = config('constants.posts_per_page_options');
-        if (!$posts_per_page || !in_array($posts_per_page, $options)) {
-            $posts_per_page = config('constants.posts_per_page_default');
-        }
-
-        /**
-         * We save possible pagination values, and a default value in config file – in my case it’s config/constants.php
-         * Finally, last line is just saving that value into the Cookie again, for the future requests.
-         */
-
-        Cookie::queue('posts_per_page', $posts_per_page);
-
-        return $posts_per_page;
-    }
-
-    /**
      * Send an Email with the published Email Data ans a some welcome user
      * Mailable: AdPublished ($ad, $user_data)
      */
@@ -733,7 +703,7 @@ class AdController extends Controller
         //dump($query->getQuery());
 
         //Paginate all this if not come from API call with limit parameter
-        $ads = $query->paginate($limit ? $limit : AdController::post_per_page($request));
+        $ads = $query->paginate($limit ? $limit : 144);
 
         return $ads;
     }

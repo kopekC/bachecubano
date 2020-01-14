@@ -107,7 +107,7 @@ class HomeController extends Controller
         $total_active_ads = Auth::user()->ads->count();
 
         //post Per Page Custom configuration
-        $posts_per_page = AdController::post_per_page($request);
+        $posts_per_page = 144;
 
         //Customize pagination
         //You may append to the query string of pagination links using the appends method. For example, to append sort=votes to each pagination link, you should make the following call to appends:
