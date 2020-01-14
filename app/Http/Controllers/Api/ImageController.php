@@ -50,8 +50,8 @@ class ImageController extends Controller
             $photo_upload->save();
 
             //Create Folder If dont exists
-            if (!is_dir($photo_upload->path)) {
-                mkdir($photo_upload->path, 0755);
+            if (!is_dir(public_path() . $photo_upload->path)) {
+                mkdir('./' . $photo_upload->path, 0777);
             }
 
             //Name is the actual ID of AdResource object
