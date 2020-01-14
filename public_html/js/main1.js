@@ -69,7 +69,7 @@
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        async: true,
+        async: false,
         cache: false,
         type: 'DELETE',
         beforeSend: function () {
