@@ -67,7 +67,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //Get logged in user
         $user = Auth::getUser();

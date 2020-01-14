@@ -22,8 +22,9 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 Auth::routes();
 
 // Posts resourcfull controllers routes
-Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post');      //Cached for 5 minutes
+Route::get('/blog/create', 'PostController@create')->name('blog_post_create');
 Route::resource('/blog', 'PostController');
+Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post');
 
 //User Routes for Configuration (Mainly registered area)
 Route::get('/home', 'HomeController@index')->name('home');
