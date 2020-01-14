@@ -87,14 +87,6 @@
                         @endif
                     </div>
                     <div class="Show-item">
-                        <span>Anuncios por página:</span>
-                        @foreach(config('constants.posts_per_page_options') as $page_option)
-                        @if($page_option == $posts_per_page)
-                        <span>{{ $page_option }}</span>
-                        @else
-                        <a href="{{ URL::full() }}?posts_per_page={{ $page_option }}">{{ $page_option }}</a>
-                        @endif
-                        @endforeach
                         <span class="ml-3">Orden: </span>
                         <form class="woocommerce-ordering" method="post">
                             <label>
