@@ -75,6 +75,14 @@ class User extends Authenticatable implements Rater, Following
         return self::where('api_token', $token)->first();
     }
 
+    /**
+     * Get This User By its email
+     */
+    public function getByEmail($email)
+    {
+        return self::where('email', $email)->first();
+    }
+
     public function sendPasswordResetNotification($token)
     {
         // Your your own implementation.

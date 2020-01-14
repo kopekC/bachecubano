@@ -56,6 +56,7 @@
                         <a class="dropdown-item" href="{{ route('home') }}"><i class="lni-home"></i> Mi Cuenta</a>
                         <a class="dropdown-item" href="{{ route('my_ads') }}"><i class="lni-layers"></i> Mis Anuncios</a>
                         <a class="dropdown-item" href="{{ route('my_favourite') }}"><i class="lni-thumbs-up"></i> Mis Likes</a>
+                        <a class="dropdown-item" href="{{ route('transfer_money') }}"><i class="lni-money-protection"></i> Transferir</a>
                         <a class="dropdown-item" href="{{ route('my_settings') }}"><i class="lni-cog"></i> Ajustes</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="lni-exit"></i> Salir</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

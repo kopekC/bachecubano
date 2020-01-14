@@ -39,7 +39,7 @@
 
                                         <div class="form-group mb-3">
                                             <label for="name" class="text-left">Cantidad a Transferir:</label>
-                                            <input class="form-control" name="amount" value="" type="number">
+                                            <input class="form-control" name="amount" value="" type="number" max="{{ $user->wallet->credits }}">
                                         </div>
 
                                         <button class="btn btn-common btn-block" type="submit">Enviar Saldo</button>

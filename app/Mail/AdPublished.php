@@ -25,7 +25,6 @@ class AdPublished extends Mailable
     public $body_text_title;
     public $body_text_content;
 
-
     /**
      * Create a new message instance.
      *

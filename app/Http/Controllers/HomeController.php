@@ -10,11 +10,13 @@ use Twitter;
 
 use Illuminate\Support\Facades\Auth;
 use App\Ad;
+use App\Mail\TransferReceived;
 use Illuminate\Support\Str;
 
 use App\Rules\MatchOldPassword;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -285,7 +287,37 @@ class HomeController extends Controller
      */
     public function transfer_money_post(Request $request)
     {
+        //Validate this input data
+        $request->validate([
+            'email' => 'required|string|email',
+            'amount' => 'required|numeric',
+        ]);
+
+        //Get logged in user
         $user = Auth::getUser();
-        
+
+        //Destination transfer email & user
+        $destination_email = $request->input('email');
+        $destination_user = (new User())->getByEmail($destination_email);
+
+        //Redirec to to transfer, this User doesn't exist
+        if (is_null($destination_user)) {
+            //flash sesion message
+            return redirect()->route('transfer_money')->with('error', 'Ha ocurrido un error, ese usuario no existe');
+        }
+
+        //Check if remitent has enough money to transfer
+        if ($user->wallet->credits >= $request->input('amount')) {
+
+            $user->wallet->deduce($request->input('amount'));
+            $destination_user->wallet->credit($request->input('amount'));
+
+            //Notify by email to the receiver
+            Mail::to($destination_email)->send(new TransferReceived($destination_user, $request->input('amount')));
+
+            return redirect()->route('transfer_money')->with('success', 'Felicidades, ha transferido ' . $request->input('amount') . ' cuc al correo ' . $destination_email);
+        } else {
+            return redirect()->route('transfer_money')->with('error', 'Ha ocurrido un error, no tiene saldo suficiente para transferir esa cantidad');
+        }
     }
 }
