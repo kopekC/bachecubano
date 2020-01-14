@@ -136,7 +136,7 @@
         dictDefaultMessage: "Arrastre su foto de perfil aquí",
         dictFileTooBig: "La imagen es demasiado grande",
         timeout: 10000,
-        url: "{{ route('save-profile-image-ajax') }}?api_token="+ user_token,
+        url: "{{ route('save-profile-image-ajax') }}?api_token="+user_token,
         paramName: "photo",
         maxFiles: 1,
         acceptedFiles: 'image/*',
