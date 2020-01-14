@@ -23,7 +23,7 @@
 </script>
 
 <script src="{{ asset('js/wow.js') }}"></script>
-<script src="{{ asset('js/main1.js') }}"></script>
+<script src="{{ asset('js/main2.js') }}"></script>
 
 @stack('script')
 

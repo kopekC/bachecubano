@@ -46,7 +46,7 @@
       like_btn.children("div").toggleClass('d-none');
       //Hide i element
       like_btn.children("i").toggleClass('d-none');
-      $.get(api_server + "v1/ad_hit_like/" + $(this).data("ad_id") + "?api_token="+user_token, function (data) {
+      $.get(api_server + "v1/ad_hit_like/" + $(this).data("ad_id") + "?api_token=" + user_token, function (data) {
         //Toggle Thumbs
         like_btn.children("i").toggleClass('lni-thumbs-down');
         like_btn.children("i").toggleClass('lni-thumbs-up');
@@ -64,6 +64,7 @@
       var delete_btn = $(this);
       var delete_url = $(this).data("href");
 
+      /*
       $.ajax({
         url: delete_url + "?api_token="+user_token,
         headers: {
@@ -79,6 +80,26 @@
           // Do something with the result
           //Redirect this self page
           window.location.replace(current_url);
+        }
+      });
+      */
+      $.ajax({
+        type: "POST",
+        url: delete_url + "?api_token=" + user_token,
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: { _method: 'delete' },
+        beforeSend: function () {
+          return confirm("¿Está seguro? Esta operación es irreversible.");
+        },
+        success: function (data) {
+          console.log(data);
+          //$("#url" + url_id).remove();
+          window.location.replace(current_url);
+        },
+        error: function (data) {
+          console.error('Error:', data);
         }
       });
     });
