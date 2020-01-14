@@ -538,7 +538,6 @@ class AdController extends Controller
             if ($request->input('promotype') >= 6) {
             }
 
-
             //Redirect to ads listing with a flash messaje
             return redirect()->route('my_ads')->with('success', 'Felicidades! Ha promocionado su anuncio correctamente.');
         } else {
@@ -556,19 +555,18 @@ class AdController extends Controller
      */
     public function destroy(Request $request, Ad $ad)
     {
-        //This request came as xhr object ok?
-
         //Delete Ad assets, ad likes, adDescription, Ad promotions, favourites, etc
-
         //Check if came from a valid user
         $user = (new User())->getByToken($request->input('api_token'));
+        
+
+        //Then take here the Ad token
 
         if (!is_null($user) && $ad->user_id == $user->id) {
-
             //proceed, the user owns the ad and cascade the deletion
             $ad->delete();
-
-            return response()->json(['message' => 'Ad deleted ' . $ad->id, 'status' => 200], 200);
+            //Redirect to ads listing with a flash messaje
+            return redirect()->route('my_ads')->with('success', 'OK! Se ha eliminado su anuncio correctamente.');
         } else {
             echo "Wrong data, check again";
         }

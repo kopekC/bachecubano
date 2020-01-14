@@ -57,6 +57,8 @@ Route::post('/promote/{ad}', 'AdController@post_promote_ad')->name('post_promote
 Route::get('/add', 'AdController@create')->name('add');
 //update_all
 Route::get('/update_all', 'AdController@update_all')->middleware('throttle:1,30')->name('update_all');      //Update All ads every 30 minutes only
+//Delete Ad direct link
+Route::get('/delete/{ad}', 'AdController@destroy')->name('delete_ad')->middleware('auth');
 //Category Listing
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 //SubCategory Listing
@@ -64,10 +66,8 @@ Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_i
 //Ad specific Show
 //Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag')->where('ad_id', '[0-9]+'); //only allow numeric ID
 Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:120', 'cache.headers:private,max-age=120;etag')->where('ad_id', '[0-9]+'); //only allow numeric ID
-
 //Laravel Images redirection to subdomain
 Route::get('/oc-content/uploads/{folder_id}/{resource_name}', 'AdController@redirectto_image');
-
 //Ad resources route
 Route::resource('ad', 'AdController');
 

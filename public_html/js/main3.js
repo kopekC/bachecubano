@@ -57,53 +57,6 @@
       });
     });
 
-    //Delete Ad behavior
-    $('.delete-ad').on('click', function (rsp) {
-
-      //Initialize variables
-      var delete_btn = $(this);
-      var delete_url = $(this).data("href");
-
-      /*
-      $.ajax({
-        url: delete_url + "?api_token="+user_token,
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        async: false,
-        cache: false,
-        type: 'DELETE',
-        beforeSend: function () {
-          return confirm("¿Está seguro? Esta operación es irreversible.");
-        },
-        success: function (result) {
-          // Do something with the result
-          //Redirect this self page
-          window.location.replace(current_url);
-        }
-      });
-      */
-      $.ajax({
-        type: "POST",
-        url: delete_url + "?api_token=" + user_token,
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: { _method: 'delete' },
-        beforeSend: function () {
-          return confirm("¿Está seguro? Esta operación es irreversible.");
-        },
-        success: function (data) {
-          console.log(data);
-          //$("#url" + url_id).remove();
-          window.location.replace(current_url);
-        },
-        error: function (data) {
-          console.error('Error:', data);
-        }
-      });
-    });
-
     /* WOW Scroll Spy
       ========================================================*/
     var wow = new WOW({
