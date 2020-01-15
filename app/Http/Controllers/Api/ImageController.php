@@ -46,7 +46,7 @@ class ImageController extends Controller
             $photo_upload = new AdResource();
             $photo_upload->ad_id = 0;
             $photo_upload->extension = $photo->getClientOriginalExtension();
-            $photo_upload->path = 'images' . DIRECTORY_SEPARATOR . rand(0, 9999) . DIRECTORY_SEPARATOR;
+            $photo_upload->path = 'uploads' . DIRECTORY_SEPARATOR . rand(0, 9999) . DIRECTORY_SEPARATOR;
             $photo_upload->save();
 
             //Create Folder If dont exists
