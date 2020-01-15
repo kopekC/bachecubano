@@ -69,21 +69,21 @@ class ImageController extends Controller
                 ->resize(200, null, function ($constraints) {
                     $constraints->aspectRatio();
                 })
-                ->save($photo_upload->path . DIRECTORY_SEPARATOR . $photo_thumbnail);
+                ->save('./images/' . $photo_upload->path . DIRECTORY_SEPARATOR . $photo_thumbnail);
 
             //Image manipulation preview
             Image::make($photo)
                 ->resize(340, null, function ($constraints) {
                     $constraints->aspectRatio();
                 })
-                ->save($photo_upload->path . DIRECTORY_SEPARATOR . $photo_preview);
+                ->save('./images/' . $photo_upload->path . DIRECTORY_SEPARATOR . $photo_preview);
 
             //Image manipulation thumbnail
             Image::make($photo)
                 ->resize(480, null, function ($constraints) {
                     $constraints->aspectRatio();
                 })
-                ->save($photo_upload->path . DIRECTORY_SEPARATOR . $photo_480);
+                ->save('./images/' . $photo_upload->path . DIRECTORY_SEPARATOR . $photo_480);
 
             /* WaterMark Ads at Social Media Share
             Image::make($photo)
@@ -92,7 +92,7 @@ class ImageController extends Controller
                 */
 
             //Original Move photo
-            $photo->move($photo_upload->path, $original_name);
+            $photo->move('./images/' . $photo_upload->path, $original_name);
         }
 
         return Response::json(['message' => 'Image saved Successfully', 'imageID' => $photo_upload->id, 'status' => 200], 200);
