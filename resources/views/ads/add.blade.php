@@ -4,7 +4,8 @@
 
 @push('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">-->
+<link href="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.css" rel="stylesheet">
 @endpush
 
 <!-- Page Header Start -->
@@ -117,11 +118,15 @@
                                 <textarea name="description" class="form-control" rows="8" style="resize: vertical">@if($edit){!! $ad->description->description !!}@else{!! old('description') !!}@endif</textarea>
                             </div>
 
-                            <!-- Drop Zone -->
+                            <!-- Drop Zone 
                             <div class="dropzone" id="ad-image-upload" style="border: 2px dashed #0087F7; border-radius: 5px; background: white;">
                                 <div class="fallback">
                                     <input name="file" type="file" multiple />
                                 </div>
+                            </div>
+                            -->
+                            <div class="DashboardContainer">
+
                             </div>
 
                         </div>
@@ -216,7 +221,8 @@
 <!-- featured Listing -->
 
 @push('script')
-<!-- AJAX Uploading for Add Post -->
+<!-- AJAX Uploading for Add Post 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <script>
     var total_photos_counter = 0;
@@ -237,25 +243,6 @@
         headers: {
             'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
         },
-
-        /*
-                init: function() {
-                    this.on("removedfile", function(file) {
-                        $.post({
-                            url: "{{ route('delete-image-ajax') }}",
-                            data: {
-                                id: file.name,
-                                _token: $('[name="_token"]').val()
-                            },
-                            dataType: 'json',
-                            success: function(data) {
-                                total_photos_counter--;
-                                $("#counter").text("# " + total_photos_counter);
-                            }
-                        });
-                    });
-                },
-        */
         //Add Image IDS on every response
         success: function(file, response) {
             $('<input>', {
@@ -265,6 +252,66 @@
             }).appendTo("#add");
         }
     };
+</script>
+-->
+
+<script src="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.js"></script>
+<script src="https://transloadit.edgly.net/releases/uppy/locales/v1.11.0/es_ES.min.js"></script>
+<script>
+    const uppy = Uppy.Core({
+            debug: true,
+            autoProceed: true,
+            restrictions: {
+                maxFileSize: 500000,
+                maxNumberOfFiles: 10,
+                minNumberOfFiles: 1,
+                allowedFileTypes: ['image/*']
+            },
+            locale: Uppy.locales.es_ES
+        })
+        .use(Uppy.Dashboard, {
+            trigger: '.UppyModalOpenerBtn',
+            inline: true,
+            target: '.DashboardContainer',
+            replaceTargetContent: true,
+            showProgressDetails: true,
+            note: 'Images and video only, 2–3 files, up to 1 MB',
+            height: 470,
+            metaFields: [{
+                    id: 'name',
+                    name: 'Name',
+                    placeholder: 'file name'
+                },
+                {
+                    id: 'caption',
+                    name: 'Caption',
+                    placeholder: 'describe what the image is about'
+                }
+            ],
+            browserBackButtonClose: true
+        })
+        .use(Uppy.XHRUpload, {
+            endpoint: "{{ route('save-image-ajax') }}",
+            formData: true,
+            fieldName: 'files[]',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
+            },
+        })
+    uppy.on('upload-success', (file, response) => {
+        response.status // HTTP status code
+        response.body // extracted response data
+        // do something with file and response
+        $('<input>', {
+            type: 'hidden',
+            name: 'imageID[]',
+            value: response.body.imageID
+        }).appendTo("#add");
+    })
+    uppy.on('complete', result => {
+        console.log('successful files:', result.successful)
+        console.log('failed files:', result.failed)
+    })
 </script>
 <!-- Form Validation 
 <script src="{{ asset('js/form-validator.min.js') }}"></script>-->

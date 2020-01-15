@@ -31,7 +31,7 @@ class ImageController extends Controller
     public function save(Request $request)
     {
         //Photos Contains all fotos
-        $photos = $request->file('photo');
+        $photos = $request->file('files');
 
         //Create Folder If dont exists
         if (!is_dir($this->photos_path)) {
@@ -50,8 +50,8 @@ class ImageController extends Controller
             $photo_upload->save();
 
             //Create Folder If dont exists
-            if (!is_dir('./images/' . $photo_upload->path)) {
-                mkdir('./images/' . $photo_upload->path, 0777);
+            if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . $photo_upload->path)) {
+                mkdir($this->photos_path . DIRECTORY_SEPARATOR . $photo_upload->path, 0777);
             }
 
             //Name is the actual ID of AdResource object
