@@ -677,7 +677,8 @@ class AdController extends Controller
             $query->when(strlen($request->input('s')) >= 2, function ($q) use ($request) {
                 // Encapsulate this into (query)
                 $q->where(function (Builder $query) use ($request) {
-                    return $query->where('ad_descriptions.description', 'LIKE', "%{$request->input('s')}%")->orWhere('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");
+                    //return $query->where('ad_descriptions.description', 'LIKE', "%{$request->input('s')}%")->orWhere('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");
+                    return $query->where('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");                  //Just search on title so far by now
                 });
                 return $q;
             });
