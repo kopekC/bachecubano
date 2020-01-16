@@ -162,7 +162,6 @@
                                 </div>
 
                                 <div class="row">
-
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Email *</label>
@@ -191,8 +190,21 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
+
+                                @guest
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        {{-- reCaptcha Robot Captcha --}}
+                                        @error ('g-recaptcha-response')
+                                        <div class="alert alert-danger">
+                                            {{ $message }}
+                                        </div>
+                                        @endif
+                                        {!! htmlFormSnippet() !!}
+                                    </div>
+                                </div>
+                                @endguest
 
                                 <div class="tg-checkbox">
                                     <div class="custom-control custom-checkbox">
@@ -281,6 +293,9 @@
 </script>
 <!-- Form Validation 
 <script src="{{ asset('js/form-validator.min.js') }}"></script>-->
+
+{!! ReCaptcha::htmlScriptTagJsApi() !!}
+
 @endpush
 
 @endsection

@@ -15,6 +15,7 @@
         "biscolab/laravel-recaptcha": "^3.5",
         "facebook/graph-sdk": "^5.7",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.5",
         "intervention/image": "^2.5",
         "laravel-notification-channels/facebook": "^0.0.3",
         "laravel-notification-channels/facebook-poster": "^1.5",

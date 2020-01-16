@@ -170,7 +170,8 @@ class AdController extends Controller
             'contact_email' => 'bail|required|email|max:140',
             'phone' => 'bail|required|max:20',
             'ad_region' => 'bail|required|numeric',
-            "agree" => 'bail|required',
+            'agree' => 'bail|required',
+            'g-recaptcha-response' => Auth::check() ? '' : 'recaptcha',     //Google recaptcha if Gest User
         ]);
 
         //Category data
