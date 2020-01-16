@@ -253,7 +253,7 @@ class AdController extends Controller
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad with aditional data
-        $ad = Cache::remember('ad-' . $ad_id, 60, function () use ($ad_id) {
+        $ad = Cache::remember('ad-' . $ad_id, 3, function () use ($ad_id) {
             return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner', 'likes', 'likers'])->findOrFail($ad_id);
         });
 

@@ -17,12 +17,15 @@
 </div>
 <!-- Page Header End -->
 
-<!--
-    <ol class="breadcrumb">
-    <li><a href="#">Home /</a></li>
-    <li class="current">Details</li>
-    </ol>
--->
+<ol class="breadcrumb">
+    <li><a href="{{ config('app.url') }}">Inicio</a></li>
+    <li class="ml-2">/</li>
+    <li class="ml-2"><a href="{{ config('app.url') . $ad->category->parent->description->slug }}/">{{ $ad->category->parent->description->name }}</a></li>
+    <li class="ml-2">/</li>
+    <li class="ml-2"><a href="{{ config('app.url') . $ad->category->parent->description->slug }}/{{ $ad->category->description->slug }}/">{{ $ad->category->description->name }}</a></li>
+    <li class="ml-2">/</li>
+    <li class="current ml-2">{{ $ad->description->title }}</li>
+</ol>
 
 <!-- Ads Details Start -->
 <section class="section-padding">
