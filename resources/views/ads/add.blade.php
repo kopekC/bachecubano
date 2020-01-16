@@ -142,7 +142,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Nombre *</label>
-                                            <input class="form-control input-md" name="contact_name" type="text" value="@if($edit){{ $ad->contact_name }}@else{{ old('contact_name', isset(Auth::user()->name) ? Auth::user()->name : '') }}@endif">
+                                            <input class="form-control input-md" name="contact_name" type="text" value="@if($edit){{ $ad->contact_name }}@else{{ old('contact_name', optional(Auth::user())->name) }}@endif">
                                             @error('name')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -152,7 +152,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Teléfono *</label>
-                                            <input class="form-control input-md" name="phone" type="text" value="@if($edit){{ $ad->phone }}@else{{ old('phone', isset(Auth::user()->phone) ? Auth::user()->phone : '') }}@endif">
+                                            <input class="form-control input-md" name="phone" type="text" value="@if($edit){{ $ad->phone }}@else{{ old('phone', optional(Auth::user()->phone)) }}@endif">
                                             @error('phone')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -166,7 +166,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Email *</label>
-                                            <input class="form-control input-md" name="contact_email" type="text" value="@if($edit){{ $ad->contact_email }}@else{{ old('contact_email', isset(Auth::user()->email) ? Auth::user()->email : '') }}@endif">
+                                            <input class="form-control input-md" name="contact_email" type="text" value="@if($edit){{ $ad->contact_email }}@else{{ old('contact_email', optional(Auth::user()->email)) }}@endif">
                                             @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
