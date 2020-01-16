@@ -161,6 +161,7 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
+        //Ad publish validation. Check if User is registered or not
         $request->validate([
             'category' => 'bail|required|numeric',
             'title' => 'bail|required|max:160|banned_words',
@@ -171,7 +172,7 @@ class AdController extends Controller
             'phone' => 'bail|required|max:20',
             'ad_region' => 'bail|required|numeric',
             'agree' => 'bail|required',
-            'g-recaptcha-response' => Auth::check() ? '' : 'recaptcha',     //Google recaptcha if Gest User
+            'g-recaptcha-response' => Auth::check() ? '' : 'recaptcha',     //Google recaptcha if Guest User
         ]);
 
         //Category data
