@@ -4,7 +4,6 @@
 
 @push('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">-->
 <link href="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.css" rel="stylesheet">
 @endpush
 
@@ -221,40 +220,7 @@
 <!-- featured Listing -->
 
 @push('script')
-<!-- AJAX Uploading for Add Post 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-<script>
-    var total_photos_counter = 0;
-    Dropzone.options.adImageUpload = {
-        uploadMultiple: true,
-        maxFilesize: 0.3,
-        addRemoveLinks: true,
-        dictDefaultMessage: "Arrastre sus fotos aquí",
-        dictInvalidFileType: "El fichero enviado no está permitido",
-        dictRemoveFile: 'Eliminar Foto',
-        dictFileTooBig: 'La imagen es demasiado grande',
-        timeout: 10000,
-
-        url: "{{ route('save-image-ajax') }}",
-        paramName: "photo",
-        maxFiles: 10,
-        acceptedFiles: 'image/*',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
-        },
-        //Add Image IDS on every response
-        success: function(file, response) {
-            $('<input>', {
-                type: 'hidden',
-                name: 'imageID[]',
-                value: response.imageID
-            }).appendTo("#add");
-        }
-    };
-</script>
--->
-
+<!-- AJAX Uploading for Add Post -->
 <script src="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.js"></script>
 <script src="https://transloadit.edgly.net/releases/uppy/locales/v1.11.0/es_ES.min.js"></script>
 <script>

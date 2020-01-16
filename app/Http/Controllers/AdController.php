@@ -238,7 +238,8 @@ class AdController extends Controller
             AdController::send_published_ad_email($ad, $user);
         }
 
-        return redirect(ad_url($ad));
+        //Redirect to the created Ad with a Modal for sharing
+        return redirect(ad_url($ad) . "?new=1");
     }
 
     /**
@@ -558,7 +559,7 @@ class AdController extends Controller
         //Delete Ad assets, ad likes, adDescription, Ad promotions, favourites, etc
         //Check if came from a valid user
         $user = (new User())->getByToken($request->input('api_token'));
-        
+
 
         //Then take here the Ad token
 
