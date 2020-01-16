@@ -22,7 +22,14 @@
 <!-- Bread Crumbs -->
 <ol class="breadcrumb">
     <li><a href="{{ config('app.url') }}">Inicio</a></li>
-    <li class="current">Listing</li>
+    <li class="ml-2">/</li>
+    @if(isset($sub_category->name))
+    <li class="ml-2"><a href="{{ config('app.url') . $super_category->slug }}/">{{ $super_category->name }}</a></li>
+    <li class="ml-2">/</li>
+    <li class="current ml-2">{{ $sub_category->name }}</li>
+    @else
+    <li class="current ml-2">{{ $super_category->name }}</li>
+    @endif
 </ol>
 
 <!-- Main container Start -->

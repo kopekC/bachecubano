@@ -11,6 +11,7 @@
     <!-- Header Area wrapper End -->
 
     @yield('content')
+    
     @include('layouts.footer')
     @include('layouts.scripts')
 </body>

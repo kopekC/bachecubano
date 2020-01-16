@@ -70,9 +70,7 @@ class PostController extends Controller
     public function create(Request $request)
     {
         //Get logged in user
-        $user = Auth::getUser();
-
-        if (is_null($user) || $user->id != 1) {
+        if (!Auth::check()) {
             abort(404);
         }
 
