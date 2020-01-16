@@ -243,7 +243,7 @@
                 maxFileSize: 500000,
                 maxNumberOfFiles: 10,
                 minNumberOfFiles: 1,
-                allowedFileTypes: ['image/*']
+                allowedFileTypes: ['.jpg', '.jpeg', '.png', '.gif']
             },
             locale: Uppy.locales.es_ES
         })
