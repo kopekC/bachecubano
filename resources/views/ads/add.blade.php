@@ -43,6 +43,7 @@
 
             <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6">
 
+                <!--
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -52,6 +53,7 @@
                     </ul>
                 </div>
                 @endif
+                -->
 
                 <form action="@if($edit){{ route('ad.update', ['ad' => $ad]) }}@else{{ route('ad.store') }}@endif" method="POST" name="add" class="form" id="add">
                     @csrf
