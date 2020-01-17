@@ -325,7 +325,7 @@ class AdController extends Controller
                     )
             );
 
-        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters'));
+        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters', 'request'));
     }
 
     /**
