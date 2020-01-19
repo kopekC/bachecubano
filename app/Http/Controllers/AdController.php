@@ -614,7 +614,7 @@ class AdController extends Controller
      * Static Get Ads for API and Web Controller
      * $category_ids could be an ID or ID array, based on the subcategory or parent category
      */
-    public static function getAds(Request $request, $category_ids = null, $limit = null, $number_of_days = null)
+    public static function getAds(Request $request, $category_ids = null, $limit = null, $latest_days = null)
     {
         //Beguin Query
         $query = Ad::query();
@@ -684,14 +684,10 @@ class AdController extends Controller
             });
         }
 
-        //latest Date from
-        /*
-        if ($request->has('latest_days') && is_numeric($request->latest_days)) {
-            //Today - $request->latest_days
-            $start_date = '2017-10-01 00:00:01';
-            $query->where('updated_at', '>=', $start_date);
+        //latest Date from (mainly La Chopi generation)
+        if (isset($latest_days) && is_numeric($latest_days)) {
+            $query->where('updated_at', '>=', $latest_days);
         }
-        */
 
         //Order By PromoType and later as updated time
         $query->orderBy('ad_promos.promotype', 'desc');

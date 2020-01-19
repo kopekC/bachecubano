@@ -231,8 +231,17 @@
 @include('blocks.featured-listing')
 <!-- featured Listing -->
 
+<!-- if its a newly created ad Show Modal -->
+@if($request->has('new'))
+@include('layouts.modal')
 @push('script')
+<script>
+    $('#BacheModal').modal('show');
+</script>
+@endpush
+@endif
 
+@push('script')
 <!-- Autolinker hashtags and Mentions to stores -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autolinker/3.1.0/Autolinker.min.js"></script>
 <script>
