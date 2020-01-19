@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use App\Category;
 use App\Http\Controllers\AdController;
-
+use App\Mail\LaChopiDone;
+use Illuminate\Support\Facades\Mail;
 use SQLite3;
 
 set_time_limit(0);
@@ -163,6 +164,8 @@ class LachopigenerationController extends Controller
             //Get all ads from this category
             $ads = $this->getCategoryAds($category->original_id);
 
+            dump($ads);
+
             $this->logs .= "<h2>Consiguiendo anuncios de la categoría " . $category->original_id . ": </h2>";
             $cant_ads = $ads->total();
 
@@ -235,6 +238,9 @@ class LachopigenerationController extends Controller
         //Cleanup other things?
 
         echo $this->logs;
+
+        //Sending Emails
+        return Mail::to("ecruz@bachecubano.com")->cc('contacto@lachopi.com')->send(new LaChopiDone($this->logs));
     }
 
     /**

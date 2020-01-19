@@ -11,14 +11,16 @@ class LaChopiDone extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $generation_logs;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($generation_logs)
     {
-        //
+        $this->generation_logs = $generation_logs;
     }
 
     /**
@@ -28,6 +30,6 @@ class LaChopiDone extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.lachopi');
     }
 }
