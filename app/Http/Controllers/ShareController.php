@@ -20,7 +20,7 @@ class ShareController extends Controller
                 break;
 
             case "twitter":
-                return redirect("https://twitter.com/intent/tweet?source=" . base64_decode($url) . "&text=" . urlencode(base64_decode($text)) . ":%20https%3A%2F%2Fwww.bachecubano.com&via=Bachecubano");
+                return redirect("https://twitter.com/intent/tweet?source=" . base64_decode($url) . "&text=" . urlencode(base64_decode($text)) . ":%20" . base64_decode($url) . "&via=Bachecubano");
                 break;
 
             case "linkedin":

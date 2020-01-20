@@ -340,7 +340,7 @@ class AdController extends Controller
             abort(403, 'Acción no autorizada');
         }
 
-        //Pintar la misma pagina de ADD pero con los datos prellenos y un hidden que le indique que es edicion y no adicion?
+        //Pintar la misma pagina de ADD pero con los datos prefilled y un hidden que le indique que es edicion y no adicion
         $edit = true;
 
         //get All regions of the system
@@ -428,6 +428,15 @@ class AdController extends Controller
             $description->title = $request->input('title');
             $description->description = $request->input('description');
             $description->update();
+        }
+
+        //Images Logic for AdResources editing image
+        if (null !== $request->input('imageID')) {
+            //Update every row with the actual ad_id
+            //UPDATE ad_resources SET ad_id = xx WHERE id = imageID.index
+            foreach ($request->input('imageID') as $adResourdeId) {
+                DB::table('ad_resources')->where('id', $adResourdeId)->update(['ad_id' => $ad->id]);
+            }
         }
 
         return redirect(ad_url($ad));

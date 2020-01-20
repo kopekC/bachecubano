@@ -43,18 +43,6 @@
 
             <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6">
 
-                <!--
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-                -->
-
                 <form action="@if($edit){{ route('ad.update', ['ad' => $ad]) }}@else{{ route('ad.store') }}@endif" method="POST" name="add" class="form" id="add">
                     @csrf
 
@@ -125,16 +113,8 @@
                                 <textarea name="description" class="form-control" rows="8" style="resize: vertical">@if($edit){!! $ad->description->description !!}@else{!! old('description') !!}@endif</textarea>
                             </div>
 
-                            <!-- Drop Zone 
-                            <div class="dropzone" id="ad-image-upload" style="border: 2px dashed #0087F7; border-radius: 5px; background: white;">
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple />
-                                </div>
-                            </div>
-                            -->
-                            <div class="DashboardContainer">
-
-                            </div>
+                            <!-- Images DropZone -->
+                            <div class="DashboardContainer"></div>
 
                         </div>
                     </div>
@@ -302,7 +282,9 @@
 <!-- Form Validation 
 <script src="{{ asset('js/form-validator.min.js') }}"></script>-->
 
+@guest
 {!! ReCaptcha::htmlScriptTagJsApi() !!}
+@endguest
 
 @endpush
 
