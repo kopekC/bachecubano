@@ -26,6 +26,10 @@ class ShareController extends Controller
             case "linkedin":
                 return redirect("https://www.linkedin.com/shareArticle?mini=true&url=" . base64_decode($url) . "&title=" . urlencode(base64_decode($text)) . "&source=https%3A%2F%2Fwww.bachecubano.com");
                 break;
+
+            case "telegram":
+                return redirect("https://telegram.me/share/url?url=" . base64_decode($url));
+                break;
         }
     }
 

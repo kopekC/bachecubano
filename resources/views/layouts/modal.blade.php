@@ -39,31 +39,36 @@
             <div class="modal-body" id="BacheModalBody">
                 <h6 class="text-center mb-4">Ahora compártelo en tu red social preferida.</h6>
                 <div class="icon-container1 d-flex mb-4">
-                    <div class="smd"> <i class="img-thumbnail fab fa-twitter fa-2x" style="color:#4c6ef5;background-color: aliceblue"></i>
-                        <p>Twitter</p>
+                    <div class="smd">
+                        <a class="twitter mb-2" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}" target="popup" rel="noopener noreferrer">
+                            <i class="img-thumbnail lni-twitter-filled size-lg" style="color:#4c6ef5;background-color: aliceblue"></i>
+                        </a>
+                        <a class="twitter mb-2" href="{{ route('share', ['network' => 'twitter', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}" target="popup" rel="noopener noreferrer">
+                            <p>Twitter</p>
+                        </a>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-facebook fa-2x" style="color: #3b5998;background-color: #eceff5;"></i>
-                        <p>Facebook</p>
+                    <div class="smd">
+                        <a href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}" target="popup" rel="noopener noreferrer">
+                            <i class="img-thumbnail lni-facebook-original size-lg" style="color: #3b5998;background-color: #eceff5;"></i>
+                        </a>
+                        <a href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}" target="popup" rel="noopener noreferrer">
+                            <p>Facebook</p>
+                        </a>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-reddit-alien fa-2x" style="color: #FF5700;background-color: #fdd9ce;"></i>
-                        <p>Reddit</p>
+                    <div class="smd"><a href="whatsapp://send?text=Acabo de publicar este anuncio en Bachecubano%20{{ URL::current() }}" target="popup" rel="noopener noreferrer">
+                            <i class="img-thumbnail lni-whatsapp size-lg" style="color: #25D366;background-color: #cef5dc;"></i>
+                        </a>
+                        <a href="whatsapp://send?text=Acabo de publicar este anuncio en Bachecubano%20{{ URL::current() }}" target="popup" rel="noopener noreferrer">
+                            <p>Whatsapp</p>
+                        </a>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-discord fa-2x " style="color: #738ADB;background-color: #d8d8d8;"></i>
-                        <p>Discord</p>
-                    </div>
-                </div>
-                <div class="icon-container2 d-flex">
-                    <div class="smd"> <i class="img-thumbnail fab fa-whatsapp fa-2x" style="color: #25D366;background-color: #cef5dc;"></i>
-                        <p>Whatsapp</p>
-                    </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-facebook-messenger fa-2x" style="color: #3b5998;background-color: #eceff5;"></i>
-                        <p>Messenger</p>
-                    </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-telegram fa-2x" style="color: #4c6ef5;background-color: aliceblue"></i>
-                        <p>Telegram</p>
-                    </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-weixin fa-2x" style="color: #7bb32e;background-color: #daf1bc;"></i>
-                        <p>WeChat</p>
+                    <div class="smd">
+                        <a href="{{ route('share', ['network' => 'telegram', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}" target="popup" rel="noopener noreferrer">
+                            <i class="img-thumbnail lni-telegram size-lg" style="color: #4c6ef5;background-color: aliceblue"></i>
+                        </a>
+                        <a href="{{ route('share', ['network' => 'telegram', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}" target="popup" rel="noopener noreferrer">
+                            <p>Telegram</p>
+                        </a>
                     </div>
                 </div>
             </div>
