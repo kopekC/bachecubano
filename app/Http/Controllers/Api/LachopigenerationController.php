@@ -61,6 +61,9 @@ class LachopigenerationController extends Controller
 
         $this->logs .= "<h2>Delete All tables data (TRUNCATE)</h2>";
 
+        //$this->bd->query("SET LOCK MODE TO WAIT 120");
+        $this->bd->busyTimeout(5000);
+
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
         $this->bd->exec("DELETE FROM imagenes");
@@ -239,6 +242,9 @@ class LachopigenerationController extends Controller
 
         echo $this->logs;
 
+        //Close Database ¿?
+        $this->bd->close();
+
         //Sending Emails
         return Mail::to("ecruz@bachecubano.com")->cc('contacto@lachopi.com')->send(new LaChopiDone($this->logs));
     }
@@ -251,7 +257,7 @@ class LachopigenerationController extends Controller
         //This is called every category ID, so retrieve ads from it
         $request = new Request();
         $limit = 10;
-        $latest_days = 7;
+        $latest_days = 3;
 
         return AdController::getAds($request, $category_id, $limit, $latest_days);
     }
