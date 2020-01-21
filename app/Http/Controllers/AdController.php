@@ -623,7 +623,7 @@ class AdController extends Controller
      * Static Get Ads for API and Web Controller
      * $category_ids could be an ID or ID array, based on the subcategory or parent category
      */
-    public static function getAds(Request $request, $category_ids = null, $limit = null, $latest_days = null)
+    public static function getAds(Request $request, $category_ids = null, $limit = null, $latest_days = null, $lachopi_db = false)
     {
         //Beguin Query
         $query = Ad::query();
@@ -710,7 +710,13 @@ class AdController extends Controller
         //dump($query->getQuery());
 
         //Paginate all this if not come from API call with limit parameter
-        $ads = $query->paginate($limit ? $limit : 144);
+        if ($lachopi_db) {
+            $query->take($limit);
+            $ads = $query->get();
+        } else {
+            $ads = $query->paginate($limit ? $limit : 144);
+        }
+
 
         return $ads;
     }

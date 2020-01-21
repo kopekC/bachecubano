@@ -259,7 +259,7 @@ class LachopigenerationController extends Controller
         $limit = 100000;
         $latest_days = 21;
 
-        return AdController::getAds($request, $category_id, $limit, $latest_days);
+        return AdController::getAds($request, $category_id, $limit, $latest_days, true);
     }
 
     /**
