@@ -254,8 +254,8 @@ class LachopigenerationController extends Controller
     {
         //This is called every category ID, so retrieve ads from it
         $request = new Request();
-        $limit = 100000;
-        $latest_days = 14;
+        $limit = 10000;
+        $latest_days = 7;
 
         return AdController::getAds($request, $category_id, $limit, $latest_days, true);
     }
