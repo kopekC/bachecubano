@@ -77,16 +77,14 @@
                             <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>
                         </div>
                     </form>
-                    <div class="widget d-none d-lg-block">
-                        <h4 class="widget-title">Publicidad</h4>
-                        <div class="add-box">
-                            <!-- Explicit Ad Left Square -->
-                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="1908002875" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
-                    </div>
+
+                    <!-- Explicit Ad Left Square -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="1908002875" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <!-- Explicit Ad Left Square -->
+
                 </aside>
             </div>
             <div class="col-lg-10 col-md-12 col-xs-12 page-content">
