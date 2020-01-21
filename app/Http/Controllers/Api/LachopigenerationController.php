@@ -168,13 +168,13 @@ class LachopigenerationController extends Controller
             $ads = $this->getCategoryAds($category->original_id);
 
             $this->logs .= "<h2>Consiguiendo anuncios de la categoría " . $category->original_id . ": </h2>";
-            $cant_ads = $ads->total();
+            $cant_ads = $ads->count();
 
             $this->logs .= "<h3>Cantidad de anuncios: " . $cant_ads . "</h3>";
             $this->cant_ads_total += $cant_ads;
 
             //Iterate over this ads resul set
-            if ($ads->total() >= 1) {
+            if ($ads->count() >= 1) {
 
                 //Iterate over every Ad
                 foreach ($ads as $ad) {

@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
+
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300');         //Cache 5min
 
