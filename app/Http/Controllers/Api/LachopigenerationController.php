@@ -167,8 +167,6 @@ class LachopigenerationController extends Controller
             //Get all ads from this category
             $ads = $this->getCategoryAds($category->original_id);
 
-            dump($ads);
-
             $this->logs .= "<h2>Consiguiendo anuncios de la categoría " . $category->original_id . ": </h2>";
             $cant_ads = $ads->total();
 
