@@ -122,6 +122,15 @@
                             <div class="row">
                                 @if($ads->total() >= 1)
                                 @foreach($ads as $ad)
+
+                                <!-- Show Ad every 45 ads -->
+                                @if($loop->iteration % 30 == 0)
+                                <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-6p+cl+3x-1u+39" data-ad-client="ca-pub-9876511577005081" data-ad-slot="2698340366"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                @endif
+
                                 @include('blocks.ad-block')
                                 @endforeach
                                 @else
