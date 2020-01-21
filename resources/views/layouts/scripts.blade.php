@@ -3,6 +3,9 @@
 {!! $SchemaLD !!}
 @endif
 
+<!--Google Adesense -->
+<script data-ad-client="ca-pub-9876511577005081" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <!-- Images LazyLoad -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js"></script>
 <!-- jQuery first 3.3.1 NotSlim, then Popper.js, then Bootstrap JS -->

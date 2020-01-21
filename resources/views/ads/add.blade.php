@@ -7,6 +7,34 @@
 <link href="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.css" rel="stylesheet">
 @endpush
 
+@if($edit)
+<style>
+    /* Container needed to position the button. Adjust the width as needed */
+    .del_container {
+        position: relative;
+        width: 50%;
+    }
+
+    /* Make the image responsive */
+    .del_container img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Style the button and place it in the middle of the container/image */
+    .del_container .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+@endif
+
 <!-- Page Header Start -->
 <div class="page-header">
     <div class="container">
@@ -113,7 +141,25 @@
                                 <textarea name="description" class="form-control" rows="8" style="resize: vertical">@if($edit){!! $ad->description->description !!}@else{!! old('description') !!}@endif</textarea>
                             </div>
 
-                            <!-- Images DropZone -->
+                            <!-- Image grid for Ajax deletion -->
+                            @if($edit && isset($ad->resources) && $ad->resources->count() >= 1)
+                            <div class="form-group mb-3 p-3">
+                                @foreach($ad->resources as $resource)
+                                <div class="del_container">
+                                    <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
+                                    <a class="btn btn-danger btn-sm p-1 delete_ad" href="#!" data-delete-item="{{ $resource->id }}">
+                                        <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
+                                        <i class="lni-trash"></i>
+                                    </a>
+                                </div>
+                                @endforeach
+                            </div>
+                            @endif
+
+                            <!-- Images Uppy -->
+                            <!--
+                            <a href="#" class="btn btn-primary UppyModalOpenerBtn">Subir fotos</a>
+                            -->
                             <div class="DashboardContainer"></div>
 
                         </div>
@@ -219,6 +265,30 @@
 @include('blocks.featured-listing')
 <!-- featured Listing -->
 
+@if($edit)
+@push('script')
+<script>
+    //like or dislike ad, animate it.
+    $('.delete_ad').on('click', function(rsp) {
+        var delete_asset = $(this);
+        //Show spinner
+        delete_asset.children("div").toggleClass('d-none');
+        //Hide i element
+        delete_asset.children("i").toggleClass('d-none');
+        $.post("{{ route('delete-image-ajax') }}/" + $(this).data("delete-item") + "?api_token=" + user_token, function(data) {
+            //Toggle Thumbs
+            like_btn.children("i").toggleClass('lni-thumbs-down');
+            like_btn.children("i").toggleClass('lni-thumbs-up');
+            //Hide spinner
+            like_btn.children("div").toggleClass('d-none');
+            //Show i element
+            like_btn.children("i").toggleClass('d-none');
+        });
+    });
+</script>
+@endpush
+@endif
+
 @push('script')
 <!-- AJAX Uploading for Add Post -->
 <script src="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.js"></script>
@@ -228,7 +298,7 @@
             debug: true,
             autoProceed: true,
             restrictions: {
-                maxFileSize: 500000,
+                maxFileSize: 600000,
                 maxNumberOfFiles: 10,
                 minNumberOfFiles: 1,
                 allowedFileTypes: ['.jpg', '.jpeg', '.png', '.gif']
@@ -236,25 +306,26 @@
             locale: Uppy.locales.es_ES
         })
         .use(Uppy.Dashboard, {
-            trigger: '.UppyModalOpenerBtn',
             inline: true,
             target: '.DashboardContainer',
             replaceTargetContent: true,
             showProgressDetails: true,
-            note: 'Images and video only, 2–3 files, up to 1 MB',
-            height: 470,
+            note: 'Sólo imágenes, hasta 10 fotos, de no más de 800kb',
+            height: 350,
+            width: '100%',
             metaFields: [{
                     id: 'name',
                     name: 'Name',
-                    placeholder: 'file name'
+                    placeholder: 'Nombre del fichero subido'
                 },
                 {
                     id: 'caption',
                     name: 'Caption',
-                    placeholder: 'describe what the image is about'
+                    placeholder: 'Describe la imagen que estás subiendo'
                 }
             ],
-            browserBackButtonClose: true
+            browserBackButtonClose: true,
+            plugins: ['Webcam']
         })
         .use(Uppy.XHRUpload, {
             endpoint: "{{ route('save-image-ajax') }}",
@@ -279,6 +350,7 @@
         console.log('failed files:', result.failed)
     })
 </script>
+
 <!-- Form Validation 
 <script src="{{ asset('js/form-validator.min.js') }}"></script>-->
 
@@ -287,5 +359,4 @@
 @endguest
 
 @endpush
-
 @endsection

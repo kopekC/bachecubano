@@ -44,13 +44,17 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         //Like/Dislike behavior
         Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like');
 
+        //Image Manipulation
+        Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
+        Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
+        Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
+
         //La Chopi Routes
         Route::group(['prefix' => 'lachopi'], function () {
             //Generate LaChopi
             Route::get('status', 'Api\LachopigenerationController@status')->name('api_status_lachopi');
             Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
         });
-
     });
 });
 
@@ -65,9 +69,3 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('getuser', 'Api\AuthController@getUser');
     });
 });
-
-//Save Image from AJAX Calls and API implementation
-Route::get('show-image', 'Api\ImageController@index')->name('show-image-ajax');
-Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
-Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
-Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');

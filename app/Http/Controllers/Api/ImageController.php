@@ -101,10 +101,11 @@ class ImageController extends Controller
     /**
      * AJAX Destroy Image
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, $image_id)
     {
-        $filename = $request->id;
-        $uploaded_image = Upload::where('original_name', basename($filename))->first();
+        $uploaded_image = AdResource::where('id', $image_id)->first();
+        
+        dd($uploaded_image);
 
         if (empty($uploaded_image)) {
             return Response::json(['message' => 'Sorry file does not exist'], 400);
