@@ -122,7 +122,7 @@
                     <hr>
                     @if(isset($ad->owner->signature))
                     <p>
-                        {{ $ad->owner->signature }}
+                        {!! nl2br($ad->owner->signature) !!}
                     </p>
                     @endif
 
