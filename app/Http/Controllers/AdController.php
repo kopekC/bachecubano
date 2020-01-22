@@ -695,7 +695,10 @@ class AdController extends Controller
 
         //latest Date from (mainly La Chopi generation)
         if (isset($latest_days) && is_numeric($latest_days)) {
-            $query->where('updated_at', '>=', $latest_days);
+            //Substrate her the dates from this $latest_days
+            $now = Carbon::now();
+            $sub_days = $now->subDays($latest_days);
+            $query->where('updated_at', '>=', $sub_days);
         }
 
         //Order By PromoType and later as updated time
