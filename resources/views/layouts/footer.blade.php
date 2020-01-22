@@ -13,7 +13,7 @@
                         <ul class="media-content-list">
                             <li>
                                 <div class="media-left">
-                                    <img class="img-fluid" src="https://www.bachecubano.com/oc-content/uploads/1249/151756.jpg" alt="Xiaomi Mi Band 4">
+                                    <img class="img-fluid" src="https://img.bachecubano.com/uploads/1249/151756.jpg" alt="Xiaomi Mi Band 4">
                                     <div class="overlay">
                                         <span class="price">$ 50</span>
                                     </div>
