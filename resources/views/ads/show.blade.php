@@ -113,10 +113,19 @@
                             </div>
                         </div>
                     </div>
+
                     <hr>
                     <div id="content">
                         {!! nl2br($ad->description->description) !!}
                     </div>
+
+                    <hr>
+                    @if(isset($ad->owner->signature))
+                    <p>
+                        {{ $ad->owner->signature }}
+                    </p>
+                    @endif
+
                     <!-- Disqus -->
                     <div id="disqus_thread"></div>
                     @push('script')

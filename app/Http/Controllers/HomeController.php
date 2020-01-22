@@ -225,13 +225,14 @@ class HomeController extends Controller
         //Validate incoming data
         $request->validate([
             'name' => 'bail|required',
-            'phone' => 'bail|required|numeric'               //5355149081
+            'phone' => 'bail|required|numeric',               //5355149081
         ]);
 
         //Save incoming data
         $me = Auth::getUser();
         $me->name = $request->input('name');
         $me->phone = $request->input('phone');
+        $me->signature = $request->input('signature');
         $me->update();
 
         //flash sesion message

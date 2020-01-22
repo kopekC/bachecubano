@@ -49,6 +49,11 @@
                                             <input class="form-control" name="phone" value="{{ Auth::user()->phone }}" type="number">
                                         </div>
 
+                                        <div class="form-group mb-3">
+                                            <label for="name" class="text-left">Firma de sus anuncios:</label>
+                                            <textarea class="form-control" name="signature">{{ Auth::user()->signature }}</textarea>
+                                        </div>
+
                                         <button class="btn btn-common btn-block" type="submit">Actualizar</button>
                                     </form>
                                 </div>
@@ -131,12 +136,12 @@
 <script>
     Dropzone.options.profilePhotoUpdate = {
         uploadMultiple: false, //False this
-        maxFilesize: 0.3,
+        maxFilesize: 0.5,
         addRemoveLinks: false,
         dictDefaultMessage: "Arrastre su foto de perfil aquí",
         dictFileTooBig: "La imagen es demasiado grande",
         timeout: 10000,
-        url: "{{ route('save-profile-image-ajax') }}?api_token="+user_token,
+        url: "{{ route('save-profile-image-ajax') }}?api_token=" + user_token,
         paramName: "photo",
         maxFiles: 1,
         acceptedFiles: 'image/*',
