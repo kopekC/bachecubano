@@ -62,7 +62,7 @@ class LachopigenerationController extends Controller
         $this->logs .= "<h2>Delete All tables data (TRUNCATE)</h2>";
 
         //$this->bd->query("SET LOCK MODE TO WAIT 120");
-        $this->bd->busyTimeout(5000);
+        $this->bd->busyTimeout(2000);
 
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
@@ -245,7 +245,7 @@ class LachopigenerationController extends Controller
         //This is called every category ID, so retrieve ads from it
         $request = new Request();
         $limit = 10000;
-        $latest_days = 8;
+        $latest_days = 7;
 
         return AdController::getAds($request, $category_id, $limit, $latest_days, true);
     }

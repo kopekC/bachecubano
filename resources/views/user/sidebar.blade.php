@@ -58,14 +58,15 @@
                     </a>
                 </li>
 
-                <!--
+
                 <li>
-                    <a href="#" class="{{ \Route::current()->getName() == 'offers' ? 'active' : ''}}">
+                    <a href="#" class="{{ \Route::current()->getName() == 'messages' ? 'active' : ''}}">
                         <i class="lni-envelope"></i>
                         <span>Mensajes</span>
                     </a>
                 </li>
 
+                <!--
                 <li>
                     <a href="#" class="{{ \Route::current()->getName() == 'my_wallet' ? 'active' : ''}}">
                         <i class="lni-wallet"></i>
@@ -90,4 +91,5 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     <!-- Explicit Ad Left Square -->
+
 </aside>

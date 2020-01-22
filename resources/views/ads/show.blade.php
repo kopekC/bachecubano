@@ -34,7 +34,6 @@
         <div class="product-info row">
 
             <div class="col-xs-12 col-md-6 col-lg-3 col-xl-3 text-center mb-3">
-
                 @if(count($ad->resources) > 1)
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
@@ -86,6 +85,14 @@
                 @else
                 <img src="{{ ad_first_image($ad) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
                 @endif
+
+                <!-- Explicit Ad Left Square -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="1908002875" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <!-- Explicit Ad Left Square -->
+                
             </div>
 
             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-7 pr-5 pl-5">
@@ -120,6 +127,7 @@
                     </div>
 
                     <hr>
+                    <!-- If the Ad owner has a signature, show here -->
                     @if(isset($ad->owner->signature))
                     <p>
                         {!! nl2br($ad->owner->signature) !!}
