@@ -205,19 +205,9 @@ class LachopigenerationController extends Controller
                     $smtm->bindValue(':date_expire', '', SQLITE3_TEXT);
                     $smtm->execute();
 
-                    //Break if has some resources
-                    /*
-                    if ($ad->resources->count() > 0) {
-                        dump($ad->resources[0]);
-                        echo ad_first_physical_image($ad, $quality = 'original');
-                        dump(file_exists(ad_first_physical_image($ad, $quality = 'original')));
-                        dd($ad->resources);                    
-                    }
-                    */
-
                     //Phootos save
-                    if ($ad->resources->count() > 0 && file_exists(ad_first_physical_image($ad, $quality = 'original'))) {
-                        $ad_image = file_get_contents(ad_first_physical_image($ad, $quality = 'original'));
+                    if ($ad->resources->count() > 0 && file_exists(ad_first_physical_image($ad, $quality = 'preview'))) {
+                        $ad_image = file_get_contents(ad_first_physical_image($ad, $quality = 'preview'));
                         $sm = $this->bd->prepare("INSERT INTO imagenes (anuncio_id, imagen) VALUES (:anuncioid, :imagen)");
                         $sm->bindValue(':anuncioid', $ad->id, SQLITE3_INTEGER);
                         $sm->bindValue(':imagen', $ad_image, SQLITE3_BLOB);
@@ -255,7 +245,7 @@ class LachopigenerationController extends Controller
         //This is called every category ID, so retrieve ads from it
         $request = new Request();
         $limit = 10000;
-        $latest_days = 7;
+        $latest_days = 8;
 
         return AdController::getAds($request, $category_id, $limit, $latest_days, true);
     }

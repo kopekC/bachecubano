@@ -717,7 +717,6 @@ class AdController extends Controller
             $ads = $query->paginate($limit ? $limit : 144);
         }
 
-
         return $ads;
     }
 
