@@ -720,6 +720,7 @@ class AdController extends Controller
             $ads = $query->paginate($limit ? $limit : 144);
         }
 
+        //Return Collection if is index or DBQuery if its laChopi
         return $ads;
     }
 

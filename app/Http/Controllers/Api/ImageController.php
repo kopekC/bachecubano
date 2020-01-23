@@ -78,7 +78,7 @@ class ImageController extends Controller
                 })
                 ->save('./images/' . $photo_upload->path . DIRECTORY_SEPARATOR . $photo_preview);
 
-            //Image manipulation thumbnail
+            //Image manipulation 480
             Image::make($photo)
                 ->resize(480, null, function ($constraints) {
                     $constraints->aspectRatio();
