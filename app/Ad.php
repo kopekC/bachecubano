@@ -100,24 +100,23 @@ class Ad extends Model implements Rateable
 
             try {
                 $ad->description()->delete();
-            } catch (Exception $e) { }
+            } catch (Exception $e) {
+            }
 
             try {
                 $ad->promo()->delete();
-            } catch (Exception $e) { }
+            } catch (Exception $e) {
+            }
 
             try {
                 $ad->stats()->delete();
-            } catch (Exception $e) { }
+            } catch (Exception $e) {
+            }
 
             try {
                 $ad->resources()->delete();
-            } catch (Exception $e) { }
-            /*
-            try {
-                $ad->location()->delete();
-            } catch (Exception $e) { }
-*/
+            } catch (Exception $e) {
+            }
         });
     }
 }

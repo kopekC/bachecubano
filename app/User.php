@@ -50,7 +50,7 @@ class User extends Authenticatable implements Rater, Following
     ];
 
     /**
-     * Retorna Todo slos anuncios de este usuario
+     * Retorna todos los anuncios de este usuario
      */
     public function ads()
     {
@@ -68,7 +68,7 @@ class User extends Authenticatable implements Rater, Following
     }
 
     /**
-     * Retorna Todo slos anuncios de este usuario
+     * Retorna todos los sms de este usuario
      */
     public function sms()
     {

@@ -321,4 +321,27 @@ class HomeController extends Controller
             return redirect()->route('transfer_money')->with('error', 'Ha ocurrido un error, no tiene saldo suficiente para transferir esa cantidad');
         }
     }
+
+    /**
+     * Send SMS dialog window
+     */
+    public function send_sms()
+    {
+        //SEO Data
+        $seo_data = [
+            'title' => "Enviar SMS a Cuba y el mundo",
+            'desc' => "Utilice el siguiente formulario para enviar SMS a cualquier parte del mundo",
+        ];
+        SEOMeta::setTitle($seo_data['title']);
+        SEOMeta::setDescription($seo_data['desc']);
+        Twitter::setTitle($seo_data['title']);
+        OpenGraph::setTitle($seo_data['title']);
+        OpenGraph::setDescription($seo_data['desc']);
+        OpenGraph::addProperty('type', 'website');
+        $section_name = "Enviar saldo a otra cuenta";
+
+        $user = Auth::getUser();
+
+        return view('user.sms', compact('section_name', 'user'));
+    }
 }

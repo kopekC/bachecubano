@@ -49,6 +49,9 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
         Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
 
+        //SMS Post
+        Route::post('send_sms', 'Api\SmsController@send_sms')->name('api_send_sms');
+
         //La Chopi Routes
         Route::group(['prefix' => 'lachopi'], function () {
             //Generate LaChopi

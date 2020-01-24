@@ -57,10 +57,8 @@
                         <span>Transferir</span>
                     </a>
                 </li>
-
-
                 <li>
-                    <a href="#" class="{{ \Route::current()->getName() == 'messages' ? 'active' : ''}}">
+                    <a href="{{ route('send_sms') }}" class="{{ \Route::current()->getName() == 'send_sms' ? 'active' : ''}}">
                         <i class="lni-envelope"></i>
                         <span>Mensajes</span>
                     </a>

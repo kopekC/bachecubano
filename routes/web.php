@@ -38,6 +38,9 @@ Route::post('/home/delete', 'HomeController@delete_account')->name('delete_accou
 Route::post('/home/update', 'HomeController@update_user')->name('update_user');
 Route::post('/home/update_password', 'HomeController@update_user_password')->name('update_user_password');
 
+//SMS Routes
+Route::get('/home/send_sms', 'HomeController@send_sms')->name('send_sms');
+
 //Trasnfer Money Routes
 Route::get('/home/transfer_money', 'HomeController@transfer_money')->name('transfer_money');
 Route::post('/home/transfer_money', 'HomeController@transfer_money_post')->name('transfer_money_post');
