@@ -24,7 +24,7 @@ class User extends Authenticatable implements Rater, Following
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'website' . 'phone', 'profile_picture'
+        'name', 'email', 'password', 'website' . 'phone', 'profile_picture', 'signature'
     ];
 
     /**
@@ -65,6 +65,14 @@ class User extends Authenticatable implements Rater, Following
         return $this->hasOne('App\Wallet')->withDefault([
             'credits' => 0.00
         ]);
+    }
+
+    /**
+     * Retorna Todo slos anuncios de este usuario
+     */
+    public function sms()
+    {
+        return $this->hasMany('App\Sms');
     }
 
     /**

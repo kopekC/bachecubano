@@ -12,7 +12,7 @@ class SmsController extends Controller
      */
     public function __construct()
     {
-        //Initailce some security steps here?
+        //Initialize some security steps here?
     }
 
     /**
@@ -21,7 +21,8 @@ class SmsController extends Controller
      * Typically a POST request with:
      * 
      */
-    public function send_sms(Request $request) {
-
+    public function send_sms(Request $request)
+    {
+        
     }
 }

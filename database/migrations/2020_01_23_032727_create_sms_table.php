@@ -15,7 +15,10 @@ class CreateSmsTable extends Migration
     {
         Schema::create('sms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+            $table->unsignedInteger('user_id');
+            $table->string('phone', 16);
+            $table->string('message', 150);
+            $table->boolean('status');
             $table->timestamps();
         });
     }
