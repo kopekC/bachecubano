@@ -41,7 +41,7 @@
                                         </div>
 
                                         <div class="form-group mb-3">
-                                            <label for="name">Número a enviar: (Debe contener el cóidigo del país)</label>
+                                            <label for="name">Número a enviar: (Debe contener el código del país)</label>
                                             <input class="form-control" name="phone" type="text" value="{{ old('phone') }}" maxlength="16" placeholder="5355149081">
                                         </div>
 
