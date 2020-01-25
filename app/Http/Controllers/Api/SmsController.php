@@ -227,18 +227,6 @@ class Internacional
             'send_at' => $now,
         );
 
-        /*
-        $response = \Httpful\Request::post($url)
-            ->sendsJson()
-            ->expectsJSON()
-            ->addHeader('Authorization', 'Bearer ' . $token)
-            ->body($payload)
-            ->send();
-        $log_body = $response->body;
-        */
-
-        dump($data);
-
         $headers = [
             'Authorization' => 'Bearer ' . $this->api_token,
             'Content-Type' => 'application/json',
@@ -246,16 +234,12 @@ class Internacional
         ];
         $client = new \GuzzleHttp\Client(['headers' => $headers]);
 
-        dump($client);
-
         //$response = $client->request('POST', config('sms.sms_internacional_route'), ['json' => json_encode($payload)]);
         $response = $client->request('POST', config('sms.sms_internacional_route'), ['body' => json_encode($data)]);
 
-        dump($response);
-
         $response = $response->getBody()->getContents();
-        echo '<pre>';
-        print_r($response);
+
+        return $response;
     }
 
     //Super encode this
