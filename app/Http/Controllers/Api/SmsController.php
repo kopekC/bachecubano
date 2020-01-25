@@ -252,14 +252,7 @@ class Internacional
         dump($client);
 
         //$response = $client->request('POST', config('sms.sms_internacional_route'), ['json' => json_encode($payload)]);
-        $response = $client->request(
-            'POST',
-            config('sms.sms_internacional_route'),
-            [
-                json_encode($payload)
-            ]
-        );
-
+        $response = $client->request('POST', config('sms.sms_internacional_route'), ['body' => json_encode($payload)]);
 
         dump($response);
 
