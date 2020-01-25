@@ -57,7 +57,7 @@ class SmsController extends Controller
             }
 
             //Return JSON response
-            return response()->json(['message' => 'Felicidades! Se ha enviado su SMS', 'result' => json_encode($result), 'status' => 200], 200);
+            return response()->json(['message' => 'Felicidades! Se ha enviado su SMS', 'result' => $result, 'status' => 200], 200);
         } else {
             return response()->json(['message' => 'Error, no tiene saldo suficiente', 'status' => 404], 200);
         }
