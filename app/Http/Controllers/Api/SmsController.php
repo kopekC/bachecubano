@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 
 class SmsController extends Controller
 {
-
-
     /**
      * Securize thi endpoint
      */
@@ -113,14 +111,15 @@ class Nacional
     {
         //chequea el formato del destino
         if (!strstr($destino, '+')) {
-            trigger_error('El formato del destinatario es inválido.');
-            return false;
+            $destino = "+" . $destino;
         }
+
         //chequea longitud del mensaje
         if (strlen($mensaje) > 160) {
             trigger_error('La longitud del mensaje sobrepasa los 160 caracteres.');
             return false;
         }
+
         $data = array(
             'destino' => $destino,
             'mensaje' => $mensaje
