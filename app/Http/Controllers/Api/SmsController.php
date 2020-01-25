@@ -239,7 +239,11 @@ class Internacional
         $log_body = $response->body;
         */
 
-        $client = new \GuzzleHttp\Client(['headers' => ['Authorization' => 'Bearer ' . $this->api_token]]);
+        $headers = [
+            'Authorization' => 'Bearer ' . $this->api_token,
+            'Accept'        => 'application/json',
+        ];
+        $client = new \GuzzleHttp\Client(['headers' => $headers]);
         $response = $client->request('POST', config('sms.sms_internacional_route'), ['json' => $payload]);
 
         $response = $response->getBody()->getContents();
