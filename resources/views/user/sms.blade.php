@@ -9,6 +9,7 @@
         <div class="dashboard-wrapper">
             <div class="row form-dashboard">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 mb-md-5">
+                    
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -55,6 +56,7 @@
 
                                         <input type="hidden" name="api_token" value="{{ $user->api_token }}">
                                         <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                        <input type="hidden" name="redirect_url" value="{{ URL::current() }}">
 
                                         <button class="btn btn-common btn-block" type="submit">Enviar SMS</button>
                                     </form>
