@@ -247,7 +247,7 @@ class Internacional
             'Accept'        => 'application/json',
         ];
         $client = new \GuzzleHttp\Client(['headers' => $headers]);
-        $response = $client->request('POST', config('sms.sms_internacional_route'), ['json' => $payload]);
+        $response = $client->request('POST', config('sms.sms_internacional_route'), ['json' => json_encode($payload)]);
 
         dump($client);
         dump($response);
