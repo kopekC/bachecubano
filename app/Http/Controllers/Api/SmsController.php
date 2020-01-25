@@ -220,13 +220,12 @@ class Internacional
             $message = $message . $promo_txt;
 
         $data = array(
-            'to' => $numbers,
             'from' => config('sms.international_from_number'),
+            'to' => $numbers,
             'body' => $this->utf8_superencode($message),
             'delivery_report' => 'full',
             'send_at' => $now,
         );
-        $payload = json_encode($data);
 
         /*
         $response = \Httpful\Request::post($url)
@@ -239,8 +238,6 @@ class Internacional
         */
 
         dump($data);
-        dump($payload);
-
 
         $headers = [
             'Authorization' => 'Bearer ' . $this->api_token,
@@ -252,7 +249,7 @@ class Internacional
         dump($client);
 
         //$response = $client->request('POST', config('sms.sms_internacional_route'), ['json' => json_encode($payload)]);
-        $response = $client->request('POST', config('sms.sms_internacional_route'), ['body' => json_encode($payload)]);
+        $response = $client->request('POST', config('sms.sms_internacional_route'), ['body' => json_encode($data)]);
 
         dump($response);
 
