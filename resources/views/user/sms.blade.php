@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
 
-                                        <input type="hidden" name="user_id" value="{{ $user->api_token }}">
+                                        <input type="hidden" name="api_token" value="{{ $user->api_token }}">
                                         <input type="hidden" name="user_id" value="{{ $user->id }}">
 
                                         <button class="btn btn-common btn-block" type="submit">Enviar SMS</button>
