@@ -238,12 +238,19 @@ class Internacional
         $log_body = $response->body;
         */
 
+        dump($data);
+        dump($payload);
+
+
         $headers = [
             'Authorization' => 'Bearer ' . $this->api_token,
             'Accept'        => 'application/json',
         ];
         $client = new \GuzzleHttp\Client(['headers' => $headers]);
         $response = $client->request('POST', config('sms.sms_internacional_route'), ['json' => $payload]);
+
+        dump($client);
+        dump($response);
 
         $response = $response->getBody()->getContents();
         echo '<pre>';
