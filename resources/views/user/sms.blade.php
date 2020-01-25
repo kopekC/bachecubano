@@ -43,6 +43,19 @@
                                             <textarea class="form-control" name="message" maxlength="150">{{ old('message') }}</textarea>
                                         </div>
 
+                                        <div class="tg-checkbox">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="agree" checked>
+                                                <label class="custom-control-label" for="tg-agreetermsandrules">Estoy de acuerdo con los <a href="#">Términos &amp; Condiciones</a></label>
+                                                @error('agree')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <input type="hidden" name="user_id" value="{{ $user->api_token }}">
+                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+
                                         <button class="btn btn-common btn-block" type="submit">Enviar SMS</button>
                                     </form>
                                 </div>
