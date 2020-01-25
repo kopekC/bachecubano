@@ -31,7 +31,7 @@
                     </li>
                 </ul>
             </nav>
-            <table class="table {{-- table-responsive --}} dashboardtable tablemyads">
+            <table class="table dashboardtable tablemyads">
                 <thead>
                     <tr>
                         <th class="text-center">Foto</th>
