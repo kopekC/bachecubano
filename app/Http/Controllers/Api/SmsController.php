@@ -56,8 +56,13 @@ class SmsController extends Controller
                 $user->wallet->deduce(config('sms.sms_value_int'));
             }
 
-            //Return JSON response
-            return response()->json(['message' => 'Felicidades! Se ha enviado su SMS', 'result' => $result, 'status' => 200], 200);
+            //redirect to if has been submitted as parameter
+            if ($request->has('redirect_url')) {
+                return redirect($request->input('redirect_to'))->with('success', 'Felicidades! Se ha enviado su SMS');
+            } else {
+                //Return JSON response
+                return response()->json(['message' => 'Felicidades! Se ha enviado su SMS', 'result' => $result, 'status' => 200], 200);
+            }
         } else {
             return response()->json(['message' => 'Error, no tiene saldo suficiente', 'status' => 404], 200);
         }
