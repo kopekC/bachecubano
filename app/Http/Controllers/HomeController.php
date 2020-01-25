@@ -338,7 +338,7 @@ class HomeController extends Controller
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
-        $section_name = "Enviar saldo a otra cuenta";
+        $section_name = "Enviar SMS a números en el mundo";
 
         $user = Auth::getUser();
 

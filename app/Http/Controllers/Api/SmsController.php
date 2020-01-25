@@ -31,9 +31,11 @@ class SmsController extends Controller
             'phone' => 'bail|required|numeric',
             'message' => 'bail|required|min:1|max:150',
             'agree' => 'bail|required',
+            'user_id' => 'bail|required|numeric',
             'api_token' => 'bail|required'              //Retrieved as GET or POST?
         ]);
 
+        dump($request->input('phone'));
         dump($request->input('phone'));
         dump($request->input('message'));
         dump($request->input('api_token'));
