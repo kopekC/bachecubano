@@ -58,7 +58,7 @@ class SmsController extends Controller
 
             //redirect to if has been submitted as parameter
             if ($request->has('redirect_url')) {
-                return redirect()->route('send_sms')->with('success', 'Felicidades! Se ha enviado su SMS');
+                return redirect('https://www.bachecubano.com/home/send_sms')->with('success', 'Felicidades! Se ha enviado su SMS');
             } else {
                 //Return JSON response
                 return response()->json(['message' => 'Felicidades! Se ha enviado su SMS', 'result' => $result, 'status' => 200], 200);
