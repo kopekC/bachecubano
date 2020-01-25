@@ -9,7 +9,7 @@
         <div class="dashboard-wrapper">
             <div class="row form-dashboard">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 mb-md-5">
-                    
+
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -28,6 +28,12 @@
                                     <form class="" method="post" action="{{ route('api_send_sms') }}">
 
                                         @csrf
+
+                                        <!-- Explicit Horizontal Ad -->
+                                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="2887444455" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
 
                                         <div class="form-group mb-3">
                                             <label for="name">Saldo actual:</label>
@@ -57,6 +63,12 @@
                                         <input type="hidden" name="api_token" value="{{ $user->api_token }}">
                                         <input type="hidden" name="user_id" value="{{ $user->id }}">
                                         <input type="hidden" name="redirect_url" value="{{ URL::current() }}">
+
+                                        <!-- Explicit Horizontal Ad -->
+                                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="2887444455" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
 
                                         <button class="btn btn-common btn-block" type="submit">Enviar SMS</button>
                                     </form>
