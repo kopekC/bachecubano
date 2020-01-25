@@ -64,7 +64,13 @@ class SmsController extends Controller
                 return response()->json(['message' => 'Felicidades! Se ha enviado su SMS', 'result' => $result, 'status' => 200], 200);
             }
         } else {
-            return response()->json(['message' => 'Error, no tiene saldo suficiente', 'status' => 404], 200);
+            //redirect to if has been submitted as parameter
+            if ($request->has('redirect_url')) {
+                return redirect('https://www.bachecubano.com/home/send_sms')->with('error', 'Error, no tiene saldo suficiente');
+            } else {
+                //Return JSON response
+                return response()->json(['message' => 'Error, no tiene saldo suficiente', 'status' => 404], 200);
+            }
         }
     }
 
