@@ -223,7 +223,7 @@ class Internacional
         $data = array(
             'to' => $numbers,
             'from' => config('sms.international_from_number'),
-            'body' => utf8_superencode($message),
+            'body' => $this->utf8_superencode($message),
             'delivery_report' => 'full',
             'send_at' => $now,
         );
@@ -252,7 +252,7 @@ class Internacional
     }
 
     //Super encode this
-    function utf8_superencode($text)
+    private function utf8_superencode($text)
     {
         return utf8_encode($text);
     }
