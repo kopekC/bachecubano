@@ -42,7 +42,7 @@ class LikeController extends Controller
      */
     public function ad_like(Request $request, Ad $ad)
     {
-        $user = (new UserÎ())->getByToken($request->input('api_token'));
+        $user = (new User())->getByToken($request->input('api_token'));
         $user->like($ad);
         return response()->json(['message' => 'Ad ' . $ad->id . ' liked', 'status' => 200], 200);
     }
