@@ -26,7 +26,7 @@ class Ad extends Model implements Rateable
      * @var array
      */
     protected $hidden = [
-        'secret'
+        'secret', 'ip'
     ];
 
     /**

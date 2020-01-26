@@ -18,9 +18,7 @@ class AdsController extends Controller
 {
     /**
      * Get All Right Now Categories
-     * https://www.bachecubano.com/api/1.0/categories
-     * or
-     * httas://api.bachecubano.com/1.0/categories
+     * https://api.bachecubano.com/v1/categories
      */
     public function get_categories()
     {
@@ -32,9 +30,7 @@ class AdsController extends Controller
 
     /**
      * Get Ads for specific Category
-     * https://www.bachecubano.com/api/1.0/ads/104
-     * or
-     * httas://api.bachecubano.com/1.0/ads/104
+     * https://api.bachecubano.com/v1/ads/104
      */
     public function get_ads(Request $request, $category_id)
     {
