@@ -21,19 +21,11 @@
                     @endif
 
                     <div class="privacy-box privacysetting">
-
                         <div class="dashboardholder mb-md-5">
                             <div class="user">
                                 <div class="usercontent mt-3">
                                     <form class="" method="post" action="{{ route('api_send_sms') }}">
-
                                         @csrf
-
-                                        <!-- Explicit Horizontal Ad -->
-                                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="2887444455" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                                        <script>
-                                            (adsbygoogle = window.adsbygoogle || []).push({});
-                                        </script>
 
                                         <div class="form-group mb-3">
                                             <label for="name">Saldo actual:</label>

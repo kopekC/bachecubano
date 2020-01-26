@@ -76,6 +76,9 @@
                 </tbody>
             </table>
             {{ $my_ads->links() }}
+            <hr>
+            <a class="e-widget no-button" href="https://gleam.io/ZdsXz/pullover-bachecubano-youtube" rel="nofollow">Pullover Bachecubano Youtube</a>
+            <script type="text/javascript" src="https://widget.gleamjs.io/e.js" async="true"></script>
         </div>
     </div>
 </div>
