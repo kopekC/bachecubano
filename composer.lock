@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d156fd9b04da3ab15d5ef5c75a8d5a6",
+    "content-hash": "e5d8858875db61f46d48ffb4b5f907d4",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2620,6 +2620,45 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
+            "name": "php-mail-client/client",
+            "version": "3.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-mail-client/Client.git",
+                "reference": "976a4d082cd26d25cacabd0533fbc20cc913f0d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-mail-client/Client/zipball/976a4d082cd26d25cacabd0533fbc20cc913f0d3",
+                "reference": "976a4d082cd26d25cacabd0533fbc20cc913f0d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3.0"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "MailLibrary/loader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomáš Blatný",
+                    "homepage": "https://github.com/greeny"
+                }
+            ],
+            "description": "This library allows you to get mails from mail server.",
+            "time": "2014-08-11T14:48:06+00:00"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "1.7.2",
             "source": {
@@ -3458,20 +3497,21 @@
         },
         {
             "name": "spatie/image",
-            "version": "1.7.5",
+            "version": "1.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "9e36dcc1c5da4e8756a4fd00228342a9c9953f4b"
+                "reference": "74535b5fd67ace75840c00c408666660843e755e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/9e36dcc1c5da4e8756a4fd00228342a9c9953f4b",
-                "reference": "9e36dcc1c5da4e8756a4fd00228342a9c9953f4b",
+                "url": "https://api.github.com/repos/spatie/image/zipball/74535b5fd67ace75840c00c408666660843e755e",
+                "reference": "74535b5fd67ace75840c00c408666660843e755e",
                 "shasum": ""
             },
             "require": {
                 "ext-exif": "*",
+                "ext-mbstring": "*",
                 "league/glide": "^1.4",
                 "php": "^7.0",
                 "spatie/image-optimizer": "^1.0",
@@ -3507,7 +3547,7 @@
                 "image",
                 "spatie"
             ],
-            "time": "2019-11-23T17:56:34+00:00"
+            "time": "2020-01-26T18:56:44+00:00"
         },
         {
             "name": "spatie/image-optimizer",

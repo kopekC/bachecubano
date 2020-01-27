@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
 
 //Welcome Route
@@ -19,6 +22,9 @@ Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheRe
 //Contact
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
+
+//Imap Controller every 1 min
+Route::get('/imap_check', 'ImapController@check')->name('imap_check');
 
 //User Login/Register/Change Password routes
 Auth::routes();
