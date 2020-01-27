@@ -14,9 +14,8 @@
 
 {{-- 
 @include('blocks.latest') 
---}}
-
 @include('blocks.counter')
+--}}
 
 @include('blocks.featured-listing')
 
@@ -26,7 +25,9 @@
 
 @include('blocks.blog-grid')
 
+{{-- 
 @include('blocks.subscribe')
+--}}
 
 @push('script')
 <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
