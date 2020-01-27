@@ -21,7 +21,7 @@ class ImapController extends Controller
         $imap_user = config('imap.imap_user');
         $imap_password = config('imap.imap_password');
 
-        $this->driver = new ImapDriver($imap_user, $imap_password, $imap_server, $imap_port, FALSE);
+        $this->driver = new ImapDriver($imap_user, $imap_password, $imap_server, $imap_port, TRUE);
 
         dump($this->driver);
 
