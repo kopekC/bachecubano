@@ -40,11 +40,6 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         //Like/Dislike behavior
         Route::get('ad_hit_like/{ad}', 'Api\LikeController@ad_hit_like')->name('ad_hit_like');
 
-        //Image Manipulation
-        Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
-        Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
-        Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
-
         //SMS Post
         Route::post('send_sms', 'Api\SmsController@send_sms')->name('api_send_sms');
 

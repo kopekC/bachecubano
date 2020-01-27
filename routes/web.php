@@ -26,6 +26,11 @@ Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submi
 //Imap Controller every 1 min
 Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
 
+//Image Manipulation
+Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
+Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
+Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
+
 //User Login/Register/Change Password routes
 Auth::routes();
 
