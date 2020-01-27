@@ -51,7 +51,7 @@ class AdPromotedTelegram extends Notification
     {
         $telegram_notif = TelegramMessage::create();
         $telegram_notif->to('@elBacheChannel');
-        $telegram_notif->content(text_clean(Str::limit($ad->description->title, 60)) . "\n\n" . text_clean(Str::limit($ad->description->description, 160)));                  // Markdown supported.
+        $telegram_notif->content(Str::limit($ad->description->title, 60) . "\n\n" . Str::limit($ad->description->description, 160));                  // Markdown supported.
 
         //Production or Testing URL
         if (config('app.env') == "production") {
