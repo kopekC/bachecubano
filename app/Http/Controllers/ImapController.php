@@ -22,13 +22,15 @@ class ImapController extends Controller
         $imap_password = config('imap.imap_password');
 
         $this->driver = new ImapDriver($imap_user, $imap_password, $imap_server, $imap_port, FALSE);
+
+        dump($this->driver);
+
         $this->imap_cnx = new Connection($this->driver);
+
+        dump($this->imap_cnx);
     }
-
-
 
     public function imap_check()
     {
-        dd($this->imap_cnx);
     }
 }
