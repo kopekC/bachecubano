@@ -332,7 +332,7 @@
             formData: true,
             fieldName: 'files[]',
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
         })
     uppy.on('upload-success', (file, response) => {
