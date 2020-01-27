@@ -23,8 +23,10 @@ class ImapController extends Controller
         //Body
         $body = $request->input('body');
 
-        dump($from);
-        dump($header);
-        dump($body);
+        echo $from;
+        echo "<hr>";
+        echo $header;
+        echo "<hr>";
+        echo $body;
     }
 }
