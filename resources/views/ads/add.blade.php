@@ -295,7 +295,7 @@
 <script src="https://transloadit.edgly.net/releases/uppy/locales/v1.11.0/es_ES.min.js"></script>
 <script>
     const uppy = Uppy.Core({
-            debug: true,
+            debug: false,
             autoProceed: true,
             restrictions: {
                 maxFileSize: 600000,
