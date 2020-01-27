@@ -70,6 +70,7 @@
                     <div class="site-info float-left">
                         <p>Todos los derechos reservados &copy; {{ date("Y") }} - Desarrollado por <a href="https://www.qvaqui.com">QvaQui</a></p>
                     </div>
+                    <!--
                     <div class="float-right">
                         <ul class="bottom-card">
                             <li>
@@ -77,6 +78,7 @@
                             </li>
                         </ul>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
