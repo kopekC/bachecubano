@@ -13,12 +13,7 @@
 |
 */
 
-//MailGun Routes WebHook for LaChopi Incoming Requests
-/*
-Route::group(['prefix' => 'mailgun',], function () {
-    Route::post('widgets', 'MailgunWidgetsController@store');
-});
-*/
+use Illuminate\Routing\Route;
 
 //SubDomain Mapping
 Route::group(['domain' => 'api.bachecubano.com'], function () {
@@ -35,7 +30,7 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::get('ads/{category_id}', 'Api\AdsController@get_ads')->name('api_get_ads');
         //Get Specific Ad
         Route::get('ad/{ad_id}', 'Api\AdsController@get_ad')->name('api_get_ad');
-        
+
         //Search model
         Route::get('search', 'Api\AdsController@search')->name('api_search');
         //Like/Dislike behavior
@@ -59,17 +54,21 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
             Route::get('status', 'Api\LachopigenerationController@status')->name('api_status_lachopi');
             Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
         });
-    });
-});
 
-//Passport Routes for login/signup/logout/getUser
-Route::group(['prefix' => 'auth'], function () {
-    Route::group(['middleware' => ['guest:api']], function () {
-        Route::post('login', 'Api\AuthController@login');
-        Route::post('signup', 'Api\AuthController@signup');
-    });
-    Route::group(['middleware' => 'auth:api'], function () {
-        Route::get('logout', 'Api\AuthController@logout');
-        Route::get('getuser', 'Api\AuthController@getUser');
+        //Passport Routes for login/signup/logout/getUser
+        Route::group(['prefix' => 'auth'], function () {
+            Route::group(['middleware' => ['guest:api']], function () {
+                Route::post('login', 'Api\AuthController@login');
+                Route::post('signup', 'Api\AuthController@signup');
+            });
+            Route::group(['middleware' => 'auth:api'], function () {
+                Route::get('logout', 'Api\AuthController@logout');
+                Route::get('getuser', 'Api\AuthController@getUser');
+            });
+        });
+
+        //Imap Hook Email
+        Route::post('imap', 'Api\ImapController@zapier_hook')->name('zapier_hook');
+        
     });
 });
