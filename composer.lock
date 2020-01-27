@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5d8858875db61f46d48ffb4b5f907d4",
+    "content-hash": "0639e71293b0aa5346c3502fc1ba241c",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2618,45 +2618,6 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
-        },
-        {
-            "name": "php-mail-client/client",
-            "version": "3.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-mail-client/Client.git",
-                "reference": "976a4d082cd26d25cacabd0533fbc20cc913f0d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-mail-client/Client/zipball/976a4d082cd26d25cacabd0533fbc20cc913f0d3",
-                "reference": "976a4d082cd26d25cacabd0533fbc20cc913f0d3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 5.3.0"
-            },
-            "require-dev": {
-                "nette/tester": "@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "MailLibrary/loader.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tomáš Blatný",
-                    "homepage": "https://github.com/greeny"
-                }
-            ],
-            "description": "This library allows you to get mails from mail server.",
-            "time": "2014-08-11T14:48:06+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -5432,6 +5393,55 @@
             "time": "2020-01-04T13:00:46+00:00"
         },
         {
+            "name": "tedivm/fetch",
+            "version": "v0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tedious/Fetch.git",
+                "reference": "ea3f1bbde6bd6388488105240640642dc82c06a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tedious/Fetch/zipball/ea3f1bbde6bd6388488105240640642dc82c06a6",
+                "reference": "ea3f1bbde6bd6388488105240640642dc82c06a6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-imap": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "0.5.*",
+                "phpunit/phpunit": "4.2.*",
+                "satooshi/php-coveralls": "dev-master",
+                "tedivm/dovecottesting": "1.2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Fetch": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Hafner",
+                    "email": "tedivm@tedivm.com"
+                }
+            ],
+            "description": "A PHP IMAP Library",
+            "homepage": "http://github.com/tedious/Fetch",
+            "keywords": [
+                "email",
+                "imap",
+                "pop3"
+            ],
+            "time": "2015-08-02T03:38:12+00:00"
+        },
+        {
             "name": "tightenco/collect",
             "version": "v6.12.0",
             "source": {
@@ -6340,6 +6350,45 @@
             ],
             "description": "Library for handling version information and constraints",
             "time": "2018-07-08T19:19:57+00:00"
+        },
+        {
+            "name": "php-mail-client/client",
+            "version": "3.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-mail-client/Client.git",
+                "reference": "976a4d082cd26d25cacabd0533fbc20cc913f0d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-mail-client/Client/zipball/976a4d082cd26d25cacabd0533fbc20cc913f0d3",
+                "reference": "976a4d082cd26d25cacabd0533fbc20cc913f0d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3.0"
+            },
+            "require-dev": {
+                "nette/tester": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "MailLibrary/loader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomáš Blatný",
+                    "homepage": "https://github.com/greeny"
+                }
+            ],
+            "description": "This library allows you to get mails from mail server.",
+            "time": "2014-08-11T14:48:06+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
