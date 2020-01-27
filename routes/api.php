@@ -13,9 +13,9 @@
 |
 */
 
-use Illuminate\Routing\Route;
-
 //SubDomain Mapping
+use Illuminate\Support\Facades\Route;
+
 Route::group(['domain' => 'api.bachecubano.com'], function () {
 
     Route::get('/', 'Api\HomeController@index')->name('welcome_api')->middleware('cacheResponse:300');         //Cache 5min
@@ -69,6 +69,6 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
 
         //Imap Hook Email
         Route::post('imap', 'Api\ImapController@zapier_hook')->name('zapier_hook');
-        
+
     });
 });
