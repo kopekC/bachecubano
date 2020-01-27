@@ -66,9 +66,5 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
                 Route::get('getuser', 'Api\AuthController@getUser');
             });
         });
-
-        //Imap Hook Email
-        Route::post('mailgun_hook', 'Api\ImapController@mailgun_hook')->name('mailgun_hook');
-
     });
 });
