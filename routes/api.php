@@ -68,7 +68,7 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         });
 
         //Imap Hook Email
-        Route::post('imap', 'Api\ImapController@zapier_hook')->name('zapier_hook');
+        Route::post('imap', 'Api\ImapController@mailgun_hook')->name('mailgun_hook');
 
     });
 });
