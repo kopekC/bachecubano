@@ -10,6 +10,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
                     <div class="widget">
                         <h3 class="block-title">Lo mejor de la semana:</h3>
+                        <!--
                         <ul class="media-content-list">
                             <li>
                                 <div class="media-left">
@@ -24,6 +25,7 @@
                                 </div>
                             </li>
                         </ul>
+                        -->
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
