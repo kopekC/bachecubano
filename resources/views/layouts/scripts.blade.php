@@ -55,6 +55,3 @@
     gtag('js', new Date());
     gtag('config', 'UA-64168215-3');
 </script>
-
-<!-- ManyChat -->
-<script async src="//widget.manychat.com/1407854356137306.js"></script>

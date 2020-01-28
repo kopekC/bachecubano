@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-sm-12 col-md-8 col-lg-9 col-xl-10">
-                
+
                 <!-- notifications area -->
                 @if (session('error'))
                 <div class="alert alert-danger">{{ session('error') }}</div>
@@ -46,5 +46,10 @@
     </div>
 </div>
 <!-- End Content -->
+
+@push('script')
+<!-- ManyChat only visible on user pages -->
+<script async src="//widget.manychat.com/1407854356137306.js"></script>
+@endpush
 
 @endsection

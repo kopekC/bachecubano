@@ -4,7 +4,7 @@
 
 @push('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
-<link href="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.css" rel="stylesheet">
+<link href="{{ asset('css/uppy.min.css') }}" rel="stylesheet">
 @endpush
 
 @if($edit)
@@ -303,8 +303,8 @@
 
 @push('script')
 <!-- AJAX Uploading for Add Post -->
-<script async src="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.js"></script>
-<script async src="https://transloadit.edgly.net/releases/uppy/locales/v1.11.0/es_ES.min.js"></script>
+<script src="{{ asset('js/uppy.min.js') }}"></script>
+<script src="{{ asset('js/es_ES.min.js') }}"></script>
 <script>
     const uppy = Uppy.Core({
             debug: false,
