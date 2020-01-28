@@ -303,8 +303,8 @@
 
 @push('script')
 <!-- AJAX Uploading for Add Post -->
-<script src="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.js"></script>
-<script src="https://transloadit.edgly.net/releases/uppy/locales/v1.11.0/es_ES.min.js"></script>
+<script async src="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.js"></script>
+<script async src="https://transloadit.edgly.net/releases/uppy/locales/v1.11.0/es_ES.min.js"></script>
 <script>
     const uppy = Uppy.Core({
             debug: false,
