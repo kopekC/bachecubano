@@ -4,17 +4,17 @@
 @endif
 
 <!--Google Adesense -->
-<script data-ad-client="ca-pub-9876511577005081" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async data-ad-client="ca-pub-9876511577005081" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <!-- Images LazyLoad -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js"></script>
 <!-- jQuery first 3.3.1 NotSlim, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script async src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- Twitter Bootstrap & Behaviors Like Tooltips etc -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- Responsive Navigation Menu -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
 
 <!-- Checkout This as the img logos for use later in main.js -->
 <script>
@@ -57,4 +57,4 @@
 </script>
 
 <!-- ManyChat -->
-<script src="//widget.manychat.com/1407854356137306.js" async></script>
+<script async src="//widget.manychat.com/1407854356137306.js"></script>
