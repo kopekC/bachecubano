@@ -31,6 +31,7 @@ use App\Notifications\AdPromotedTwitter;
 use stdClass;
 
 use App\User;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 
 class AdController extends Controller
