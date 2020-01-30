@@ -101,27 +101,37 @@ class ImageController extends Controller
     /**
      * AJAX Destroy Image
      */
-    public function destroy(Request $request, $image_id)
+    public function destroy(Request $request)
     {
-        $uploaded_image = AdResource::where('id', $image_id)->first();
-        
-        dd($uploaded_image);
+        //Validate this input
+        $request->validate([
+            'res_id' => 'bail|required|numeric',
+            'api_token' => 'bail|required'
+        ]);
 
+        $uploaded_image = AdResource::where('id', $request->input('res_id'))->first();
+
+        //Get User Api Token
+        //dd($uploaded_image);
+
+        //Get all images instances
         if (empty($uploaded_image)) {
             return Response::json(['message' => 'Sorry file does not exist'], 400);
         }
 
-        $file_path = $this->photos_path . DIRECTORY_SEPARATOR . $uploaded_image->filename;
-        $resized_file = $this->photos_path . DIRECTORY_SEPARATOR . $uploaded_image->resized_name;
+        $file_path = $this->photos_path . DIRECTORY_SEPARATOR . $uploaded_image->path . DIRECTORY_SEPARATOR . $uploaded_image->id . "_thumbnail." . $uploaded_image->extension;
+        $file_path2 = $this->photos_path . DIRECTORY_SEPARATOR . $uploaded_image->path . DIRECTORY_SEPARATOR . $uploaded_image->id . "_original." . $uploaded_image->extension;
+        $file_path3 = $this->photos_path . DIRECTORY_SEPARATOR . $uploaded_image->path . DIRECTORY_SEPARATOR . $uploaded_image->id . "_preview." . $uploaded_image->extension;
 
-        if (file_exists($file_path)) {
+        //Delete this three files
+        if (file_exists($file_path))
             unlink($file_path);
-        }
+        if (file_exists($file_path2))
+            unlink($file_path2);
+        if (file_exists($file_path3))
+            unlink($file_path3);
 
-        if (file_exists($resized_file)) {
-            unlink($resized_file);
-        }
-
+        //Try to delete this resource
         if (!empty($uploaded_image)) {
             $uploaded_image->delete();
         }

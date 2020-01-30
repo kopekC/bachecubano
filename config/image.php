@@ -12,5 +12,5 @@ return [
     | Supported: "gd", "imagick"
     |
     */
-    'driver' => 'imagick'
+    'driver' => env('IMAGE_LIB', 'imagick')
 ];

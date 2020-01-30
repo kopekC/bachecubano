@@ -148,7 +148,7 @@
                             @if($edit && isset($ad->resources) && $ad->resources->count() >= 1)
                             <div class="form-group mb-3 p-3">
                                 @foreach($ad->resources as $resource)
-                                <div class="del_container">
+                                <div class="col-3 del_container">
                                     <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
                                     <a class="btn btn-danger btn-sm p-1 delete_ad" href="#!" data-delete-item="{{ $resource->id }}">
                                         <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
@@ -280,6 +280,11 @@
 @if($edit)
 @push('script')
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     //like or dislike ad, animate it.
     $('.delete_ad').on('click', function(rsp) {
         var delete_asset = $(this);
@@ -287,10 +292,11 @@
         delete_asset.children("div").toggleClass('d-none');
         //Hide i element
         delete_asset.children("i").toggleClass('d-none');
-        $.post("{{ route('delete-image-ajax') }}/" + $(this).data("delete-item") + "?api_token=" + user_token, function(data) {
+        $.post("{{ route('delete-image-ajax') }}?res_id=" + $(this).data("delete-item") + "&api_token=" + user_token, function(data) {
             //Toggle Thumbs
-            like_btn.children("i").toggleClass('lni-thumbs-down');
-            like_btn.children("i").toggleClass('lni-thumbs-up');
+            //like_btn.children("i").toggleClass('lni-thumbs-down');
+            //like_btn.children("i").toggleClass('lni-thumbs-up');
+            delete_asset.parent().addClass('d-none');
             //Hide spinner
             like_btn.children("div").toggleClass('d-none');
             //Show i element

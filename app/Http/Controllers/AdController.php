@@ -254,7 +254,7 @@ class AdController extends Controller
     public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad with aditional data
-        $ad = Cache::remember('ad-' . $ad_id, 3, function () use ($ad_id) {
+        $ad = Cache::remember('ad-' . $ad_id, 1, function () use ($ad_id) {
             return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner', 'likes', 'likers'])->findOrFail($ad_id);
         });
 
@@ -431,6 +431,11 @@ class AdController extends Controller
             $description->update();
         }
 
+        //Delete the temporary cache for this ad?
+        if (Cache::has('ad-' . $ad->id)) {
+            Cache::forget('ad-' . $ad->id);
+        }
+
         //Images Logic for AdResources editing image
         if (null !== $request->input('imageID')) {
             //Update every row with the actual ad_id
@@ -440,7 +445,10 @@ class AdController extends Controller
             }
         }
 
-        return redirect(ad_url($ad));
+        //redirect with notification to wait for cache refresh
+        return redirect()
+            ->route('show_ad', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug, 'ad_title' => Str::slug($ad->description->title), 'id' => $ad->id])
+            ->with('success', 'Felicidades, se ha actualizado su anuncio, espere unos minutos para refrescar nuestra caché');
     }
 
     /**
