@@ -62,7 +62,7 @@ class LachopigenerationController extends Controller
         $this->logs .= "<h2>Delete All tables data (TRUNCATE)</h2>";
 
         //$this->bd->query("SET LOCK MODE TO WAIT 120");
-        $this->bd->busyTimeout(3000);
+        $this->bd->busyTimeout(4000);
 
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
