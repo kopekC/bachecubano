@@ -295,6 +295,9 @@ class AdController extends Controller
                 ->get();
         });
 
+        //Search Bar
+        $search_bar = true;
+
         //Rating Variables
         $averageRating = $ad->raters(User::class)->count() > 0 ? $ad->averageRating(User::class) : '5';
         $raters = $ad->raters(User::class)->count() > 0 ? $ad->raters(User::class)->count() : '1';
@@ -326,7 +329,7 @@ class AdController extends Controller
                     )
             );
 
-        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters', 'request'));
+        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters', 'request', 'search_bar'));
     }
 
     /**

@@ -23,7 +23,8 @@ class WelcomeController extends Controller
      * @return void
      */
     public function __construct()
-    { }
+    {
+    }
 
     /**
      * Show the application welcome page.
@@ -119,6 +120,9 @@ class WelcomeController extends Controller
         OpenGraph::addImage(asset('android-chrome-512x512.png'));
         Twitter::setTitle($seo_data['title']);
 
+        //Search Bar
+        $search_bar = true;
+
         //Schema
         $SchemaLD = Schema::WholesaleStore()
             ->name('Bachecubano')
@@ -158,7 +162,7 @@ class WelcomeController extends Controller
                     ->email('contacto@bachecubano.com')
             );
 
-        return view('contact');
+        return view('contact', compact('search_bar'));
     }
 
     /**

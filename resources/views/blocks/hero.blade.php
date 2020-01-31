@@ -8,6 +8,7 @@
                     <h1 class="head-title">Busca entre +{{ $total_ads }} anuncios</h1>
                     <p>Compra y Vende Computadoras, Celulares, Casas, Carros, ofertas de empleo y todo lo que quieras en Cuba</p>
                     <div class="search-two-form">
+                        
                         <form class="search-two" action="{{ route('welcome') }}/search" method="get">
                             <div class="search-inner">
                                 <div class="row">

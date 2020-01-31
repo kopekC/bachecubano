@@ -12,6 +12,7 @@
             <a href="{{ config('app.url') }}" class="navbar-brand"><img src="{{ asset('img/logo-bachecubano-w.png') }}" alt="Bachecubano" width="50" height="50"></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,14 +40,39 @@
                     </a>
                 </li>
             </ul>
+
+            <!-- Show search Bar only in show page and user sections -->
+            @if(isset($search_bar) && $search_bar == true)
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <form action="{{ route('welcome') }}/search" method="get">
+                        <div class="search-inner">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="search-query">
+                                        <input type="text" name="s" class="form-control" placeholder="Qué estas buscando hoy" autocomplete="on">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            @endif
+
+
             @auth
             <a class="tg-btn bg-primary mr-3" href="#">
                 <i class="lni-money-protection"></i> {{ Auth::user()->wallet->credits }}
             </a>
             @endauth
+
+            <!--
             <a class="tg-btn bg-primary mr-3" href="#">
                 <i class="lni-cart"></i> Carrito
             </a>
+            -->
+
             <ul class="sign-in">
                 @if (Route::has('login'))
                 @auth
@@ -77,6 +103,7 @@
                 @endauth
                 @endif
             </ul>
+
             <a class="tg-btn" href="{{ route('add') }}">
                 <i class="lni-pencil-alt"></i> Publicar Anuncio
             </a>

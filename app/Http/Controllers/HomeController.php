@@ -51,6 +51,9 @@ class HomeController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
+        //Search Bar
+        $search_bar = true;
+
         //Create the initial token for first time use for old users
         if (is_null(Auth::user()->api_token)) {
             $token = Str::random(60);
@@ -78,7 +81,7 @@ class HomeController extends Controller
 
         $section_name = "Mi Panel de Anuncios";
 
-        return view('user.home', compact('section_name', 'total_active_ads', 'total_promoted_ads', 'popular_ads'));
+        return view('user.home', compact('section_name', 'total_active_ads', 'total_promoted_ads', 'popular_ads', 'search_bar'));
     }
 
     /** 
@@ -102,6 +105,9 @@ class HomeController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
         $section_name = "Mis Anuncios";
+
+        //Search Bar
+        $search_bar = true;
 
         //Total active ads
         $total_active_ads = Auth::user()->ads->count();
@@ -146,7 +152,7 @@ class HomeController extends Controller
         //Paginate for every ads
         $my_ads = $query->paginate($posts_per_page);
 
-        return view('user.ads', compact('request', 'section_name', 'total_active_ads', 'my_ads'));
+        return view('user.ads', compact('request', 'section_name', 'total_active_ads', 'my_ads', 'search_bar'));
     }
 
     /**
@@ -167,9 +173,12 @@ class HomeController extends Controller
         OpenGraph::addProperty('type', 'website');
         $section_name = "Configuración de mi cuenta";
 
+        //Search Bar
+        $search_bar = true;
+
         $user = Auth::getUser();
 
-        return view('user.settings', compact('section_name', 'user'));
+        return view('user.settings', compact('section_name', 'user', 'search_bar'));
     }
 
     /**
@@ -190,12 +199,16 @@ class HomeController extends Controller
         OpenGraph::addProperty('type', 'website');
         $section_name = "Mis anuncios favoritos";
 
+        //User Data
         $user = Auth::getUser();
+
+        //Search Bar
+        $search_bar = true;
 
         //Likes
         $my_likes = $user->likes()->with('likable')->paginate(20);
 
-        return view('user.likes', compact('section_name', 'user', 'my_likes'));
+        return view('user.likes', compact('section_name', 'user', 'my_likes', 'search_bar'));
     }
 
     /**
@@ -254,6 +267,7 @@ class HomeController extends Controller
             'new_confirm_password' => ['same:new_password'],
         ]);
 
+        //Update procedure
         User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
 
         //flash sesion message
@@ -278,9 +292,12 @@ class HomeController extends Controller
         OpenGraph::addProperty('type', 'website');
         $section_name = "Enviar saldo a otra cuenta";
 
+        //Search Bar
+        $search_bar = true;
+
         $user = Auth::getUser();
 
-        return view('user.transfer', compact('section_name', 'user'));
+        return view('user.transfer', compact('section_name', 'user', 'search_bar'));
     }
 
     /**
@@ -340,8 +357,12 @@ class HomeController extends Controller
         OpenGraph::addProperty('type', 'website');
         $section_name = "Enviar SMS a números en el mundo";
 
+        //My User data
         $user = Auth::getUser();
 
-        return view('user.sms', compact('section_name', 'user'));
+        //Search Bar
+        $search_bar = true;
+
+        return view('user.sms', compact('section_name', 'user', 'search_bar'));
     }
 }
