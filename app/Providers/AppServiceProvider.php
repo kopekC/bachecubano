@@ -2,13 +2,14 @@
 
 namespace App\Providers;
 
+use App\Ad;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 
 use App\Category;
 use App\Post;
-
+use App\User;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\Cache;
@@ -69,10 +70,20 @@ class AppServiceProvider extends ServiceProvider
             return Post::latest()->limit(3)->get();
         });
 
+        //Total Ads so far, cache it daily
+        $total_ads = Cache::remember('total_ads', 60 * 24, function () {
+            return Ad::count();
+        });
+
+        //Total Users, cache it daily
+        $total_users = Cache::remember('total_users', 60 * 24, function () {
+            return User::count();
+        });
+
         View::share('parent_categories', $parent_categories);
         View::share('category_formatted', $category_formatted);
-        View::share('total_ads', '120918');      //Load and cache this number everyday
-        View::share('total_users', '15421');      //Load and cache this number everyday
+        View::share('total_ads', $total_ads);
+        View::share('total_users', $total_users);      //Load and cache this number everyday
         View::share('latest_blog_post', $latest_blog_post);
     }
 }
