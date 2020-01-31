@@ -14,7 +14,6 @@
 
 {{-- 
 @include('blocks.latest') 
-@include('blocks.counter')
 --}}
 
 @include('blocks.featured-listing')
