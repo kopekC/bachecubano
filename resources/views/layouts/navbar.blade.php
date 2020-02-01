@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="search-query">
-                                        <input type="text" name="s" class="form-control" placeholder="Qué estas buscando hoy" autocomplete="on">
+                                        <input type="text" name="s" class="form-control" placeholder="Qué estás buscando hoy" autocomplete="on">
                                     </div>
                                 </div>
                             </div>

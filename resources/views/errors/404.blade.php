@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-lg-9 col-md-9">
                                 <div class="form-group search-query">
-                                    <input type="text" name="query" class="form-control" placeholder="Qué estas buscando hoy" autocomplete="off">
+                                    <input type="text" name="query" class="form-control" placeholder="Qué estás buscando hoy" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3">
