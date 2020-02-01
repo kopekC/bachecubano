@@ -318,7 +318,7 @@ class AdController extends Controller
             ->offers(
                 Schema::Offer()
                     ->priceCurrency("CUC")
-                    ->price($ad->price)
+                    ->price(is_null($ad->price) ? 0 : $ad->price)                   //Price could be null sometimes, so, print 0
                     ->priceValidUntil($ad->expiration)
                     ->itemCondition("http://schema.org/NewCondition")
                     ->availability("http://schema.org/InStock")
