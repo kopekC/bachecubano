@@ -45,7 +45,6 @@
                     <th>Visitas</th>
                     <th>Título</th>
                     <th>Categoría</th>
-                    <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,8 +64,6 @@
                         <span>ID: {{ $ad->id }}</span>
                     </td>
                     <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
-                    <!-- adstatusactive/adstatusinactive/adstatussold-->
-                    <td data-title="Ad Status"><span class="adstatus adstatusactive">activo</span></td>
                 </tr>
                 @endforeach
                 @endif

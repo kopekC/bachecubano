@@ -1,6 +1,12 @@
 @extends('user.layout')
 
 @section('user_section')
+
+@push('style')
+<!-- Button Toggle -->
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+@endpush
+
 <div class="page-content">
     <div class="inner-box">
         <div class="dashboard-box">
@@ -61,7 +67,9 @@
                         </td>
                         <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
                         <!-- adstatusactive/adstatusinactive/adstatussold-->
-                        <td data-title="Ad Status"><span class="adstatus @if($ad->active == 1) adstatusactive @else adstatusinactive @endif">@if($ad->active == 1) ACTIVO @else INACTIVO @endif</span></td>
+                        <td data-title="Ad Status">
+                            <input type="checkbox" class="bs-toggle" @if($ad->active == 1) checked @endif data-toggle="toggle" data-size="mini" data-ad_id="{{ $ad->id }}" data-onstyle="success" data-offstyle="danger" data-on="Activo" data-off="Inactivo">
+                        </td>
                         <td data-title="Action">
                             <div class="btns-actions">
                                 <!-- <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a> Analiticas -->
@@ -82,4 +90,11 @@
         </div>
     </div>
 </div>
+
+
+@push('script')
+<!-- Button Toggle -->
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+@endpush
+
 @endsection
