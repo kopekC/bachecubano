@@ -22,7 +22,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheRe
 //Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
-Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:300');
+Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:300')->name('terms');
 
 //Imap Controller every 1 min
 Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
