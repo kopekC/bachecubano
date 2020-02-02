@@ -262,6 +262,14 @@ class AdController extends Controller
         $stats = AdStats::firstOrCreate(['ad_id' => $ad->id]);
         $stats->increment('hits');
 
+        //If this Ad gets a 1000 multiple, give $1 to the owner
+        if ($stats->hits % 1000 == 0) {
+            //Add the User Wallet plus $1
+            $ad->owner->wallet->credit(1);
+            //Notify via Email
+            
+        }
+
         //SEO Data
         $seo_data = [
             'title' => text_clean(Str::limit($ad->description->title, 60)),

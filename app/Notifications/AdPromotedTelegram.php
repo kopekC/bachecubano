@@ -50,18 +50,10 @@ class AdPromotedTelegram extends Notification
     public function toTelegram($ad)
     {
         $telegram_notif = TelegramMessage::create();
-        $telegram_notif->to('@elBacheChannel');
-        $telegram_notif->content(Str::limit($ad->description->title, 60) . "\n\n" . Str::limit($ad->description->description, 160));                  // Markdown supported.
-
-        //Production or Testing URL
-        if (config('app.env') == "production") {
-            $telegram_notif->button('Ver Anuncio', ad_url($ad)); // Inline Button
-        } else {
-            $telegram_notif->button('Ver Anuncio', 'https://www.bachecubano.com'); // Inline Button, comprobar si se puede agregar mas de un boton
-        }
-
-        //Photo test option
-        $telegram_notif->options(['photo' => ad_image_url($ad, 'original'), 'caption' => $ad->description->title, 'parse_mode' => 'HTML']);
+        $telegram_notif->to('@elBacheChannel');                                                                                                             //Also the group??
+        $telegram_notif->content(Str::limit($ad->description->title, 60) . "\n\n" . Str::limit($ad->description->description, 160));                        //Telegram Notification Text
+        $telegram_notif->button('Ver Anuncio', ad_url($ad));                                                                                                //Inline Button
+        $telegram_notif->options(['photo' => ad_image_url($ad, 'original'), 'caption' => $ad->description->title, 'parse_mode' => 'HTML']);                 //Photo url or physical??
 
         return $telegram_notif;
     }
