@@ -62,7 +62,7 @@
                         <div class="form-group mb-3 text-center">
                             <div class="checkbox">
                                 <input type="checkbox" name="rememberme" value="rememberme">
-                                <label>Aceptas Términos y Condiciones ok?</label>
+                                <label>Aceptas <a href="{{ route('terms') }}">Términos &amp; Condiciones</a> ok?</label>
                             </div>
                         </div>
 

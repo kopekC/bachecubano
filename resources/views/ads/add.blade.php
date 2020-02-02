@@ -246,7 +246,7 @@
                                 <div class="tg-checkbox">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules" name="agree" checked>
-                                        <label class="custom-control-label" for="tg-agreetermsandrules">Estoy de acuerdo con los <a href="#">Términos &amp; Condiciones</a></label>
+                                        <label class="custom-control-label" for="tg-agreetermsandrules">Estoy de acuerdo con los <a href="{{ route('terms') }}">Términos &amp; Condiciones</a></label>
                                         @error('agree')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
