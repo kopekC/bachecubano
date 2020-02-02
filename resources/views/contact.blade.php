@@ -113,7 +113,7 @@
                         </div>
                         <div class="info">
                             <h3>Dirección</h3>
-                            <span class="detail">Calle 35 #1477, <br> entre 26 y 28, Nuevo Vedado, Cuba</span>
+                            <span class="detail">General Lee # 253, <br> entre Juan Delgado y Destrampes, Santo Suárez, 10/10, La Habana, Cuba</span>
                         </div>
                     </div>
                     <div class="contact-datails">
