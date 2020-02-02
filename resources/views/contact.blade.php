@@ -131,7 +131,7 @@
                         </div>
                         <div class="info">
                             <h3>Llámanos</h3>
-                            <span class="detail">Oficina: +53 7 830 6807</span>
+                            <span class="detail">Oficina: +53 7 642 5371</span>
                         </div>
                     </div>
                     <div class="contact-datails">

@@ -19,9 +19,10 @@ Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_ge
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300');         //Cache 5min
 
-//Contact
+//Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
+Route::get('/terms-and-conditions', 'WelcomeController@terms')->name('terms');
 
 //Imap Controller every 1 min
 Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
