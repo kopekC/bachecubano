@@ -12,7 +12,7 @@
                     </div>
                     <div class="category-header">
                         <a href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">
-                            <h2>{{ $super_category->description->name }}</h4>
+                            <h2>{{ $super_category->description->name }}</h2>
                         </a>
                     </div>
                     <div class="category-content">
