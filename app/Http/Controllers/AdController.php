@@ -84,10 +84,11 @@ class AdController extends Controller
         $posts_per_page = 144;
 
         //Category Condition if subcategory or Super Category
-        //If Pass a single ID, its  asubcategory, I pass an array its a supercategory
+        //If Pass a single ID, its a subcategory, if pass an array its a supercategory
         if (isset($sub_category->category_id)) {
 
             $ids = $sub_category->category_id;
+
         } elseif ($category == "search") {
 
             //Retrieve here all ids from cached categories
@@ -95,6 +96,7 @@ class AdController extends Controller
             $super_category = new stdClass();
             $super_category->name = $seo_data['title'];
             $super_category->description = $seo_data['desc'];
+            $super_category->slug = 'search?s' . $request->input('s');
 
             //Iterate over all result cats for search query
             foreach ($all_cats as $subcategory)
@@ -107,10 +109,19 @@ class AdController extends Controller
                 $ids[] = $subcategory->id;
         }
 
+        //BreadCrumbs
+        $BreadCrumbs = Schema::breadcrumbList()
+            ->itemListElement([
+                Schema::ListItem()
+                    ->position(1)
+                    ->name($super_category->name)
+                    ->item(config('app.url') . $super_category->slug)
+            ]);
+
         //Paginate all this
         $ads = AdController::getAds($request, $ids);
 
-        return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page', 'request'));
+        return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page', 'request', 'BreadCrumbs'));
     }
 
     /**
@@ -338,7 +349,24 @@ class AdController extends Controller
                     )
             );
 
-        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters', 'request', 'search_bar'));
+        //BreadCrumbs
+        $BreadCrumbs = Schema::breadcrumbList()
+            ->itemListElement([
+                Schema::ListItem()
+                    ->position(1)
+                    ->name($ad->category->parent->description->name)
+                    ->item(config('app.url') . $ad->category->parent->description->slug),
+                Schema::ListItem()
+                    ->position(2)
+                    ->name($ad->category->description->name)
+                    ->item(config('app.url') . $ad->category->parent->description->slug . DIRECTORY_SEPARATOR . $ad->category->description->slug),
+                Schema::ListItem()
+                    ->position(3)
+                    ->name($ad->description->title)
+                    ->item(ad_url($ad)),
+            ]);
+
+        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'BreadCrumbs', 'averageRating', 'raters', 'request', 'search_bar'));
     }
 
     /**

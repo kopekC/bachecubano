@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3">
-                                <button class="btn btn-common search-two-submit" type="submit" form="search-two"><i class="lni-search"></i> Buscar</button>
+                                <button class="btn btn-common search-two-submit" type="submit"><i class="lni-search"></i> Buscar</button>
                             </div>
                         </div>
                     </div>

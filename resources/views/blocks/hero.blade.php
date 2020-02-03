@@ -28,7 +28,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3">
-                                        <button class="btn btn-common search-two-submit" type="submit" form="search-two"><i class="lni-search"></i> Buscar</button>
+                                        <button class="btn btn-common search-two-submit" type="submit"><i class="lni-search"></i> Buscar</button>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,6 @@
                                     <li><a href="{{ config('app.url') }}/search?s=Xiaomi">Xiaomi</a></li>
                                     <li><a href="{{ config('app.url') }}/search?s=Asus">Asus</a></li>
                                     <li><a href="{{ config('app.url') }}/search?s=2Tb">2Tb</a></li>
-                                    <li><a href="{{ config('app.url') }}/search?s=Apto Casino Deportivo">Apto Casino Deportivo</a></li>
                                 </ul>
                             </div>
                         </div>

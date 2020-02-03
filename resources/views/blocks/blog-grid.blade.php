@@ -1,7 +1,7 @@
 <!-- Blog Grid Start -->
 <section class="blog-grid section-padding bg-drack">
     <div class="container">
-        <h1 class="section-title">Últimas noticias</h1>
+        <h3 class="section-title">Últimas noticias</h3>
         <div class="row">
             @foreach($latest_blog_post as $blog_post)
             <div class="col-lg-4 col-md-6 col-xs-12">

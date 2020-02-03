@@ -3,6 +3,11 @@
 {!! $SchemaLD !!}
 @endif
 
+<!-- BreadCrumbs Markup Unescaped -->
+@if(isset($BreadCrumbs))
+{!! $BreadCrumbs !!}
+@endif
+
 <!-- jQuery first 3.3.1 NotSlim, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- Images LazyLoad -->
