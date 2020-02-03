@@ -64,16 +64,12 @@ class AdsController extends Controller
     public function disable_ad_ajax(Request $request)
     {
         if ($request->has('ad_id') && $request->has('api_token')) {
-
             $query = Ad::query();
             $ad = $query->findOrFail($request->input('ad_id'));
-
             if ($ad->owner->api_token == $request->input('api_token')) {
-
                 //Is active or not?
                 ($ad->active == 0) ? $ad->active = 1 : $ad->active = 0;
                 $ad->update();
-
                 return response()->json($ad);
             }
         }
