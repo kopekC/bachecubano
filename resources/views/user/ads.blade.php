@@ -69,6 +69,7 @@
                         <!-- adstatusactive/adstatusinactive/adstatussold-->
                         <td data-title="Ad Status">
                             <input type="checkbox" class="bs-toggle" @if($ad->active == 1) checked @endif data-toggle="toggle" data-size="mini" data-ad_id="{{ $ad->id }}" data-onstyle="success" data-offstyle="danger" data-on="Activo" data-off="Inactivo">
+                            <div id="console-event"></div>
                         </td>
                         <td data-title="Action">
                             <div class="btns-actions">
@@ -95,6 +96,22 @@
 @push('script')
 <!-- Button Toggle -->
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $('.bs-toggle').change(function() {
+        //Ajax call here to the Ad->id;
+        var ad = $(this);
+        //Disable
+        ad.bootstrapToggle('disable');
+        $.post("{{ route('disable-ad-ajax') }}?ad_id=" + ad.data("ad_id") + "&api_token=" + user_token, function(data) {
+            ad.bootstrapToggle('enable');
+        });
+    });
+</script>
 @endpush
 
 @endsection

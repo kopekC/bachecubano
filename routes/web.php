@@ -32,6 +32,9 @@ Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
 Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
 Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
 
+//Enable/Disable Ads via AJAX call
+Route::post('disable-ad-ajax', 'Api\AdsController@disable_ad_ajax')->name('disable-ad-ajax');
+
 //User Login/Register/Change Password routes
 Auth::routes();
 
