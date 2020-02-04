@@ -11,17 +11,16 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="{{ asset('css/bs.css') }}">
-    <!-- LineIcons CDN -->
-    <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
     <!-- Slicknav Responsive Menu -->
-    <!-- <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset('css/main2.css') }}">
-    <!-- Animate -->
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <!-- Responsive Style -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <!-- Animate -->
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <!-- LineIcons CDN -->
+    <link rel="stylesheet" href="{{ asset('css/LineIcons.min.css') }}">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400|Open+Sans">
 
