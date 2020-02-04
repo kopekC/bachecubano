@@ -75,7 +75,7 @@
                         </div>
                     </form>
 
-                    @if(is_array($category_formatted[$super_category->category_id]))
+                    @if(isset($super_category->category_id) && is_array($category_formatted[$super_category->category_id]))
                     <div class="widget categories p-2">
                         <h4 class="widget-title">Otras categorías:</h4>
                         <ul class="m-3">
