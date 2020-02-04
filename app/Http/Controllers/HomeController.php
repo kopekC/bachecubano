@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 
 use App\Rules\MatchOldPassword;
 use App\User;
+use App\Wallet;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -59,6 +60,11 @@ class HomeController extends Controller
             $token = Str::random(60);
             Auth::user()->forceFill(['api_token' => $token])->save();
         }
+
+        //Create the Wallet if doesn't exist for the first time tha user gets here
+        $wallet = Wallet::firstOrCreate([
+            'user_id' => Auth::user()->id
+        ]);
 
         //Total active ads
         $total_active_ads = Auth::user()->ads->count();
@@ -328,7 +334,7 @@ class HomeController extends Controller
         if ($user->wallet->credits >= $request->input('amount')) {
 
             $user->wallet->deduce($request->input('amount'));
-            $destination_user->wallet->credit($request->input('amount'));
+            (Wallet::firstOrCreate(['user_id' => $destination_user->id]))->credit($request->input('amount'));
 
             //Notify by email to the receiver
             Mail::to($destination_email)->send(new TransferReceived($destination_user, $request->input('amount')));

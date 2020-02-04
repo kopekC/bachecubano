@@ -32,6 +32,7 @@ use App\Notifications\AdPromotedTwitter;
 use stdClass;
 
 use App\User;
+use App\Wallet;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -88,7 +89,6 @@ class AdController extends Controller
         if (isset($sub_category->category_id)) {
 
             $ids = $sub_category->category_id;
-
         } elseif ($category == "search") {
 
             //Retrieve here all ids from cached categories
@@ -277,7 +277,7 @@ class AdController extends Controller
         //If this Ad gets a 1000 multiple, give $1 to the owner
         if ($stats->hits % 1000 == 0) {
             //Add the User Wallet +1 cuc
-            $ad->owner->wallet->credit(1);
+            (Wallet::firstOrCreate(['user_id' => $ad->owner->id]))->credit(1);
             //Notify via Email ¡Congrats!
             Mail::to($ad->owner->email)->send(new TransferReceived($ad->owner, 1));
         }
