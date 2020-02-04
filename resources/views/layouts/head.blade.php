@@ -17,11 +17,14 @@
     <!-- <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
     <!-- Main Style -->
-    <link rel="stylesheet" href="{{ asset('css/main1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main2.css') }}">
     <!-- Animate -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <!-- Responsive Style -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400|Open+Sans">
+
 
     @stack('style')
 
