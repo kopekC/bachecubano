@@ -75,6 +75,7 @@
                         </div>
                     </form>
 
+                    {{--
                     @if(isset($super_category->category_id) && is_array($category_formatted[$super_category->category_id]))
                     <div class="widget categories p-2">
                         <h4 class="widget-title">Otras categorías:</h4>
@@ -90,6 +91,7 @@
                         </ul>
                     </div>
                     @endif
+                    --}}
 
                     <!-- Explicit Ad Left Square -->
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="1908002875" data-ad-format="auto" data-full-width-responsive="true"></ins>
