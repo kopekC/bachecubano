@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
 
 //Welcome Route
-Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300');         //Cache 5min
+Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300', 'cache.headers:private,max-age=300;etag');         //Cache 5min as private content FORCED
 
 //Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
