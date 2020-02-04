@@ -9,11 +9,12 @@
 @endif
 
 <!-- jQuery first 3.3.1 NotSlim, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <!-- Images LazyLoad -->
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.0/lazysizes.min.js"></script>
+<script async src="{{ asset('js/lazysizes.min.js') }}"></script>
 <!-- Twitter Bootstrap & Behaviors Like Tooltips etc -->
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script async src="{{ asset('js/popper.min.js') }}"></script>
+<!-- Bootstrap JS -->
 <script async src="{{ asset('js/bs.js') }}"></script>
 <!-- Responsive Navigation Menu -->
 <script async src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
