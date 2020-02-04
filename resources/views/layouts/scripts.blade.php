@@ -11,13 +11,13 @@
 <!-- jQuery first 3.3.1 NotSlim, then Popper.js, then Bootstrap JS -->
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <!-- Images LazyLoad -->
-<script async src="{{ asset('js/lazysizes.min.js') }}"></script>
+<script src="{{ asset('js/lazysizes.min.js') }}"></script>
 <!-- Twitter Bootstrap & Behaviors Like Tooltips etc -->
-<script async src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
 <!-- Bootstrap JS -->
-<script async src="{{ asset('js/bs.js') }}"></script>
+<script src="{{ asset('js/bs.js') }}"></script>
 <!-- Responsive Navigation Menu -->
-<script async src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
+<script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
 <!--Google Adesense -->
 <script async data-ad-client="ca-pub-9876511577005081" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
