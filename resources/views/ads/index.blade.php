@@ -38,12 +38,9 @@
         <div class="row">
             <div class="col-lg-2 col-md-12 col-xs-12 page-sidebar">
                 <aside>
-                    <!-- Searcg Widget -->
+                    <!-- Search Widget -->
                     <form role="search" id="search-form" method="get">
-
                         <!-- Show here as hidden elements all input parameters by now -->
-                        <!--TODO Un foreach de cada input? -->
-
                         <div class="widget categories p-2">
 
                             <h4 class="widget-title">Filtrado</h4>
@@ -58,13 +55,13 @@
                             <input type="number" class="form-control mb-1" autocomplete="on" name="max_price" placeholder="Precio Max" value="{{$request->input('max_price', '')}}">
 
                             <!-- CheckBox with only photos -->
-                            <div class="custom-checkbox ml-2">
+                            <div class="custom-checkbox ml-2 mb-2">
                                 <input type="checkbox" class="form-control-input mb-1" name="only_photos" @if($request->has('only_photos')) checked @endif>
                                 <label>Sólo anuncios con fotos</label>
                             </div>
 
                             <!-- CheckBox with only Affiliates Stores -->
-                            <div class="custom-checkbox ml-2">
+                            <div class="custom-checkbox ml-2 mb-2">
                                 <input type="checkbox" class="form-control-input mb-1" name="only_stores" @if($request->has('only_stores')) checked @endif>
                                 <label>Sólo tiendas asociadas</label>
                             </div>
@@ -77,6 +74,22 @@
                             <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>
                         </div>
                     </form>
+
+                    @if(is_array($category_formatted[$super_category->category_id]))
+                    <div class="widget categories p-2">
+                        <h4 class="widget-title">Otras categorías:</h4>
+                        <ul class="m-3">
+                            @foreach($category_formatted[$super_category->category_id] as $sub_category)
+                            <li>
+                                <a href="{{ route('category_index', ['category' => $super_category->slug, 'subcategory' => $sub_category->slug]) }}">
+                                    <span>{{ $sub_category->name }}</span>
+                                    <span></span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                     <!-- Explicit Ad Left Square -->
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="1908002875" data-ad-format="auto" data-full-width-responsive="true"></ins>

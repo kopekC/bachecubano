@@ -90,6 +90,7 @@ class AdController extends Controller
             //Retrieve here all ids from cached categories
             $all_cats = Cache::get('cached_categories');
             $super_category = new stdClass();
+            $super_category->id = 0;
             $super_category->name = $seo_data['title'];
             $super_category->description = $seo_data['desc'];
             $super_category->slug = 'search?s' . $request->input('s');

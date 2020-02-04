@@ -26,7 +26,7 @@
                             </li>
 
                             {{-- Breaking this foreach at 6 subcategories, try to pass to JQuery and show all --}}
-                            @if($loop->index >= 5)
+                            @if($loop->index >= 6)
                             <li>
                                 <a href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">
                                     <span>Ver Todo <i class="lni-arrow-right"></i></span>

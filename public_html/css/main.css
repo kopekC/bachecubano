@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:500,700|Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,400|Open+Sans);
 html{overflow-x:hidden}
 body{background:#fff;font-size:14px;font-weight:500;font-family:Montserrat,'Open Sans',sans-serif;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-font-smoothing:subpixel-antialiased;color:#333;line-height:25px;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow-x:hidden}
 h1,h2,h3,h4{font-size:36px;font-weight:700}
