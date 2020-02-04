@@ -60,12 +60,10 @@ class AdController extends Controller
             if ($request->has('s')) {
                 $seo_data = ['title' => "Buscando " . $request->input('s') . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $request->input('s') . " en Bachecubano "];
             } else {
-                //Old Bachecubano search pattern fix if found something
-                $search_term = str_replace("+", " ", explode(",", $subcategory));
-                if (isset($search_term[1])) {
-                    //Merge Request Data
-                    $request->merge(['s' => $search_term[1]]);
-                    $seo_data = ['title' => "Buscando " . $search_term[1] . " en Bachecubano ", 'desc' => "Buscando anuncios con " . $search_term[1] . " en Bachecubano "];
+                //Old fashoined search url now with a 301 redirect url
+                $pattern_query = explode(",", $subcategory);
+                if (isset($pattern_query[1])) {
+                    return redirect(config('app.url') . "search?s=" . $pattern_query[1], 301);
                 } else {
                     abort(404);
                 }
@@ -87,10 +85,8 @@ class AdController extends Controller
         //Category Condition if subcategory or Super Category
         //If Pass a single ID, its a subcategory, if pass an array its a supercategory
         if (isset($sub_category->category_id)) {
-
             $ids = $sub_category->category_id;
         } elseif ($category == "search") {
-
             //Retrieve here all ids from cached categories
             $all_cats = Cache::get('cached_categories');
             $super_category = new stdClass();
@@ -102,7 +98,6 @@ class AdController extends Controller
             foreach ($all_cats as $subcategory)
                 $ids[] = $subcategory->id;
         } else {
-
             $sub_categories = Category::where('parent_id', '=', $super_category->category_id)->select('id')->get();
             $ids = [];
             foreach ($sub_categories as $subcategory)
