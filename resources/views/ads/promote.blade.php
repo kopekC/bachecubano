@@ -199,13 +199,14 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="container">
         <div id="list-view" class="tab-pane fade active show">
             <div class="row">
                 @include('blocks.ad-block-h')
             </div>
         </div>
-
     </div>
 </section>
 <!-- Pricing Table Section End -->
