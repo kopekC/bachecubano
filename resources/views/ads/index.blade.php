@@ -75,7 +75,6 @@
                         </div>
                     </form>
 
-
                     <!-- Categories Widget -->
                     @if(isset($super_category->category_id) && is_array($category_formatted[$super_category->category_id]))
                     <div class="widget categories">
@@ -189,28 +188,10 @@
                     {{ $ads->links() }}
                 </div>
 
-                <!-- Start Pagination
-                <div class="pagination-bar">
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                End Pagination -->
-
             </div>
         </div>
     </div>
 </div>
 <!-- Main container End -->
-
-@push('script')
-<script>
-</script>
-@endpush
 
 @endsection
