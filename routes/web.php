@@ -38,6 +38,9 @@ Route::post('disable-ad-ajax', 'Api\AdsController@disable_ad_ajax')->name('disab
 //User Login/Register/Change Password routes
 Auth::routes();
 
+//CSS controller
+Route::get('/css/bachecubano.css', 'WelcomeController@bachecubano_css')->name('bachecubano_css');
+
 // Posts resourcfull controllers routes
 Route::get('/blog/create', 'PostController@create')->name('blog_post_create');
 Route::resource('/blog', 'PostController');

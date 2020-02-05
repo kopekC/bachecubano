@@ -249,4 +249,31 @@ class WelcomeController extends Controller
 
         return view('terms', compact('search_bar'));
     }
+
+    /**
+     * Display basic CSS files in one
+     */
+    public function bachecubano_css()
+    {
+        // First of all send css header
+        header("Content-type: text/css");
+        // Array of css files
+        $css = [
+            'css/bs.css',
+            'css/slicknav.min.css',
+            'css/main2.css',
+            'css/responsive.css',
+            'css/animate.css',
+            'css/LineIcons.min.css'
+        ];
+        // Prevent a notice
+        $css_content = '';
+        // Loop the css Array
+        foreach ($css as $css_file) {
+            // Load the content of the css file 
+            $css_content .= file_get_contents($css_file);
+        }
+        // print the css content
+        echo $css_content;
+    }
 }

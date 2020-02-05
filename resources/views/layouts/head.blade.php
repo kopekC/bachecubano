@@ -9,6 +9,7 @@
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
 
+    {{--
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="{{ asset('css/bs.css') }}">
     <!-- Slicknav Responsive Menu -->
@@ -21,9 +22,13 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <!-- LineIcons CDN -->
     <link rel="stylesheet" href="{{ asset('css/LineIcons.min.css') }}">
+    --}}
+
+    <!-- All above combined -->
+    <link rel="stylesheet" href="{{ config('app.url') }}css/bachecubano.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400|Open+Sans">
-
 
     @stack('style')
 
