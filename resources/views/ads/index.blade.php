@@ -75,23 +75,23 @@
                         </div>
                     </form>
 
-                    {{--
+
+                    <!-- Categories Widget -->
                     @if(isset($super_category->category_id) && is_array($category_formatted[$super_category->category_id]))
-                    <div class="widget categories p-2">
+                    <div class="widget categories">
                         <h4 class="widget-title">Otras categorías:</h4>
-                        <ul class="m-3">
+                        <ul class="categories-list">
                             @foreach($category_formatted[$super_category->category_id] as $sub_category)
                             <li>
                                 <a href="{{ route('category_index', ['category' => $super_category->slug, 'subcategory' => $sub_category->slug]) }}">
-                                    <span>{{ $sub_category->name }}</span>
-                                    <span></span>
+                                    <i class="lni-{{ $super_category->category->icon }}"></i>
+                                    {{ $sub_category->name }}
                                 </a>
                             </li>
                             @endforeach
                         </ul>
                     </div>
                     @endif
-                    --}}
 
                     <!-- Explicit Ad Left Square -->
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="1908002875" data-ad-format="auto" data-full-width-responsive="true"></ins>

@@ -129,7 +129,7 @@
                     <hr>
                     <!-- If the Ad owner has a signature, show here -->
                     @if(isset($ad->owner->signature))
-                    <p>
+                    <p class="signature mb-4">
                         {!! nl2br($ad->owner->signature) !!}
                     </p>
                     @endif
