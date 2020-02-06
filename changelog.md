@@ -1,3 +1,9 @@
+### v1.02
+
+    - Agregado el Google Analytics localhost  
+    - Cambiado el 👍🏼 por el ❤ en los anuncios  
+    - Buscador entre solamente los anuncios propios  
+
 ### v1.01
 
     - Mejorada la interfaz de presentacion de anuncios del perfil de usuario  

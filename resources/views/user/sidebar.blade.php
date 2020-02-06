@@ -41,8 +41,8 @@
                 </li>
                 <li>
                     <a href="{{ route('my_favourite') }}" class="{{ \Route::current()->getName() == 'my_favourite' ? 'active' : ''}}">
-                        <i class="lni-thumbs-up"></i>
-                        <span>Me Gusta</span>
+                        <i class="lni-heart"></i>
+                        <span>Favoritos</span>
                     </a>
                 </li>
                 <li>

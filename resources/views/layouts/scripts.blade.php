@@ -31,7 +31,7 @@
 </script>
 
 <script src="{{ asset('js/wow.js') }}"></script>
-<script src="{{ asset('js/main3.js') }}"></script>
+<script src="{{ asset('js/main4.js') }}"></script>
 
 @stack('script')
 
@@ -49,11 +49,13 @@
     })();
 </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) -->
+<!-- local GA 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-3"></script>
+-->
+<script src="{{ asset('js/analytics.js') }}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-
     function gtag() {
         dataLayer.push(arguments);
     }

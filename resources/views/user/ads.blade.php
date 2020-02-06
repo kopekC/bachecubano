@@ -35,6 +35,19 @@
                             @endforeach
                         </select>
                     </li>
+                    <li class="float-right">
+                        <form action="{{ route('my_ads') }}">
+                            <div class="search-inner">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="search-query">
+                                            <input type="text" name="s" class="form-control" placeholder="Buscar entre tus anuncios" autocomplete="on" value="{{ $request->input('s') }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
                 </ul>
             </nav>
 

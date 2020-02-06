@@ -152,6 +152,13 @@ class HomeController extends Controller
             $query->where('active', 0);
         }
 
+        //Search terms
+        if ($request->has('s') && $request->input('s') != "") {
+            $query->whereHas('description', function ($query) use ($request) {
+                $query->where('title', 'LIKE', "%{$request->input('s')}%");
+            });
+        }
+
         //Order latest Update
         $query->latest();
 

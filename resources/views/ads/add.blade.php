@@ -293,9 +293,6 @@
         //Hide i element
         delete_asset.children("i").toggleClass('d-none');
         $.post("{{ route('delete-image-ajax') }}?res_id=" + $(this).data("delete-item") + "&api_token=" + user_token, function(data) {
-            //Toggle Thumbs
-            //like_btn.children("i").toggleClass('lni-thumbs-down');
-            //like_btn.children("i").toggleClass('lni-thumbs-up');
             delete_asset.parent().addClass('d-none');
             //Hide spinner
             like_btn.children("div").toggleClass('d-none');

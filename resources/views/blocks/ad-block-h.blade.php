@@ -2,7 +2,7 @@
     <div class="featured-box">
         <figure>
             <div class="icon">
-                <a href="#!" class="like" data-ad_id="{{ $ad->id }}"><i class="lni-thumbs-up"></i></a>
+                <a href="#!" class="like" data-ad_id="{{ $ad->id }}"><i class="lni-heart"></i></a>
             </div>
             <a href="{{ ad_url($ad) }}">
                 <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">

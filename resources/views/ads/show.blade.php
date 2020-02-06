@@ -172,13 +172,13 @@
                                     @auth
                                     @if(Auth::getUser()->hasLiked($ad))
                                     <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
-                                    <i class="lni-thumbs-down"></i>
+                                    <i class="lni-heart-filled"></i>
                                     @else
                                     <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
-                                    <i class="lni-thumbs-up"></i>
+                                    <i class="lni-heart"></i>
                                     @endif
                                     @else
-                                    <i class="lni-thumbs-up"></i>
+                                    <i class="lni-heart"></i>
                                     @endauth
                                 </a>
                                 <a class="facebook mb-2" href="{{ route('share', ['network' => 'facebook', 'url' => base64_encode(URL::current()), 'text' => base64_encode($ad->description->title)]) }}"><i class="lni-facebook"></i></a>
