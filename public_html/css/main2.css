@@ -285,11 +285,11 @@ to{opacity:1}
 .category-box .category-counter{margin-right:15px}
 .category-counter{font-size:12px;color:#888;float:right}
 #list-view .featured-box{display:inline-block}
-#list-view .featured-box figure{float:left;width:33.33%}
-#list-view .featured-box .feature-content{float:left;text-align:left;padding:0 15px 10px 30px;width:66.667%}
-#list-view .list-box figure{float:left;width:38%}
+#list-view .featured-box figure{float:left;width:25%}
+#list-view .featured-box .feature-content{float:left;text-align:left;padding:0 15px 10px 30px;width:75%}
+#list-view .list-box figure{float:left;width:25%}
 #list-view .list-box figure img{height:218px;width:100%}
-#list-view .list-box .feature-content{float:left;text-align:left;padding:0;width:58%;margin-left:20px}
+#list-view .list-box .feature-content{float:left;text-align:left;padding:0;width:75%;margin-left:20px}
 .product-filter{margin-bottom:10px;background:#fafafa;display:inline-block;width:100%;padding:10px 15px;line-height:20px}
 .product-filter .nav-tabs{float:right;margin-right:10px;border:none}
 .product-filter .nav-tabs .nav-link{font-size:22px;border:none;padding:2px 10px;border-radius:4px;color:#999;background:0 0}

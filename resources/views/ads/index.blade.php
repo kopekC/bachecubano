@@ -77,7 +77,7 @@
 
                     <!-- Categories Widget -->
                     @if(isset($super_category->category_id) && is_array($category_formatted[$super_category->category_id]))
-                    <div class="widget categories">
+                    <div class="widget categories d-none d-lg-block">
                         <h4 class="widget-title">Otras categorías:</h4>
                         <ul class="categories-list">
                             @foreach($category_formatted[$super_category->category_id] as $sub_category)

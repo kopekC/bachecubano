@@ -57,7 +57,7 @@ class Ad extends Model implements Rateable
     }
 
     /**
-     * Get the location
+     * Get the promotype
      */
     public function promo()
     {
@@ -67,7 +67,7 @@ class Ad extends Model implements Rateable
     }
 
     /**
-     * Get the location
+     * Get the resources
      */
     public function resources()
     {
@@ -75,7 +75,7 @@ class Ad extends Model implements Rateable
     }
 
     /**
-     * Get the location
+     * Get the stats
      */
     public function stats()
     {

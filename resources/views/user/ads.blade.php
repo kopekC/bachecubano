@@ -37,18 +37,9 @@
                     </li>
                 </ul>
             </nav>
-            <table class="table dashboardtable tablemyads">
-                <thead>
-                    <tr>
-                        <th class="text-center">Foto</th>
-                        <th>Precio</th>
-                        <th>Título</th>
-                        <th class="text-center">Categoría</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-center">Ajustes</th>
-                    </tr>
-                </thead>
-                <tbody>
+
+            <div id="list-view" class="tab-pane fade active show">
+                <div class="row">
 
                     <!-- Explicit Horizontal Ad -->
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="2887444455" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -58,47 +49,52 @@
 
                     @if($my_ads)
                     @foreach($my_ads as $ad)
-                    <tr data-category="active">
-                        <td class="photo">
-                            <img class="img-fluid lazyload" src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
-                        </td>
-                        <td data-title="Price">
-                            <h3>{{ ad_price($ad) }}</h3>
-                        </td>
-                        <td data-title="Title">
-                            <a href="{{ ad_url($ad) }}">
-                                <h3>{{ $ad->description->title }}</h3>
-                            </a>
-                            <span>ID: {{ $ad->id }}</span>
-                            <span>Promo: {{ ad_promotion_text_type($ad->promo) }} Vence: {{ $ad->promo->end_promo }}</span>
-                        </td>
-                        <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
-                        <!-- adstatusactive/adstatusinactive/adstatussold-->
-                        <td data-title="Ad Status">
-                            <input type="checkbox" class="bs-toggle" @if($ad->active == 1) checked @endif data-toggle="toggle" data-size="mini" data-ad_id="{{ $ad->id }}" data-onstyle="success" data-offstyle="danger" data-on="Activo" data-off="Inactivo">
-                            <div id="console-event"></div>
-                        </td>
-                        <td data-title="Action">
-                            <div class="btns-actions">
-                                <!-- <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a> Analiticas -->
-                                <a class="btn-action btn-view" href="{{ route('promote_ad', ['ad' => $ad]) }}" title="Promocionar anuncio"><i class="lni-dollar"></i></a>
-                                <a class="btn-action btn-edit" href="{{ route('ad.edit', ['ad' => $ad]) }}" title="Editar anuncio"><i class="lni-pencil"></i></a>
-                                <a class="btn-action btn-delete" href="{{route('delete_ad', ['ad' => $ad])}}?api_token={{Auth::user()->api_token}}" title="Eliminar anuncio"><i class="lni-trash"></i></a>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="featured-box">
+                            <figure>
+                                <div class="icon">
+                                    <i class="lni-heart"></i>
+                                </div>
+                                <a href="{{ ad_url($ad) }}"><img class="img-fluid lazyload" src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}"></a>
+                            </figure>
+                            <div class="feature-content">
+                                <div class="product">
+                                    <a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->parent->icon }}"></i> {{ $ad->category->description->name }}</a>
+                                </div>
+                                <h4><a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a></h4>
+                                <span>Actualizado: {{ $ad->created_at->diffForHumans() }}</span>
+                                <ul class="address">
+                                    <li>
+                                        <a href="#" title="ID del anuncio"><i class="lni-information"></i> {{ $ad->id }}</a>
+                                    </li>
+                                    <li class="ml-2">
+                                        <a href="#"><i class="lni-map-marker"></i>{{ $ad->location->title }}</a>
+                                    </li>
+                                </ul>
+                                <input type="checkbox" class="bs-toggle" @if($ad->active == 1) checked @endif data-toggle="toggle" data-size="mini" data-ad_id="{{ $ad->id }}" data-onstyle="success" data-style="float-right" data-offstyle="danger" data-on="Activo" data-off="Inactivo">
+                                <div class="listing-bottom">
+                                    <h3 class="price float-left">{{ ad_price($ad) }}</h3>
+                                    <!--
+                                    <a href="#" class="btn-verified float-right"><i class="lni-check-box"></i> Verificado</a>
+                                    -->
+                                    <a class="btn btn-verified btn-delete float-right" href="{{route('delete_ad', ['ad' => $ad])}}?api_token={{Auth::user()->api_token}}" title="Eliminar anuncio"><i class="lni-trash"></i></a>
+                                    <a class="btn btn-verified btn-edit float-right" href="{{ route('ad.edit', ['ad' => $ad]) }}" title="Editar anuncio"><i class="lni-pencil"></i></a>
+                                    <a class="btn btn-verified btn-view float-right" href="{{ route('promote_ad', ['ad' => $ad]) }}" title="Promocionar anuncio"><i class="lni-dollar"></i></a>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                     @endforeach
                     @endif
-                </tbody>
-            </table>
-            {{ $my_ads->links() }}
-            <hr>
-            <a class="e-widget no-button" href="https://gleam.io/ZdsXz/pullover-bachecubano-youtube" rel="nofollow">Pullover Bachecubano Youtube</a>
-            <script type="text/javascript" src="https://widget.gleamjs.io/e.js" async="true"></script>
+                    {{ $my_ads->links() }}
+                    <hr>
+                    <a class="e-widget no-button" href="https://gleam.io/ZdsXz/pullover-bachecubano-youtube" rel="nofollow">Pullover Bachecubano Youtube</a>
+                    <script type="text/javascript" src="https://widget.gleamjs.io/e.js" async="true"></script>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 
 @push('script')
 <!-- Button Toggle -->
