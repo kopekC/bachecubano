@@ -1,3 +1,8 @@
+### v1.03
+
+    - Fixed minor errors  
+    - Local Foxpush  
+
 ### v1.02
 
     - Agregado el Google Analytics localhost  
