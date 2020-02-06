@@ -41,7 +41,7 @@
     _foxpush.push(['_setDomain', 'bachecubanocom']);
     (function() {
         var foxscript = document.createElement('script');
-        foxscript.src = '//www.bachecubano.com/foxpush_SDK_min.js';
+        foxscript.src = '//www.bachecubano.com/js/foxpush_SDK_min.js';
         foxscript.type = 'text/javascript';
         foxscript.async = 'true';
         var fox_s = document.getElementsByTagName('script')[0];
