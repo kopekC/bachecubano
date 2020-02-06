@@ -112,6 +112,31 @@ if (!function_exists('ad_promotion_text_type')) {
     }
 }
 
+//Promotion Type
+if (!function_exists('ad_promotion_color_type')) {
+    /**
+     * Obtiene el tipo de promocion de un anuncio basado en el promotype
+     */
+    function ad_promotion_color_type($ad)
+    {
+        $promo_types = [
+            0 => "white",
+            1 => 'gray',
+            2 => 'mandarina',
+            3 => 'yellow',
+            4 => 'blue',
+            5 => 'red',
+            6 => 'scrolling'
+        ];
+
+        if (!isset($ad->promotype)) {
+            return "white";
+        } else {
+            return $promo_types[$ad->promotype];
+        }
+    }
+}
+
 //Sanitize description elements
 if (!function_exists('text_clean')) {
     /**

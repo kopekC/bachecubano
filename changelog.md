@@ -1,3 +1,11 @@
+### v1.1
+
+    - Removed TrimUrl from pageSpeed package (causes errors with og)  
+    - Added progress bar on top of user ads panel for every ad  
+    - Red color for finishing progress bars  
+    - Updating league/flysystem (1.0.63 => 1.0.64)  
+    - Evaluate $category_formatted[$super_category->category_id] existence  
+
 ### v1.03
 
     - Fixed minor errors  

@@ -64,6 +64,12 @@
                     @foreach($my_ads as $ad)
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="featured-box">
+                            @if($ad->promo->promotype > 0)
+                            <div class="progress" style="height: 4px;" title="Anuncio con promoción {{ ad_promotion_text_type($ad->promo) }}">
+                                @php $vence = new \Carbon\Carbon($ad->promo->end_promo); $difference = ($vence->diff($today)->days < 1) ? 0 : $vence->diffInDays($today); $percent = ($difference/30)*100; @endphp
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated @if($percent < 10) bg-danger @endif" role="progressbar" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            @endif
                             <figure>
                                 <div class="icon">
                                     <i class="lni-heart"></i>
@@ -81,7 +87,10 @@
                                         <a href="#" title="ID del anuncio"><i class="lni-information"></i> {{ $ad->id }}</a>
                                     </li>
                                     <li class="ml-2">
-                                        <a href="#"><i class="lni-map-marker"></i>{{ $ad->location->title }}</a>
+                                        <a href="#" title="Ubicación del anuncio"><i class="lni-map-marker"></i>{{ $ad->location->title }}</a>
+                                    </li>
+                                    <li class="ml-2">
+                                        <a href="#" title="Tipo de promoción del anuncio"><i class="lni-dollar"></i>{{ ad_promotion_text_type($ad->promo) }}</a>
                                     </li>
                                 </ul>
                                 <input type="checkbox" class="bs-toggle" @if($ad->active == 1) checked @endif data-toggle="toggle" data-size="mini" data-ad_id="{{ $ad->id }}" data-onstyle="success" data-style="float-right" data-offstyle="danger" data-on="Activo" data-off="Inactivo">
