@@ -39,10 +39,8 @@ Route::post('/disable-ad-ajax', 'Api\AdsController@disable_ad_ajax')->name('disa
 Auth::routes();
 
 //User Social Login Facebook so far
-Route::get('/redirect/facebook', 'SocialAuthFacebookController@redirect')->name('facebook_login');
-Route::get('/callback/facebook', 'SocialAuthFacebookController@callback')->name('facebook_callback');
-Route::get('/redirect/twitter', 'SocialAuthFacebookController@redirect')->name('twitter_login');
-Route::get('/callback/twitter', 'SocialAuthFacebookController@callback')->name('twitter_callback');
+Route::get('/redirect/{provider}', 'SocialController@redirect')->name('social_login');
+Route::get('/callback/{provider}', 'SocialController@callback')->name('social_callback');
 
 //CSS controller
 Route::get('/css/bachecubano.css', 'WelcomeController@bachecubano_css')->name('bachecubano_css');
