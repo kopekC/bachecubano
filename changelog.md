@@ -3,6 +3,7 @@
     - Added Facebook Login/Register
     - Added Twitter Login/Register
     - Fixed Product/BreaCrumbs SchemaLD
+    - Anyone can promote any Ad
 
 ### v1.1
 
