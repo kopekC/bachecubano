@@ -160,7 +160,16 @@ class AdController extends Controller
                 ->get();
         });
 
-        return view('ads.add', compact('promoted_ads', 'regions', 'edit'));
+        //BreadCrumbs
+        $BreadCrumbs = Schema::breadcrumbList()
+            ->itemListElement([
+                Schema::ListItem()
+                    ->position(1)
+                    ->name($seo_data['title'])
+                    ->item(config('app.url') . 'add')
+            ]);
+
+        return view('ads.add', compact('promoted_ads', 'regions', 'edit', 'BreadCrumbs'));
     }
 
     /**
