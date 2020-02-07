@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
+Route::get('/generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
 
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300', 'cache.headers:private,max-age=300;etag');         //Cache 5min as private content FORCED
@@ -28,15 +28,21 @@ Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cach
 Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
 
 //Image Manipulation
-Route::post('save-image', 'Api\ImageController@save')->name('save-image-ajax');
-Route::post('delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
-Route::post('save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
+Route::post('/save-image', 'Api\ImageController@save')->name('save-image-ajax');
+Route::post('/delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
+Route::post('/save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
 
 //Enable/Disable Ads via AJAX call
-Route::post('disable-ad-ajax', 'Api\AdsController@disable_ad_ajax')->name('disable-ad-ajax');
+Route::post('/disable-ad-ajax', 'Api\AdsController@disable_ad_ajax')->name('disable-ad-ajax');
 
 //User Login/Register/Change Password routes
 Auth::routes();
+
+//User Social Login Facebook so far
+Route::get('/redirect/facebook', 'SocialAuthFacebookController@redirect')->name('facebook_login');
+Route::get('/callback/facebook', 'SocialAuthFacebookController@callback')->name('facebook_callback');
+Route::get('/redirect/twitter', 'SocialAuthFacebookController@redirect')->name('twitter_login');
+Route::get('/callback/twitter', 'SocialAuthFacebookController@callback')->name('twitter_callback');
 
 //CSS controller
 Route::get('/css/bachecubano.css', 'WelcomeController@bachecubano_css')->name('bachecubano_css');
@@ -64,10 +70,10 @@ Route::get('/home/transfer_money', 'HomeController@transfer_money')->name('trans
 Route::post('/home/transfer_money', 'HomeController@transfer_money_post')->name('transfer_money_post');
 
 //Sitemap Creator Has to be here, On Api breaks Urls from generated indexes
-Route::get('sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
+Route::get('/sitemap', 'Api\SitemapController@sitemap_index')->name('sitemap_index');
 
 //Cart Routes
-Route::resource('cart', 'CartController');
+Route::resource('/cart', 'CartController');
 
 //Sharing Routes
 Route::get('/share/{network}/{url}/{text}', 'ShareController@index')->name('share');
@@ -97,3 +103,7 @@ Route::resource('ad', 'AdController');
 Route::domain('{store_name}.bachecubano.com')->group(function () {
     Route::get('store/{store_name}', 'StoreController@show')->name('store_index');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

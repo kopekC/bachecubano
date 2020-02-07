@@ -187,6 +187,11 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
         NotificationChannels\Telegram\TelegramServiceProvider::class,
+
+        /**
+         * Social Providers
+         */
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -246,5 +251,10 @@ return [
         'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
+
+        /**
+         * Social Login and integrations
+         */
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 ];

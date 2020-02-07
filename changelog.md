@@ -1,3 +1,9 @@
+### v1.2
+
+    - Added Facebook Login/Register
+    - Added Twitter Login/Register
+    - Fixed Product/BreaCrumbs SchemaLD
+
 ### v1.1
 
     - Removed TrimUrl from pageSpeed package (causes errors with og)  

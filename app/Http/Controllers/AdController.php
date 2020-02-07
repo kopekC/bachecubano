@@ -35,6 +35,7 @@ use App\User;
 use App\Wallet;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\SchemaOrg\Graph;
 
 class AdController extends Controller
 {
@@ -318,8 +319,9 @@ class AdController extends Controller
         $averageRating = $ad->raters(User::class)->count() > 0 ? $ad->averageRating(User::class) : '5';
         $raters = $ad->raters(User::class)->count() > 0 ? $ad->raters(User::class)->count() : '1';
 
+
         //Schema
-        $SchemaLD = Schema::Product()
+        $Product = Schema::Product()
             ->name($seo_data['title'])
             ->image(ad_first_image($ad))
             ->description($seo_data['desc'])
@@ -362,7 +364,11 @@ class AdController extends Controller
                     ->item(ad_url($ad)),
             ]);
 
-        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'BreadCrumbs', 'averageRating', 'raters', 'request', 'search_bar'));
+        $SchemaLD = new Graph();
+        $SchemaLD->add($Product);
+        $SchemaLD->add($BreadCrumbs);
+
+        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters', 'request', 'search_bar'));
     }
 
     /**
