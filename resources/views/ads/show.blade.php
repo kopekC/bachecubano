@@ -156,9 +156,14 @@
                             @endif
                         </div>
 
-                        @if(Auth::check() && Auth::getUser()->id == $ad->user_id)
+
+                        @auth
                         <hr>
+                        <!-- AnyBody can promote ads -->
                         <a class="btn btn-success btn-block" href="{{ route('promote_ad', ['ad' => $ad]) }}"><i class="lni-dollar"></i> Pomocionar</a>
+                        @endauth
+
+                        @if(Auth::check() && Auth::getUser()->id == $ad->user_id)
                         <a class="btn btn-info btn-block" href="{{ route('ad.edit', ['ad' => $ad]) }}"><i class="lni-pencil"></i> Editar anuncio</a>
                         <a class="btn btn-danger btn-block delete-ad" href="{{route('delete_ad', ['ad' => $ad])}}?api_token={{Auth::user()->api_token}}" title="Eliminar anuncio"><i class="lni-trash"></i> Eliminar anuncio</a>
                         @endif
