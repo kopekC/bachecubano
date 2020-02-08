@@ -29,7 +29,6 @@
 --}}
 
 @push('script')
-<script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
 <script>
     /* Search
     ========================================================*/

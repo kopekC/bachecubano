@@ -15,10 +15,10 @@
         <div class="dashboard-wrapper">
             <nav class="nav-table mb-1">
                 <ul>
-                    <li @if($request->has('all')) class="active" @endif><a href="{{ route('my_ads') }}?all=1">Todos ({{ $total_active_ads }})</a></li>
-                    <li @if($request->has('active')) class="active" @endif><a href="{{ route('my_ads') }}?active=1">Activos</a></li>
-                    <li @if($request->has('promoted')) class="active" @endif><a href="{{ route('my_ads') }}?promoted=1">Promovidos</a></li>
-                    <li @if($request->has('inactive')) class="active" @endif><a href="{{ route('my_ads') }}?inactive=1">Inactivos</a></li>
+                    <li @if(Request::has('all')) class="active" @endif><a href="{{ route('my_ads') }}?all=1">Todos ({{ $total_active_ads }})</a></li>
+                    <li @if(Request::has('active')) class="active" @endif><a href="{{ route('my_ads') }}?active=1">Activos</a></li>
+                    <li @if(Request::has('promoted')) class="active" @endif><a href="{{ route('my_ads') }}?promoted=1">Promovidos</a></li>
+                    <li @if(Request::has('inactive')) class="active" @endif><a href="{{ route('my_ads') }}?inactive=1">Inactivos</a></li>
                     <li class="float-right">
                         <select class="form-control" name="category_id" onchange="this.options[this.selectedIndex].value && (window.location = '{{ URL::current() }}?category_id=' + this.options[this.selectedIndex].value);">
                             <option value="">Agrupar Categoría</option>
@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="search-query">
-                                            <input type="text" name="s" class="form-control" placeholder="Buscar entre tus anuncios" autocomplete="on" value="{{ $request->input('s') }}">
+                                            <input type="text" name="s" class="form-control" placeholder="Buscar entre tus anuncios" autocomplete="on" value="{{ Request::input('s') }}">
                                         </div>
                                     </div>
                                 </div>

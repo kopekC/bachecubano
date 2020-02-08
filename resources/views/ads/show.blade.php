@@ -123,9 +123,9 @@
 
                     <hr>
                     <div id="content">
-                        @if(null !== $request->input('s'))
+                        @if(null !== Request::get('s'))
                         @php
-                        $search = $request->input('s');
+                        $search = Request::get('s');
                         $replace = "<span class='highlight'>".$search."</span>";
                         @endphp
                         {!! str_replace($search,$replace,$ad->description->description); !!}
@@ -244,7 +244,7 @@
 <!-- featured Listing -->
 
 <!-- if its a newly created ad Show Modal -->
-@if($request->has('new'))
+@if(Request::has('new'))
 @include('layouts.modal')
 @push('script')
 <script>

@@ -46,29 +46,29 @@
                             <h4 class="widget-title">Filtrado</h4>
 
                             <!-- Search Box -->
-                            <input type="search" class="form-control mb-1" autocomplete="on" name="s" placeholder="Buscar..." id="search-input" value="@if($request->has('s')){{$request->input('s')}}@endif">
+                            <input type="search" class="form-control mb-1" autocomplete="on" name="s" placeholder="Buscar..." id="search-input" value="@if(Request::has('s')){{Request::input('s')}}@endif">
 
                             <!-- Min Price -->
-                            <input type="number" class="form-control mb-1" autocomplete="on" name="min_price" placeholder="Precio Min" value="{{$request->input('min_price', '')}}">
+                            <input type="number" class="form-control mb-1" autocomplete="on" name="min_price" placeholder="Precio Min" value="{{Request::input('min_price', '')}}">
 
                             <!-- Max Price -->
-                            <input type="number" class="form-control mb-1" autocomplete="on" name="max_price" placeholder="Precio Max" value="{{$request->input('max_price', '')}}">
+                            <input type="number" class="form-control mb-1" autocomplete="on" name="max_price" placeholder="Precio Max" value="{{Request::input('max_price', '')}}">
 
                             <!-- CheckBox with only photos -->
                             <div class="custom-checkbox ml-2 mb-2">
-                                <input type="checkbox" class="form-control-input mb-1" name="only_photos" @if($request->has('only_photos')) checked @endif>
+                                <input type="checkbox" class="form-control-input mb-1" name="only_photos" @if(Request::has('only_photos')) checked @endif>
                                 <label>Sólo anuncios con fotos</label>
                             </div>
 
                             <!-- CheckBox with only Affiliates Stores -->
                             <div class="custom-checkbox ml-2 mb-2">
-                                <input type="checkbox" class="form-control-input mb-1" name="only_stores" @if($request->has('only_stores')) checked @endif>
+                                <input type="checkbox" class="form-control-input mb-1" name="only_stores" @if(Request::has('only_stores')) checked @endif>
                                 <label>Sólo tiendas asociadas</label>
                             </div>
 
                             <!--Hidden Fields -->
-                            @if($request->has('order_by'))
-                            <input type="hidden" name="order_by" value="{{ $request->order_by }}">
+                            @if(Request::has('order_by'))
+                            <input type="hidden" name="order_by" value="{{ Request::order_by }}">
                             @endif
 
                             <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>
@@ -116,10 +116,10 @@
                         <form class="woocommerce-ordering" method="post">
                             <label>
                                 <select name="order" class="orderby" onchange="this.options[this.selectedIndex].value && (window.location = '?order_by=' + this.options[this.selectedIndex].value);">
-                                    <option @if($request->has('order_by') && $request->order_by == 'updated_at') selected @endif value="updated_at">Fecha Modificación</option>
-                                    <option @if($request->has('order_by') && $request->order_by == 'popularity') selected @endif value="popularity">Popularidad</option>
-                                    <option @if($request->has('order_by') && $request->order_by == 'lower_price') selected @endif value="lower_price">Menor Precio</option>
-                                    <option @if($request->has('order_by') && $request->order_by == 'greather_price') selected @endif value="greather_price">Mayor Precio</option>
+                                    <option @if(Request::has('order_by') && Request::order_by == 'updated_at') selected @endif value="updated_at">Fecha Modificación</option>
+                                    <option @if(Request::has('order_by') && Request::order_by == 'popularity') selected @endif value="popularity">Popularidad</option>
+                                    <option @if(Request::has('order_by') && Request::order_by == 'lower_price') selected @endif value="lower_price">Menor Precio</option>
+                                    <option @if(Request::has('order_by') && Request::order_by == 'greather_price') selected @endif value="greather_price">Mayor Precio</option>
                                 </select>
                             </label>
                         </form>

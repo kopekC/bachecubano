@@ -5,6 +5,8 @@
     - Updated main2.css
     - Updated bachecubano.css
     - Combined bachecubano.js
+    - Removed counter up
+    - Using Request::get('city') on ad block
 
 ### v1.2
 
