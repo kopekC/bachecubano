@@ -169,7 +169,7 @@ class HomeController extends Controller
         //Today date
         $today = Carbon::today();
 
-        return view('user.ads', compact('request', 'section_name', 'total_active_ads', 'my_ads', 'search_bar', 'today'));
+        return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads', 'search_bar', 'today'));
     }
 
     /**

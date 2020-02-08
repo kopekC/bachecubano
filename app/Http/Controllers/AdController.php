@@ -118,7 +118,7 @@ class AdController extends Controller
         //Paginate all this
         $ads = AdController::getAds($request, $ids);
 
-        return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page', 'request', 'BreadCrumbs'));
+        return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page', 'BreadCrumbs'));
     }
 
     /**
@@ -377,7 +377,7 @@ class AdController extends Controller
         $SchemaLD->add($Product);
         $SchemaLD->add($BreadCrumbs);
 
-        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters', 'request', 'search_bar'));
+        return view('ads.show', compact('ad', 'promoted_ads', 'SchemaLD', 'averageRating', 'raters', 'search_bar'));
     }
 
     /**
