@@ -257,6 +257,7 @@ class WelcomeController extends Controller
     {
         // First of all send css header
         header("Content-type: text/css");
+
         // Array of css files
         $css = [
             'css/bs.css',
@@ -266,14 +267,47 @@ class WelcomeController extends Controller
             'css/animate.css',
             'css/LineIcons.min.css'
         ];
+
         // Prevent a notice
         $css_content = '';
+
         // Loop the css Array
         foreach ($css as $css_file) {
             // Load the content of the css file 
             $css_content .= file_get_contents($css_file);
         }
+
         // print the css content
         echo $css_content;
+    }
+
+    public function bachecubano_js()
+    {
+        // First of all send css header
+        header("Content-type: application/javascript");
+
+        // Array of css files
+        $js = [
+            'js/jquery-3.3.1.min.js',
+            'js/lazysizes.min.js',
+            'js/popper.min.js',
+            'js/bs.js',
+            'js/jquery.slicknav.min.js',
+            'js/wow.js',
+            'js/main4.js',
+            'js/analytics.js'
+        ];
+
+        // Prevent a notice
+        $js_content = '';
+
+        // Loop the css Array
+        foreach ($js as $js_file) {
+            // Load the content of the css file 
+            $js_content .= file_get_contents($js_file);
+        }
+
+        // print the css content
+        echo $js_content;
     }
 }

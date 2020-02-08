@@ -1,3 +1,11 @@
+### v1.3
+
+    - Highlight search results keywords
+    - pass 's' GET paraemter to every show route (furter analytics)
+    - Updated main2.css
+    - Updated bachecubano.css
+    - Combined bachecubano.js
+
 ### v1.2
 
     - Added Facebook Login/Register

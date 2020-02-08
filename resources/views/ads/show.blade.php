@@ -123,7 +123,15 @@
 
                     <hr>
                     <div id="content">
+                        @if(null !== $request->input('s'))
+                        @php
+                        $search = $request->input('s');
+                        $replace = "<span class='highlight'>".$search."</span>";
+                        @endphp
+                        {!! str_replace($search,$replace,$ad->description->description); !!}
+                        @else
                         {!! nl2br($ad->description->description) !!}
+                        @endif
                     </div>
 
                     <hr>

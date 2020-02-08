@@ -8,6 +8,16 @@
 {!! $BreadCrumbs !!}
 @endif
 
+<!-- Checkout This as the img logos for use later in main.js -->
+<script>
+    var logo = "{{ asset('img/logo-bachecubano.png') }}";
+    var logo_w = "{{ asset('img/logo-bachecubano-w.png') }}";
+    var user_token = "@auth{{Auth::user()->api_token}}@endauth";
+    var api_server = "{{ config('app.api_url') }}";
+    var current_url = "{{ URL::current() }}";
+</script>
+
+{{--
 <!-- jQuery first 3.3.1 NotSlim, then Popper.js, then Bootstrap JS -->
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <!-- Images LazyLoad -->
@@ -18,20 +28,16 @@
 <script src="{{ asset('js/bs.js') }}"></script>
 <!-- Responsive Navigation Menu -->
 <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
-<!--Google Adesense -->
-<script async data-ad-client="ca-pub-9876511577005081" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- Checkout This as the img logos for use later in main.js -->
-<script>
-    var logo = "{{ asset('img/logo-bachecubano.png') }}";
-    var logo_w = "{{ asset('img/logo-bachecubano-w.png') }}";
-    var user_token = "@auth{{Auth::user()->api_token}}@endauth";
-    var api_server = "{{ config('app.api_url') }}";
-    var current_url = "{{ URL::current() }}";
-</script>
-
 <script src="{{ asset('js/wow.js') }}"></script>
 <script src="{{ asset('js/main4.js') }}"></script>
+<script src="{{ asset('js/analytics.js') }}"></script>
+--}}
+
+<!-- All above combined -->
+<script src="{{ route('bachecubano_js') }}"></script>
+
+<!--Google Adesense -->
+<script async data-ad-client="ca-pub-9876511577005081" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 @stack('script')
 
@@ -53,9 +59,10 @@
 <!-- local GA 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-3"></script>
 -->
-<script src="{{ asset('js/analytics.js') }}"></script>
+
 <script>
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
         dataLayer.push(arguments);
     }

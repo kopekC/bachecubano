@@ -13,9 +13,19 @@
         </div>
         <div class="product-content">
             <h3 class="product-title">
-                <a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a>
+                <a href="{{ ad_url($ad) }}@if(null !== $request->input('s'))?s={{$request->input('s')}}@endif">
+                    @if(null !== $request->input('s'))
+                    @php
+                    $search = $request->input('s');
+                    $replace = "<span class='highlight'>".$search."</span>";
+                    @endphp
+                    {!! str_replace($search,$replace,$ad->description->title); !!}
+                    @else
+                    {{ $ad->description->title }}
+                    @endif
+                </a>
             </h3>
-            <p><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></p>
+            <p><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i>{{ $ad->category->description->name }}</a></p>
             <span class="price">{{ ad_price($ad) }}</span>
             <div class="meta">
                 <span class="icon-wrap">

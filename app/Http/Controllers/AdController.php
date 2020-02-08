@@ -300,6 +300,9 @@ class AdController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
+        //Search Bar
+        $search_bar = true;
+
         //Iterate every image for OpenGrap and Owl Carousell
         if (count($ad->resources) >= 1) {
             foreach ($ad->resources as $resource) {
@@ -320,9 +323,6 @@ class AdController extends Controller
                 ->take(6)
                 ->get();
         });
-
-        //Search Bar
-        $search_bar = true;
 
         //Rating Variables
         $averageRating = $ad->raters(User::class)->count() > 0 ? $ad->averageRating(User::class) : '5';

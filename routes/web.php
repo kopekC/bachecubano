@@ -43,7 +43,8 @@ Route::get('/redirect/{provider}', 'SocialController@redirect')->name('social_lo
 Route::get('/callback/{provider}', 'SocialController@callback')->name('social_callback');
 
 //CSS controller
-Route::get('/css/bachecubano.css', 'WelcomeController@bachecubano_css')->name('bachecubano_css');
+Route::get('/css/bachecubano1.css', 'WelcomeController@bachecubano_css')->name('bachecubano_css');
+Route::get('/css/bachecubano.js', 'WelcomeController@bachecubano_js')->name('bachecubano_js');
 
 // Posts resourcfull controllers routes
 Route::get('/blog/create', 'PostController@create')->name('blog_post_create');
