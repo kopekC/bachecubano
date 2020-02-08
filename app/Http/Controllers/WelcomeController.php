@@ -304,7 +304,7 @@ class WelcomeController extends Controller
         // Loop the css Array
         foreach ($js as $js_file) {
             // Load the content of the css file 
-            $js_content .= file_get_contents($js_file);
+            $js_content .= file_get_contents($js_file) . "\n";
         }
 
         // print the css content

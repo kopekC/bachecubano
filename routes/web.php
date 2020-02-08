@@ -44,7 +44,7 @@ Route::get('/callback/{provider}', 'SocialController@callback')->name('social_ca
 
 //CSS controller
 Route::get('/css/bch.css', 'WelcomeController@bachecubano_css')->name('bachecubano_css');
-Route::get('/js/bachecubano.js', 'WelcomeController@bachecubano_js')->name('bachecubano_js');
+Route::get('/js/bch.js', 'WelcomeController@bachecubano_js')->name('bachecubano_js');
 
 // Posts resourcfull controllers routes
 Route::get('/blog/create', 'PostController@create')->name('blog_post_create');
