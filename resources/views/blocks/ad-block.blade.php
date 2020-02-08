@@ -13,13 +13,13 @@
         </div>
         <div class="product-content">
             <h3 class="product-title">
-                <a href="{{ ad_url($ad) }}@if(null !== $request->input('s'))?s={{$request->input('s')}}@endif">
-                    @if(null !== $request->input('s'))
+                <a href="{{ ad_url($ad) }}@if(null !== Request::get('s'))?s={{Request::get('s')}}@endif">
+                    @if(null !== Request::get('s'))
                     @php
-                    $search = $request->input('s');
+                    $search = Request::get('s');
                     $replace = "<span class='highlight'>".$search."</span>";
                     @endphp
-                    {!! str_replace($search,$replace,$ad->description->title); !!}
+                    {!! str_ireplace($search,$replace,$ad->description->title); !!}
                     @else
                     {{ $ad->description->title }}
                     @endif
