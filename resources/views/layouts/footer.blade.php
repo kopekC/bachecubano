@@ -35,6 +35,7 @@
                             <li><a href="https://m.me/Bachecubano">Chatea con Bachecubano</a></li>
                             <li><a href="#privacy-page">Política de Privacidad</a></li>
                             <li><a href="#report-user">Protección de compras</a></li>
+                            <li><a href="{{ route('terms') }}">Términos y Condiciones</a></li>
                             <li><a href="{{ route('contact') }}">Contáctanos</a></li>
                         </ul>
                     </div>
