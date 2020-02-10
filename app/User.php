@@ -72,7 +72,7 @@ class User extends Authenticatable implements Rater, Following
      */
     public function sms()
     {
-        return $this->hasMany('App\Sms');
+        return $this->hasMany('App\Sms')->orderBy('created_at', 'DESC');
     }
 
     /**

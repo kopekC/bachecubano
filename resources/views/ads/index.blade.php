@@ -68,7 +68,7 @@
 
                             <!--Hidden Fields -->
                             @if(Request::has('order_by'))
-                            <input type="hidden" name="order_by" value="{{ Request::order_by }}">
+                            <input type="hidden" name="order_by" value="{{ Request::input('order_by') }}">
                             @endif
 
                             <button type="submit" class="btn btn-primary btn-block"><i class="lni-search"></i></button>
@@ -116,10 +116,10 @@
                         <form class="woocommerce-ordering" method="post">
                             <label>
                                 <select name="order" class="orderby" onchange="this.options[this.selectedIndex].value && (window.location = '?order_by=' + this.options[this.selectedIndex].value);">
-                                    <option @if(Request::has('order_by') && Request::order_by == 'updated_at') selected @endif value="updated_at">Fecha Modificación</option>
-                                    <option @if(Request::has('order_by') && Request::order_by == 'popularity') selected @endif value="popularity">Popularidad</option>
-                                    <option @if(Request::has('order_by') && Request::order_by == 'lower_price') selected @endif value="lower_price">Menor Precio</option>
-                                    <option @if(Request::has('order_by') && Request::order_by == 'greather_price') selected @endif value="greather_price">Mayor Precio</option>
+                                    <option @if(Request::has('order_by') && Request::order_by=='updated_at' ) selected @endif value="updated_at">Fecha Modificación</option>
+                                    <option @if(Request::has('order_by') && Request::order_by=='popularity' ) selected @endif value="popularity">Popularidad</option>
+                                    <option @if(Request::has('order_by') && Request::order_by=='lower_price' ) selected @endif value="lower_price">Menor Precio</option>
+                                    <option @if(Request::has('order_by') && Request::order_by=='greather_price' ) selected @endif value="greather_price">Mayor Precio</option>
                                 </select>
                             </label>
                         </form>
