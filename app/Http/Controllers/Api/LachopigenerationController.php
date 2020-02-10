@@ -58,9 +58,6 @@ class LachopigenerationController extends Controller
      */
     public function generate(Request $request)
     {
-        header('Content-Type: text/event-stream');
-        header('Cache-Control: no-cache');
-
         //Get DB Link and perform somr cleaning operations
         $this->bd = new SQLite3('./sitios/lachopi/chcenter.db');
 
