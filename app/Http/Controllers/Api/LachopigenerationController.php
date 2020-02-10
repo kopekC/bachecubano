@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Cache;
 use App\Category;
 use App\Http\Controllers\AdController;
 use App\Mail\LaChopiDone;
+use Exception;
 use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Stmt\TryCatch;
 use SQLite3;
 
 set_time_limit(0);
@@ -56,13 +58,16 @@ class LachopigenerationController extends Controller
      */
     public function generate(Request $request)
     {
+        header('Content-Type: text/event-stream');
+        header('Cache-Control: no-cache');
+
         //Get DB Link and perform somr cleaning operations
         $this->bd = new SQLite3('./sitios/lachopi/chcenter.db');
 
         $this->logs .= "<h2>Delete All tables data (TRUNCATE)</h2>";
 
         //$this->bd->query("SET LOCK MODE TO WAIT 120");
-        $this->bd->busyTimeout(5000);
+        $this->bd->busyTimeout(6000);
 
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
@@ -71,7 +76,11 @@ class LachopigenerationController extends Controller
         $this->bd->exec("VACUUM");
 
         //Generate and Save Categories
-        $this->generate_categories();
+        $result = $this->generate_categories();
+
+        echo 'data: ' . json_encode($result) . '\n';
+        ob_flush();
+        flush();
 
         //Meta INFO
         $this->now = new \DateTime();
@@ -151,6 +160,8 @@ class LachopigenerationController extends Controller
             //Save this category in DataBase
             $this->bd->exec($sql);
         }
+
+        return "Categories completed!";
     }
 
     /**
@@ -205,14 +216,21 @@ class LachopigenerationController extends Controller
                     $smtm->bindValue(':date_expire', '', SQLITE3_TEXT);
                     $smtm->execute();
 
+                    echo 'Ad: ' . json_encode($ad->id) . '\n';
+                    ob_flush();
+                    flush();
+
                     //Phootos save
-                    if ($ad->resources->count() > 0 && file_exists(ad_first_physical_image($ad, $quality = 'preview'))) {
-                        $ad_image = file_get_contents(ad_first_physical_image($ad, $quality = 'preview'));
-                        $sm = $this->bd->prepare("INSERT INTO imagenes (anuncio_id, imagen) VALUES (:anuncioid, :imagen)");
-                        $sm->bindValue(':anuncioid', $ad->id, SQLITE3_INTEGER);
-                        $sm->bindValue(':imagen', $ad_image, SQLITE3_BLOB);
-                        $sm->execute();
-                        $this->fotos++;
+                    try {
+                        if ($ad->resources->count() > 0 && file_exists(ad_first_physical_image($ad, $quality = 'preview'))) {
+                            $ad_image = file_get_contents(ad_first_physical_image($ad, $quality = 'preview'));
+                            $sm = $this->bd->prepare("INSERT INTO imagenes (anuncio_id, imagen) VALUES (:anuncioid, :imagen)");
+                            $sm->bindValue(':anuncioid', $ad->id, SQLITE3_INTEGER);
+                            $sm->bindValue(':imagen', $ad_image, SQLITE3_BLOB);
+                            $sm->execute();
+                            $this->fotos++;
+                        }
+                    } catch (Exception $e) {
                     }
                 }
             }
