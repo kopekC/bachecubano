@@ -59,7 +59,7 @@
 
                 <p class="mb-2">No nos hacemos responsables si la información disponible en este sitio no es exacta, completa o actual. El material en este sitio es provisto solo para información general y no debe confiarse en ella o utilizarse como la única base para la toma de decisiones sin consultar primeramente, información más precisa, completa u oportuna. Cualquier dependencia en el material de este sitio es bajo su propio riesgo.</p>
 
-                <p class="mb-2">Este sitio puede contener cierta información histórica. La información histórica, no es necesriamente actual y es provista únicamente para tu referencia. Nos reservamos el derecho de modificar los contenidos de este sitio en cualquier momento, pero no tenemos obligación de actualizar cualquier información en nuestro sitio. Aceptas que es tu responsabilidad de monitorear los cambios en nuestro sitio.</p>
+                <p class="mb-2">Este sitio puede contener cierta información histórica. La información histórica, no es necesriamente actual y es provista únicamente para tu referencia. Nos reservamos el derecho de modificar los contenidos de este sitio en cualquier momento, pero no tenemos obligación de actualizar cualquier información en nuestro sitio. Aceptas que es tu responsabilidad monitorear los cambios en nuestro sitio.</p>
 
                 <h6 class="text-center mt-5">SECTION 4 - MODIFICACIONES AL SERVICIO Y PRECIOS</h6>
 
