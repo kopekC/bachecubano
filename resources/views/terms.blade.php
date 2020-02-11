@@ -39,7 +39,7 @@
 
                 <p class="mb-2">Al utilizar este sitio, declaras que tienes al menos la mayoría de edad en tu estado o provincia de residencia y que nos has dado tu consentimiento para permitir que cualquiera de tus dependientes menores use este sitio.</p>
 
-                <p class="mb-2">No puedes usar nuestros productos con ningún propósito ilegal o no autorizado tampoco puedes, en el uso del Servicio, violar cualquier ley en tu jurisdicción (incluyendo pero no limitado a las leyes de derecho de autor).</p>
+                <p class="mb-2">No puedes usar nuestros productos con ningún propósito ilegal o no autorizado, tampoco puedes en el uso del Servicio, violar cualquier ley en tu jurisdicción (incluyendo pero no limitado a las leyes de derecho de autor).</p>
 
                 <p class="mb-2">No debes transmitir gusanos, virus o cualquier código de naturaleza destructiva.</p>
 
