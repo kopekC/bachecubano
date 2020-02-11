@@ -38,44 +38,21 @@
                 </div>
             </div>
         </div>
-        <table class="table {{-- table-responsive --}} dashboardtable tablemyads">
-            <thead>
-                <tr>
-                    <th>Foto</th>
-                    <th>Visitas</th>
-                    <th>Título</th>
-                    <th>Categoría</th>
-                </tr>
-            </thead>
-            <tbody>
 
-                <!-- Explicit Horizontal Ad -->
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9876511577005081" data-ad-slot="2887444455" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+
+
+        <div id="list-view" class="tab-pane fade active show">
+            <div class="row">
+                @include('gads.h')
 
                 @if($popular_ads)
                 @foreach($popular_ads as $ad)
-                <tr data-category="active">
-                    <td class="photo">
-                        <img class="img-fluid lazyload" src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
-                    </td>
-                    <td data-title="Hits">
-                        <h3>{{ $ad->hits }}</h3>
-                    </td>
-                    <td data-title="Title">
-                        <a href="{{ ad_url($ad) }}">
-                            <h3>{{ $ad->description->title }}</h3>
-                        </a>
-                        <span>ID: {{ $ad->id }}</span>
-                    </td>
-                    <td data-title="Category"><span class="adcategories"><a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->description->icon }}"></i> {{ $ad->category->description->name }}</a></span></td>
-                </tr>
+                @include('blocks.ad-block-h')
                 @endforeach
                 @endif
-            </tbody>
-        </table>
+
+            </div>
+        </div>
     </div>
 </div>
 

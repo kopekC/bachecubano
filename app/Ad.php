@@ -53,7 +53,9 @@ class Ad extends Model implements Rateable
      */
     public function location()
     {
-        return $this->hasOne('App\AdLocation', 'id', 'region_id');
+        return $this->hasOne('App\AdLocation', 'id', 'region_id')->withDefault([
+            'title' => 'La Habana'
+        ]);
     }
 
     /**
@@ -205,7 +207,9 @@ class AdLocation extends Model
      */
     public function ad()
     {
-        return $this->belongsTo('App\Ad');
+        return $this->belongsTo('App\Ad')->withDefault([
+            'title' => 'La Habana'
+        ]);
     }
 }
 
