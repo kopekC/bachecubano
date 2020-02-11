@@ -72,7 +72,7 @@
 
                 <h6 class="text-center mt-5">SECCIÓN 5 - PRODUCTOS O SERVICIOS</h6>
 
-                <p class="mb-2">Ciertos productos o servicios puedene star disponibles exclusivamente en línea a través del sitio web. Estos productos o servicios pueden tener cantidades limitadas y estar sujetas a devolución o cambio de acuerdo a nuestra política de devolución solamente.</p>
+                <p class="mb-2">Ciertos productos o servicios pueden estar disponibles exclusivamente en línea a través del sitio web. Estos productos o servicios pueden tener cantidades limitadas y estar sujetas a devolución o cambio de acuerdo a nuestra política de devolución solamente.</p>
 
                 <p class="mb-2">Hemos hecho el esfuerzo de mostrar los colores y las imágenes de nuestros productos, en la tienda, con la mayor precisión de colores posible. No podemos garantizar que el monitor de tu computadora muestre los colores de manera exacta.</p>
 
@@ -87,7 +87,7 @@
 
                 <p class="mb-2">En el caso de que hagamos un cambio o cancelemos una orden, podemos intentar notificarte poniéndonos en contacto vía correo electrónico y/o dirección de facturación / número de teléfono proporcionado en el momento que se hizo pedido. Nos reservamos el derecho de limitar o prohibir las órdenes que, a nuestro juicio, parecen ser colocado por los concesionarios, revendedores o distribuidores.</p>
 
-                <p class="mb-2">Te comprometes a proporcionar información actual, completa y precisa de la compra y cuenta utilizada para todas las compras realizadasen nuestra tienda. Te comprometes a ctualizar rápidamente tu cuenta y otra información, incluyendo tu dirección de correo electrónico y números de tarjetas de crédito y fechas de vencimiento, para que podamos completar tus transacciones y contactarte cuando sea necesario.</p>
+                <p class="mb-2">Te comprometes a proporcionar información actual, completa y precisa de la compra y cuenta utilizada para todas las compras realizadasen nuestra tienda. Te comprometes a actualizar rápidamente tu cuenta y otra información, incluyendo tu dirección de correo electrónico y números de tarjetas de crédito y fechas de vencimiento, para que podamos completar tus transacciones y contactarte cuando sea necesario.</p>
 
                 <p class="mb-2">Para más detalles, por favor revisa nuestra Política de Devoluciones.</p>
 
