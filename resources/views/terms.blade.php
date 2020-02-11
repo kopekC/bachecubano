@@ -70,7 +70,7 @@
                 <p class="mb-2">No seremos responsables ante ti o alguna tercera parte por cualquier modificación, cambio de precio, suspensión o discontinuidad del Servicio.</p>
 
 
-                <h6 class="text-center mt-5">SECCIÓN 5 - PRODUCTOS O SERVICIOS (si aplicable)</h6>
+                <h6 class="text-center mt-5">SECCIÓN 5 - PRODUCTOS O SERVICIOS</h6>
 
                 <p class="mb-2">Ciertos productos o servicios puedene star disponibles exclusivamente en línea a través del sitio web. Estos productos o servicios pueden tener cantidades limitadas y estar sujetas a devolución o cambio de acuerdo a nuestra política de devolución solamente.</p>
 
