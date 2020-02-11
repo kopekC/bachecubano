@@ -145,7 +145,7 @@
 
                 <h6 class="text-center mt-5">SECCIÓN 14 - INDEMNIZACIÓN</h6>
 
-                <p class="mb-2">Aceptas indemnizar, defender y mantener indemne Bachecubano y nuestras matrices, subsidiarias, afiliados, socios, funcionarios, directores, agentes, contratistas, concesionarios, proveedores de servicios, subcontratistas, proveedores, internos y empleados, de cualquier reclamo o demanda, incluyendo honorarios razonables de abogados, hechos por cualquier tercero a causa o como resultado de tu incumplimiento de las Condiciones de Servicio o de los documentos que incorporan como referencia, o la violación de cualquier ley o de los derechos de u tercero.</p>
+                <p class="mb-2">Aceptas indemnizar, defender y mantener indemne Bachecubano y nuestras matrices, subsidiarias, afiliados, socios, funcionarios, directores, agentes, contratistas, concesionarios, proveedores de servicios, subcontratistas, proveedores, internos y empleados, de cualquier reclamo o demanda, incluyendo honorarios razonables de abogados, hechos por cualquier tercero a causa o como resultado de tu incumplimiento de las Condiciones de Servicio o de los documentos que incorporan como referencia, o la violación de cualquier ley o de los derechos de un tercero.</p>
 
                 <h6 class="text-center mt-5">SECCIÓN 15 - DIVISIBILIDAD</h6>
 
@@ -161,15 +161,15 @@
 
                 <h6 class="text-center mt-5">SECCIÓN 17 - ACUERDO COMPLETO</h6>
 
-                <p class="mb-2">Nuestra falla para ejercer o hacer valer cualquier derecho o disposiciôn de estas Condiciones de Servicio no constituirá una renucia a tal derecho o disposición.</p>
+                <p class="mb-2">Nuestra falla para ejercer o hacer valer cualquier derecho o disposición de estas Condiciones de Servicio no constituirá una renucia a tal derecho o disposición.</p>
 
-                <p class="mb-2">Estas Condiciones del servicio y las políticas o reglas de operación publicadas por nosotros en este sitio o con respecto al servicio constituyen el acuerdo completo y el entendimiento entre tu y nosotros y rigen el uso del Servicio y reemplaza cualquier acuerdo, comunicaciones y propuestas anteriores o contemporáneas, ya sea oral o escrita, entre tu y nosotros (incluyendo, pero no limitado a, cualquier versión previa de los Términos de Servicio).</p>
+                <p class="mb-2">Estas Condiciones del servicio y las políticas o reglas de operación publicadas por nosotros en este sitio o con respecto al servicio constituyen el acuerdo completo y el entendimiento entre tú y nosotros y rigen el uso del Servicio y reemplaza cualquier acuerdo, comunicaciones y propuestas anteriores o contemporáneas, ya sea oral o escrita, entre tú y nosotros (incluyendo, pero no limitado a, cualquier versión previa de los Términos de Servicio).</p>
 
                 <p class="mb-2">Cualquier ambigüedad en la interpretación de estas Condiciones del servicio no se interpretarán en contra del grupo de redacción.</p>
 
                 <h6 class="text-center mt-5">SECCIÓN 18 - LEY</h6>
 
-                <p class="mb-2">Estas Condiciones del servicio y cualquier acuerdos aparte en el que te proporcionemos servicios se regirán e interpretarán en conformidad con las leyes de General Lee 253 entre Juan Delgado y Destrampes, 10 de octubre, 02, , Cuba.</p>
+                <p class="mb-2">Estas Condiciones del servicio y cualquier acuerdos aparte en el que te proporcionemos servicios se regirán e interpretarán en conformidad con las leyes de General Lee 253 entre Juan Delgado y Destrampes, Santo Suárez, 10 de octubre, La Habana, Cuba.</p>
 
                 <h6 class="text-center mt-5">SECCIÓN 19 - CAMBIOS EN LOS TÉRMINOS DE SERVICIO</h6>
 
