@@ -35,20 +35,15 @@ class Wallet extends Model
      */
     public function deduce($amount)
     {
-        $this->credits -= $amount;
-        $this->update();
+        $this->decrement('credits', $amount);
     }
 
     /**
-     * Acredit some menoy to the user
+     * Acredit some momey to the user
+     * $this->increment('points', 50);
      */
     public function credit($amount)
     {
-
-        //Try to create this if doesnt exist
-
-
-        $this->credits += $amount;
-        $this->update();
+        $this->increment('credits', $amount);
     }
 }
