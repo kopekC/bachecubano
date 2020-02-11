@@ -88,7 +88,10 @@ class HomeController extends Controller
 
         $section_name = "Mi Panel de Anuncios";
 
-        return view('user.home', compact('section_name', 'total_active_ads', 'total_promoted_ads', 'popular_ads', 'search_bar'));
+        //Today date
+        $today = Carbon::today();
+
+        return view('user.home', compact('section_name', 'total_active_ads', 'total_promoted_ads', 'popular_ads', 'search_bar', 'today'));
     }
 
     /** 
