@@ -16,7 +16,7 @@ use App\Notifications\ResetPassword;
 
 class User extends Authenticatable implements Rater, Following
 {
-    use HasApiTokens, Notifiable, CanLike, CanRate, Follow;
+    use HasApiTokens, Notifiable, CanLike, CanRate,Follow;
 
     /**
      * The attributes that are mass assignable.
