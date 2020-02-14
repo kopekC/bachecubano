@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h5>Lo sentimos, pero no tienes acceso a esta página.</h5>
-                <img src="{{ asset('img/bachecubano-working.png') }}" class="img-fluid">
+                <img src="{{ asset('img/bachecubano-working.png') }}" class="img-fluid" loading=lazy>
             </div>
         </div>
     </div>

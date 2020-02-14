@@ -10,7 +10,7 @@
                         <span>2 Listings</span>
                     </div>
                     <div class="img-box-background">
-                        <img class="img-fluid" src="{{ asset('img/cities/img1.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/cities/img1.jpg') }}" alt="" loading=lazy>
                     </div>
                 </a>
             </div>
@@ -21,7 +21,7 @@
                         <span>2 Listings</span>
                     </div>
                     <div class="img-box-background">
-                        <img class="img-fluid" src="{{ asset('img/cities/img2.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/cities/img2.jpg') }}" alt="" loading=lazy>
                     </div>
                 </a>
             </div>
@@ -34,7 +34,7 @@
                         <span>2 Listings</span>
                     </div>
                     <div class="img-box-background">
-                        <img class="img-fluid" src="{{ asset('img/cities/img3.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/cities/img3.jpg') }}" alt="" loading=lazy>
                     </div>
                 </a>
             </div>
@@ -45,7 +45,7 @@
                         <span>1 Listings</span>
                     </div>
                     <div class="img-box-background">
-                        <img class="img-fluid" src="{{ asset('img/cities/img4.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/cities/img4.jpg') }}" alt="" loading=lazy>
                     </div>
                 </a>
             </div>
@@ -56,7 +56,7 @@
                         <span>1 Listings</span>
                     </div>
                     <div class="img-box-background">
-                        <img class="img-fluid" src="{{ asset('img/cities/img5.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/cities/img5.jpg') }}" alt="" loading=lazy>
                     </div>
                 </a>
             </div>

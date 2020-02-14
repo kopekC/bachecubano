@@ -144,7 +144,7 @@
                             <div class="form-group mb-3 p-3">
                                 @foreach($ad->resources as $resource)
                                 <div class="col-3 del_container">
-                                    <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
+                                    <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}" loading=lazy>
                                     <a class="btn btn-danger btn-sm p-1 delete_ad" href="#!" data-delete-item="{{ $resource->id }}">
                                         <div class="spinner-border spinner-border-sm d-none" role="status"><span class="sr-only">Cargando...</span></div>
                                         <i class="lni-trash"></i>

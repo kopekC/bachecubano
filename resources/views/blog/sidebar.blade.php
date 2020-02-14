@@ -61,7 +61,7 @@
         <ul class="posts-list">
             <li>
                 <div class="widget-thumb">
-                    <a href="#"><img src="assets/img/blog/thumb1.jpg" alt="" /></a>
+                    <a href="#"><img src="assets/img/blog/thumb1.jpg" alt="" loading=lazy></a>
                 </div>
                 <div class="widget-content">
                     <a href="#">Eum Iriure Dolor Duis Autem</a>
@@ -71,7 +71,7 @@
             </li>
             <li>
                 <div class="widget-thumb">
-                    <a href="#"><img src="assets/img/blog/thumb2.jpg" alt="" /></a>
+                    <a href="#"><img src="assets/img/blog/thumb2.jpg" alt="" loading=lazy></a>
                 </div>
                 <div class="widget-content">
                     <a href="#">Consectetuer Adipiscing Elit</a>
@@ -79,43 +79,6 @@
                 </div>
                 <div class="clearfix"></div>
             </li>
-            <li>
-                <div class="widget-thumb">
-                    <a href="#"><img src="assets/img/blog/thumb3.jpg" alt="" /></a>
-                </div>
-                <div class="widget-content">
-                    <a href="#">Et Leggings Fanny Pack</a>
-                    <span><i class="icon-calendar"></i>June 17, 2018</span>
-                </div>
-                <div class="clearfix"></div>
-            </li>
-            <li>
-                <div class="widget-thumb">
-                    <a href="#"><img src="assets/img/blog/thumb4.jpg" alt="" /></a>
-                </div>
-                <div class="widget-content">
-                    <a href="#">Exercitation Photo Booth</a>
-                    <span><i class="icon-calendar"></i>June 12, 2018</span>
-                </div>
-                <div class="clearfix"></div>
-            </li>
-            <li>
-                <div class="widget-thumb">
-                    <a href="#"><img src="assets/img/blog/thumb5.jpg" alt="" /></a>
-                </div>
-                <div class="widget-content">
-                    <a href="#">Eum Iriure Dolor Duis Autem</a>
-                    <span><i class="icon-calendar"></i>June 9, 2018</span>
-                </div>
-                <div class="clearfix"></div>
-            </li>
         </ul>
-    </div>
-
-    <div class="widget">
-        <h4 class="widget-title">Publicidad</h4>
-        <div class="add-box">
-            
-        </div>
     </div>
 </aside>

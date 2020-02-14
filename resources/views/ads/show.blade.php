@@ -38,7 +38,7 @@
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
                     <div class="item">
-                        <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
+                        <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}" loading=lazy>
                     </div>
                     @endforeach
                 </div>
@@ -83,7 +83,7 @@
                 @endpush
 
                 @else
-                <img src="{{ ad_first_image($ad) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}">
+                <img src="{{ ad_first_image($ad) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}" loading=lazy>
                 @endif
 
                 @include('gads.v')
@@ -208,7 +208,7 @@
                                     <div class="image_outer_container">
                                         <div class="green_icon"></div>
                                         <div class="image_inner_container">
-                                            <img src="{{ profile_logo($ad->owner) }}">
+                                            <img src="{{ profile_logo($ad->owner) }}" loading=lazy>
                                         </div>
                                     </div>
                                 </div>

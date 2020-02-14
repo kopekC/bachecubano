@@ -5,6 +5,7 @@
     - Push Ads over 5cuc
     - Better view of promoted ads (border lines)
     - Direct SMS over platform
+    - Add loading=lazy to ALL img tags
 
 ### v1.4
 

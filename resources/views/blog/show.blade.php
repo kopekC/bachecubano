@@ -28,7 +28,7 @@
                     <!-- Post thumb -->
                     <div class="post-thumb">
                         <a href="{{ URL::current() }}">
-                            <img class="img-fluid" src="{{ config('app.img_url') }}/blog/{{ $post->cover }}" alt="{{ $post->title }}">
+                            <img class="img-fluid" src="{{ config('app.img_url') }}/blog/{{ $post->cover }}" alt="{{ $post->title }}" loading=lazy>
                         </a>
                         <div class="hover-wrap"></div>
                     </div>

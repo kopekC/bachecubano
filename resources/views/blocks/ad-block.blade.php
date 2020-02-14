@@ -2,7 +2,7 @@
     <div class="product-item featured-box">
         <div class="carousel-thumb text-center">
             <a href="{{ ad_url($ad) }}">
-                <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}">
+                <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}" loading=lazy>
             </a>
             <div class="overlay"></div>
             @if(isset($ad->promotype))

@@ -38,7 +38,7 @@
                     </div>
                 </form>
 
-                <img src="{{ asset('img/bachecubano-working.png') }}" class="img-fluid">
+                <img src="{{ asset('img/bachecubano-working.png') }}" class="img-fluid" loading=lazy>
             </div>
         </div>
     </div>

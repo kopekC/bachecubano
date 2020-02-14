@@ -5,7 +5,7 @@
                 <div class="image_outer_container">
                     <div class="green_icon"></div>
                     <div class="image_inner_container">
-                        <img src="{{ profile_logo(Auth::getUser()) }}">
+                        <img src="{{ profile_logo(Auth::getUser()) }}" loading=lazy>
                     </div>
                 </div>
             </div>
