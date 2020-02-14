@@ -9,7 +9,7 @@ if (!function_exists('ad_url')) {
      */
     function ad_url($ad)
     {
-        return route('show_ad', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug, 'ad_title' => Str::slug($ad->description->title), 'id' => $ad->id]);
+        return route('show_ad', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug, 'ad_title' => Str::slug($ad->description->title), 'ad_id' => $ad->id]);
     }
 }
 
