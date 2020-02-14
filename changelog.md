@@ -1,8 +1,15 @@
 ### v1.5
 
+    - Cron tasks
+        - Promotion ending notification
+    - Push Ads over 5cuc
+    - Better view of promoted ads (border lines)
+    - Direct SMS over platform
+
+### v1.4
+
     - Updated Laravel to 6.0.4
     - response cache for statis assets
-    - 
 
 ### v1.3
 

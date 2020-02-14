@@ -69,7 +69,7 @@ class SmsController extends Controller
                 return redirect('https://www.bachecubano.com/home/send_sms')->with('error', 'Error, no tiene saldo suficiente');
             } else {
                 //Return JSON response
-                return response()->json(['message' => 'Error, no tiene saldo suficiente', 'status' => 404], 200);
+                return response()->json(['message' => 'Error, no tiene saldo suficiente', 'status' => 403], 403);
             }
         }
     }
@@ -84,7 +84,12 @@ class SmsController extends Controller
         //Discount upon sent
 
         //Check first 4 chars, view if it's national or international
-        if (substr($number, 0, 4) == "+535" || substr($number, 0, 3) == "535") {
+        if (substr($number, 0, 4) == "+535" || substr($number, 0, 3) == "535" || strlen($number) == 8) {
+
+            //Prepend 53 if not provided
+            if (strlen($number) == 8)
+                $number = "53" . $number;
+
             //SMS Nacional
             return (new Nacional(config('sms.sms_nacional_token')))->enviar_sms($number, $message);
         } else {

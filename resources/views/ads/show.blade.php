@@ -155,7 +155,7 @@
                             @endif
                             @if(isset($ad->phone) && $ad->phone != "")
                             <a href="tel:{{ $ad->phone }}" class="btn btn-common btn-block" title="Llamar a {{ $ad->contact_name }}"><i class="lni-phone-handset"></i> {{ $ad->phone }}</a>
-                            <a href="#!" class="btn btn-common btn-block" title="Enviar SMS a {{ $ad->contact_name }}"><i class="lni-bubble"></i> {{ $ad->phone }}</a>
+                            <a href="{{ route('send_sms', ['number' => $ad->phone, 'message' => 'Hola ' . $ad->contact_name . ', me interesa su anuncio #' . $ad->id]) }}" class="btn btn-common btn-block" title="Enviar SMS a {{ $ad->contact_name }}"><i class="lni-bubble"></i> {{ $ad->phone }}</a>
                             @endif
                         </div>
 
