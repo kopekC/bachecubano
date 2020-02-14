@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Category;
 use App\Post;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\Cache;
@@ -80,10 +81,14 @@ class AppServiceProvider extends ServiceProvider
             return User::count();
         });
 
+        //Today date
+        $today = Carbon::today();
+
         View::share('parent_categories', $parent_categories);
         View::share('category_formatted', $category_formatted);
         View::share('total_ads', $total_ads);
         View::share('total_users', $total_users);      //Load and cache this number everyday
         View::share('latest_blog_post', $latest_blog_post);
+        View::share('today', $today);
     }
 }

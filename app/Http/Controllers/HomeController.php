@@ -88,10 +88,7 @@ class HomeController extends Controller
 
         $section_name = "Mi Panel de Anuncios";
 
-        //Today date
-        $today = Carbon::today();
-
-        return view('user.home', compact('section_name', 'total_active_ads', 'total_promoted_ads', 'popular_ads', 'search_bar', 'today'));
+        return view('user.home', compact('section_name', 'total_active_ads', 'total_promoted_ads', 'popular_ads', 'search_bar'));
     }
 
     /** 
@@ -169,10 +166,7 @@ class HomeController extends Controller
         //Paginate for every ads
         $my_ads = $query->paginate($posts_per_page);
 
-        //Today date
-        $today = Carbon::today();
-
-        return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads', 'search_bar', 'today'));
+        return view('user.ads', compact('section_name', 'total_active_ads', 'my_ads', 'search_bar'));
     }
 
     /**

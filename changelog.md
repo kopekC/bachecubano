@@ -1,5 +1,6 @@
 ### v1.6
 
+    - Global variable $today
     - Push Ads over 10cuc
 
 ### v1.5
