@@ -52,8 +52,9 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
 
         //Cron Routes
         Route::group(['prefix' => 'cron'], function () {
-            //Generate LaChopi
+            //Clean older promotions
             Route::get('promoclean', 'Api\CronController@delete_old_promotions')->name('promoclean');
+            //Advise for next ending promos
             Route::get('promoadvise', 'Api\CronController@notify_ending_promos')->name('promoadvise');
         });
 

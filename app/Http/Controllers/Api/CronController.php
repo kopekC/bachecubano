@@ -25,7 +25,7 @@ class CronController extends Controller
         $today = Carbon::today();
         $deletedRows = AdPromo::where('end_promo', '<', $today)->delete();
 
-        echo $deletedRows . "promotions deleted";
+        echo $deletedRows . " promotions deleted";
     }
 
     /**
