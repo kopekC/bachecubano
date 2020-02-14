@@ -6,6 +6,7 @@
     - Better view of promoted ads (border lines)
     - Direct SMS over platform
     - Add loading=lazy to ALL img tags
+    - Removed pill of promotion, just border border-primary on it
 
 ### v1.4
 

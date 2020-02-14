@@ -1,15 +1,10 @@
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-    <div class="product-item featured-box">
+    <div class="product-item featured-box @if(isset($ad->promotype)) border border-primary @endif">
         <div class="carousel-thumb text-center">
             <a href="{{ ad_url($ad) }}">
                 <img class="img-fluid lazyload" data-src="{{ ad_first_image($ad) }}" alt="{{ $ad->description->title }}" loading=lazy>
             </a>
             <div class="overlay"></div>
-            @if(isset($ad->promotype))
-            <div class="btn-product bg-red">
-                <a href="{{ ad_url($ad) }}">{{ ad_promotion_text_type($ad) }}</a>
-            </div>
-            @endif
         </div>
         <div class="product-content">
             <h3 class="product-title">
