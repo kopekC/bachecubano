@@ -1,3 +1,9 @@
+### v1.5
+
+    - Updated Laravel to 6.0.4
+    - response cache for statis assets
+    - 
+
 ### v1.3
 
     - Highlight search results keywords
