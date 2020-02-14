@@ -46,7 +46,7 @@ class PromoEnding extends Mailable
     public function build()
     {
         return $this->from('contact@bachecubano.com')
-            ->subject('Tu promoción en Bachecubano vence pronto (Qedan 3 días)')
+            ->subject('Tu promoción en Bachecubano vence pronto (Quedan 3 días)')
             ->view('emails.endingpromo');
     }
 }
