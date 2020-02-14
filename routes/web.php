@@ -14,6 +14,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::get('promoadvise', 'Api\CronController@notify_ending_promos')->name('promoadvise');
+
 Route::get('/generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
 
 //Welcome Route

@@ -50,6 +50,13 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
             Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
         });
 
+        //Cron Routes
+        Route::group(['prefix' => 'cron'], function () {
+            //Generate LaChopi
+            Route::get('promoclean', 'Api\CronController@delete_old_promotions')->name('promoclean');
+            Route::get('promoadvise', 'Api\CronController@notify_ending_promos')->name('promoadvise');
+        });
+
         //Passport Routes for login/signup/logout/getUser
         Route::group(['prefix' => 'auth'], function () {
             Route::group(['middleware' => ['guest:api']], function () {

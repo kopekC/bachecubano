@@ -1,0 +1,38 @@
+@extends('emails.container')
+
+@section('content')
+
+<table class="es-content" cellspacing="0" cellpadding="0" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;">
+    <tr style="border-collapse:collapse;">
+        <td align="center" style="padding:0;Margin:0;">
+            <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;">
+                <tr style="border-collapse:collapse;">
+                    <td align="left" style="padding:0;Margin:0;padding-top:30px;padding-left:30px;padding-right:30px;">
+                        <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
+                            <tr style="border-collapse:collapse;">
+                                <td width="540" valign="top" align="center" style="padding:0;Margin:0;">
+                                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
+                                        <tr style="border-collapse:collapse;">
+                                            <td align="left" style="padding:0;Margin:0;">
+                                                <h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:tahoma, verdana, segoe, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#333333;">
+                                                    {{ $body_text_title }}<br></h2>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-collapse:collapse;">
+                                            <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;padding-top:10px;">
+                                                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
+                                                    {{ $body_text_content }}<br></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+@endsection

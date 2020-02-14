@@ -97,8 +97,13 @@
                             <h4 class="title-small mb-3">Detalles del anuncio:</h4>
                             <ul class="advertisement">
                                 <li>
-                                    <p><strong><i class="lni-{{ $ad->category->description->icon }}"></i> Categoría:</strong> <a href="{{ ad_category_url($ad) }}">{{ $ad->category->description->name }}</a></p>
+                                    <p><strong>Categoría:</strong> <a href="{{ ad_category_url($ad) }}">{{ $ad->category->description->name }}</a></p>
                                 </li>
+                                @if($ad->promo)
+                                <li>
+                                    <p><strong>Promo:</strong> {{ ad_promotion_text_type($ad->promo) }}</p>
+                                </li>
+                                @endif
                                 <!--
                                 <li>
                                     <p><strong><i class="lni-archive"></i> Estado:</strong> Nuevo</p>

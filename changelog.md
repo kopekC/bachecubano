@@ -1,12 +1,16 @@
+### v1.6
+
+    - Push Ads over 10cuc
+
 ### v1.5
 
     - Cron tasks
         - Promotion ending notification
-    - Push Ads over 5cuc
     - Better view of promoted ads (border lines)
     - Direct SMS over platform
     - Add loading=lazy to ALL img tags
     - Removed pill of promotion, just border border-primary on it
+    - Show Promotion type on show ad
 
 ### v1.4
 
