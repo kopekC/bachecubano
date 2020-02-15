@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e929cb32bf96e8889f0a77f0a9044c81",
+    "content-hash": "9414c2ab489a465e111066f697bd2398",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1332,16 +1332,16 @@
         },
         {
             "name": "laravel-notification-channels/facebook-poster",
-            "version": "1.6.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-notification-channels/facebook-poster.git",
-                "reference": "47b7e08e89082c84a3e34ab91036402a327668e9"
+                "reference": "7435a461d824c6a64986791d2a5681f4e9aca10c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-notification-channels/facebook-poster/zipball/47b7e08e89082c84a3e34ab91036402a327668e9",
-                "reference": "47b7e08e89082c84a3e34ab91036402a327668e9",
+                "url": "https://api.github.com/repos/laravel-notification-channels/facebook-poster/zipball/7435a461d824c6a64986791d2a5681f4e9aca10c",
+                "reference": "7435a461d824c6a64986791d2a5681f4e9aca10c",
                 "shasum": ""
             },
             "require": {
@@ -1351,9 +1351,9 @@
                 "php": "^7.2"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.5",
-                "orchestra/testbench": "~3.7 || ~4.0",
-                "phpunit/phpunit": "~7.0 || ~8.0"
+                "mockery/mockery": "~1.2.1",
+                "orchestra/testbench": "~4.0",
+                "phpunit/phpunit": "~8.0"
             },
             "type": "library",
             "extra": {
@@ -1379,7 +1379,7 @@
                 }
             ],
             "description": "Use notification to create posts on Facebook",
-            "time": "2019-09-29T09:55:05+00:00"
+            "time": "2019-10-04T02:13:52+00:00"
         },
         {
             "name": "laravel-notification-channels/onesignal",

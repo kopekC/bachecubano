@@ -27,6 +27,7 @@ use App\AdPromo;
 use App\Http\Controllers\Api\PushController;
 use App\Mail\AdPublished;
 use App\Mail\TransferReceived;
+use App\Notifications\AdPromotedFacebook;
 use App\Notifications\AdPromotedPush;
 use App\Notifications\AdPromotedTelegram;
 use App\Notifications\AdPromotedTwitter;
@@ -595,7 +596,7 @@ class AdController extends Controller
                 }
             }
 
-            //Promotion 3 -> Telegram, Twitter, Facebook
+            //Promotion 3 -> Telegram, Twitter, PushNotifications
             if ($request->input('promotype') >= 3) {
                 //Also Push Notification here
                 try {
@@ -606,6 +607,10 @@ class AdController extends Controller
 
             //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications
             if ($request->input('promotype') >= 4) {
+                try {
+                    $ad->notify(new AdPromotedFacebook);
+                } catch (Exception $e) {
+                }
             }
 
             //Promotion 5 -> Youtube Video

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 
+use Illuminate\Support\Str;
+
 class PushController extends Controller
 {
     /**
@@ -14,10 +16,10 @@ class PushController extends Controller
     {
         $data = [
             'name' => 'Promotion-' . $ad->id . '-' . Carbon::today(),
-            'title' => substr($ad->description->title, 0, 69),
+            'title' => Str::limit($ad->description->title, 69),
             'url' => ad_url($ad),
             'icon' => '',
-            'message' => substr($ad->description->description, 0, 96) . " ...",
+            'message' => Str::limit($ad->description->description, 96) . " ...",
         ];
 
         $headers = [
