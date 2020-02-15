@@ -1,3 +1,9 @@
+### v1.6.1
+
+    - Several fixes
+    - Check Facebook posting not working
+    - 
+
 ### v1.6
 
     - Global variable $today

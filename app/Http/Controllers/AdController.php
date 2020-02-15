@@ -500,7 +500,7 @@ class AdController extends Controller
 
         //redirect with notification to wait for cache refresh
         return redirect()
-            ->route('show_ad', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug, 'ad_title' => Str::slug($ad->description->title), 'id' => $ad->id])
+            ->route('show_ad', ['category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug, 'ad_title' => Str::slug($ad->description->title), 'ad_id' => $ad->id])
             ->with('success', 'Felicidades, se ha actualizado su anuncio, espere unos minutos para refrescar nuestra caché');
     }
 
