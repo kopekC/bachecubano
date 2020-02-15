@@ -32,7 +32,7 @@ class ImapController extends Controller
      */
     public function imap_check()
     {
-        $messages = $this->driver->getMessages(10);
+        $messages = $this->driver->getMessages(5);
 
         if (count($messages) > 0) {
             $this->process_messages($messages, $this->driver);
@@ -61,6 +61,8 @@ class ImapController extends Controller
             //$command = strtoupper(trim($subject[0]));
 
             dump($message);
+            dump($message->headers);
+            dump($message->sensder);
 
             continue;
 
