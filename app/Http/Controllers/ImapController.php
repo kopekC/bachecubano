@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Api\SmsController;
 use App\Mail\ImapResponse;
 use App\User;
-use Illuminate\Http\Request;
 use Fetch\Server;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
