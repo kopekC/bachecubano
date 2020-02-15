@@ -32,6 +32,6 @@ class ImapResponse extends Mailable
      */
     public function build()
     {
-        return $this->view('email.imap');
+        return $this->view('emails.imap');
     }
 }
