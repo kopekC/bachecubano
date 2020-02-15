@@ -2,7 +2,7 @@
 
     - Several fixes
     - Check Facebook posting not working
-    - 
+    - IMAP interface
 
 ### v1.6
 

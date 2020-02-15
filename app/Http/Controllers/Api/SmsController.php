@@ -47,7 +47,7 @@ class SmsController extends Controller
         if ($user->wallet->credits >= config('sms.sms_value_nac')) {
 
             //has enough money, proceed
-            $result = $this->send_request($request->input('phone'), $request->input('message'));
+            $result = self::send_request($request->input('phone'), $request->input('message'));
 
             //Now discount SMS price upon sent SMS based on the destination
             if (substr($request->input('phone'), 0, 4) == "+535" || substr($request->input('phone'), 0, 3) == "535") {
@@ -77,7 +77,7 @@ class SmsController extends Controller
     /**
      * Send SMS to the coresponding server
      */
-    private function send_request($number, $message)
+    private static function send_request($number, $message)
     {
         //Clean the $message chars
         //Save this SMS?
