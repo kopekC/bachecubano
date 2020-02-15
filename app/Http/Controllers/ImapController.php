@@ -97,7 +97,7 @@ class ImapController extends Controller
     }
 
     /**
-     * Send SMS
+     * Send SMS from this user
      */
     private function sms($body)
     {
@@ -118,5 +118,25 @@ class ImapController extends Controller
         } else {
             return ['subject' => 'Lo sentimos, no tiene saldo suficiente', 'body' => 'Puede recargar su cuenta transfiriendo al 55149081'];
         }
+    }
+
+    /**
+     * Top Up Account
+     */
+    private function topup($body)
+    {
+        echo "<h1>TOPUP</h1>";
+
+        return ['subject' => 'Lo sentimos, estamos trabajando en este módulo aún', 'body' => 'Lo corregimos en breve'];
+    }
+
+    /**
+     * Top Up Account
+     */
+    private function publicar($body)
+    {
+        echo "<h1>PUBLICAR</h1>";
+
+        return ['subject' => 'Lo sentimos, estamos trabajando en este módulo aún', 'body' => 'Lo corregimos en breve'];
     }
 }
