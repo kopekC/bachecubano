@@ -60,6 +60,7 @@ class ImapController extends Controller
             $subject = explode(" ", $subject);
             $command = strtolower(trim($subject[0]));
 
+            dump($body);
             dump($message);
 
             //Delete this message and clean mailbox
