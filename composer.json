@@ -18,6 +18,7 @@
         "intervention/image": "^2.5",
         "laravel-notification-channels/facebook": "^0.0.4",
         "laravel-notification-channels/facebook-poster": "^1.5",
+        "laravel-notification-channels/onesignal": "^2.0",
         "laravel-notification-channels/telegram": "^0.0.5",
         "laravel-notification-channels/twitter": "^3.0",
         "laravel/framework": "6.0.*",

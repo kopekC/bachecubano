@@ -14,7 +14,7 @@
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
                     <a href="{{ URL::current() }}">
-                        <h2 class="product-title">Contáctanos</h2>
+                        <h1 class="product-title">Contáctanos</h1>
                     </a>
                 </div>
             </div>

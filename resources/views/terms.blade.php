@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
                     <a href="{{ URL::current() }}">
-                        <h2 class="product-title">Términos y Condiciones</h2>
+                        <h1 class="product-title">Términos y Condiciones</h1>
                     </a>
                 </div>
             </div>
