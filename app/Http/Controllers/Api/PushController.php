@@ -4,13 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PushController extends Controller
 {
-    use Queueable;
-
     /**
      * Push notification for certain Ad
      */
