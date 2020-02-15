@@ -60,12 +60,9 @@ class ImapController extends Controller
             $subject = explode(" ", $subject);
             $command = strtoupper(trim($subject[0]));
 
-            dump($message->getHeaders());
-
             dump($email);
-            dump($subject);
+            dump($command);
             dump($body);
-            dump($email);
 
             continue;
 
