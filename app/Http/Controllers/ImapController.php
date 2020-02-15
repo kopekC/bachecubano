@@ -58,7 +58,7 @@ class ImapController extends Controller
             $body = $message->getMessageBody();
             $body = preg_replace("/\r\n|\r|\n/", '', $body);
             $subject = explode(" ", $subject);
-            $command = strtoupper(trim($subject[0]));
+            $command = strtolower(trim($subject[0]));
 
             dump($message);
 
@@ -78,10 +78,9 @@ class ImapController extends Controller
             }
 
             //Method verification
-            if (method_exists($this, strtolower($subject))) {
-                echo "Calling this->" . $subject . "()";
-                $method = $subject;
-                $response = $this->$method($body);
+            if (method_exists($this, $command)) {
+                echo "Calling this->" . $command . "()";
+                $response = $this->$command($body);
                 return Mail::to($email)->send(new ImapResponse($response['subject'], $response['body']));
             } else {
                 //Error, el metodo solicitado no existe.
