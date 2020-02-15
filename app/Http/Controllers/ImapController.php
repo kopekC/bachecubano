@@ -32,7 +32,7 @@ class ImapController extends Controller
      */
     public function imap_check()
     {
-        $messages = $this->driver->getMessages(5);
+        $messages = $this->driver->getMessages(2);
 
         if (count($messages) > 0) {
             $this->process_messages($messages, $this->driver);
@@ -53,15 +53,19 @@ class ImapController extends Controller
         foreach ($messages as $message) {
 
             //Email headers
-            //$email = $message->from[0]["address"];
-            //$subject = $message->getSubject();
-            //$body = $message->getMessageBody();
-            //$body = preg_replace("/\r\n|\r|\n/", '', $body);
-            //$subject = explode(" ", $subject);
-            //$command = strtoupper(trim($subject[0]));
+            $email = $message->getHeaders()["fromaddress"];
+            $subject = $message->getSubject();
+            $body = $message->getMessageBody();
+            $body = preg_replace("/\r\n|\r|\n/", '', $body);
+            $subject = explode(" ", $subject);
+            $command = strtoupper(trim($subject[0]));
 
-            dump($message);
             dump($message->getHeaders());
+
+            dump($email);
+            dump($subject);
+            dump($body);
+            dump($email);
 
             continue;
 
