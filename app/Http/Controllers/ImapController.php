@@ -53,7 +53,7 @@ class ImapController extends Controller
         foreach ($messages as $message) {
 
             //Email headers
-            $email = $message->getHeaders()["fromaddress"];
+            $email = $message->getHeaders()->fromaddress;
             $subject = $message->getSubject();
             $body = $message->getMessageBody();
             $body = preg_replace("/\r\n|\r|\n/", '', $body);
