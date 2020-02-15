@@ -61,8 +61,7 @@ class ImapController extends Controller
             //$command = strtoupper(trim($subject[0]));
 
             dump($message);
-            dump($message->headers);
-            dump($message->sensder);
+            dump($message->getHeaders());
 
             continue;
 
