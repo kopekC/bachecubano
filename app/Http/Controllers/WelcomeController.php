@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Ad;
+use App\Http\Controllers\Api\PushController;
 use App\Mail\Contact;
 use SEOMeta;
 use OpenGraph;
@@ -309,5 +310,14 @@ class WelcomeController extends Controller
 
         // print the css content
         echo $js_content;
+    }
+
+    /**
+     * Test Push Message
+     */
+    public function testpush()
+    {
+        $result = PushController::send_notification("One Million", "Felicidades por el dia del amor!!", "https://www.bachecubano.com", "Muchas felicidades en el dia del amor les deseamos desde Bachecubano.com");
+        dump($result);
     }
 }

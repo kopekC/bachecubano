@@ -24,9 +24,10 @@ use App\CategoryDescription;
 use App\Category;
 use App\Ad;
 use App\AdPromo;
-
+use App\Http\Controllers\Api\PushController;
 use App\Mail\AdPublished;
 use App\Mail\TransferReceived;
+use App\Notifications\AdPromotedPush;
 use App\Notifications\AdPromotedTelegram;
 use App\Notifications\AdPromotedTwitter;
 use stdClass;
@@ -596,6 +597,11 @@ class AdController extends Controller
 
             //Promotion 3 -> Telegram, Twitter, Facebook
             if ($request->input('promotype') >= 3) {
+                //Also Push Notification here
+                try {
+                    PushController::send_notification_promoted_ad($ad);
+                } catch (Exception $e) {
+                }
             }
 
             //Promotion 4 -> Telegram, Twitter, Facebook, Groups, PushNotifications

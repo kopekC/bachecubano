@@ -40,10 +40,7 @@ class AdPromotedTwitter extends Notification
      */
     public function toTwitter($ad)
     {
-        //Add fotos
-        //Mention direct people
-        return (new TwitterStatusUpdate(Str::limit($ad->description->title, 60) . "\n\n #Bachecubano #Cuba \n\n" . ad_url($ad)));
-        //->withImage('marcel.png'); //Point to the direct image here 
+        return (new TwitterStatusUpdate(Str::limit($ad->description->title, 60) . "\n\n #Bachecubano #Cuba \n\n @ErichGarciaCruz \n\n" . ad_url($ad)));
     }
 
     /**

@@ -1,6 +1,8 @@
 ### v1.6
 
     - Global variable $today
+    - Fixed ad_first_physical_image on Telegram Notification
+    - Mention Erich on Twitter
     - Push Ads over 10cuc
 
 ### v1.5

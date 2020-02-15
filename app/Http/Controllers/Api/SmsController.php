@@ -235,13 +235,13 @@ class Internacional
         if (strlen($message) < 120)
             $message = $message . $promo_txt;
 
-        $data = array(
+        $data = [
             'from' => config('sms.international_from_number'),
             'to' => $numbers,
             'body' => $this->utf8_superencode($message),
             'delivery_report' => 'full',
             'send_at' => $now,
-        );
+        ];
 
         $headers = [
             'Authorization' => 'Bearer ' . $this->api_token,

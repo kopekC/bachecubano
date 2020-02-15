@@ -53,7 +53,7 @@ class AdPromotedTelegram extends Notification
         $telegram_notif->to('@elBacheChannel');                                                                                                             //Also the group??
         $telegram_notif->content(Str::limit($ad->description->title, 60) . "\n\n" . Str::limit($ad->description->description, 160));                        //Telegram Notification Text
         $telegram_notif->button('Ver Anuncio', ad_url($ad));                                                                                                //Inline Button
-        $telegram_notif->options(['photo' => ad_image_url($ad, 'original'), 'caption' => $ad->description->title, 'parse_mode' => 'HTML']);                 //Photo url or physical??
+        $telegram_notif->options(['photo' => ad_first_physical_image($ad, 'original'), 'caption' => $ad->description->title, 'parse_mode' => 'HTML']);                 //Photo url or physical??
 
         return $telegram_notif;
     }

@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
+Route::get('/testpush', 'WelcomeController@testpush')->name('testpush');
 
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300', 'cache.headers:private,max-age=300;etag');         //Cache 5min as private content FORCED
