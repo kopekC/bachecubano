@@ -32,7 +32,7 @@ class ImapController extends Controller
      */
     public function imap_check()
     {
-        $messages = $this->driver->getMessages(2);
+        $messages = $this->driver->getMessages(10);
 
         if (count($messages) > 0) {
             $this->process_messages($messages, $this->driver);
@@ -60,11 +60,7 @@ class ImapController extends Controller
             $subject = explode(" ", $subject);
             $command = strtoupper(trim($subject[0]));
 
-            dump($email);
-            dump($command);
-            dump($body);
-
-            continue;
+            dump($message);
 
             //Delete this message and clean mailbox
             $message->delete();
