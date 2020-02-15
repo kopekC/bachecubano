@@ -49,13 +49,20 @@ class AdPromotedTelegram extends Notification
      */
     public function toTelegram($ad)
     {
+        /*
         $telegram_notif = TelegramMessage::create();
         $telegram_notif->to('@elBacheChannel');                                                                                                             //Also the group??
         $telegram_notif->content(Str::limit($ad->description->title, 60) . "\n\n" . Str::limit($ad->description->description, 160));                        //Telegram Notification Text
         $telegram_notif->button('Ver Anuncio', ad_url($ad));                                                                                                //Inline Button
-        $telegram_notif->options(['photo' => ad_first_physical_image($ad, 'original'), 'caption' => $ad->description->title, 'parse_mode' => 'HTML']);                 //Photo url or physical??
-
+        //$telegram_notif->options(['photo' => ad_first_physical_image($ad, 'original'), 'caption' => $ad->description->title, 'parse_mode' => 'HTML']);                 //Photo url or physical??
         return $telegram_notif;
+        */
+
+        return TelegramFile::create()
+            ->to('@elBacheChannel')
+            ->content(Str::limit($ad->description->title, 60) . "\n\n" . Str::limit($ad->description->description, 160))
+            ->button('Ver Anuncio', ad_url($ad))
+            ->file(ad_first_image($ad), 'photo'); // local photo
     }
 
     /**
