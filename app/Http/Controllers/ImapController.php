@@ -269,7 +269,7 @@ class ImapController extends Controller
             "reparación electrónica" => "reparacion",
             "entretenimiento" => "paquete",
             "espectáculos" => "animacion",
-            "fotografía y video" => "fotovideo",
+            "fotografía y video" => "fotografia-y-video",
             "gastronomía" => "gastronomia",
             "idiomas" => "traduccion",
             "informática" => "informatica",

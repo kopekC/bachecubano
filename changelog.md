@@ -2,7 +2,7 @@
 
     - Several fixes
     - Check Facebook posting not working
-    - IMAP interface
+    - IMAP interface completed!
 
 ### v1.6
 
