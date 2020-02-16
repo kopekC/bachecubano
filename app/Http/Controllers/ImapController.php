@@ -84,11 +84,9 @@ class ImapController extends Controller
             //Banned User
             if ($this->user->enabled == 0) {
                 //Error, el metodo solicitado no existe.
-                $subject = "Ceunta bloqueada";
+                $subject = "Cuenta bloqueada";
                 $body = "Lo sentimos pero su cuenta ha sido bloqueada, contacte con un administrador.";
-
                 echo "Banned User";
-
                 Mail::to($email)->send(new ImapResponse($subject, $body));
                 continue;
             }
