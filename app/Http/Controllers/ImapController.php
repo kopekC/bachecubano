@@ -212,7 +212,7 @@ class ImapController extends Controller
             $ad->secret = Str::random(20);
             $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
             $ad->phone = $phone;
-            $ad->region_id = $province;
+            $ad->region_id = isset($province) ? $province : "737586";
             $ad->save();
 
             //Description related table
