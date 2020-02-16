@@ -279,6 +279,7 @@ class ImapController extends Controller
             "clases" => "clases",
             "diseño y decoración" => "diseno-y-decoracion",
             "reparación electrónica" => "reparacion-electronica",
+            "reparaciónelectrónica" => "reparacion-electronica",
             "entretenimiento" => "entretenimiento",
             "espectáculos" => "espectaculos",
             "fotografía y video" => "fotografia-y-video",
