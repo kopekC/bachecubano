@@ -293,7 +293,8 @@ class ImapController extends Controller
             "libros y revistas" => "libros-y-revistas",
             "regalos" => "regalos",
             "objetos perdidos" => "perdidoyencontrado",
-            "juguetes para adultos" => "juguetes-para-adultos"
+            "juguetes para adultos" => "juguetes-para-adultos",
+            "otros servicios" => "objetos-perdidos"
         ];
 
         $translated = isset($new_cats_map[$cat]) ? $new_cats_map[$cat] : "perdidoyencontrado";
