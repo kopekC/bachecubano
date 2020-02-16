@@ -242,7 +242,7 @@ class ImapController extends Controller
             "impresoras y cartuchos" => "impresoras-y-cartuchos",
             "redes y wifi" => "redes-y-wifi",
             "teclados y mouse" => "teclados-y-mouse",
-            "webcam y otros" => "webcam",
+            "webcam y otros" => "webcam-y-otros",
             "compra/venta de autos" => "compraventa-de-autos",
             "bicicletas" => "bicicletas",
             "alquiler de autos" => "carrosalquiler",
