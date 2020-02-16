@@ -642,9 +642,6 @@ class AdController extends Controller
         //Check if came from a valid user
         $user = (new User())->getByToken($request->input('api_token'));
 
-
-        //Then take here the Ad token
-
         if (!is_null($user) && $ad->user_id == $user->id) {
             //proceed, the user owns the ad and cascade the deletion
             $ad->delete();
