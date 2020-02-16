@@ -218,7 +218,7 @@ class ImapController extends Controller
             //Description related table
             $description = new AdDescription();
             $description->ad_id = $ad->id;
-            $description->title = $header;
+            $description->title = Str::limit($header, 160);
             $description->description = $body;
             $description->save();
 
@@ -242,6 +242,7 @@ class ImapController extends Controller
             "monitores" => "monitores",
             "microprocesadores" => "microprocesadores",
             "motherboards" => "motherboards",
+            "motherboard" => "motherboards",
             "memorias" => "memorias",
             "disco duros" => "disco-duros",
             "chasis y fuentes" => "chasis-y-fuentes",

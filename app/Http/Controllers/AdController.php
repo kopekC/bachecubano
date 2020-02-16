@@ -235,7 +235,7 @@ class AdController extends Controller
         //Description related table
         $description = new AdDescription;
         $description->ad_id = $ad->id;
-        $description->title = $request->input('title');
+        $description->title = Str::limit($request->input('title'));
         $description->description = $request->input('description');
         $description->save();
 
