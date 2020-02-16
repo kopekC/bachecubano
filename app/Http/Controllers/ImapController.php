@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Ad;
+use App\AdDescription;
 use App\Http\Controllers\Api\SmsController;
 use App\Mail\ImapResponse;
 use App\User;
@@ -10,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\CategoryDescription;
+use Carbon\Carbon;
 
 class ImapController extends Controller
 {
@@ -123,12 +126,12 @@ class ImapController extends Controller
     private function topup($body)
     {
         echo "<h1>TOPUP</h1>";
-
         return ['subject' => 'Lo sentimos, estamos trabajando en este módulo aún', 'body' => 'Lo corregimos en breve'];
     }
 
     /**
-     * Top Up Account
+     * Pubklish Ad
+     * This is temporal, try to do it woth API post data
      */
     private function publicar($body)
     {
@@ -176,6 +179,39 @@ class ImapController extends Controller
             dump($price);
             dump($body);
 
+            //Now try to publish it
+            //Now + 3 months
+            $now = Carbon::now();
+            $plus_3_months = $now->addMonths(3);
+
+            //Ad Basic Elements elements
+            $ad = new Ad;
+
+            //Basic Table
+            $ad->user_id = $this->user->id;
+            $ad->category_id = $sub_category->id;
+            $ad->price = $price;
+            $ad->contact_name = $name;
+            $ad->contact_email = $email;
+            $ad->premium = 0;
+            $ad->enabled = 1;
+            $ad->active = 1;
+            $ad->spam = 0;
+            $ad->secret = Str::random(20);
+            $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
+            $ad->phone = $phone;
+            $ad->region_id = $province;
+            $ad->save();
+
+            //Description related table
+            $description = new AdDescription();
+            $description->ad_id = $ad->id;
+            $description->title = $header;
+            $description->description = $body;
+            $description->save();
+
+            return ['subject' => 'Se ha publicado su anuncio correctamente ID: ' . $ad->id, 'body' => 'Estamos realizando tareas para mejorar la plataforma, espere novedades pronto.'];
+            
         } else {
             return ['subject' => 'Lo sentimos, ha ocurrido un error con su anuncio', 'body' => 'Estamos investigando'];
         }
