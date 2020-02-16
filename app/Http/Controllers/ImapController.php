@@ -167,7 +167,14 @@ class ImapController extends Controller
             if (isset($values[11]))
                 $province = $values[11];
 
-            var_dump($values);
+            dump($header);
+            dump($name);
+            dump($phone);
+            dump($email);
+            dump($cat);
+            dump($sub_category);
+            dump($price);
+            dump($body);
 
         } else {
             return ['subject' => 'Lo sentimos, ha ocurrido un error con su anuncio', 'body' => 'Estamos investigando'];
