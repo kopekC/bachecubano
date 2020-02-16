@@ -3,6 +3,7 @@
     - Several fixes
     - Check Facebook posting not working
     - IMAP interface completed!
+    - Fixed @if(isset($ad->updated_at)) on Ad show
 
 ### v1.6
 
