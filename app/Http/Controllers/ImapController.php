@@ -64,9 +64,6 @@ class ImapController extends Controller
             $subject = explode(" ", $subject);
             $command = strtolower(trim($subject[0]));
 
-            dump($body);
-            dump($message);
-
             //Delete this message and clean mailbox
             $message->delete();
             $server->expunge();
@@ -104,6 +101,8 @@ class ImapController extends Controller
         echo "<h1>ENVIAR SMS</h1>";
 
         $values = explode("|$|", $body);
+
+        dump($values);
 
         if ($this->user->wallet->credits >= config('sms.sms_value_nac')) {
             //Send SMS
