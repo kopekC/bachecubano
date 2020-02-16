@@ -96,4 +96,9 @@ class User extends Authenticatable implements Rater, Following
         // Your your own implementation.
         $this->notify(new ResetPassword($token));
     }
+
+    /**
+     * Create wallet on user creation
+     */
+    
 }

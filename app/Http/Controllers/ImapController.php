@@ -232,6 +232,14 @@ class ImapController extends Controller
     }
 
     /**
+     * Saldo en su cuenta de bachecubano
+     */
+    public function saldo()
+    {
+        return ['subject' => 'Saldo de su ceunta de Bachecubano:', 'body' => 'Saldo actual: ' . $this->user->wallet->credits . "\nPara recargar su cuenta transfiera al 55149081 la cantidad deseada."];
+    }
+
+    /**
      * Category transalator
      */
     private function parse_new_categories($cat)
