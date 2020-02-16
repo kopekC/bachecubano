@@ -283,7 +283,7 @@ class ImapController extends Controller
             "espectáculos" => "espectaculos",
             "fotografía y video" => "fotografia-y-video",
             "gastronomía" => "gastronomia",
-            "idiomas" => "traduccion",
+            "idiomas" => "idiomas",
             "informática" => "informatica",
             "peluquerías y barberías" => "peluquerias-y-barberias",
             "relojerías y joyeros" => "relojerias-y-joyeros",
