@@ -81,6 +81,18 @@ class ImapController extends Controller
                 ]);
             }
 
+            //Banned User
+            if ($this->user->enabled == 0) {
+                //Error, el metodo solicitado no existe.
+                $subject = "Ceunta bloqueada";
+                $body = "Lo sentimos pero su cuenta ha sido bloqueada, contacte con un administrador.";
+
+                echo "Banned User";
+
+                Mail::to($email)->send(new ImapResponse($subject, $body));
+                continue;
+            }
+
             //Method verification
             if (method_exists($this, $command)) {
                 echo "Calling this->" . $command . "()";
@@ -245,7 +257,7 @@ class ImapController extends Controller
             "webcam y otros" => "webcam-y-otros",
             "compra/venta de autos" => "compraventa-de-autos",
             "bicicletas" => "bicicletas",
-            "alquiler de autos" => "carrosalquiler",
+            "alquiler de autos" => "alquiler-de-autos",
             "talleres" => "talleres",
             "motos" => "motos",
             "accesorios y piezas" => "piezasaccesorios",
