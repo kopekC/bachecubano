@@ -57,14 +57,14 @@ class ImapController extends Controller
         foreach ($messages as $message) {
 
             //Email headers
-            $email = $message->getHeaders()->fromaddress;
+            $email = $message->getHeaders()->from[0]->mailbox . "@" . $message->getHeaders()->from[0]->host;
             $subject = $message->getSubject();
             $body = $message->getMessageBody();
             $body = preg_replace("/\r\n|\r|\n/", '', $body);
             $subject = explode(" ", $subject);
             $command = strtolower(trim($subject[0]));
 
-            dump($message->getHeaders());
+            dump($email);
 
             //Delete this message and clean mailbox
             $message->delete();
