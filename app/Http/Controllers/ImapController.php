@@ -246,7 +246,7 @@ class ImapController extends Controller
             "compra/venta de autos" => "compraventa-de-autos",
             "bicicletas" => "bicicletas",
             "alquiler de autos" => "carrosalquiler",
-            "talleres" => "mecanico",
+            "talleres" => "talleres",
             "motos" => "motos",
             "accesorios y piezas" => "piezasaccesorios",
             "celulares" => "celulares",
