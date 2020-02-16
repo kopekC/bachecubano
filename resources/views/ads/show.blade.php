@@ -115,7 +115,8 @@
                             </ul>
                             <div class="details-meta">
                                 <span><a href="#" title="ID del anuncio"><i class="lni-information"></i> {{ $ad->id }}</a></span>
-                                <span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->diffForHumans() }}</a></span>
+                                <!--<span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->diffForHumans() }}</a></span>-->
+                                <span><a href="#" title="Actualizado hace {{ $ad->updated_at->diffForHumans() }}"><i class="lni-alarm-clock"></i> {{ $ad->updated_at->diffForHumans() }}</a></span>
                                 <span><a href="#" title="Total de visitas válidas del anuncio"><i class="lni-eye"></i> {{ $ad->stats->hits > 0 ? $ad->stats->hits : 0 }} Visitas</a></span>
                             </div>
                         </div>
