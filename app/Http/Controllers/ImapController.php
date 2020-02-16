@@ -264,7 +264,7 @@ class ImapController extends Controller
             "televisores" => "televisor",
             "consolas de videojuegos" => "consolas",
             "audio y video multimedia" => "reproductores",
-            "aire acondicionado" => "aires",
+            "aire acondicionado" => "aire-acondicionado",
             "alquiler de casas" => "alquiler-de-casas",
             "electrodomésticos" => "electrodomesticos",
             "mascotas" => "mascotas",
