@@ -156,7 +156,7 @@ class ImapController extends Controller
 
             //Parse this
             $cat = strtolower($values[5]);
-            $sub_category =  CategoryDescription::where('slug', $cat)->first();
+            $sub_category =  CategoryDescription::where('slug', $this->parse_new_categories($cat))->first();
 
             $price = $values[6];
             $body = nl2br($values[7]);
