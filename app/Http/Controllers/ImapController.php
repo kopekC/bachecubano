@@ -258,7 +258,7 @@ class ImapController extends Controller
             "alquiler de autos" => "alquiler-de-autos",
             "talleres" => "talleres",
             "motos" => "motos",
-            "accesorios y piezas" => "piezasaccesorios",
+            "accesorios y piezas" => "accesorios-y-piezas",
             "celulares" => "celulares",
             "cámaras fotográficas" => "camaras",
             "televisores" => "televisor",
