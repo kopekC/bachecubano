@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Sms extends Model
 {
@@ -15,7 +16,7 @@ class Sms extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'phone', 'message'
+        'user_id', 'phone', 'message', 'status'
     ];
 
     /**

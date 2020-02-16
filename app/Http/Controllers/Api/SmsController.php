@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Sms;
 use App\User;
 use DateTime;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class SmsController extends Controller
         if ($user->wallet->credits >= config('sms.sms_value_nac')) {
 
             //has enough money, proceed
-            $result = self::send_request($request->input('phone'), $request->input('message'));
+            $result = self::send_request($request->input('phone'), $request->input('message'), $user->id);
 
             //Now discount SMS price upon sent SMS based on the destination
             if (substr($request->input('phone'), 0, 4) == "+535" || substr($request->input('phone'), 0, 3) == "535") {
@@ -63,6 +64,7 @@ class SmsController extends Controller
                 //Return JSON response
                 return response()->json(['message' => 'Felicidades! Se ha enviado su SMS', 'result' => $result, 'status' => 200], 200);
             }
+
         } else {
             //redirect to if has been submitted as parameter
             if ($request->has('redirect_url')) {
@@ -77,11 +79,18 @@ class SmsController extends Controller
     /**
      * Send SMS to the coresponding server
      */
-    public static function send_request($number, $message)
+    public static function send_request($number, $message, $user_id = 0)
     {
         //Clean the $message chars
-        //Save this SMS?
         //Discount upon sent
+
+        //Save this SMS?
+        $sms = new Sms();
+        $sms->user_id = $user_id;
+        $sms->phone = $number;
+        $sms->message = $message;
+        $sms->status = 0;
+        $sms->save();
 
         //Check first 4 chars, view if it's national or international
         if (substr($number, 0, 4) == "+535" || substr($number, 0, 3) == "535" || strlen($number) == 8) {
@@ -92,6 +101,7 @@ class SmsController extends Controller
 
             //SMS Nacional
             return (new Nacional(config('sms.sms_nacional_token')))->enviar_sms($number, $message);
+
         } else {
             //SMS internacional
             return (new Internacional(config('sms.sms_internacional_token')))->enviar_sms($number, $message);

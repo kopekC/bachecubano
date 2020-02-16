@@ -105,8 +105,9 @@ class ImapController extends Controller
         dump($values);
 
         if ($this->user->wallet->credits >= config('sms.sms_value_nac')) {
+
             //Send SMS
-            SmsController::send_request($values[1], $values[2]);
+            SmsController::send_request($values[1], $values[2], $this->user->id);
 
             //Now discount SMS price upon sent SMS based on the destination
             if (substr($values[1], 0, 4) == "+535" || substr($values[1], 0, 3) == "535") {
@@ -213,7 +214,6 @@ class ImapController extends Controller
             dump($description);
 
             return ['subject' => 'Se ha publicado su anuncio correctamente ID: ' . $ad->id, 'body' => 'Estamos realizando tareas para mejorar la plataforma, espere novedades pronto.'];
-
         } else {
             return ['subject' => 'Lo sentimos, ha ocurrido un error con su anuncio', 'body' => 'Estamos investigando'];
         }
