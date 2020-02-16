@@ -280,6 +280,7 @@ class AdController extends Controller
 
         //Hit Visit to this Ad using increment method
         $stats = AdStats::firstOrCreate(['ad_id' => $ad->id]);
+        //Check for A REAL VISIT HERE
         $stats->increment('hits');
 
         //If this Ad gets a 1000 multiple, give $1 to the owner
