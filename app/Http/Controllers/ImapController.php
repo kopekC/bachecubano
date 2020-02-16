@@ -127,6 +127,9 @@ class ImapController extends Controller
             } else {
                 $this->user->wallet->deduce(config('sms.sms_value_int'));
             }
+
+            return ['subject' => 'SMS enviado', 'body' => 'Se ha enviado correctamente su SMS. Muchas gracias!'];
+            
         } else {
             return ['subject' => 'Lo sentimos, no tiene saldo suficiente', 'body' => 'Puede recargar su cuenta transfiriendo al 55149081'];
         }
