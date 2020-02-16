@@ -77,7 +77,7 @@ class SmsController extends Controller
     /**
      * Send SMS to the coresponding server
      */
-    private static function send_request($number, $message)
+    public static function send_request($number, $message)
     {
         //Clean the $message chars
         //Save this SMS?
