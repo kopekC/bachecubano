@@ -210,8 +210,11 @@ class ImapController extends Controller
             $description->description = $body;
             $description->save();
 
+            dump($ad->id);
+            dump($description);
+
             return ['subject' => 'Se ha publicado su anuncio correctamente ID: ' . $ad->id, 'body' => 'Estamos realizando tareas para mejorar la plataforma, espere novedades pronto.'];
-            
+
         } else {
             return ['subject' => 'Lo sentimos, ha ocurrido un error con su anuncio', 'body' => 'Estamos investigando'];
         }
