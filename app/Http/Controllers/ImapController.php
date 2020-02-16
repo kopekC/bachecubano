@@ -9,6 +9,7 @@ use Fetch\Server;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use App\CategoryDescription;
 
 class ImapController extends Controller
 {
@@ -82,12 +83,12 @@ class ImapController extends Controller
             if (method_exists($this, $command)) {
                 echo "Calling this->" . $command . "()";
                 $response = $this->$command($body);
-                return Mail::to($email)->send(new ImapResponse($response['subject'], $response['body']));
+                Mail::to($email)->send(new ImapResponse($response['subject'], $response['body']));
             } else {
                 //Error, el metodo solicitado no existe.
                 $subject = "Comando o solicitud no válida";
                 $body = "Al parecer utilizó un comando o solitud errónea en su correo. Verifique que esté correctamente escrito. Para dudas llamar al 54663598";
-                return Mail::to($email)->send(new ImapResponse($subject, $body));
+                Mail::to($email)->send(new ImapResponse($subject, $body));
             }
         }
     }
@@ -133,6 +134,111 @@ class ImapController extends Controller
     {
         echo "<h1>PUBLICAR</h1>";
 
-        return ['subject' => 'Lo sentimos, estamos trabajando en este módulo aún', 'body' => 'Lo corregimos en breve'];
+        $values = explode("|$|", $body);
+
+        //Process all data here
+        if (is_array($values) && count($values) > 7) {
+
+            /**
+             * |$|Vendo Skoda del 63 buen estado técnico.|$|erich|$|53055125|$|erichvalcarcelv@gmail.com|$|compra/venta de autos|$|13500|$|Vendo auto Skoda 1963, motor bueno original con distribuidor electrónico, carrocería buena con 
+             * línea de fábrica, gomas R13, diferencial de Lada. Todo le funciona.|$|1.15|$|android|$|lachopi|$|737586|$|Enviado desde mi smartphone Samsung Galaxy
+             */
+
+            $header = trim($values[1]);
+            $name = trim($values[2]);
+            $phone = trim($values[3]);
+            $email = trim($values[4]);
+            if ($email == "")
+                $email = $this->user->email;
+
+            //Parse this
+            $cat = strtolower($values[5]);
+            $sub_category =  CategoryDescription::where('slug', $cat)->first();
+
+            $price = $values[6];
+            $body = nl2br($values[7]);
+
+            if (isset($values[8]))
+                $version = $values[8];
+            if (isset($values[9]))
+                $platform = $values[9];
+            if (isset($values[10]))
+                $app = $values[10];
+            if (isset($values[11]))
+                $province = $values[11];
+
+            var_dump($values);
+
+        } else {
+            return ['subject' => 'Lo sentimos, ha ocurrido un error con su anuncio', 'body' => 'Estamos investigando'];
+        }
+    }
+
+    /**
+     * Category transalator
+     */
+    private function parse_new_categories($cat)
+    {
+        $new_cats_map = [
+            "pc de escritorio" => "pc",
+            "portátiles y tablets" => "laptop",
+            "monitores" => "monitor",
+            "microprocesadores" => "microprocesador",
+            "motherboards" => "motherboard",
+            "memorias" => "flashusbram",
+            "disco duros" => "discoduro",
+            "chasis y fuentes" => "chasisfuente",
+            "tarjetas de video" => "tarjetavideo",
+            "unidad de cd y dvd" => "quemador",
+            "audio y bocinas" => "tarjetasonido",
+            "backups" => "backup",
+            "impresoras y cartuchos" => "impresora",
+            "redes y wifi" => "red",
+            "teclados y mouse" => "tecladomouse",
+            "webcam y otros" => "webcam",
+            "compra/venta de autos" => "compraventa-de-autos",
+            "bicicletas" => "bicicletas",
+            "alquiler de autos" => "carrosalquiler",
+            "talleres" => "mecanico",
+            "motos" => "motos",
+            "accesorios y piezas" => "piezasaccesorios",
+            "celulares" => "celulares",
+            "cámaras fotográficas" => "camaras",
+            "televisores" => "televisor",
+            "consolas de videojuegos" => "consolas",
+            "audio y video multimedia" => "reproductores",
+            "aire acondicionado" => "aires",
+            "alquiler de casas" => "casasalquiler",
+            "electrodomésticos" => "electrodomesticos",
+            "mascotas" => "mascotas",
+            "muebles y decoración" => "muebles",
+            "permuta" => "casaspermutas",
+            "compra/venta de casas" => "casas",
+            "bisutería y relojes" => "joyasrelojes",
+            "gimnasios y masajistas" => "gimnasio",
+            "implementos deportivos" => "deportivos",
+            "vestuario y calzado" => "ropazapatos",
+            "albañilería" => "construccion",
+            "clases" => "clasescursos",
+            "diseño y decoración" => "disenno",
+            "reparación electrónica" => "reparacion",
+            "entretenimiento" => "paquete",
+            "espectáculos" => "animacion",
+            "fotografía y video" => "fotovideo",
+            "gastronomía" => "gastronomia",
+            "idiomas" => "traduccion",
+            "informática" => "informatica",
+            "peluquerías y barberías" => "belleza",
+            "relojerías y joyeros" => "relojerojoyero",
+            "servicios domésticos" => "limpieza",
+            "cambio de moneda" => "divisas",
+            "empleos" => "ofertastrabajo",
+            "libros y revistas" => "librosrevistas",
+            "regalos" => "regalos",
+            "objetos perdidos" => "perdidoyencontrado"
+        ];
+
+        $translated = isset($new_cats_map[$cat]) ? $new_cats_map[$cat] : "perdidoyencontrado";
+        return $translated;
     }
 }
