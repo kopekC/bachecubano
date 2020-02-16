@@ -262,7 +262,7 @@ class ImapController extends Controller
             "celulares" => "celulares",
             "cámaras fotográficas" => "camaras",
             "televisores" => "televisores",
-            "consolas de videojuegos" => "consolas",
+            "consolas de videojuegos" => "consolas-de-videojuegos",
             "audio y video multimedia" => "reproductores",
             "aire acondicionado" => "aire-acondicionado",
             "alquiler de casas" => "alquiler-de-casas",
