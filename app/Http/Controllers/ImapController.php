@@ -189,7 +189,7 @@ class ImapController extends Controller
 
             //Basic Table
             $ad->user_id = $this->user->id;
-            $ad->category_id = $sub_category->id;
+            $ad->category_id = $sub_category->category_id;
             $ad->price = $price;
             $ad->contact_name = $name;
             $ad->contact_email = $email;
