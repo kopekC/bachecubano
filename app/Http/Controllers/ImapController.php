@@ -257,7 +257,7 @@ class ImapController extends Controller
             "electrodomésticos" => "electrodomesticos",
             "mascotas" => "mascotas",
             "muebles y decoración" => "muebles",
-            "permuta" => "casaspermutas",
+            "permuta" => "permuta",
             "compra/venta de casas" => "compraventa-de-casas",
             "bisutería y relojes" => "joyasrelojes",
             "gimnasios y masajistas" => "gimnasio",
