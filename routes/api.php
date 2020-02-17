@@ -72,8 +72,22 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         });
     });
 
-    Route::post('/bot/getupdates', function () {
-        $updates = Telegram::getUpdates();
-        return (json_encode($updates));
+    //Telegram Routes
+    /*
+    Route::group(['prefix' => 'telegram'], function () {
+
+        Route::post('/bot/getupdates', function () {
+            $updates = Telegram::getUpdates();
+            return (json_encode($updates));
+        });
+
+        Route::post('bot/sendmessage', function () {
+            Telegram::sendMessage([
+                'chat_id' => 'RECIPIENT_CHAT_ID',
+                'text' => 'Hello world!'
+            ]);
+            return;
+        });
     });
+    */
 });
