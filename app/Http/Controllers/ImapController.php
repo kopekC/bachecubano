@@ -285,6 +285,7 @@ class ImapController extends Controller
             "electrodomesticos" => "electrodomesticos",
             "mascotas" => "mascotas",
             "muebles y decoración" => "muebles-y-decoracion",
+            "muebles ydecoración" => "muebles-y-decoracion",
             "permuta" => "permuta",
             "compra/venta de casas" => "compraventa-de-casas",
             "compra/ventade casas" => "compraventa-de-casas",

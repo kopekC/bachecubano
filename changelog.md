@@ -1,7 +1,11 @@
+### v1.7
+
+    - Check Facebook posting not working
+    - Detect real visitor to ads
+
 ### v1.6.1
 
     - Several fixes
-    - Check Facebook posting not working
     - IMAP interface completed!
     - Fixed @if(isset($ad->updated_at)) on Ad show
 
