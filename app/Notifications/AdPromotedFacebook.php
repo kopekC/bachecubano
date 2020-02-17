@@ -43,7 +43,8 @@ class AdPromotedFacebook extends Notification
      */
     public function toFacebookPoster($ad)
     {
-        return (new FacebookPosterPost($ad->description->title . "\n.\n" . "Visita ahora nuestro anuncio, no te lo pierdas" . "\n.\n" . ad_url($ad)))->withImage(ad_url($ad));
+        return (new FacebookPosterPost($ad->description->title . "\n.\n" . "Visita ahora nuestro anuncio, no te lo pierdas" . "\n.\n#Cuba #Bachecubano #Cubanos #CubanosPorElMundo"))
+            ->withLink(ad_url($ad));
     }
 
     /**

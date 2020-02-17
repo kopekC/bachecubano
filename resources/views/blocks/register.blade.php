@@ -14,6 +14,10 @@
                         <a class="btn btn-common btn-block text-white" style="background-color: #1bd0ee" href="{{ route('social_login', ['provider' => 'twitter']) }}"><i class="lni-twitter-filled"></i> Registrarte con Twitter</a>
                     </div>
 
+                    <div class="text-center m-3">
+                        <a class="btn btn-common btn-block" style="background-color: #fff; color: black" href="{{ route('social_login', ['provider' => 'google']) }}"><i class="lni-google"></i> Acceder con Google</a>
+                    </div>
+
                     <hr>
 
                     <form class="login-form" method="POST" action="{{ route('register') }}">
