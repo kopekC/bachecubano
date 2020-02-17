@@ -285,7 +285,7 @@ class AdController extends Controller
         $this->hit_visit($request, $stats, $ad);
 
         //If this Ad gets a 1000 multiple, give $1 to the owner
-        if ($stats->hits % 1000 == 0) {
+        if ($stats->hits % 1000 == 0 && isset($ad->owner->id)) {
             //Add the User Wallet +1 cuc
             (Wallet::firstOrCreate(['user_id' => $ad->owner->id]))->credit(1);
             //Notify via Email ¡Congrats!
