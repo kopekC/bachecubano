@@ -131,7 +131,7 @@ class ImapController extends Controller
             return ['subject' => 'SMS enviado', 'body' => 'Se ha enviado correctamente su SMS. Muchas gracias!'];
             
         } else {
-            return ['subject' => 'Lo sentimos, no tiene saldo suficiente', 'body' => 'Puede recargar su cuenta transfiriendo al 55149081'];
+            return ['subject' => 'Lo sentimos, no tiene saldo suficiente', 'body' => 'Puede recargar su cuenta transfiriendo al 55149081 o 54663598'];
         }
     }
 
