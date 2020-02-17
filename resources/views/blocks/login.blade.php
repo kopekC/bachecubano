@@ -15,11 +15,9 @@
                         <a class="btn btn-common btn-block text-white" href="{{ route('social_login', ['provider' => 'facebook']) }}"><i class="lni-facebook-filled"></i> Acceder con Facebook</a>
                     </div>
 
-                    <!--
                     <div class="text-center m-3">
                         <a class="btn btn-common btn-block text-white" style="background-color: #1bd0ee" href="{{ route('social_login', ['provider' => 'twitter']) }}"><i class="lni-twitter-filled"></i> Acceder con Twitter</a>
                     </div>
-                    -->
 
                     <hr>
 
