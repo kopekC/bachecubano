@@ -85,10 +85,14 @@ class TelegramController extends Controller
         var_dump($update['message']['date']);
         var_dump($update['message']['text']);
 
+
+
+        //Method allocation
+        $method = explode(" ", $update['message']['text'])[0];
+        var_dump($method);
+
         exit;
-
-        $method = explode(" ", $update->message->text)[0];
-
+        
         switch ($method) {
             case "info":
                 return $this->info($update->message->from);
