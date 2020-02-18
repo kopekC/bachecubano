@@ -79,7 +79,7 @@ class TelegramController extends Controller
         $from_id = $update['message']['from']['id'];
 
         //Username
-        $username = $update['message']['from']['username'];
+        $username = isset($update['message']['from']['username']) ? $update['message']['from']['username'] : "";
 
         //First Name
         $first_name = $update['message']['from']['first_name'];
