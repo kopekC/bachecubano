@@ -1,3 +1,8 @@
+### v1.8
+
+    - Telegram BOT
+        - Pretify it
+
 ### v1.7
 
     - Check Facebook posting not working

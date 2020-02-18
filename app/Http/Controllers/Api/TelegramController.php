@@ -120,7 +120,6 @@ class TelegramController extends Controller
      */
     private function info($from)
     {
-
         $text = "Hola! 👋\n\nInfo del Bot y listado de comandos:";
         $this->sendmessage($from, $text);
     }

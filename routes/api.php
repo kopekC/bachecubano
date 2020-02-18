@@ -71,11 +71,11 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         });
     });
 
-    //Telegram Routes
+    //Telegram Routes with token parameter
     Route::group(['prefix' => 'telegram'], function () {
-        Route::get('getme', 'Api\TelegramController@getme')->name('getme');                         //Bot Basic Info
-        Route::get('getupdates', 'Api\TelegramController@getupdates');                              //Bot Get Messages info
+        Route::get('getme/' . config('telegram.webhook_token'), 'Api\TelegramController@getme')->name('getme');                         //Bot Basic Info
+        Route::get('getupdates/' . config('telegram.webhook_token'), 'Api\TelegramController@getupdates');                              //Bot Get Messages info
         Route::post('webhook/' . config('telegram.webhook_token'), 'Api\TelegramController@webhook')->name('webhook');                  //Bot WebHook test
-        Route::get('sendmessage', 'Api\TelegramController@sendmessage')->name('sendmessage');      //Send Specific message 😉
+        Route::get('sendmessage/' . config('telegram.webhook_token'), 'Api\TelegramController@sendmessage')->name('sendmessage');      //Send Specific message 😉
     });
 });
