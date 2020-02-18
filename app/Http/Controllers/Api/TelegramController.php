@@ -72,27 +72,30 @@ class TelegramController extends Controller
         //$update = json_decode(file_get_contents('php://input'));
         $update = Telegram::getWebhookUpdates();
 
-        var_dump($update);
-        var_dump($update['update_id']);
-        var_dump($update['message']);
-        var_dump($update['message']['message_id']);
-        var_dump($update['message']['from']);
-        var_dump($update['message']['from']['id']);
-        var_dump($update['message']['from']['first_name']);
-        var_dump($update['message']['from']['username']);
-        var_dump($update['message']['chat']['id']);
-        var_dump($update['message']['chat']['type']);               //private, group, supergroup, channel
-        var_dump($update['message']['date']);
-        var_dump($update['message']['text']);
+        //Message ID
+        $message_id = $update['message']['message_id'];
 
+        //From ID
+        $from_id = $update['message']['from']['id'];
 
+        //Username
+        $username = $update['message']['from']['username'];
+
+        //First Name
+        $first_name = $update['message']['from']['first_name'];
+
+        //Chat Type
+        $chat_type = $update['message']['chat']['type'];
+        if ($chat_type != "private") {
+            return;
+        }
 
         //Method allocation
-        $method = explode(" ", $update['message']['text'])[0];
+        $method = strtolower(explode(" ", $update['message']['text'])[0]);
         var_dump($method);
 
         exit;
-        
+
         switch ($method) {
             case "info":
                 return $this->info($update->message->from);
