@@ -59,7 +59,7 @@ class TelegramController extends Controller
                 dump($update['message']['from']);
                 dump($update['message']['from']['id']);
                 dump($update['message']['from']['first_name']);
-                dump($update['message']['from']['username']);
+                dump(isset($update['message']['from']['username']) ? $update['message']['from']['username'] : "");
                 dump($update['message']['chat']['id']);
                 dump($update['message']['chat']['type']);               //private, group, supergroup, channel
                 dump($update['message']['date']);
