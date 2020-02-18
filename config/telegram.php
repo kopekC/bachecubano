@@ -138,6 +138,7 @@ return [
     | Examples shown below are by the group type for you to understand each of them.
     */
     'command_groups'               => [
+
         /* // Group Type: 1
            'commmon' => [
                 Acme\Project\Commands\TodoCommand::class,
@@ -200,4 +201,6 @@ return [
         // 'stop' => Acme\Project\Commands\StopCommand::class,
         // 'status' => Acme\Project\Commands\StatusCommand::class,
     ],
+
+    'webhook_token' = env('TELEGRAM_WEBHOOK_TOKEN'),
 ];
