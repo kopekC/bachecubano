@@ -78,10 +78,9 @@ class TelegramController extends Controller
     /**
      * When the bot is ready, just set Webhook
      */
-    public function webhook(Request $request)
+    public function webhook()
     {
-        //dd($request);
-        var_dump($request);
+        var_dump(file_get_contents('php://input'));
     }
 
     /**
