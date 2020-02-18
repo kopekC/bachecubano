@@ -74,6 +74,7 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
     //Telegram Routes
     Route::group(['prefix' => 'telegram'], function () {
         Route::get('getme', 'Api\TelegramController@getme')->name('getme');
+        Route::get('getupdates', 'Api\TelegramController@getupdates');
         Route::post('getupdates', 'Api\TelegramController@getupdates')->name('getupdates');
         Route::post('sendmessage', 'Api\TelegramController@sendmessage')->name('sendmessage');
     });
