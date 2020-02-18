@@ -22,9 +22,6 @@ class TelegramController extends Controller
     {
         $telegram = new Api(config('telegram.bots.mybot.token'));
         $response = $telegram->getMe();
-        //$botId = $response->getId();
-        //$firstName = $response->getFirstName();
-        //$username = $response->getUsername();
         dd($response);
     }
 
@@ -36,20 +33,6 @@ class TelegramController extends Controller
     public function getupdates()
     {
         $updates = Telegram::getUpdates();
-        /**
-         * update_id
-         * message
-         * edited_message
-         * channel_post
-         * edited_channel_post
-         * inline_query
-         * chosen_inline_result
-         * callback_query
-         * shipping_query
-         * pre_checkout_query
-         * poll
-         * poll_answer
-         */
         if (count($updates) > 0) {
             foreach ($updates as $update) {
                 dump($update);
@@ -71,28 +54,22 @@ class TelegramController extends Controller
 
     /**
      * When the bot is ready, just set Webhook
+     * var_dump($update);
+     *  var_dump($update['update_id']);
+     *  var_dump($update['message']);
+     *  var_dump($update['message']['message_id']);
+     *  var_dump($update['message']['from']);
+     *  var_dump($update['message']['from']['id']);
+     *  var_dump($update['message']['from']['first_name']);
+     *  var_dump($update['message']['from']['username']);
+     *  var_dump($update['message']['chat']['id']);
+     *  var_dump($update['message']['chat']['type']);               //private, group, supergroup, channel
+     *  var_dump($update['message']['date']);
+     *  var_dump($update['message']['text']);
      */
     public function webhook()
     {
         $update = json_decode(file_get_contents('php://input'));
-
-        /*
-        var_dump($update);
-        var_dump($update['update_id']);
-        var_dump($update['message']);
-        var_dump($update['message']['message_id']);
-        var_dump($update['message']['from']);
-        var_dump($update['message']['from']['id']);
-        var_dump($update['message']['from']['first_name']);
-        var_dump($update['message']['from']['username']);
-        var_dump($update['message']['chat']['id']);
-        var_dump($update['message']['chat']['type']);               //private, group, supergroup, channel
-        var_dump($update['message']['date']);
-        var_dump($update['message']['text']);
-        */
-
-        var_dump($update);
-        var_dump($update->message->text);
 
         $method = explode(" ", $update->message->text)[0];
 
