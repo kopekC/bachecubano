@@ -67,6 +67,7 @@ class TelegramController extends Controller
      *  var_dump($update['message']['date']);
      *  var_dump($update['message']['text']);
      */
+    /*
     public function webhook()
     {
         //$update = json_decode(file_get_contents('php://input'));
@@ -100,6 +101,18 @@ class TelegramController extends Controller
             default:
                 return "None command";
         }
+    }
+    */
+
+    public function webhook()
+    {
+        $update = Telegram::commandsHandler(true);
+
+        // Commands handler method returns an Update object.
+        // So you can further process $update object 
+        // to however you want.
+
+        return 'ok';
     }
 
     /**
