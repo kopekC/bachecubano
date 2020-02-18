@@ -97,6 +97,8 @@ class TelegramController extends Controller
             case "info":
                 return $this->info($update['message']['from']);
                 break;
+            default:
+                return "None command";
         }
     }
 
