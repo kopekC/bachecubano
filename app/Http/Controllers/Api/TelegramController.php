@@ -62,6 +62,9 @@ class TelegramController extends Controller
                 dump($update['message']);
                 dump($update['message']['message_id']);
                 dump($update['message']['from']);
+                dump($update['message']['from']['id']);
+                dump($update['message']['from']['first_name']);
+                dump($update['message']['from']['username']);
                 dump($update['message']['date']);
                 dump($update['message']['text']);
             }
