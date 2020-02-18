@@ -120,7 +120,8 @@ class TelegramController extends Controller
      */
     private function info($from)
     {
-        $text = "Hola " . isset($from['first_name']) ? $from['first_name'] : "" . "! 👋\n\nInfo del Bot y listado de comandos:";
+
+        $text = "Hola! 👋\n\nInfo del Bot y listado de comandos:";
         $this->sendmessage($from, $text);
     }
 }
