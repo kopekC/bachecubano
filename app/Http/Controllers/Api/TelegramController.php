@@ -55,8 +55,8 @@ class TelegramController extends Controller
          * poll_answer
          */
 
-        if(count($updates) > 0) {
-            foreach($updates as $update) {
+        if (count($updates) > 0) {
+            foreach ($updates as $update) {
                 dump($update);
                 dump($update['update_id']);
                 dump($update['message']);
@@ -65,6 +65,8 @@ class TelegramController extends Controller
                 dump($update['message']['from']['id']);
                 dump($update['message']['from']['first_name']);
                 dump($update['message']['from']['username']);
+                dump($update['message']['chat']['id']);
+                dump($update['message']['chat']['type']);               //private, group, supergroup, channel
                 dump($update['message']['date']);
                 dump($update['message']['text']);
             }
@@ -72,6 +74,15 @@ class TelegramController extends Controller
 
         return (json_encode($updates));
     }
+
+    /**
+     * When the bot is ready, just set Webhook
+     */
+    public function webhook(Request $request)
+    {
+        dd($request);
+    }
+
 
     /**
      * Enviar mensaje de vuelta a sender
