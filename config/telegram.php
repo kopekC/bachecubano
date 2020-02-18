@@ -202,5 +202,5 @@ return [
         // 'status' => Acme\Project\Commands\StatusCommand::class,
     ],
 
-    'webhook_token' = env('TELEGRAM_WEBHOOK_TOKEN'),
+    'webhook_token' => env('TELEGRAM_WEBHOOK_TOKEN'),
 ];
