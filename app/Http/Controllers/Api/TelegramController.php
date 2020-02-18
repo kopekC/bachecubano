@@ -80,7 +80,8 @@ class TelegramController extends Controller
      */
     public function webhook(Request $request)
     {
-        dd($request);
+        //dd($request);
+        var_dump($request);
     }
 
 
