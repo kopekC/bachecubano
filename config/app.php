@@ -192,6 +192,11 @@ return [
          * Social Providers
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+        /**
+         * Telegram Bot
+         */
+        Telegram\Bot\Laravel\TelegramServiceProvider::class
     ],
 
     /*
@@ -256,5 +261,10 @@ return [
          * Social Login and integrations
          */
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        /**
+         * Telegram Facade
+         */
+        'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class
     ],
 ];
