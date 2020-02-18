@@ -69,7 +69,12 @@ class TelegramController extends Controller
      */
     public function webhook()
     {
-        $update = json_decode(file_get_contents('php://input'));
+
+        //$update = json_decode(file_get_contents('php://input'));
+
+        $updates = Telegram::getWebhookUpdates();
+        var_dump($updates);
+        exit;
 
         $method = explode(" ", $update->message->text)[0];
 
