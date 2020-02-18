@@ -15,7 +15,6 @@
 
 //SubDomain Mapping
 use Illuminate\Support\Facades\Route;
-use Telegram\Bot\Laravel\Facades\Telegram;
 
 Route::group(['domain' => 'api.bachecubano.com'], function () {
 
@@ -73,21 +72,9 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
     });
 
     //Telegram Routes
-    /*
     Route::group(['prefix' => 'telegram'], function () {
-
-        Route::post('/bot/getupdates', function () {
-            $updates = Telegram::getUpdates();
-            return (json_encode($updates));
-        });
-
-        Route::post('bot/sendmessage', function () {
-            Telegram::sendMessage([
-                'chat_id' => 'RECIPIENT_CHAT_ID',
-                'text' => 'Hello world!'
-            ]);
-            return;
-        });
+        Route::get('getme', 'Api\TelegramController@getme')->name('getme');
+        Route::post('getupdates', 'Api\TelegramController@getupdates')->name('getupdates');
+        Route::post('sendmessage', 'Api\TelegramController@sendmessage')->name('sendmessage');
     });
-    */
 });
