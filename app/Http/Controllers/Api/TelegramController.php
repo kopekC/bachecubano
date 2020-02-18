@@ -81,9 +81,8 @@ class TelegramController extends Controller
     public function webhook(Request $request)
     {
         //dd($request);
-        var_dump($request);
+        var_dump(json_decode($request));
     }
-
 
     /**
      * Enviar mensaje de vuelta a sender
@@ -91,7 +90,7 @@ class TelegramController extends Controller
     public function sendmessage($recipient, $text)
     {
         Telegram::sendMessage([
-            'chat_id' => 'RECIPIENT_CHAT_ID',
+            'chat_id' => '572772742',
             'text' => 'Hello world!'
         ]);
         return;
