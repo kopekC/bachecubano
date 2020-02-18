@@ -87,13 +87,13 @@ class TelegramController extends Controller
     /**
      * Enviar mensaje de vuelta a sender
      */
-    public function sendmessage($recipient, $text)
+    public function sendmessage($recipient = '', $text = '')
     {
         $rsp = Telegram::sendMessage([
             'chat_id' => '572772742',
             'text' => 'Hello world!'
         ]);
-        
+
         dd($rsp);
     }
 }
