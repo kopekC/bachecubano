@@ -1,7 +1,7 @@
 ### v1.8
 
     - Telegram BOT
-        - Pretify it
+        - Pretiffy it
 
 ### v1.7
 
