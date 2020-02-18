@@ -108,6 +108,9 @@ class TelegramController extends Controller
     {
         $update = Telegram::commandsHandler(true);
 
+
+        
+
         // Commands handler method returns an Update object.
         // So you can further process $update object 
         // to however you want.
