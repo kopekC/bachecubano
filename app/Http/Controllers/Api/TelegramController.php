@@ -82,7 +82,7 @@ class TelegramController extends Controller
         $username = isset($update['message']['from']['username']) ? $update['message']['from']['username'] : "";
 
         //First Name
-        $first_name = $update['message']['from']['first_name'];
+        $first_name = isset($update['message']['from']['first_name']) ? $update['message']['from']['first_name'] : "";
 
         //Chat Type
         $chat_type = $update['message']['chat']['type'];
@@ -120,7 +120,7 @@ class TelegramController extends Controller
      */
     private function info($from)
     {
-        $text = "Hola " . $from['first_name'] . "! 👋\n\nInfo del Bot y listado de comandos:";
+        $text = "Hola " . isset($from['first_name']) ? $from['first_name'] : "" . "! 👋\n\nInfo del Bot y listado de comandos:";
         $this->sendmessage($from, $text);
     }
 }
