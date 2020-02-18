@@ -92,13 +92,13 @@ class TelegramController extends Controller
         */
 
         var_dump($update);
-        var_dump($update['message']['text']);
+        var_dump($update->message->text);
 
-        $method = explode(" ", $update['message']['text'])[0];
+        $method = explode(" ", $update->message->text)[0];
 
         switch ($method) {
             case "info":
-                return $this->info($update['message']['from']);
+                return $this->info($update->message->from);
                 break;
             default:
                 return "None command";
@@ -112,7 +112,7 @@ class TelegramController extends Controller
     {
         //Send Message to the recipient
         $rsp = Telegram::sendMessage([
-            'chat_id' => $recipient['id'],           //572772742 myself
+            'chat_id' => $recipient->id,           //572772742 myself
             'text' => $text
         ]);
     }
@@ -123,7 +123,7 @@ class TelegramController extends Controller
      */
     private function info($from)
     {
-        $text = "Hola " . $from['first_name'] . "! 👋\n\nInfo del Bot y listado de comandos:";
-        $this->sendmessage($from['id'], $text);
+        $text = "Hola " . $from->first_name . "! 👋\n\nInfo del Bot y listado de comandos:";
+        $this->sendmessage($from, $text);
     }
 }
