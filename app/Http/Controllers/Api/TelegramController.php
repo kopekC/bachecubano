@@ -21,13 +21,10 @@ class TelegramController extends Controller
     public function getme()
     {
         $telegram = new Api(config('telegram.bots.mybot.token'));
-
         $response = $telegram->getMe();
-
-        $botId = $response->getId();
-        $firstName = $response->getFirstName();
-        $username = $response->getUsername();
-
+        //$botId = $response->getId();
+        //$firstName = $response->getFirstName();
+        //$username = $response->getUsername();
         dd($response);
     }
 
@@ -39,7 +36,6 @@ class TelegramController extends Controller
     public function getupdates()
     {
         $updates = Telegram::getUpdates();
-
         /**
          * update_id
          * message
@@ -54,7 +50,6 @@ class TelegramController extends Controller
          * poll
          * poll_answer
          */
-
         if (count($updates) > 0) {
             foreach ($updates as $update) {
                 dump($update);
@@ -71,7 +66,6 @@ class TelegramController extends Controller
                 dump($update['message']['text']);
             }
         }
-
         return (json_encode($updates));
     }
 
@@ -80,7 +74,30 @@ class TelegramController extends Controller
      */
     public function webhook()
     {
-        var_dump(file_get_contents('php://input'));
+        $update = json_decode(file_get_contents('php://input'));
+
+        /*
+        var_dump($update);
+        var_dump($update['update_id']);
+        var_dump($update['message']);
+        var_dump($update['message']['message_id']);
+        var_dump($update['message']['from']);
+        var_dump($update['message']['from']['id']);
+        var_dump($update['message']['from']['first_name']);
+        var_dump($update['message']['from']['username']);
+        var_dump($update['message']['chat']['id']);
+        var_dump($update['message']['chat']['type']);               //private, group, supergroup, channel
+        var_dump($update['message']['date']);
+        var_dump($update['message']['text']);
+        */
+
+        $method = explode(" ", $update['message']['text'])[0];
+
+        switch ($method) {
+            case "info":
+                return $this->info($update['message']['from']);
+                break;
+        }
     }
 
     /**
@@ -88,11 +105,20 @@ class TelegramController extends Controller
      */
     public function sendmessage($recipient = '', $text = '')
     {
+        //Send Message to the recipient
         $rsp = Telegram::sendMessage([
-            'chat_id' => '572772742',
-            'text' => 'Hello world!'
+            'chat_id' => $recipient['id'],           //572772742 myself
+            'text' => $text
         ]);
+    }
 
-        dd($rsp);
+    /**
+     * Send INFO about the bot
+     * Some list of commands 
+     */
+    private function info($from)
+    {
+        $text = "Hola " . $from['first_name'] . "! 👋\n\nInfo del Bot y listado de comandos:";
+        $this->sendmessage($from['id'], $text);
     }
 }
