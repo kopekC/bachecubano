@@ -91,6 +91,9 @@ class TelegramController extends Controller
         var_dump($update['message']['text']);
         */
 
+        var_dump($update);
+        var_dump($update['message']['text']);
+
         $method = explode(" ", $update['message']['text'])[0];
 
         switch ($method) {
