@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\TelegramCommands;
+namespace Telegram\Bot\Commands;
 
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
