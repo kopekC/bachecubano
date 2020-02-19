@@ -6,7 +6,9 @@
 ### v1.7
 
     - Check Facebook posting not working
-    - Detect real visitor to ads
+    - Detect real visitor to ads (bypass bots)
+    - Notify admin
+    - Define which ad got the credit
 
 ### v1.6.1
 

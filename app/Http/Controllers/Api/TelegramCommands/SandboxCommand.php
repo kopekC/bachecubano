@@ -31,6 +31,6 @@ class SandboxCommand extends Command
         // the user/chat id who triggered this command.
         // `replyWith<Message|Photo|Audio|Video|Voice|Document|Sticker|Location|ChatAction>()` all the available methods are dynamically
         // handled when you replace `send<Method>` with `replyWith` and use the same parameters - except chat_id does NOT need to be included in the array.
-        $this->replyWithMessage(['text' => $this->getUpdate()->message->from->username . '']);
+        $this->replyWithMessage(['text' => $this->getUpdate()->message->from->username . ' **bod** __italic__ `monospace`']);
     }
 }

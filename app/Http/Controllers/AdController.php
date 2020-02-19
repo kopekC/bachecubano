@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -26,9 +25,8 @@ use App\Ad;
 use App\AdPromo;
 use App\Http\Controllers\Api\PushController;
 use App\Mail\AdPublished;
-use App\Mail\TransferReceived;
+use App\Mail\PopularAd;
 use App\Notifications\AdPromotedFacebook;
-use App\Notifications\AdPromotedPush;
 use App\Notifications\AdPromotedTelegram;
 use App\Notifications\AdPromotedTwitter;
 use stdClass;
@@ -285,11 +283,13 @@ class AdController extends Controller
         $this->hit_visit($request, $stats, $ad);
 
         //If this Ad gets a 1000 multiple, give $1 to the owner
+        //The owner has to be a registered user
+        //The visit has to be a REAL visit
         if ($stats->hits % 1000 == 0 && isset($ad->owner->id) && $stats->hits > 0) {
             //Add the User Wallet +1 cuc
             (Wallet::firstOrCreate(['user_id' => $ad->owner->id]))->credit(1);
             //Notify via Email ¡Congrats!
-            Mail::to($ad->owner->email)->send(new TransferReceived($ad->owner, 1));
+            Mail::to($ad->owner->email)->send(new PopularAd($ad, 1));
         }
 
         //SEO Data

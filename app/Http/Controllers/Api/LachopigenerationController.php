@@ -188,10 +188,10 @@ class LachopigenerationController extends Controller
                 foreach ($ads as $ad) {
 
                     //Small dump of this AD:
-                    $this->logs .= $ad->id . " **|** " . $ad->description->title . " **|** " . $ad->price . "<br>";
+                    $this->logs .= $ad->id . "|";
 
                     //Save this list to the sqlite DB
-                    $this->logs .= "Saving Ad:";
+                    $this->logs .= "Saving Ad<br>";
 
                     //Get ready all variables
                     $smtm = $this->bd->prepare("INSERT INTO anuncios (anuncio_id, cat_id, precio, header, body, email, nombre, phone, cant_fotos, date, dateformated, banner, prioridad, province_id, date_expire, tipo) VALUES (:anuncioid, :cat_id, :anuncioprecio, :header, :body, :email, :nombre, :phone, :cant_fotos, :date, :dateformated, :banner, :prioridad, :province_id, :date_expire, :tipo)");
