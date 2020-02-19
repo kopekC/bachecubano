@@ -9,28 +9,15 @@
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
 
-    {{-- Combined all this with the only bachecubano_css strategy
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="{{ asset('css/bs.css') }}">
-    <!-- Slicknav Responsive Menu -->
-    <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}">
-    <!-- Main Style -->
-    <link rel="stylesheet" href="{{ asset('css/main2.css') }}">
-    <!-- Responsive Style -->
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <!-- Animate -->
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <!-- LineIcons CDN -->
-    <link rel="stylesheet" href="{{ asset('css/LineIcons.min.css') }}">
-    --}}
+    <meta property="fb:app_id" content="986562491394490" />
 
     <!-- All above combined -->
     <link rel="stylesheet" href="{{ route('bachecubano_css') }}">
 
+    @stack('style')
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400|Open+Sans">
-
-    @stack('style')
 
     <!-- blog Feeds 
     include('feed::links')-->

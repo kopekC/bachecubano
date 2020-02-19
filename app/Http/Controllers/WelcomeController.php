@@ -44,6 +44,7 @@ class WelcomeController extends Controller
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addImage(asset('android-chrome-512x512.png'));
+        OpenGraph::addProperty('type', 'website');
         Twitter::setTitle($seo_data['title']);
 
         //Remember this result a 1 hour 👇
