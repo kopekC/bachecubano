@@ -112,8 +112,6 @@ class TelegramController extends Controller
         // So you can further process $update object 
         // to however you want.
 
-        dump($update);
-
         return 'ok';
     }
 
