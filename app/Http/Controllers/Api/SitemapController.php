@@ -49,11 +49,11 @@ class SitemapController extends Controller
         $this->ads();
 
         SitemapIndex::create()
-            ->add(public_path('static.xml'))
-            ->add(public_path('categories.xml'))
-            ->add(public_path('news.xml'))
-            ->add(public_path('images.xml'))
-            ->add(public_path('ads.xml'))
+            ->add(config('app.url') . 'static.xml')
+            ->add(config('app.url') . 'categories.xml')
+            ->add(config('app.url') . 'news.xml')
+            ->add(config('app.url') . 'images.xml')
+            ->add(config('app.url') . 'ads.xml')
             //->add(public_path('promoted.xml'))
             //->add(public_path('stores.xml'))
             //->add(public_path('top-searches.xml'))
