@@ -13,6 +13,11 @@ class SandboxCommand extends Command
     protected $name = 'sandbox';
 
     /**
+     * @var array Command Aliases
+     */
+    protected $aliases = ['testing'];
+
+    /**
      * @var string Command Description
      */
     protected $description = 'Comando para pruebas de desarrollo, se recomienda no tocarlo';
