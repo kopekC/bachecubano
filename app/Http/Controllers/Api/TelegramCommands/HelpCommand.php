@@ -5,33 +5,33 @@ namespace App\Http\Controllers\Api\TelegramCommands;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 
-class StartCommand extends Command
+class HelpCommand extends Command
 {
     /**
      * @var string Command Name
      */
-    protected $name = "publicar";
+    protected $name = 'help';
 
     /**
      * @var array Command Aliases
      */
-    protected $aliases = ['publish'];
+    protected $aliases = ['ayuda', 'info'];
 
     /**
      * @var string Command Description
      */
-    protected $description = "Publicar un anuncio gratis en Bachecubano.com";
+    protected $description = 'Muestra una ayuda sobre lo que puede hacer este Bot de Bachecubano';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function handle(/*$arguments*/)
+    public function handle()
     {
         // This will send a message using `sendMessage` method behind the scenes to
         // the user/chat id who triggered this command.
         // `replyWith<Message|Photo|Audio|Video|Voice|Document|Sticker|Location|ChatAction>()` all the available methods are dynamically
         // handled when you replace `send<Method>` with `replyWith` and use the same parameters - except chat_id does NOT need to be included in the array.
-        $this->replyWithMessage(['text' => "Que tal Fulano.\n\nPublicar anuncios es GRATIS, solo tienes que acceder aqui:\n\n\"https://www.bachecubano.com\""]);
+        $this->replyWithMessage(['text' => 'Hola! Bienvenido al Bot de Bacheucbano, esta es la lista de comandos disponibles:']);
 
         // This will update the chat status to typing...
         $this->replyWithChatAction(['action' => Actions::TYPING]);
@@ -39,17 +39,18 @@ class StartCommand extends Command
         // This will prepare a list of available commands and send the user.
         // First, Get an array of all registered commands
         // They'll be in 'command-name' => 'Command Handler Class' format.
-        $commands = $this->getTelegram()->getCommands();
+        $commands = $this->telegram->getCommands();
 
         // Build the list
-        $response = '';
-        foreach ($commands as $name => $command) {
-            $response .= sprintf('/%s - %s' . PHP_EOL, $name, $command->getDescription());
+        $text = '';
+        foreach ($commands as $name => $handler) {
+            /* @var Command $handler */
+            $text .= sprintf('/%s - %s' . PHP_EOL, $name, $handler->getDescription());
         }
 
         // Reply with the commands list
         //replyWith<Message|Photo|Audio|Video|Voice|Document|Sticker|Location|ChatAction>()
-        $this->replyWithMessage(['text' => $response]);
+        $this->replyWithMessage(compact('text'));
 
         // Trigger another command dynamically from within this command
         // When you want to chain multiple commands within one or process the request further.
