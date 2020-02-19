@@ -31,7 +31,7 @@ class StartCommand extends Command
         // the user/chat id who triggered this command.
         // `replyWith<Message|Photo|Audio|Video|Voice|Document|Sticker|Location|ChatAction>()` all the available methods are dynamically
         // handled when you replace `send<Method>` with `replyWith` and use the same parameters - except chat_id does NOT need to be included in the array.
-        $this->replyWithMessage(['text' => "Que tal Fulano.\n\nPublicar anuncios es GRATIS, solo tienes que acceder aqui:\n\nhttps://www.bachecubano.com/add"]);
+        $this->replyWithMessage(['text' => "Que tal " . $this->telegram->getUser() . ".\n\nPublicar anuncios es GRATIS, solo tienes que acceder aqui:\n\nhttps://www.bachecubano.com/add"]);
 
         // This will update the chat status to typing...
         $this->replyWithChatAction(['action' => Actions::TYPING]);
