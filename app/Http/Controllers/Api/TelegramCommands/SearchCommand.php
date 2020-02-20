@@ -40,6 +40,12 @@ class SearchCommand extends Command
             unset($incoming_text[0]);
             $params = implode(" ", $incoming_text);
 
+            //Pretty Reply
+            $this->replyWithMessage(['text' => "Buscando " . $params . " ..."]);
+
+            // This will update the chat status to typing...
+            $this->replyWithChatAction(['action' => Actions::TYPING]);
+
             //Instantiate Request object
             $request = new Request();
             $request->merge(['s' => urlencode($params)]);
