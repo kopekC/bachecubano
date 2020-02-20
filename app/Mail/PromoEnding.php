@@ -35,7 +35,7 @@ class PromoEnding extends Mailable
         $this->email_title = 'Tu anuncio ' . $this->ad_title . ' va a vencer';
         $this->email_subtitle = "Promociónalo de nuevo y lo verá toda 🇨🇺";
         $this->body_text_title = "Promociona de nuevo tu anuncio " . $this->ad_title;
-        $this->body_text_content = "COn las mejores tarifas de Cuba, puede volver a promocionar tu anuncio en Bachecubano, no pierdas tiempo.";
+        $this->body_text_content = "Con las mejores tarifas de Cuba, puede volver a promocionar tu anuncio en Bachecubano, no pierdas tiempo.<br><a href='https://www.bachecubano.com/home'>Accceder a tu panel de usuario</a>";
     }
 
     /**
