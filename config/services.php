@@ -22,6 +22,10 @@ return [
         'app_id' => env('FACEBOOK_APP_ID', '986562491394490'),
         'app_secret' => env('FACEBOOK_APP_SECRET'),
         'access_token' => env('FACEBOOK_ACCESS_TOKEN'),
+
+        'client_id' => getenv('FACEBOOK_APP_ID'),
+        'client_secret' => getenv('FACEBOOK_APP_SECRET'),
+        'access_token' => getenv('FACEBOOK_ACCESS_TOKEN'),
     ],
 
     'facebook' => [
