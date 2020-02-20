@@ -29,11 +29,9 @@ class SearchCommand extends Command
      */
     public function handle()
     {
-        //Pretty Reply
-        $this->replyWithMessage(['text' => "getMessage()" . json_encode($this->getUpdate()->getMessage()->getText())]);
-        exit;
+        $text = $this->getUpdate()->getMessage()->getText();
 
-        if (!isset($this->getUpdate()->message->text)) {
+        if (!isset($text)) {
             //Verify for search term
             $this->replyWithMessage(['text' => "Debes escribir lo que deseas buscar, ej: /buscar xiaomi"]);
         } else {
