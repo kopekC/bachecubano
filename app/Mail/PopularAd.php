@@ -47,7 +47,7 @@ class PopularAd extends Mailable
     {
         return $this->from('contact@bachecubano.com')
             ->cc('ecruz@bachecubano.com')
-            ->subject('Te han transferido ' . $this->amount . ' en Bachecubano.com')
+            ->subject('Te acabas de ganar ' . $this->amount . ' en Bachecubano.com')
             ->view('emails.transfer');
     }
 }

@@ -21,7 +21,7 @@
                                         <tr style="border-collapse:collapse;">
                                             <td class="es-m-txt-c" align="left" style="padding:0;Margin:0;padding-top:10px;">
                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:'lucida sans unicode', 'lucida grande', sans-serif;line-height:21px;color:#666666;">
-                                                    {{ $body_text_content }}<br></p>
+                                                    {!! $body_text_content !!}<br></p>
                                             </td>
                                         </tr>
                                     </table>
