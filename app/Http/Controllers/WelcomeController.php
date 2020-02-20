@@ -7,6 +7,7 @@ use App\Category;
 use App\Ad;
 use App\Http\Controllers\Api\PushController;
 use App\Mail\Contact;
+use App\Notifications\AdPromotedFacebook;
 use SEOMeta;
 use OpenGraph;
 use Twitter;
@@ -311,5 +312,15 @@ class WelcomeController extends Controller
 
         // print the css content
         echo $js_content;
+    }
+
+    /**
+     * Testing facebook Post
+     */
+    public function testfb()
+    {
+        $ad = Ad::find(153569);
+        $ad->notify(new AdPromotedFacebook);
+        dd($ad);
     }
 }
