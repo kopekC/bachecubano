@@ -19,12 +19,14 @@ return [
     ],
 
     'facebook_poster' => [
-        'app_id' => env('FACEBOOK_APP_ID'),
+        'app_id' => env('FACEBOOK_APP_ID', '986562491394490'),
         'app_secret' => env('FACEBOOK_APP_SECRET'),
         'access_token' => env('FACEBOOK_ACCESS_TOKEN'),
     ],
 
     'facebook' => [
+        'app_id' => env('FACEBOOK_APP_ID', '986562491394490'),
+        'app_secret' => env('FACEBOOK_APP_SECRET'),
         'client_id' => env('FACEBOOK_APP_ID'),
         'client_secret' => env('FACEBOOK_APP_SECRET'),
         'redirect' => env('APP_URL') . 'callback/facebook',
