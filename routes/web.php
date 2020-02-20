@@ -85,6 +85,8 @@ Route::get('/add', 'AdController@create')->name('add');
 Route::get('/update_all', 'AdController@update_all')->middleware('throttle:1,30')->name('update_all');      //Update All ads every 30 minutes only
 //Delete Ad direct link
 Route::get('/delete/{ad}', 'AdController@destroy')->name('delete_ad')->middleware('auth');
+//Direct link to ad ID based
+Route::get('/{ad}', 'AdController@direct_redirect')->where('ad', '[0-9]+'); //only allow numeric ID
 //Category Listing
 Route::get('/{category}/', 'AdController@index')->name('super_category_index');
 //SubCategory Listing

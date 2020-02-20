@@ -53,4 +53,12 @@ class CronController extends Controller
             echo "No hay promociones en vencimiento";
         }
     }
+
+    /**
+     * Just Delete unused images for database cleanup
+     */
+    public function delete_unused_images()
+    {
+        
+    }
 }

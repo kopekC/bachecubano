@@ -803,6 +803,15 @@ class AdController extends Controller
     }
 
     /**
+     * Direct Redirect to the complete ad
+     * www.bachecubano.com/123456789
+     */
+    public function direct_redirect(Ad $ad)
+    {
+        return redirect(ad_url($ad));
+    }
+
+    /**
      * Checks for a certain parameters befor give the real visit
      */
     public function hit_visit(Request $request, $stats, $ad)

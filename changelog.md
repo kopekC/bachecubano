@@ -2,6 +2,7 @@
 
     - Check Facebook posting not working 👍🏼
     - Update Promoted Ads before LaChopi saving
+    - Direct link to ad, just bachecubano.com/{number_ad_id}
 
 ### v1.8
 
