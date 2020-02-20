@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\TelegramCommands;
 
+use App\Http\Controllers\AdController;
+use Illuminate\Http\Request;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 
@@ -27,10 +29,28 @@ class SearchCommand extends Command
      */
     public function handle()
     {
-        $incoming_text = explode(" ", $this->getUpdate()->message->text);
-        unset($incoming_text[0]);
-        $params = implode(" ", $incoming_text);
 
-        $this->replyWithMessage(['text' => $params]);
+        if (isset($this->getUpdate()->message->text)) {
+            //Verify for search term
+            $this->replyWithMessage(['text' => "Debes escribir lo que deseas buscar, ej: /buscar xiaomi"]);
+        } else {
+            //Explode incoming text
+            $incoming_text = explode(" ", $this->getUpdate()->message->text);
+            unset($incoming_text[0]);
+            $params = implode(" ", $incoming_text);
+
+            //Instantiate Request object
+            $request = new Request();
+            $request->merge(['s' => urlencode($params)]);
+
+            //Get Ads from static method getAds
+            $ads = AdController::getAds($request, null, 5, null, true);
+
+            //Pretty Reply
+            $this->replyWithMessage(['text' => json_encode($ads)]);
+
+            //Pretty Reply
+            $this->replyWithMessage(['text' => $params]);
+        }
     }
 }
