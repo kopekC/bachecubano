@@ -27,6 +27,10 @@ class SearchCommand extends Command
      */
     public function handle()
     {
-        $this->replyWithMessage(['text' => json_encode($this->getUpdate()->message->text)]);
+        $incoming_text = explode(" ", $this->getUpdate()->message->text);
+        unset($incoming_text[0]);
+        $params = implode(" ", $incoming_text);
+
+        $this->replyWithMessage(['text' => $params]);
     }
 }
