@@ -17,7 +17,7 @@
                 <a href="{{ ad_category_url($ad) }}"><i class="lni-{{ $ad->category->parent->icon }}"></i> {{ $ad->category->description->name }}</a>
             </div>
             <h4><a href="{{ ad_url($ad) }}">{{ $ad->description->title }}</a></h4>
-            <span>Actualizado: {{ $ad->created_at->diffForHumans() }}</span>
+            <span>Actualizado: @if(isset($ad->updated_at)){{ $ad->updated_at->diffForHumans() }}@endif</span>
             <ul class="address">
                 <li>
                     <a href="#" title="ID del anuncio"><i class="lni-information"></i> {{ $ad->id }}</a>
