@@ -30,7 +30,7 @@ class SearchCommand extends Command
     public function handle()
     {
         //Pretty Reply
-        $this->replyWithMessage(['text' => json_encode($this->getUpdate()->message)]);
+        $this->replyWithMessage(['text' => json_encode($this->getUpdate()->message->text)]);
         exit;
 
         if (!isset($this->getUpdate()->message->text)) {
