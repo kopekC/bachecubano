@@ -2,6 +2,7 @@
 
     - Telegram BOT
         - Pretiffy it
+        - Search Ads
 
 ### v1.7
 

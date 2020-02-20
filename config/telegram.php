@@ -118,7 +118,8 @@ return [
     'commands'                     => [
         //Telegram\Bot\Commands\HelpCommand::class,
         App\Http\Controllers\Api\TelegramCommands\HelpCommand::class,
-        App\Http\Controllers\Api\TelegramCommands\StartCommand::class,
+        App\Http\Controllers\Api\TelegramCommands\PublishCommand::class,
+        App\Http\Controllers\Api\TelegramCommands\SearchCommand::class,
         App\Http\Controllers\Api\TelegramCommands\SandboxCommand::class,
     ],
 
