@@ -29,10 +29,9 @@ class SearchCommand extends Command
      */
     public function handle()
     {
-
-        if (isset($this->getUpdate()->message->text)) {
+        if (!isset($this->getUpdate()->message->text)) {
             //Verify for search term
-            $this->replyWithMessage(['text' => "Debes escribir lo que deseas buscar, ej: /buscar xiaomi"]);
+            //$this->replyWithMessage(['text' => "Debes escribir lo que deseas buscar, ej: /buscar xiaomi"]);
         } else {
             //Explode incoming text
             $incoming_text = explode(" ", $this->getUpdate()->message->text);
