@@ -30,7 +30,7 @@ class SearchCommand extends Command
         //Input data here?
         dump($this->getUpdate()->message);
 
-        $this->replyWithMessage(json_encode($this->getUpdate()->message));
+        $this->replyWithMessage(['text' => json_encode($this->getUpdate()->message)]);
 
         // This will send a message using `sendMessage` method behind the scenes to
         // the user/chat id who triggered this command.
