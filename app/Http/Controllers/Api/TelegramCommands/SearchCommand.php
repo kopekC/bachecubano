@@ -35,14 +35,14 @@ class SearchCommand extends Command
             //Verify for search term
             $this->replyWithMessage(['text' => "Debes escribir lo que deseas buscar, ej: /buscar xiaomi"]);
         } else {
-            
+
             //Explode incoming text
             $incoming_text = explode(" ", $this->getUpdate()->message->text);
             unset($incoming_text[0]);
             $params = implode(" ", $incoming_text);
 
             //Pretty Reply
-            $this->replyWithMessage(['text' => "Buscando " . $params . " ..."]);
+            //$this->replyWithMessage(['text' => "Buscando " . $params . " ..."]);
 
             // This will update the chat status to typing...
             //$this->replyWithChatAction(['action' => Actions::TYPING]);
