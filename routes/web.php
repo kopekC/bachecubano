@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 //Welcome Route
 Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300', 'cache.headers:private,max-age=300;etag');         //Cache 5min as private content FORCED
 
+//Sitemap Creator Has to be here, On Api breaks Urls from generated indexes
+Route::get('/test', 'WelcomeController@test')->name('test');
+
 //Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');

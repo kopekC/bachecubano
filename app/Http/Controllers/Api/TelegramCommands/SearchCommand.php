@@ -35,6 +35,7 @@ class SearchCommand extends Command
             //Verify for search term
             $this->replyWithMessage(['text' => "Debes escribir lo que deseas buscar, ej: /buscar xiaomi"]);
         } else {
+            
             //Explode incoming text
             $incoming_text = explode(" ", $this->getUpdate()->message->text);
             unset($incoming_text[0]);
@@ -44,7 +45,7 @@ class SearchCommand extends Command
             $this->replyWithMessage(['text' => "Buscando " . $params . " ..."]);
 
             // This will update the chat status to typing...
-            $this->replyWithChatAction(['action' => Actions::TYPING]);
+            //$this->replyWithChatAction(['action' => Actions::TYPING]);
 
             //Instantiate Request object
             $request = new Request();
@@ -57,7 +58,7 @@ class SearchCommand extends Command
             $this->replyWithMessage(['text' => json_encode($ads)]);
 
             //Pretty Reply
-            $this->replyWithMessage(['text' => $params]);
+            //$this->replyWithMessage(['text' => $params]);
         }
     }
 }

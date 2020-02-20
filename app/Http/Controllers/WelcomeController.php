@@ -312,4 +312,19 @@ class WelcomeController extends Controller
         // print the css content
         echo $js_content;
     }
+
+    /**
+     * testing route
+     */
+    public function test()
+    {
+        //Instantiate Request object
+        $request = new Request();
+        $request->merge(['s' => urlencode("xiaomi")]);
+
+        //Get Ads from static method getAds
+        $ads = AdController::getAds($request, null, 5, null, true);
+
+        dd($ads);
+    }
 }
