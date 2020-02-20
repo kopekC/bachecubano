@@ -25,12 +25,12 @@ class SearchCommand extends Command
     /**
      * {@inheritdoc}
      */
-    public function handle($arguments)
+    public function handle()
     {
         //Input data here?
-        dump($arguments);
+        dump($this->getUpdate()->message);
 
-        $this->replyWithMessage(json_encode($arguments));
+        $this->replyWithMessage(json_encode($this->getUpdate()->message));
 
         // This will send a message using `sendMessage` method behind the scenes to
         // the user/chat id who triggered this command.
