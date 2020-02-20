@@ -1,6 +1,6 @@
 ### v1.9
 
-    - Check Facebook posting not working
+    - Check Facebook posting not working 👍🏼
     - Update Promoted Ads before LaChopi saving
 
 ### v1.8

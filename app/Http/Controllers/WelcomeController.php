@@ -313,14 +313,4 @@ class WelcomeController extends Controller
         // print the css content
         echo $js_content;
     }
-
-    /**
-     * Testing facebook Post
-     */
-    public function testfb()
-    {
-        $ad = Ad::find(153569);
-        $ad->notify(new AdPromotedFacebook);
-        dd($ad);
-    }
 }
