@@ -49,7 +49,7 @@ class SearchCommand extends Command
 
             //Instantiate Request object
             $request = new Request();
-            $request->merge(['s' => urlencode($params)]);
+            $request->merge(['s' => $params]);
 
             //Get Ads from static method getAds
             $ads = AdController::getAds($request, null, 5, null, true);

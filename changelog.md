@@ -1,3 +1,7 @@
+### v1.9
+
+    - Check Facebook posting not working
+
 ### v1.8
 
     - Telegram BOT
@@ -6,7 +10,6 @@
 
 ### v1.7
 
-    - Check Facebook posting not working
     - Detect real visitor to ads (bypass bots)
     - Notify admin
     - Define which ad got the credit
