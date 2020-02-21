@@ -289,6 +289,7 @@ class ImapController extends Controller
             "permuta" => "permuta",
             "compra/venta de casas" => "compraventa-de-casas",
             "compra/ventade casas" => "compraventa-de-casas",
+            "compra/venta decasas" => "compraventa-de-casas",
             "bisutería y relojes" => "bisuteria-y-relojes",
             "gimnasios y masajistas" => "gimnasios-y-masajistas",
             "implementos deportivos" => "implementos-deportivos",

@@ -280,12 +280,12 @@ class AdController extends Controller
         $stats = AdStats::firstOrCreate(['ad_id' => $ad->id]);
 
         //Check for A REAL VISIT HERE
-        $this->hit_visit($request, $stats, $ad);
+        $r = $this->hit_visit($request, $stats, $ad);
 
         //If this Ad gets a 1000 multiple, give $1 to the owner
         //The owner has to be a registered user
         //The visit has to be a REAL visit
-        if ($stats->hits % 1000 == 0 && isset($ad->owner->id) && $stats->hits > 0) {
+        if ($stats->hits % 1000 == 0 && isset($ad->owner->id) && $stats->hits > 0 && $r) {
             //Add the User Wallet +1 cuc
             (Wallet::firstOrCreate(['user_id' => $ad->owner->id]))->credit(1);
             //Notify via Email ¡Congrats!
@@ -829,7 +829,8 @@ class AdController extends Controller
         if (is_bot($request->server('HTTP_USER_AGENT')))
             return false;
 
-
         $stats->increment('hits');
+
+        return true;
     }
 }
