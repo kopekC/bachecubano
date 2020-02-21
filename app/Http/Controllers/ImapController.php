@@ -294,6 +294,7 @@ class ImapController extends Controller
             "gimnasios y masajistas" => "gimnasios-y-masajistas",
             "implementos deportivos" => "implementos-deportivos",
             "vestuario y calzado" => "vestuario-y-calzado",
+            "vestuarioy calzado" => "vestuario-y-calzado",
             "albañilería" => "albanileria",
             "construccion" => "albanileria",
             "clases" => "clases",

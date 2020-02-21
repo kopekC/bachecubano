@@ -59,6 +59,6 @@ class CronController extends Controller
      */
     public function delete_unused_images()
     {
-        
+
     }
 }
