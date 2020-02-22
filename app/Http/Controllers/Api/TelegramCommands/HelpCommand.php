@@ -44,9 +44,6 @@ class HelpCommand extends Command
         // Build the list
         $text = '';
         foreach ($commands as $name => $handler) {
-            if ($name == "sandbox") {
-                continue;
-            }
             $text .= sprintf('/%s - %s' . PHP_EOL, $name, $handler->getDescription());
         }
 

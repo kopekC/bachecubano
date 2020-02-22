@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\AdPromo;
+use App\AdResource;
 use App\Http\Controllers\Controller;
 use App\Mail\PromoEnding;
 use Carbon\Carbon;
@@ -59,6 +60,9 @@ class CronController extends Controller
      */
     public function delete_unused_images()
     {
-
+        //Get All non linked images
+        //delete phisically version of them!
+        //Do this at midnight
+        $unlinked_images = AdResource::where('', )->limit(300)->get();
     }
 }
