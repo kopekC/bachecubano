@@ -32,8 +32,8 @@ return [
     |             ]
     */
     'bots'                         => [
-        'elBacheBot' => [
-            'username'            => env('TELEGRAM_BOT_USERNAME', 'elBacheBot'),
+        'BacheCubanoBot' => [
+            'username'            => env('TELEGRAM_BOT_USERNAME', 'BacheCubanoBot'),
             'token'               => env('TELEGRAM_BOT_TOKEN', ''),
             'certificate_path'    => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
             'webhook_url'         => env('TELEGRAM_WEBHOOK_URL', 'YOUR-BOT-WEBHOOK-URL'),
@@ -57,7 +57,7 @@ return [
     | your default bot for regular use.
     |
     */
-    'default'                      => 'elBacheBot',
+    'default'                      => 'BacheCubanoBot',
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
     | Possible Values: (Boolean) "true" OR "false"
     |
     */
-    'async_requests'               => env('TELEGRAM_ASYNC_REQUESTS', false),
+    'async_requests'               => env('TELEGRAM_ASYNC_REQUESTS', true),
 
     /*
     |--------------------------------------------------------------------------
