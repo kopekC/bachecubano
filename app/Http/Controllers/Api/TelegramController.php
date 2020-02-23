@@ -20,7 +20,7 @@ class TelegramController extends Controller
      */
     public function getme()
     {
-        $telegram = new Api(config('telegram.bots.mybot.token'));
+        $telegram = new Api(config('telegram.bots.BacheCubanoBot.token'));
         $response = $telegram->getMe();
         dd($response);
     }
