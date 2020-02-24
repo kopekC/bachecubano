@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Ad;
 use App\AdPromo;
 use App\AdResource;
 use App\Http\Controllers\Controller;
@@ -56,6 +57,44 @@ class CronController extends Controller
     }
 
     /**
+     * Set far futere updated dates for promoted ads
+     */
+    public function update_promoted_ads()
+    {
+        $now = Carbon::now();
+        $more1 = $now->addDay();
+
+        $now = Carbon::now();
+        $more2 = $now->addDays(2);
+
+        $now = Carbon::now();
+        $more3 = $now->addDays(3);
+
+        $now = Carbon::now();
+        $more4 = $now->addDays(4);
+
+        //Get Promoted Ads and its promotype
+        $promoted_ads = Ad::with(['promo']) //<- Nested Load Category, and Parent Category
+            ->whereHas('promo', function ($query) {
+                $query->where('promotype', '>=', 1);
+            })->get();
+
+        //Iterate and update ads with a far future days
+        foreach ($promoted_ads as $promoted_ad) {
+            if ($promoted_ad->promo->promotype == 1) {
+                $promoted_ad->updated_at = $more1;
+            } elseif ($promoted_ad->promo->promotype == 2) {
+                $promoted_ad->updated_at = $more2;
+            } elseif ($promoted_ad->promo->promotype == 3) {
+                $promoted_ad->updated_at = $more3;
+            } elseif ($promoted_ad->promo->promotype == 4) {
+                $promoted_ad->updated_at = $more4;
+            }
+            $promoted_ad->update();
+        }
+    }
+
+    /**
      * Just Delete unused images for database cleanup
      */
     public function delete_unused_images()
@@ -63,6 +102,6 @@ class CronController extends Controller
         //Get All non linked images
         //delete phisically version of them!
         //Do this at midnight
-        $unlinked_images = AdResource::where('', )->limit(300)->get();
+        $unlinked_images = AdResource::where('',)->limit(300)->get();
     }
 }

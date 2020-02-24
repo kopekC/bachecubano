@@ -45,7 +45,7 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
 
         //La Chopi Routes
         Route::group(['prefix' => 'lachopi'], function () {
-            //Generate LaChopi
+            //Generate LaChopi after update_promoted_ads
             Route::get('status', 'Api\LachopigenerationController@status')->name('api_status_lachopi');
             Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
         });
@@ -56,6 +56,8 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
             Route::get('promoclean', 'Api\CronController@delete_old_promotions')->name('promoclean');
             //Advise for next ending promos
             Route::get('promoadvise', 'Api\CronController@notify_ending_promos')->name('promoadvise');
+            //Update Ads which has some promotion applied
+            Route::get('update_promoted_ads', 'Api\CronController@update_promoted_ads')->name('update_promoted_ads');
         });
 
         //Passport Routes for login/signup/logout/getUser

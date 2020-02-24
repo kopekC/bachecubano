@@ -298,7 +298,7 @@ class WelcomeController extends Controller
             'js/jquery.slicknav.min.js',
             'js/wow.js',
             'js/main4.js',
-            'js/analytics.js'
+            //'js/analytics.js'                     Removed analytics
         ];
 
         // Prevent a notice

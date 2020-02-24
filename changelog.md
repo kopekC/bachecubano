@@ -1,8 +1,9 @@
 ### v1.9
 
-    - Check Facebook posting not working 👍🏼
     - Update Promoted Ads before LaChopi saving
+    - Check Facebook posting not working 👍🏼
     - Direct link to ad, just bachecubano.com/{number_ad_id}
+    - Removed GA.js
 
 ### v1.8
 
