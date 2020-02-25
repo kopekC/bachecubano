@@ -1,3 +1,7 @@
+### v1.9.1
+
+    - Provinces subdomain xxx.bachecubano.com for index ads
+
 ### v1.9
 
     - Update Promoted Ads before LaChopi saving
