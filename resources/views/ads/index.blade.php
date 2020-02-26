@@ -139,7 +139,7 @@
                                 <div class="col-md-12 col-lg-12 col-xs-12 text-center">
                                     <div class="contents">
                                         <div class="search-two-form">
-                                            <form class="search-two" action="{{ route('welcome') }}/search" method="get">
+                                            <form class="search-two" action="{{ route('welcome', ['province_slug' => 'www']) }}/search" method="get">
                                                 <div class="search-inner">
                                                     <div class="row">
                                                         <div class="col-lg-9 col-md-9">

@@ -64,7 +64,7 @@ class SitemapController extends Controller
     public function static()
     {
         $sitemap = Sitemap::create();
-        $sitemap->add(route('welcome'));
+        $sitemap->add(route('welcome', ['province_slug' => 'www']));
         $sitemap->add(route('add'));
         $sitemap->add(route('contact'));
         $sitemap->add(route('blog.index'));

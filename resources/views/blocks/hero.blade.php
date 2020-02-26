@@ -9,7 +9,7 @@
                     <p>Compra y Vende Computadoras, Celulares, Casas, Carros, ofertas de empleo y todo lo que quieras en Cuba</p>
                     <div class="search-two-form">
 
-                        <form class="search-two" action="{{ route('welcome') }}/search" method="get">
+                        <form class="search-two" action="{{ route('welcome', ['province_slug' => 'www']) }}/search" method="get">
                             <div class="search-inner">
                                 <div class="row">
                                     <div class="col-lg-9 col-md-9">

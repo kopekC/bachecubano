@@ -45,7 +45,7 @@
             @if(isset($search_bar) && $search_bar == true)
             <ul class="navbar-nav mr-auto">
                 <li>
-                    <form action="{{ route('welcome') }}/search" method="get">
+                    <form action="{{ route('welcome', ['province_slug' => 'www']) }}/search" method="get">
                         <div class="search-inner">
                             <div class="row">
                                 <div class="col-12">

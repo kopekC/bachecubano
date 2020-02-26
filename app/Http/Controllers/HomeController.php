@@ -241,7 +241,7 @@ class HomeController extends Controller
 
         //close session
         Session::flush();
-        return redirect()->route('welcome');
+        return redirect()->route('welcome', ['province_slug' => 'www']);
     }
 
     /**
