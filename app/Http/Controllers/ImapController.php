@@ -312,6 +312,7 @@ class ImapController extends Controller
             "relojerías y joyeros" => "relojerias-y-joyeros",
             "servicios domésticos" => "servicios-domesticos",
             "cambio de moneda" => "cambio-de-moneda",
+            "divisas" => "cambio-de-moneda",
             "empleos" => "empleos",
             "libros y revistas" => "libros-y-revistas",
             "regalos" => "regalos",

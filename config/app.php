@@ -60,6 +60,8 @@ return [
 
     'api_url' => env('API_URL', 'https://api.bachecubano.com/'),        //API_URL=https://api.bachecubano.com/v1, v2, v3
 
+    'domain' => env('DOMAIN', 'bachecubano.com'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

@@ -45,7 +45,9 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 
+            //Custom Middleware routes
             \App\Http\Middleware\CheckBanned::class,
+            \App\Http\Middleware\DefaultLocation::class,
         ],
 
         'api' => [
@@ -75,6 +77,9 @@ class Kernel extends HttpKernel
         //Don´t cache this...
         'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
         'cacheResponse' => \Spatie\ResponseCache\Middlewares\CacheResponse::class,
+
+        //Custom middlewares
+        'defaultlocation' => \App\Http\Middleware\DefaultLocation::class,
     ];
 
     /**

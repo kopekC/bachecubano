@@ -14,13 +14,19 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-//Welcome Route
-Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cacheResponse:300', 'cache.headers:private,max-age=300;etag');         //Cache 5min as private content FORCED
+//Provinces pattern
+Route::pattern('province_slug', '(www|artemisa|camaguey|ciego-de-avila|cienfuegos|granma|guantanamo|holguin|isla-de-la-juventud|la-habana|las-tunas|matanzas|mayabeque|pinar-del-rio|sancti-spiritus|santiago-de-cuba|villa-clara)');
+
+//Provinces as subdomain
+Route::domain('{province_slug}.' . config('app.domain'))->group(function () {
+    //Welcome Route
+    Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cache.headers:private,max-age=300;etag');
+});
 
 //Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
-Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:300')->name('terms');
+Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:600')->name('terms');
 
 //Imap Controller every 1 min
 Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
@@ -79,22 +85,28 @@ Route::get('/invite/{item}/{misc}', 'ShareController@invite')->name('invite');
 //Ad promotion Page
 Route::get('/promote/{ad}', 'AdController@promote_ad')->name('promote_ad')->middleware('auth');
 Route::post('/promote/{ad}', 'AdController@post_promote_ad')->name('post_promote_ad')->middleware('auth');      //Access only if its registere4d user
-//Ads Routes & Resource Route
-Route::get('/add', 'AdController@create')->name('add');
 //update_all
 Route::get('/update_all', 'AdController@update_all')->middleware('throttle:1,30')->name('update_all');      //Update All ads every 30 minutes only
 //Delete Ad direct link
 Route::get('/delete/{ad}', 'AdController@destroy')->name('delete_ad')->middleware('auth');
 //Direct link to ad ID based
 Route::get('/{ad}', 'AdController@direct_redirect')->where('ad', '[0-9]+'); //only allow numeric ID
-//Category Listing
-Route::get('/{category}/', 'AdController@index')->name('super_category_index');
-//SubCategory Listing
-Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag');
-//Ad specific Show
-Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:60', 'cache.headers:private,max-age=60;etag')->where('ad_id', '[0-9]+'); //only allow numeric ID
+
+//Provinces as subdomain
+Route::domain('{province_slug}.' . config('app.domain'))->group(function () {
+    //Ads Routes & Resource Route
+    Route::get('/add', 'AdController@create')->name('add');
+    //Category Listing
+    Route::get('/{category}/', 'AdController@index')->name('super_category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag', 'defaultlocation');
+    //SubCategory Listing
+    Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag', 'defaultlocation');
+    //Ad specific Show
+    Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:60', 'cache.headers:private,max-age=60;etag', 'defaultlocation')->where('ad_id', '[0-9]+'); //only allow numeric ID
+});
+
 //Laravel Images redirection to subdomain
 Route::get('/oc-content/uploads/{folder_id}/{resource_name}', 'AdController@redirectto_image');
+
 //Ad resources route
 Route::resource('ad', 'AdController');
 
@@ -102,7 +114,3 @@ Route::resource('ad', 'AdController');
 Route::domain('{store_name}.bachecubano.com')->group(function () {
     Route::get('store/{store_name}', 'StoreController@show')->name('store_index');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -44,7 +44,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $category, $subcategory = "")
+    public function index(Request $request, $province_slug = "", $category, $subcategory = "")
     {
         //Get Super and SubCategory
         $super_category = CategoryDescription::where('slug', $category)->first();
@@ -126,7 +126,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $request, $province_slug)
     {
         //SEO Data
         $seo_data = [
@@ -269,10 +269,10 @@ class AdController extends Controller
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $category, $subcategory, $ad_title, $ad_id)
+    public function show(Request $request, $province_slug = "", $category, $subcategory, $ad_title, $ad_id)
     {
         //Retrieve Ad with aditional data
-        $ad = Cache::remember('ad-' . $ad_id, 1, function () use ($ad_id) {
+        $ad = Cache::remember('ad-' . $ad_id, 3, function () use ($ad_id) {
             return Ad::with(['description', 'resources', 'category.description', 'category.parent.description', 'stats', 'owner', 'likes', 'likers'])->findOrFail($ad_id);
         });
 

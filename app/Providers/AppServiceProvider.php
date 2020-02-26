@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Ad;
+use App\AdLocation;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
@@ -40,9 +41,14 @@ class AppServiceProvider extends ServiceProvider
         //Schema Default String Length
         Schema::defaultStringLength(191);
 
-        //Global Cached Categories Data Cache one week
+        //Global Cached Categories Data Cache forever
         $categories = Cache::rememberForever('cached_categories', function () {
             return Category::with('description')->get();
+        });
+
+        //Global Cached Locations Data Cache forever
+        $locations = Cache::rememberForever('cached_locations', function () {
+            return AdLocation::get();
         });
 
         //Small foreach for some organized category structure
