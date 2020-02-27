@@ -104,7 +104,7 @@
                 @endif
             </ul>
 
-            <a class="tg-btn" href="{{ route('add') }}">
+            <a class="tg-btn" href="{{ route('add', ['province_slug' => 'www']) }}">
                 <i class="lni-pencil-alt"></i> Publicar Anuncio
             </a>
         </div>
