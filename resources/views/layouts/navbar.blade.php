@@ -165,7 +165,7 @@
         @endauth
         @endif
         <li>
-            <a class="active" href="{{ route('add') }}">
+            <a class="active" href="{{ route('add', ['province_slug' => 'www']) }}">
                 Publicar anuncio
             </a>
         </li>
