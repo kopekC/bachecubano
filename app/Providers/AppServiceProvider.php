@@ -90,11 +90,15 @@ class AppServiceProvider extends ServiceProvider
         //Today date
         $today = Carbon::today();
 
+        //Show_Hide Google Adsense
+        $show_ads = true;
+
         View::share('parent_categories', $parent_categories);
         View::share('category_formatted', $category_formatted);
         View::share('total_ads', $total_ads);
         View::share('total_users', $total_users);      //Load and cache this number everyday
         View::share('latest_blog_post', $latest_blog_post);
         View::share('today', $today);
+        View::share('show_ads', $show_ads);
     }
 }

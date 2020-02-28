@@ -102,8 +102,11 @@ class WelcomeController extends Controller
                     ->email('contacto@bachecubano.com')
             );
 
+        //Hide here the Google Ads
+        $show_ads = false;
+
         //Analize the variable submit, could be better
-        return view('welcome', compact('promoted_ads', 'SchemaLD'/*, 'latest_ads'*/));
+        return view('welcome', compact('promoted_ads', 'SchemaLD', 'show_ads'));
     }
 
     /**

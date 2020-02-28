@@ -36,8 +36,10 @@
 <!-- All above combined -->
 <script src="{{ route('bachecubano_js') }}"></script>
 
-<!--Google Adesense -->
+<!--Google Adsense -->
+@if($show_ads)
 <script async data-ad-client="ca-pub-9876511577005081" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+@endif
 
 @stack('script')
 
@@ -53,19 +55,4 @@
         var fox_s = document.getElementsByTagName('script')[0];
         fox_s.parentNode.insertBefore(foxscript, fox_s);
     })();
-</script>
-
-<!-- Global site tag (gtag.js) -->
-<!-- local GA 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64168215-3"></script>
--->
-
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-64168215-3');
 </script>
