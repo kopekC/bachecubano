@@ -82,5 +82,5 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
     });
 
     // The catch-all will match anything except the previous defined routes.
-    Route::any('{catchall}', 'Api\TelegramController@index')->where('catchall', '.*');
+    Route::any('{catchall}', 'Api\HomeController@index')->where('catchall', '.*');
 });
