@@ -80,4 +80,7 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
         Route::post('webhook/' . config('telegram.webhook_token'), 'Api\TelegramController@webhook')->name('webhook');                  //Bot WebHook test
         Route::get('sendmessage/' . config('telegram.webhook_token'), 'Api\TelegramController@sendmessage')->name('sendmessage');      //Send Specific message 😉
     });
+
+    // The catch-all will match anything except the previous defined routes.
+    Route::any('{catchall}', 'Api\TelegramController@index')->where('catchall', '.*');
 });

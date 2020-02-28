@@ -20,4 +20,6 @@ class HomeController extends Controller
 
         return response()->json($help_resources);
     }
+
+    
 }

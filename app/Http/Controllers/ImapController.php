@@ -318,7 +318,9 @@ class ImapController extends Controller
             "regalos" => "regalos",
             "objetos perdidos" => "perdidoyencontrado",
             "juguetes para adultos" => "juguetes-para-adultos",
+            "juguetes paraadultos" => "juguetes-para-adultos",
             "otros servicios" => "objetos-perdidos",
+            "otrosservicios" => "objetos-perdidos",
             "obras de arte" => "obras-de-arte",
         ];
 
