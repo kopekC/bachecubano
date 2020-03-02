@@ -1,6 +1,10 @@
 ### v1.9.1
 
     - Provinces subdomain xxx.bachecubano.com for index ads
+    - Removed gads from welcome page
+    - Provinces colors
+    - Provinces Homepage index
+    - Provinces menu header
 
 ### v1.9
 
