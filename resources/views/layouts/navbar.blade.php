@@ -121,7 +121,7 @@
             <a href="#">Categorías</a>
             <ul class="dropdown">
                 @foreach($parent_categories as $super_category)
-                <li><a href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">{{ $super_category->description->name }}</a></li>
+                <li><a href="{{ route('super_category_index', ['category' => $super_category->description->slug, 'province_slug' => 'www']) }}">{{ $super_category->description->name }}</a></li>
                 @endforeach
             </ul>
         </li>
