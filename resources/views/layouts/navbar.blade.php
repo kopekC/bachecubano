@@ -20,7 +20,7 @@
                     </a>
                     <div class="dropdown-menu">
                         @foreach($parent_categories as $super_category)
-                        <a class="dropdown-item" href="{{ route('super_category_index', ['category' => $super_category->description->slug]) }}">{{ $super_category->description->name }}</a>
+                        <a class="dropdown-item" href="{{ route('super_category_index', ['category' => $super_category->description->slug, 'province_slug' => 'www']) }}">{{ $super_category->description->name }}</a>
                         @endforeach
                     </div>
                 </li>
