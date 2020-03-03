@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbd45b34746cf7b2fe7e111a4c47b29c",
+    "content-hash": "01bdcf3d53a36019c15235d0e6b59da1",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1422,27 +1422,27 @@
         },
         {
             "name": "laravel-notification-channels/facebook",
-            "version": "0.0.4",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-notification-channels/facebook.git",
-                "reference": "f8a4f46d2fabaa556346523029a773c9753bd880"
+                "reference": "c79ba3c4eb39805256bbc6feabce4a0ce9994d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-notification-channels/facebook/zipball/f8a4f46d2fabaa556346523029a773c9753bd880",
-                "reference": "f8a4f46d2fabaa556346523029a773c9753bd880",
+                "url": "https://api.github.com/repos/laravel-notification-channels/facebook/zipball/c79ba3c4eb39805256bbc6feabce4a0ce9994d4e",
+                "reference": "c79ba3c4eb39805256bbc6feabce4a0ce9994d4e",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2",
-                "illuminate/notifications": "^5.5 || ^6.0",
-                "illuminate/support": "^5.5 || ^6.0",
+                "illuminate/notifications": "^5.5 || ^6.0 || ^7.0",
+                "illuminate/support": "^5.5 || ^6.0 || ^7.0",
                 "php": "^7.2"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^7.5"
+                "phpunit/phpunit": "^7.5 || ^8.0"
             },
             "type": "library",
             "extra": {
@@ -1471,7 +1471,7 @@
             ],
             "description": "Facebook Notifications Channel for Laravel",
             "homepage": "https://github.com/laravel-notification-channels/facebook",
-            "time": "2019-10-10T15:16:28+00:00"
+            "time": "2020-02-26T06:58:52+00:00"
         },
         {
             "name": "laravel-notification-channels/facebook-poster",
