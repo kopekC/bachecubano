@@ -24,7 +24,7 @@
         "laravel/framework": "^6.2",
         "laravel/passport": "^8.4",
         "laravel/socialite": "^4.1",
-        "laravel/tinker": "^1.0",
+        "laravel/tinker": "^2.2",
         "overtrue/laravel-like": "^1.0",
         "predis/predis": "^1.1",
         "renatomarinho/laravel-page-speed": "^1.8",
