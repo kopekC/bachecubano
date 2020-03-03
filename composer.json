@@ -11,7 +11,7 @@
         "php": "^7.3",
         "artesaos/seotools": "^0.16.0",
         "binarytorch/larecipe": "^2.2",
-        "biscolab/laravel-recaptcha": "^3.5",
+        "biscolab/laravel-recaptcha": "^4.0",
         "facebook/graph-sdk": "^5.7",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.5",

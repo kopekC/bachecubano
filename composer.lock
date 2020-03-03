@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01bdcf3d53a36019c15235d0e6b59da1",
+    "content-hash": "2452228a6d480424a6562584be44e0f3",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -190,16 +190,16 @@
         },
         {
             "name": "biscolab/laravel-recaptcha",
-            "version": "v3.6.1",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/biscolab/laravel-recaptcha.git",
-                "reference": "77e65a06b64f8fa1efefb4fd355bc9993620a664"
+                "reference": "3e990f54b712d5c82c004139840f48dd34662cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biscolab/laravel-recaptcha/zipball/77e65a06b64f8fa1efefb4fd355bc9993620a664",
-                "reference": "77e65a06b64f8fa1efefb4fd355bc9993620a664",
+                "url": "https://api.github.com/repos/biscolab/laravel-recaptcha/zipball/3e990f54b712d5c82c004139840f48dd34662cff",
+                "reference": "3e990f54b712d5c82c004139840f48dd34662cff",
                 "shasum": ""
             },
             "require": {
@@ -236,11 +236,20 @@
             "authors": [
                 {
                     "name": "Roberto Belotti",
-                    "email": "roby.belotti@gmail.com"
+                    "email": "roby.belotti@gmail.com",
+                    "homepage": "https://biscolab.com",
+                    "role": "Developer"
                 }
             ],
-            "description": "Simple ReCaptcha package for Laravel 5",
-            "time": "2019-09-03T17:42:03+00:00"
+            "description": "Simple ReCaptcha package for Laravel 5 and 6",
+            "homepage": "https://biscolab.com/laravel-recaptcha",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "recaptcha",
+                "validation"
+            ],
+            "time": "2019-09-11T19:01:40+00:00"
         },
         {
             "name": "defuse/php-encryption",
