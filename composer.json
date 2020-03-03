@@ -24,6 +24,7 @@
         "laravel/passport": "^7.3",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
+        "lorisleiva/laravel-search-string": "^0.1.5",
         "overtrue/laravel-like": "^1.0",
         "predis/predis": "^1.1",
         "renatomarinho/laravel-page-speed": "^1.8",
