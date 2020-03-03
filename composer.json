@@ -17,7 +17,7 @@
         "guzzlehttp/guzzle": "^6.5",
         "intervention/image": "^2.5",
         "irazasyed/telegram-bot-sdk": "dev-develop",
-        "laravel-notification-channels/facebook": "^0.0.4",
+        "laravel-notification-channels/facebook": "^0.1.0",
         "laravel-notification-channels/facebook-poster": "^2.0",
         "laravel-notification-channels/telegram": "^0.2.0",
         "laravel-notification-channels/twitter": "^3.0",
