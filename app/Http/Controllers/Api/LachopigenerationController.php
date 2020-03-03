@@ -246,7 +246,7 @@ class LachopigenerationController extends Controller
         echo $this->logs;
 
         //Close Database ¿?
-        $this->bd->close();
+        //$this->bd->close();
 
         //Sending Emails
         return Mail::to("ecruz@bachecubano.com")->cc('contacto@lachopi.com')->send(new LaChopiDone($this->logs));
