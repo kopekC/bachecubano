@@ -8,6 +8,7 @@ use Overtrue\LaravelLike\Traits\CanBeLiked;
 use Rennokki\Rating\Traits\CanBeRated;
 use Rennokki\Rating\Contracts\Rateable;
 use Illuminate\Notifications\Notifiable;
+use Lorisleiva\LaravelSearchString\Concerns\SearchString;
 
 /**
  * ads, ad_description, ad_location, ad_promo, ad_resource, ad_stats
@@ -125,6 +126,8 @@ class Ad extends Model implements Rateable
 
 class AdDescription extends Model
 {
+    use SearchString;
+
     /**
      * Indicates if the model should be timestamped.
      *
@@ -149,6 +152,8 @@ class AdDescription extends Model
             'description' => "invalid Description"
         ]);
     }
+    protected $searchStringColumns = [
+        'title', 'description',];
 }
 
 class AdPromo extends Model

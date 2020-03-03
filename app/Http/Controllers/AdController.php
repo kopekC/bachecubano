@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Carbon;
 use Spatie\SchemaOrg\Schema;
 use Illuminate\Support\Facades\URL;
+use Lorisleiva\LaravelSearchString\Concerns\SearchString;
 
 use SEOMeta;
 use OpenGraph;
@@ -657,7 +658,7 @@ class AdController extends Controller
 
     /**
      * Update all ads
-     * 
+     *
      */
     public function update_all()
     {
@@ -758,7 +759,8 @@ class AdController extends Controller
                 // Encapsulate this into (query)
                 $q->where(function (Builder $query) use ($request) {
                     //return $query->where('ad_descriptions.description', 'LIKE', "%{$request->input('s')}%")->orWhere('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");
-                    return $query->where('ad_descriptions.title', 'LIKE', "%{$request->input('s')}%");                  //Just search on title so far by now
+                    $temp = $request->input('s');
+                    return $query::usingSearchString("title:$temp or description:$temp")->get();
                 });
                 return $q;
             });
