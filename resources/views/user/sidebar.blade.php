@@ -13,10 +13,12 @@
                 <h3 title="{{ Auth::user()->id }}"><i class="lni-user"></i> {{ Auth::user()->name }}</h3>
                 <h4><i class="lni-mobile"></i> {{ Auth::user()->phone }}</h4>
                 <h4><i class="lni-money-protection"></i> {{ Auth::user()->wallet->credits }}</h4>
+                {{--
                 <div class="row text-white">
                     <div class="col text-left">{{ Auth::user()->following()->count() }}<br><small>Siguiendo</small></div>
                     <div class="col text-right">{{ Auth::user()->followers()->count() }}<br><small>Seguidores</small></div>
                 </div>
+                --}}
             </div>
         </div>
         <nav class="navdashboard">
