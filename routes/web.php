@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //Provinces pattern
-Route::pattern('province_slug', '(www|artemisa|camaguey|ciego-de-avila|cienfuegos|granma|guantanamo|holguin|isla-de-la-juventud|la-habana|lahabana|las-tunas|matanzas|mayabeque|pinar-del-rio|sancti-spiritus|santiago-de-cuba|villa-clara)');
+Route::pattern('province_slug', '(www|artemisa|camaguey|ciego-de-avila|cienfuegos|granma|guantanamo|holguin|isla-de-la-juventud|la-habana|las-tunas|matanzas|mayabeque|pinar-del-rio|sancti-spiritus|santiago-de-cuba|villa-clara)');
 
 //Provinces as subdomain
 Route::domain('{province_slug}.' . config('app.domain'))->group(function () {

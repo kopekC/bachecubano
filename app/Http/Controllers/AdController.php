@@ -45,7 +45,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $province_slug = "", $category, $subcategory = "")
+    public function index(Request $request, $province_slug = "www", $category, $subcategory = "")
     {
         //Get Super and SubCategory
         $super_category = CategoryDescription::where('slug', $category)->first();
@@ -116,8 +116,8 @@ class AdController extends Controller
                     ->item(config('app.url') . $super_category->slug)
             ]);
 
-        //Paginate all this
-        $ads = AdController::getAds($request, $ids);
+        //Paginate all this and pass the actual province
+        $ads = AdController::getAds($request, $ids, 144, null, null, $province_slug);
 
         return view('ads.index', compact('ads', 'super_category', 'sub_category', 'posts_per_page', 'BreadCrumbs'));
     }
@@ -760,6 +760,7 @@ class AdController extends Controller
 
         //Province ad_region
         if (isset($province_slug) && $province_slug != "www" && in_array($province_slug, ['artemisa', 'camaguey', 'ciego-de-avila', 'cienfuegos', 'granma', 'guantanamo', 'holguin', 'isla-de-la-juventud', 'la-habana', 'lahabana', 'las-tunas', 'matanzas', 'mayabeque', 'pinar-del-rio', 'sancti-spiritus', 'santiago-de-cuba', 'villa-clara'])) {
+            //TODO Cache this result set for every province
             $current_province = AdLocation::where('slug', $request->province_slug)->first();
             if (isset($current_province)) {
                 $query->when($request->province_slug != "www", function ($q) use ($current_province) {
