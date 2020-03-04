@@ -25,6 +25,17 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Provincias
+                    </a>
+                    <div class="dropdown-menu">
+                        @foreach($locations as $location)
+                        <a class="dropdown-item" href="{{ route('welcome', ['province_slug' => $location->slug, 'ref' => 'navbar']) }}">{{ $location->title }}</a>
+                        @endforeach
+                    </div>
+                </li>
+                <!--
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="{{ route('blog.index') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Blog
                     </a>
@@ -34,6 +45,7 @@
                         @endforeach
                     </div>
                 </li>
+                -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">
                         Contáctenos

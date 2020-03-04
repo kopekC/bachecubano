@@ -207,17 +207,19 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3 tg-inputwithicon">
                                             <label class="control-label">Provincia</label>
-                                            <div class="tg-select form-control  pt-0 pb-0">
-                                                <select name="ad_region">
-                                                    @if(isset($regions))
+                                            <div class="tg-select form-control pt-0 pb-0">
+                                                <select name="ad_location">
+
+                                                    @if(isset($locations))
                                                     <option value="737586" @if($edit==true && $ad->region_id == 737586) selected="" @endif>La Habana</option>
-                                                    @foreach($regions as $region)
-                                                    @if($region->id == 737586)
+                                                    @foreach($locations as $location)
+                                                    @if($location->id == 737586)
                                                     @continue
                                                     @endif
-                                                    <option value="{{ $region->id }}" @if($edit==true && $ad->region_id == $region->id) selected="" @endif>{{ $region->name }}</option>
+                                                    <option value="{{ $location->id }}" @if($edit==true && $ad->region_id == $region->id) selected="" @endif @if(isset($current_province) && $current_province->id == $location->id) selected="" @endif>{{ $location->title }}</option>
                                                     @endforeach
                                                     @endif
+
                                                 </select>
                                             </div>
                                         </div>

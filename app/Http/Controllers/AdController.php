@@ -22,6 +22,7 @@ use App\AdRegion;
 use App\CategoryDescription;
 use App\Category;
 use App\Ad;
+use App\AdLocation;
 use App\AdPromo;
 use App\Http\Controllers\Api\PushController;
 use App\Mail\AdPublished;
@@ -126,7 +127,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, $province_slug)
+    public function create(Request $request, $province_slug = "")
     {
         //SEO Data
         $seo_data = [
@@ -140,13 +141,19 @@ class AdController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
-        //get All regions of the system
-        $regions = Cache::rememberForever('regions', function () {
-            return AdRegion::all();
+        //Get All Ad Locations of the system
+        $locations = Cache::rememberForever('ad-locations', function () {
+            return AdLocation::all();
         });
+
+        //Dump Locations
+        //dd($locations);
 
         //Tell view that this is not an edit page
         $edit = false;
+
+        //Retrieve province data
+        $current_province = AdLocation::where('slug', $province_slug)->first();
 
         //Featured Listing, Diamond and Gold Random
         $promoted_ads = Cache::remember('promoted_ads', 60, function () {
@@ -169,7 +176,7 @@ class AdController extends Controller
                     ->item(config('app.url') . 'add')
             ]);
 
-        return view('ads.add', compact('promoted_ads', 'regions', 'edit', 'BreadCrumbs'));
+        return view('ads.add', compact('promoted_ads', 'locations', 'edit', 'BreadCrumbs', 'current_province'));
     }
 
     /**
@@ -189,7 +196,7 @@ class AdController extends Controller
             'contact_name' => 'bail|required|max:100',
             'contact_email' => 'bail|required|email|max:140',
             'phone' => 'bail|required|max:20',
-            'ad_region' => 'bail|required|numeric',
+            'ad_location' => 'bail|required|numeric',
             'agree' => 'bail|required',
             'g-recaptcha-response' => Auth::check() ? '' : 'recaptcha',     //Google recaptcha if Guest User
         ]);
@@ -218,7 +225,7 @@ class AdController extends Controller
         $ad->secret = Str::random(20);
         $ad->expiration = $plus_3_months->format("Y-m-d H:i:s");
         $ad->phone = $request->input('phone', "");
-        $ad->region_id = $request->input('ad_region', "737586");
+        $ad->region_id = $request->input('ad_location', "737586");
         $ad->save();
 
         //Images Logic for AdResources
@@ -399,9 +406,9 @@ class AdController extends Controller
         //Pintar la misma pagina de ADD pero con los datos prefilled y un hidden que le indique que es edicion y no adicion
         $edit = true;
 
-        //get All regions of the system
-        $regions = Cache::rememberForever('regions', function () {
-            return AdRegion::all();
+        //Get All Ad Locations of the system
+        $locations = Cache::rememberForever('ad-locations', function () {
+            return AdLocation::all();
         });
 
         //Featured Listing, Diamond and Gold Random
@@ -419,7 +426,7 @@ class AdController extends Controller
         //Ad Images for prefill
         $ad_images = $ad->resources;
 
-        return view('ads.add', compact('ad', 'promoted_ads', 'regions', 'edit', 'ad_images'));
+        return view('ads.add', compact('ad', 'promoted_ads', 'locations', 'edit', 'ad_images'));
     }
 
     /**

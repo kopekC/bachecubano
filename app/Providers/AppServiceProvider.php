@@ -100,5 +100,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('latest_blog_post', $latest_blog_post);
         View::share('today', $today);
         View::share('show_ads', $show_ads);
+        View::share('locations', $locations);
     }
 }
