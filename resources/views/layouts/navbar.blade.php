@@ -115,8 +115,7 @@
                 @endauth
                 @endif
             </ul>
-
-            <a class="tg-btn" href="{{ route('add', ['province_slug' => 'www']) }}">
+            <a class="tg-btn" href="{{ route('add', ['province_slug' => (request()->get('province_slug') !== null) ? request()->get('province_slug') : 'www']) }}">
                 <i class="lni-pencil-alt"></i> Publicar Anuncio
             </a>
         </div>
@@ -177,7 +176,7 @@
         @endauth
         @endif
         <li>
-            <a class="active" href="{{ route('add', ['province_slug' => 'www']) }}">
+            <a class="active" href="{{ route('add', ['province_slug' => (request()->get('province_slug') !== null) ? request()->get('province_slug') : 'www']) }}">
                 Publicar anuncio
             </a>
         </li>
