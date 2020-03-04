@@ -700,7 +700,7 @@ class AdController extends Controller
      * Static Get Ads for API and Web Controller
      * $category_ids could be an ID or ID array, based on the subcategory or parent category
      */
-    public static function getAds(Request $request, $category_ids = null, $limit = null, $latest_days = null, $lachopi_db = false)
+    public static function getAds(Request $request, $category_ids = null, $limit = null, $latest_days = null, $lachopi_db = false, $province_slug = 'www')
     {
         //Beguin Query
         $query = Ad::query();
@@ -756,6 +756,16 @@ class AdController extends Controller
             $query->when($request->input('ht') != "", function ($q) use ($request) {
                 return $q->where('body', 'LIKE', "%#{$request->input('ht', "#bache")}%");
             });
+        }
+
+        //Province ad_region
+        if (isset($province_slug) && $province_slug != "www" && in_array($province_slug, ['artemisa', 'camaguey', 'ciego-de-avila', 'cienfuegos', 'granma', 'guantanamo', 'holguin', 'isla-de-la-juventud', 'la-habana', 'lahabana', 'las-tunas', 'matanzas', 'mayabeque', 'pinar-del-rio', 'sancti-spiritus', 'santiago-de-cuba', 'villa-clara'])) {
+            $current_province = AdLocation::where('slug', $request->province_slug)->first();
+            if (isset($current_province)) {
+                $query->when($request->province_slug != "www", function ($q) use ($current_province) {
+                    return $q->where('ads.region_id', '=', $current_province->id);
+                });
+            }
         }
 
         //Search terms
