@@ -11,7 +11,6 @@ use App\Http\Controllers\AdController;
 use App\Mail\LaChopiDone;
 use Exception;
 use Illuminate\Support\Facades\Mail;
-use PhpParser\Node\Stmt\TryCatch;
 use SQLite3;
 
 set_time_limit(0);
@@ -64,7 +63,7 @@ class LachopigenerationController extends Controller
         $this->logs .= "<h2>Delete All tables data (TRUNCATE)</h2>";
 
         //$this->bd->query("SET LOCK MODE TO WAIT 120");
-        $this->bd->busyTimeout(6000);
+        //$this->bd->busyTimeout(6000);
 
         $this->bd->exec("DELETE FROM anuncios");
         $this->bd->exec("DELETE FROM meta");
@@ -247,6 +246,8 @@ class LachopigenerationController extends Controller
 
         //Close Database ¿?
         //$this->bd->close();
+        $this->bd->close();
+        unset($this->bd);
 
         //Sending Emails
         return Mail::to("ecruz@bachecubano.com")->cc('contacto@lachopi.com')->send(new LaChopiDone($this->logs));
