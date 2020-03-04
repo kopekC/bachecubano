@@ -75,6 +75,8 @@
                         </div>
                     </form>
 
+                    @include('gads.v')
+
                     <!-- Categories Widget -->
                     @if(isset($super_category->category_id) && isset($category_formatted[$super_category->category_id]) && is_array($category_formatted[$super_category->category_id]) && count($category_formatted[$super_category->category_id])>0)
                     <div class="widget categories d-none d-lg-block">
