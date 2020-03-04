@@ -216,7 +216,7 @@
                                                     @if($location->id == 737586)
                                                     @continue
                                                     @endif
-                                                    <option value="{{ $location->id }}" @if($edit==true && $ad->region_id == $region->id) selected="" @endif @if(isset($current_province) && $current_province->id == $location->id) selected="" @endif>{{ $location->title }}</option>
+                                                    <option value="{{ $location->id }}" @if($edit==true && $ad->region_id == $location->id) selected="" @endif @if(isset($current_province) && $current_province->id == $location->id) selected="" @endif>{{ $location->title }}</option>
                                                     @endforeach
                                                     @endif
 
