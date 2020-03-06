@@ -451,7 +451,7 @@ class AdController extends Controller
             'contact_name' => 'bail|required|min:3|max:255',
             'contact_email' => 'bail|required|email|min:5|max:255',
             'phone' => 'bail|required|numeric',
-            'ad_region' => 'bail|required|numeric',
+            'ad_location' => 'bail|required|numeric',
             'agree' => 'bail|required',
         ]);
 
