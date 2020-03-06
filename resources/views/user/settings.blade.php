@@ -30,11 +30,8 @@
                             <div class="user">
                                 <!-- Drop Zone -->
                                 <label for="name">Su foto de perfil:</label>
-                                <div class="dropzone" id="profile-photo-update" style="border: 2px dashed #0087F7; border-radius: 5px; background: white;">
-                                    <div class="fallback">
-                                        <input name="file" type="file" />
-                                    </div>
-                                </div>
+                                <div class="DashboardContainer"></div>
+
                                 <div class="usercontent mt-3">
                                     <form class="" method="post" action="{{ route('update_user') }}" id="user-data">
                                         @csrf
@@ -127,11 +124,6 @@
 
 @push('script')
 <!-- Dropzone for the profile picture -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
-@endpush
-
-@push('script')
-<!-- Dropzone for the profile picture -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 <script>
     Dropzone.options.profilePhotoUpdate = {
@@ -155,6 +147,57 @@
             }
         }
     };
+</script>
+
+<!-- AJAX Uploading for Add Post -->
+<script src="{{ asset('js/uppy.min.js') }}"></script>
+<script src="{{ asset('js/es_ES.min.js') }}"></script>
+<script>
+    const uppy = Uppy.Core({
+            debug: false,
+            autoProceed: true,
+            restrictions: {
+                maxFileSize: 600000,
+                maxNumberOfFiles: 1,
+                allowedFileTypes: ['.jpg', '.jpeg', '.png', '.gif']
+            },
+            locale: Uppy.locales.es_ES
+        })
+        .use(Uppy.Dashboard, {
+            inline: true,
+            target: '.DashboardContainer',
+            replaceTargetContent: true,
+            showProgressDetails: true,
+            note: 'Sólo imágenes, 1 foto, de no más de 800kb',
+            height: 350,
+            width: '100%',
+            metaFields: [{
+                    id: 'photo',
+                    name: 'photo',
+                    placeholder: 'Nombre del fichero subido'
+                },
+                {
+                    id: 'caption',
+                    name: 'Caption',
+                    placeholder: 'Describe la imagen que estás subiendo'
+                }
+            ],
+            browserBackButtonClose: true,
+            plugins: ['Webcam']
+        })
+        .use(Uppy.XHRUpload, {
+            endpoint: "{{ route('save-profile-image-ajax') }}?api_token=" + user_token,
+            formData: true,
+            fieldName: 'files[]',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        })
+    uppy.on('upload-success', (file, response) => {
+        if (response.status == 200) {
+            $('#user-data').submit();
+        }
+    })
 </script>
 @endpush
 

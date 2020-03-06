@@ -64,11 +64,15 @@ class LachopigenerationController extends Controller
 
         //$this->bd->query("SET LOCK MODE TO WAIT 120");
         //$this->bd->busyTimeout(6000);
-
-        $this->bd->exec("DELETE FROM anuncios");
+        
         $this->bd->exec("DELETE FROM meta");
+        sleep(10);
         $this->bd->exec("DELETE FROM imagenes");
+        sleep(10);
         $this->bd->exec("DELETE FROM cats");
+        sleep(10);
+        $this->bd->exec("DELETE FROM anuncios");
+        sleep(60);
         $this->bd->exec("VACUUM");
 
         //Generate and Save Categories
