@@ -145,7 +145,7 @@ class ImageController extends Controller
     public function save_profile_image(Request $request)
     {
         //Photos Contains all fotos
-        $photo = $request->file('photo');
+        $photo = $request->file('files');
 
         //Myself
         $user = (new User())->getByToken($request->input('api_token'));
