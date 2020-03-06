@@ -1,6 +1,11 @@
 @extends('user.layout')
 
 @section('user_section')
+
+@push('style')
+<link href="{{ asset('css/uppy.min.css') }}" rel="stylesheet">
+@endpush
+
 <div class="page-content">
     <div class="inner-box">
         <div class="dashboard-box">
@@ -30,7 +35,7 @@
                             <div class="user">
                                 <!-- Drop Zone -->
                                 <label for="name">Su foto de perfil:</label>
-                                
+
                                 <div class="DashboardContainer"></div>
 
                                 <div class="usercontent mt-3">
@@ -124,7 +129,6 @@
 </div>
 
 @push('script')
-
 <!-- AJAX Uploading for Add Post -->
 <script src="{{ asset('js/uppy.min.js') }}"></script>
 <script src="{{ asset('js/es_ES.min.js') }}"></script>
@@ -144,7 +148,7 @@
             target: '.DashboardContainer',
             replaceTargetContent: true,
             showProgressDetails: true,
-            note: 'Sólo imágenes, 1 foto, de no más de 800kb',
+            note: 'Sólo imágenes, 1 foto, de no más de 600kb',
             height: 350,
             width: '100%',
             metaFields: [{

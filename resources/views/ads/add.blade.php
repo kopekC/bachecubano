@@ -317,7 +317,7 @@
             target: '.DashboardContainer',
             replaceTargetContent: true,
             showProgressDetails: true,
-            note: 'Sólo imágenes, hasta 10 fotos, de no más de 800kb',
+            note: 'Sólo imágenes, hasta 10 fotos, de no más de 600kb',
             height: 350,
             width: '100%',
             metaFields: [{
