@@ -43,7 +43,7 @@ class PostController extends Controller
     public function show($entry_slug)
     {
         //Cache Post Entry
-        $post = Cache::remember('cached_post_' . $entry_slug, 60, function () use ($entry_slug) {
+        $post = Cache::remember('cached_post_' . $entry_slug, 120, function () use ($entry_slug) {
             return Post::where('slug', $entry_slug)->firstOrFail();
         });
 

@@ -49,7 +49,7 @@ class WelcomeController extends Controller
         Twitter::setTitle($seo_data['title']);
 
         //Remember this result a 1 hour 👇
-        $promoted_ads = Cache::remember('promoted_ads', 60, function () {
+        $promoted_ads = Cache::remember('promoted_ads', 120, function () {
             return Ad::where('active', 1)
                 ->with(['description', 'resources', 'category.description', 'category.parent.description', 'promo']) //<- Nested Load Category, and Parent Category
                 ->whereHas('promo', function ($query) {

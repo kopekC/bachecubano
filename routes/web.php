@@ -26,7 +26,7 @@ Route::domain('{province_slug}.' . config('app.domain'))->group(function () {
 //Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
-Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:600')->name('terms');
+Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:86400')->name('terms');
 
 //Imap Controller every 1 min
 Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
@@ -101,7 +101,7 @@ Route::domain('{province_slug}.' . config('app.domain'))->group(function () {
     //SubCategory Listing
     Route::get('/{category}/{subcategory}/', 'AdController@index')->name('category_index')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag', 'defaultlocation');
     //Ad specific Show
-    Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:60', 'cache.headers:private,max-age=60;etag', 'defaultlocation')->where('ad_id', '[0-9]+'); //only allow numeric ID
+    Route::get('/{category}/{subcategory}/{ad_title}/{ad_id}', 'AdController@show')->name('show_ad')->middleware('cacheResponse:30', 'cache.headers:private,max-age=30;etag', 'defaultlocation')->where('ad_id', '[0-9]+'); //only allow numeric ID
 });
 
 //Laravel Images redirection to subdomain

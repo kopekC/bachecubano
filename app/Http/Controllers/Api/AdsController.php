@@ -35,7 +35,7 @@ class AdsController extends Controller
      */
     public function get_ads(Request $request, $category_id)
     {
-        $ads = Cache::remember('cached_ads_' . $category_id, 60, function () use ($request, $category_id) {
+        $ads = Cache::remember('cached_ads_' . $category_id, 120, function () use ($request, $category_id) {
             $ads = AdController::getAds($request, $category_id);
             return $ads;
         });

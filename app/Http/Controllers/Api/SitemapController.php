@@ -103,7 +103,7 @@ class SitemapController extends Controller
         $sitemap = Sitemap::create();
 
         //Latest Ads (How Many?? 1000??)
-        $ads = Cache::remember('cached_1000_ads', 30, function () {
+        $ads = Cache::remember('cached_1000_ads', 60, function () {
             return Ad::with(['description', 'category', 'resources'])->limit(1000)->latest()->get();
         });
         foreach ($ads as $ad) {
