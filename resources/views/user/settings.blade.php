@@ -30,6 +30,7 @@
                             <div class="user">
                                 <!-- Drop Zone -->
                                 <label for="name">Su foto de perfil:</label>
+                                
                                 <div class="DashboardContainer"></div>
 
                                 <div class="usercontent mt-3">
@@ -123,31 +124,6 @@
 </div>
 
 @push('script')
-<!-- Dropzone for the profile picture -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-<script>
-    Dropzone.options.profilePhotoUpdate = {
-        uploadMultiple: false, //False this
-        maxFilesize: 0.5,
-        addRemoveLinks: false,
-        dictDefaultMessage: "Arrastre su foto de perfil aquí",
-        dictFileTooBig: "La imagen es demasiado grande",
-        timeout: 10000,
-        url: "{{ route('save-profile-image-ajax') }}?api_token=" + user_token,
-        paramName: "photo",
-        maxFiles: 1,
-        acceptedFiles: 'image/*',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="token"]').attr('content')
-        },
-        //Submit form if saved name or ther data
-        success: function(file, response) {
-            if (response.status == 200) {
-                $('#user-data').submit();
-            }
-        }
-    };
-</script>
 
 <!-- AJAX Uploading for Add Post -->
 <script src="{{ asset('js/uppy.min.js') }}"></script>
