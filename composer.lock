@@ -128,29 +128,29 @@
         },
         {
             "name": "binarytorch/larecipe",
-            "version": "v2.2.3",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/saleem-hadad/larecipe.git",
-                "reference": "a84cb03b4d29b83cdb09d65ef2694b6dce658a67"
+                "reference": "40f954dad8e157960b34521a9d713f7c897c390d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/saleem-hadad/larecipe/zipball/a84cb03b4d29b83cdb09d65ef2694b6dce658a67",
-                "reference": "a84cb03b4d29b83cdb09d65ef2694b6dce658a67",
+                "url": "https://api.github.com/repos/saleem-hadad/larecipe/zipball/40f954dad8e157960b34521a9d713f7c897c390d",
+                "reference": "40f954dad8e157960b34521a9d713f7c897c390d",
                 "shasum": ""
             },
             "require": {
                 "erusev/parsedown-extra": "^0.8.1",
-                "illuminate/support": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
-                "illuminate/view": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
+                "illuminate/support": "^5.4|^6.0|^7.0",
+                "illuminate/view": "^5.4|^6.0|^7.0",
                 "php": ">=7.1.3",
-                "symfony/dom-crawler": "^4.1"
+                "symfony/dom-crawler": "^4.1|^5.0"
             },
             "require-dev": {
-                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
-                "orchestra/testbench": "~3.4.0|~3.5.0|~3.6.0|~3.7.0|~3.8.0|^4.0",
-                "phpunit/phpunit": "~7.0|~7.5|^8.0"
+                "laravel/framework": "^5.4|^6.0|^7.0",
+                "orchestra/testbench": "^3.4|^4.0|^5.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
             },
             "type": "library",
             "extra": {
@@ -186,29 +186,32 @@
                 "laravel",
                 "markdown"
             ],
-            "time": "2020-01-21T07:06:12+00:00"
+            "time": "2020-03-09T05:27:32+00:00"
         },
         {
             "name": "biscolab/laravel-recaptcha",
-            "version": "4.0.1",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/biscolab/laravel-recaptcha.git",
-                "reference": "3e990f54b712d5c82c004139840f48dd34662cff"
+                "reference": "9bfe22ffb78efaff005659af68867d1ba52c0a00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biscolab/laravel-recaptcha/zipball/3e990f54b712d5c82c004139840f48dd34662cff",
-                "reference": "3e990f54b712d5c82c004139840f48dd34662cff",
+                "url": "https://api.github.com/repos/biscolab/laravel-recaptcha/zipball/9bfe22ffb78efaff005659af68867d1ba52c0a00",
+                "reference": "9bfe22ffb78efaff005659af68867d1ba52c0a00",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.5|^6.0",
+                "laravel/framework": "^5.5|^6.0|^7.0",
                 "php": "^7.1"
             },
             "require-dev": {
                 "orchestra/testbench": "~3.0",
                 "phpunit/phpunit": "6.*|7.*"
+            },
+            "suggest": {
+                "biscolab/laravel-authlog": "Allows logged-in users management and forced log-out"
             },
             "type": "library",
             "extra": {
@@ -241,7 +244,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Simple ReCaptcha package for Laravel 5 and 6",
+            "description": "Simple and painless Google reCAPTCHA package for Laravel 5, 6 and 7",
             "homepage": "https://biscolab.com/laravel-recaptcha",
             "keywords": [
                 "captcha",
@@ -249,7 +252,7 @@
                 "recaptcha",
                 "validation"
             ],
-            "time": "2019-09-11T19:01:40+00:00"
+            "time": "2020-03-06T23:25:41+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -1900,16 +1903,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.18.0",
+            "version": "v6.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8"
+                "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
-                "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/367c2c8dfdfe83cb2ddbc029c0222174098d093a",
+                "reference": "367c2c8dfdfe83cb2ddbc029c0222174098d093a",
                 "shasum": ""
             },
             "require": {
@@ -2042,7 +2045,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-03-03T13:14:27+00:00"
+            "time": "2020-03-10T14:11:04+00:00"
         },
         {
             "name": "laravel/passport",
@@ -2426,16 +2429,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.64",
+            "version": "1.0.65",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "d13c43dbd4b791f815215959105a008515d1a2e0"
+                "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d13c43dbd4b791f815215959105a008515d1a2e0",
-                "reference": "d13c43dbd4b791f815215959105a008515d1a2e0",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
+                "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
                 "shasum": ""
             },
             "require": {
@@ -2506,7 +2509,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2020-02-05T18:14:17+00:00"
+            "time": "2020-03-08T18:53:20+00:00"
         },
         {
             "name": "league/glide",
@@ -3861,20 +3864,20 @@
         },
         {
             "name": "renatomarinho/laravel-page-speed",
-            "version": "1.8.11",
+            "version": "1.8.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/renatomarinho/laravel-page-speed.git",
-                "reference": "6381182828de2e0bdaa52ca132cfa2c34b8b728b"
+                "reference": "c09b69f9e95025885c2905e53b97c38414501678"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/renatomarinho/laravel-page-speed/zipball/6381182828de2e0bdaa52ca132cfa2c34b8b728b",
-                "reference": "6381182828de2e0bdaa52ca132cfa2c34b8b728b",
+                "url": "https://api.github.com/repos/renatomarinho/laravel-page-speed/zipball/c09b69f9e95025885c2905e53b97c38414501678",
+                "reference": "c09b69f9e95025885c2905e53b97c38414501678",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.3.* || 5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "illuminate/support": "5.3.* || 5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0 || ^7.0",
                 "php": "^5.6 || ^7.0"
             },
             "require-dev": {
@@ -3914,30 +3917,30 @@
                 "optmize",
                 "page speed"
             ],
-            "time": "2019-09-03T23:58:45+00:00"
+            "time": "2020-03-07T19:18:19+00:00"
         },
         {
             "name": "rennokki/befriended",
-            "version": "3.0.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rennokki/befriended.git",
-                "reference": "a79f3c17c19e42fd0608427c1b759ce5280e7215"
+                "reference": "bb8e2b4a6f39af2b541b3ad60ad6c55a3b19e1b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rennokki/befriended/zipball/a79f3c17c19e42fd0608427c1b759ce5280e7215",
-                "reference": "a79f3c17c19e42fd0608427c1b759ce5280e7215",
+                "url": "https://api.github.com/repos/rennokki/befriended/zipball/bb8e2b4a6f39af2b541b3ad60ad6c55a3b19e1b9",
+                "reference": "bb8e2b4a6f39af2b541b3ad60ad6c55a3b19e1b9",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2.10",
-                "laravel/framework": "~5.5|^6.0"
+                "laravel/framework": "~5.5|^6.0|^7.0"
             },
             "require-dev": {
-                "orchestra/database": "~3.5.0|~3.6.0|~4.0.0",
-                "orchestra/testbench": "~3.5.0|~3.6.0|~4.0.0",
-                "phpunit/phpunit": "^6.2|^7.0|^8.0"
+                "orchestra/database": "~4.2.0|^5.0",
+                "orchestra/testbench": "~4.2.0|^5.0",
+                "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "extra": {
@@ -3959,7 +3962,6 @@
             "authors": [
                 {
                     "name": "Alex Renoki",
-                    "email": "rennokki@gmail.com",
                     "homepage": "https://twitter.com/rennokki",
                     "role": "Developer"
                 }
@@ -3982,7 +3984,7 @@
                 "model",
                 "social"
             ],
-            "time": "2020-01-16T17:50:44+00:00"
+            "time": "2020-03-09T06:57:53+00:00"
         },
         {
             "name": "rennokki/rating",
@@ -4103,16 +4105,16 @@
         },
         {
             "name": "spatie/crawler",
-            "version": "4.6.6",
+            "version": "4.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/crawler.git",
-                "reference": "6f814a401cee20b24a1ffe53d8deddac90d1a42d"
+                "reference": "db5cee0941df9882b286384615f98396a591c791"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/crawler/zipball/6f814a401cee20b24a1ffe53d8deddac90d1a42d",
-                "reference": "6f814a401cee20b24a1ffe53d8deddac90d1a42d",
+                "url": "https://api.github.com/repos/spatie/crawler/zipball/db5cee0941df9882b286384615f98396a591c791",
+                "reference": "db5cee0941df9882b286384615f98396a591c791",
                 "shasum": ""
             },
             "require": {
@@ -4158,7 +4160,7 @@
                 "spatie",
                 "website"
             ],
-            "time": "2020-01-31T10:51:58+00:00"
+            "time": "2020-03-09T19:54:38+00:00"
         },
         {
             "name": "spatie/image",
@@ -4790,20 +4792,20 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v4.4.5",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "11dcf08f12f29981bf770f097a5d64d65bce5929"
+                "reference": "4368bdd61b83af365b8f23e9616d2a2ed52cbe7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/11dcf08f12f29981bf770f097a5d64d65bce5929",
-                "reference": "11dcf08f12f29981bf770f097a5d64d65bce5929",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/4368bdd61b83af365b8f23e9616d2a2ed52cbe7c",
+                "reference": "4368bdd61b83af365b8f23e9616d2a2ed52cbe7c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2.5",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.0"
             },
@@ -4812,7 +4814,7 @@
             },
             "require-dev": {
                 "masterminds/html5": "^2.6",
-                "symfony/css-selector": "^3.4|^4.0|^5.0"
+                "symfony/css-selector": "^4.4|^5.0"
             },
             "suggest": {
                 "symfony/css-selector": ""
@@ -4820,7 +4822,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -4847,7 +4849,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2020-02-29T10:05:28+00:00"
+            "time": "2020-02-29T10:07:09+00:00"
         },
         {
             "name": "symfony/error-handler",
