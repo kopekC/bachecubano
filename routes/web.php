@@ -55,9 +55,9 @@ Route::get('/css/bch1.css', 'WelcomeController@bachecubano_css')->name('bachecub
 Route::get('/js/bch1.js', 'WelcomeController@bachecubano_js')->name('bachecubano_js');
 
 // Posts resourcfull controllers routes
-Route::get('/blog/create', 'PostController@create')->name('blog_post_create');
-Route::resource('/blog', 'PostController');
-Route::get('/blog/{entry_slug}', 'PostController@show')->name('blog_post');
+Route::get('/blog/create', 'BlogController@create')->name('blog_post_create');
+Route::get('/blog/{entry_slug}', 'BlogController@show')->name('blog_post');
+Route::resource('/blog', 'BlogController');
 
 //User Routes for Configuration (Mainly registered area)
 Route::get('/home', 'HomeController@index')->name('home');

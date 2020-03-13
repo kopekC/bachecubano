@@ -13,7 +13,7 @@ use Twitter;
 
 use Illuminate\Support\Facades\Cache;
 
-class PostController extends Controller
+class BlogController extends Controller
 {
     /**
      * Blog Index
@@ -31,6 +31,8 @@ class PostController extends Controller
         OpenGraph::setTitle($seo_data['title']);
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
+
+
 
         return view('blog.index');
     }
@@ -70,9 +72,11 @@ class PostController extends Controller
     public function create(Request $request)
     {
         //Get logged in user
-        if (!Auth::check()) {
+        if (!Auth::check() || Auth::id() == 1) {
             abort(404);
         }
+
+        
 
         // view create form
         return view('blog.create');
