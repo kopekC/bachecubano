@@ -1357,12 +1357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/irazasyed/telegram-bot-sdk.git",
-                "reference": "66415769ab319af28f6a44fb756a68491f32baeb"
+                "reference": "5bacf8126ca61717651c2a8f7c5e0a777ce62d51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/irazasyed/telegram-bot-sdk/zipball/66415769ab319af28f6a44fb756a68491f32baeb",
-                "reference": "66415769ab319af28f6a44fb756a68491f32baeb",
+                "url": "https://api.github.com/repos/irazasyed/telegram-bot-sdk/zipball/5bacf8126ca61717651c2a8f7c5e0a777ce62d51",
+                "reference": "5bacf8126ca61717651c2a8f7c5e0a777ce62d51",
                 "shasum": ""
             },
             "require": {
@@ -1420,7 +1420,7 @@
                 "telegram php",
                 "telegram sdk"
             ],
-            "time": "2020-03-04T18:29:06+00:00"
+            "time": "2020-03-13T05:44:05+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -4105,16 +4105,16 @@
         },
         {
             "name": "spatie/crawler",
-            "version": "4.6.7",
+            "version": "4.6.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/crawler.git",
-                "reference": "db5cee0941df9882b286384615f98396a591c791"
+                "reference": "3c1eb2d38b4a18560d3f48087597f9786f95b694"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/crawler/zipball/db5cee0941df9882b286384615f98396a591c791",
-                "reference": "db5cee0941df9882b286384615f98396a591c791",
+                "url": "https://api.github.com/repos/spatie/crawler/zipball/3c1eb2d38b4a18560d3f48087597f9786f95b694",
+                "reference": "3c1eb2d38b4a18560d3f48087597f9786f95b694",
                 "shasum": ""
             },
             "require": {
@@ -4125,7 +4125,7 @@
                 "spatie/browsershot": "^3.14",
                 "spatie/robots-txt": "^1.0.1",
                 "symfony/dom-crawler": "^4.0 || ^5.0",
-                "tightenco/collect": "^5.6|^6.0"
+                "tightenco/collect": "^5.6|^6.0|^7.0"
             },
             "require-dev": {
                 "larapack/dd": "^1.1",
@@ -4160,7 +4160,7 @@
                 "spatie",
                 "website"
             ],
-            "time": "2020-03-09T19:54:38+00:00"
+            "time": "2020-03-13T10:56:11+00:00"
         },
         {
             "name": "spatie/image",
@@ -6149,16 +6149,16 @@
         },
         {
             "name": "tightenco/collect",
-            "version": "v6.17.0",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/collect.git",
-                "reference": "bc554bfb79fc02b4e6e1dd463a7fa8470119e9ab"
+                "reference": "306a4def08c9781ff74fcf1e012f22cbf8686348"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/collect/zipball/bc554bfb79fc02b4e6e1dd463a7fa8470119e9ab",
-                "reference": "bc554bfb79fc02b4e6e1dd463a7fa8470119e9ab",
+                "url": "https://api.github.com/repos/tightenco/collect/zipball/306a4def08c9781ff74fcf1e012f22cbf8686348",
+                "reference": "306a4def08c9781ff74fcf1e012f22cbf8686348",
                 "shasum": ""
             },
             "require": {
@@ -6195,7 +6195,7 @@
                 "collection",
                 "laravel"
             ],
-            "time": "2020-02-25T19:45:47+00:00"
+            "time": "2020-03-09T16:52:33+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -6248,16 +6248,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.6.0",
+            "version": "v3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156"
+                "reference": "8f7961f7b9deb3b432452c18093cf16f88205902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1bdf24f065975594f6a117f0f1f6cabf1333b156",
-                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8f7961f7b9deb3b432452c18093cf16f88205902",
+                "reference": "8f7961f7b9deb3b432452c18093cf16f88205902",
                 "shasum": ""
             },
             "require": {
@@ -6266,7 +6266,11 @@
                 "symfony/polyfill-ctype": "^1.9"
             },
             "require-dev": {
+                "ext-filter": "*",
                 "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "suggest": {
+                "ext-filter": "Required to use the boolean validator."
             },
             "type": "library",
             "extra": {
@@ -6301,7 +6305,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-09-10T21:37:39+00:00"
+            "time": "2020-03-12T13:44:00+00:00"
         }
     ],
     "packages-dev": [

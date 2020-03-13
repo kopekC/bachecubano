@@ -85,7 +85,7 @@
                             <div class="form-group mb-3 tg-inputwithicon">
                                 <label class="control-label">Categoría del anuncio:</label>
                                 <div class="tg-select form-control pt-0 pb-0">
-                                    <select class="form-control" name="category">
+                                    <select class="form-control" name="category" style="padding: 0;margin: 0;margin-top: 0px;height: 30px;margin-top: 3px;">
                                         @foreach($parent_categories as $super_category)
                                         <optgroup label="{{ $super_category->description->name }}">
                                             @foreach($category_formatted[$super_category->id] as $category)
@@ -121,8 +121,8 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group mb-3 tg-inputwithicon">
                                         <label class="control-label">Estado</label>
-                                        <div class="tg-select form-control  pt-0 pb-0">
-                                            <select class="form-control" name="status">
+                                        <div class="tg-select form-control pt-0 pb-0">
+                                            <select class="form-control" name="status" style="padding: 0;margin: 0;margin-top: 0px;height: 30px;margin-top: 3px;">
                                                 <option value="new">Nuevo</option>
                                                 <option value="new">De Uso</option>
                                                 <option value="new">Subasta</option>
