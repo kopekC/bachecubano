@@ -39,18 +39,14 @@
             </div>
         </div>
 
-
-
         <div id="list-view" class="tab-pane fade active show">
             <div class="row">
                 @include('gads.h')
-
                 @if($popular_ads)
                 @foreach($popular_ads as $ad)
                 @include('blocks.ad-block-h')
                 @endforeach
                 @endif
-
             </div>
         </div>
     </div>

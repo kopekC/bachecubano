@@ -53,18 +53,13 @@
 
             <div id="list-view" class="tab-pane fade active show">
                 <div class="row">
-
                     @include('gads.h')
-
                     @if($my_ads)
                     @foreach($my_ads as $ad)
                     @include('blocks.ad-block-h')
                     @endforeach
                     @endif
                     {{ $my_ads->links() }}
-                    <hr>
-                    <a class="e-widget no-button" href="https://gleam.io/ZdsXz/pullover-bachecubano-youtube" rel="nofollow">Pullover Bachecubano Youtube</a>
-                    <script type="text/javascript" src="https://widget.gleamjs.io/e.js" async="true"></script>
                 </div>
             </div>
         </div>
