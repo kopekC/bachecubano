@@ -23,6 +23,10 @@ Route::domain('{province_slug}.' . config('app.domain'))->group(function () {
     Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cache.headers:private,max-age=300;etag');
 });
 
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'WelcomeController@index');
+});
+
 //Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
