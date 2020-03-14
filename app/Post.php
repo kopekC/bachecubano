@@ -14,7 +14,7 @@ class Post extends Model
     protected $table = 'posts';
 
     // columns to be allowed in mass-assingment 
-    protected $fillable = ['user_id', 'title', 'slug', 'body'];
+    protected $fillable = ['user_id', 'title', 'slug', 'body', 'cover'];
 
     /* Relations */
     // One to many inverse relationship with User model
@@ -31,23 +31,5 @@ class Post extends Model
     public function path()
     {
         return "/blog/{$this->slug}";
-    }
-
-    //abstract methos required for Feedable interface
-    public function toFeedItem()
-    {
-        return FeedItem::create()
-            ->id($this->id)
-            ->title($this->title)
-            ->summary(text_clean(Str::limit($this->description, 160)))
-            ->updated($this->updated_at)
-            ->link(route('blog_post', ['entry_slug' => $this->slug]))
-            ->author("Admin");
-    }
-
-    //Method that will return all the items that must be displayed in the feed
-    public static function getFeedItems()
-    {
-        return Post::limit(20)->latest()->get();
     }
 }

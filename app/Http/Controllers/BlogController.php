@@ -32,9 +32,12 @@ class BlogController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
+        //BreadCrumbs
 
+        //Latest 10 post
+        $posts = Post::with('owner')->latest()->paginate(10);
 
-        return view('blog.index');
+        return view('blog.index', compact('posts'));
     }
 
     /**
@@ -61,7 +64,10 @@ class BlogController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
-        return view('blog.show', compact('post'));
+        //Latest 5 post
+        $posts = Post::latest()->take(5)->get();
+
+        return view('blog.show', compact('posts', 'post'));
     }
 
     /**
@@ -72,14 +78,15 @@ class BlogController extends Controller
     public function create(Request $request)
     {
         //Get logged in user
-        if (!Auth::check() || Auth::id() == 1) {
+        if (!Auth::check() || Auth::id() !== 1) {
             abort(404);
         }
 
-        
+        //Latest 5 post
+        $posts = Post::latest()->take(5)->get();
 
         // view create form
-        return view('blog.create');
+        return view('blog.create', compact('posts'));
     }
 
     /**
@@ -90,17 +97,27 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        //Get logged in user
+        if (!Auth::check() || Auth::id() !== 1) {
+            abort(404);
+        }
+
         // validate incoming request data with validation rules
-        $this->validate(request(), [
+        $request->validate([
             'title' => 'required|min:1|max:255',
-            'body'  => 'required|min:1'
+            'body'  => 'required|min:1',
+            'cover' => 'required'
         ]);
+
         // store data with create() method
         $post = Post::create([
-            'user_id'   => auth()->id(),
-            'title'     => request()->title,
-            'body'      => request()->body
+            'user_id'   => Auth::id(),
+            'title'     => $request->input('title'),
+            'slug'      => Str::slug(request()->title),
+            'body'      => $request->input('body'),
+            'cover'     => $request->input('cover')
         ]);
+
         // redirect to show post URL
         return redirect($post->path());
     }

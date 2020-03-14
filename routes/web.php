@@ -39,6 +39,7 @@ Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
 Route::post('/save-image', 'Api\ImageController@save')->name('save-image-ajax');
 Route::post('/delete-image', 'Api\ImageController@destroy')->name('delete-image-ajax');
 Route::post('/save-profile-image', 'Api\ImageController@save_profile_image')->name('save-profile-image-ajax');
+Route::post('/save-blog-post-cover-image', 'Api\ImageController@save_blog_post_cover_image')->name('save-cover-image-ajax');
 
 //Enable/Disable Ads via AJAX call
 Route::post('/disable-ad-ajax', 'Api\AdsController@disable_ad_ajax')->name('disable-ad-ajax');

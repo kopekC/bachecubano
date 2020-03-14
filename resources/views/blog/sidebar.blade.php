@@ -2,13 +2,21 @@
     <!-- Searcg Widget -->
     <div class="widget_search">
         <form id="search-form">
-            <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Search..." id="search-input" value="">
+            <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Buscar..." id="search-input" value="">
             <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
         </form>
     </div>
+
+    @auth
+    @if(Auth::id() == 1)
+    <a class="btn btn-common btn-block mb-5 mt-0" href="{{ route('blog.create') }}">Publicar noticia</a>
+    @endif
+    @endauth
+
     <!-- Categories Widget -->
+    {{--
     <div class="widget categories">
-        <h4 class="widget-title">All Categories</h4>
+        <h4 class="widget-title">Todas las Categorías</h4>
         <ul class="categories-list">
             <li>
                 <a href="#">
@@ -54,31 +62,28 @@
             </li>
         </ul>
     </div>
+    --}}
+
+    @include('gads.v')
 
     <!-- Popular Posts widget -->
     <div class="widget widget-popular-posts">
-        <h4 class="widget-title">Recent Posts</h4>
+        <h4 class="widget-title">Publicaciónes recientes</h4>
         <ul class="posts-list">
+            @if(isset($posts) && $posts->count() > 0)
+            @foreach($posts as $post)
             <li>
                 <div class="widget-thumb">
-                    <a href="#"><img src="assets/img/blog/thumb1.jpg" alt="" loading=lazy></a>
+                    <a href="{{ $post->path() }}"><img src="{{ config('app.img_url') }}/blog/{{ $post->cover }}" alt="{{ $post->title }}" loading=lazy></a>
                 </div>
                 <div class="widget-content">
-                    <a href="#">Eum Iriure Dolor Duis Autem</a>
-                    <span><i class="icon-calendar"></i>June 21, 2018</span>
+                    <a href="{{ $post->path() }}">{{ $post->title }}</a>
+                    <span><i class="icon-calendar"></i>{{ $post->updated_at->format('d/m/Y') }}</span>
                 </div>
                 <div class="clearfix"></div>
             </li>
-            <li>
-                <div class="widget-thumb">
-                    <a href="#"><img src="assets/img/blog/thumb2.jpg" alt="" loading=lazy></a>
-                </div>
-                <div class="widget-content">
-                    <a href="#">Consectetuer Adipiscing Elit</a>
-                    <span><i class="icon-calendar"></i>June 18, 2018</span>
-                </div>
-                <div class="clearfix"></div>
-            </li>
+            @endforeach
+            @endif
         </ul>
     </div>
 </aside>

@@ -540,8 +540,8 @@ label{display:inline}
 .owl-theme .owl-controls .owl-page span{display:block;width:12px;height:12px;margin:2px 4px;filter:alpha(opacity=50);opacity:1;border-radius:30px;background:#fff;border:2px solid #fff;box-shadow:0 0 2px rgba(0,0,0,.2);transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;-webkit-transition:all .4s ease-in-out;-o-transition:all .4s ease-in-out}
 .owl-theme .owl-controls .owl-page.active span,.owl-theme .owl-controls.clickable .owl-page:hover span{background:#1976d2}
 #blog{background:#f2f2f2}
-.blog-post{background-color:#fafafa;border-bottom:5px solid #1976d2;margin-bottom:60px}
-.blog-post .post-content{padding:60px 40px}
+.blog-post{background-color:#fafafa;border-bottom:5px solid #1976d2;margin-bottom:40px}
+.blog-post .post-content{padding:30px 30px}
 .blog-post .post-content .post-title{margin-top:0;font-size:30px;font-weight:500;margin-bottom:10px}
 .blog-post .post-content .post-title a{color:#484848}
 .blog-post .post-content .post-title a:hover{color:#1976d2}
@@ -550,7 +550,7 @@ label{display:inline}
 .blog-post .meta{margin-top:0;margin-bottom:10px}
 .blog-post .meta .meta-part{display:inline-block;margin-right:10px}
 .blog-post .meta .meta-part a{color:#999;text-transform:capitalize}
-.blog-post .entry-summary{margin:15px 0 60px;line-height:26px}
+.blog-post .entry-summary{margin:15px 0 30px;line-height:26px}
 .quote-post .quote-wrap{text-align:center;padding:50px 0;font-size:25px;font-style:italic;font-weight:400;background:#f7f7f7}
 blockquote{border-left:none;padding:15px;line-height:36px}
 .pagination-bar{margin-top:35px}
@@ -606,7 +606,6 @@ blockquote{border-left:none;padding:15px;line-height:36px}
 .search-btn{position:absolute;top:0;right:20px;height:42px;background-color:transparent;border:none}
 .search-btn i{color:#999}
 #sidebar{margin-bottom:60px}
-#sidebar .widget_search{margin-bottom:60px}
 #sidebar .widget{background-color:#fafafa;margin-bottom:60px}
 #sidebar .widget .widget-title{padding:17px 25px;margin-top:0;margin-bottom:0;font-size:20px;font-weight:500;border-bottom:1px solid #f1f1f1}
 #sidebar .categories-list{padding:20px}

@@ -28,7 +28,7 @@
                     <!-- Post thumb -->
                     <div class="post-thumb">
                         <a href="{{ URL::current() }}">
-                            <img class="img-fluid" src="{{ config('app.img_url') }}/blog/{{ $post->cover }}" alt="{{ $post->title }}" loading=lazy>
+                            <img class="img-fluid" src="{{ config('app.img_url') }}blog/{{ $post->cover }}" alt="{{ $post->title }}" loading=lazy>
                         </a>
                         <div class="hover-wrap"></div>
                     </div>
@@ -37,10 +37,9 @@
                     <!-- Post Content -->
                     <div class="post-content pb-2">
                         <div class="meta">
-                            <span class="meta-part"><i class="lni-user"></i> Admin</span>
-                            <span class="meta-part"><i class="lni-alarm-clock"></i> {{ $post->created_at->format('d-m-Y') }}</span>
-                            <span class="meta-part"><a href="#"><i class="lni-folder"></i> Noticias</a></span>
-                            <!-- <span class="meta-part"><a href="#"><i class="lni-comments-alt"></i> 1 Comments</a></span> -->
+                            <span class="meta-part"><i class="lni-user"></i> {{ $post->owner->name }}</span>
+                            <span class="meta-part"><i class="lni-alarm-clock"></i> {{ $post->created_at->format('d/m/Y') }}</span>
+                            <span class="meta-part"><a href="{{ route('blog.index') }}"><i class="lni-folder"></i> Blog Bachecubano</a></span>
                         </div>
                         <div class="entry-summary">
                             {!! nl2br($post->body) !!}

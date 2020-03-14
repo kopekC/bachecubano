@@ -702,7 +702,7 @@ class AdController extends Controller
      */
     public static function getAds(Request $request, $category_ids = null, $limit = null, $latest_days = null, $lachopi_db = false, $province_slug = 'www')
     {
-        //Beguin Query
+        //Begin Query
         $query = Ad::query();
 
         //Select All elements

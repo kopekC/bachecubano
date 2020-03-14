@@ -174,4 +174,38 @@ class ImageController extends Controller
 
         return Response::json(['message' => 'Profile picture updated', 'status' => 200], 200);
     }
+
+    /**
+     * Cover BlogPost Image
+     */
+    public function save_blog_post_cover_image(Request $request)
+    {
+        //Photos Contains all fotos
+        $photo = $request->file('files')[0];
+        isset($request->photo_name) ? $photo_name = $request->photo_name : $photo_name = 'blog_post_' . rand(0, 9999) . "." . $photo->getClientOriginalExtension();
+
+        //Create Folder If dont exists
+        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "blog")) {
+            mkdir($this->photos_path . DIRECTORY_SEPARATOR . "blog", 0777);
+        }
+
+        return Response::json(['message' => 'Blog Post Picture updated', 'cover' => $photo_name, 'status' => 200], 200);
+    }
+
+    /**
+     * Html BlogPost Image
+     */
+    public function save_blog_post_included_image(Request $request)
+    {
+        //Photos Contains all fotos
+        $photo = $request->file('files')[0];
+        isset($request->photo_name) ? $photo_name = $request->photo_name : $photo_name = 'blog_post_' . rand(0, 9999) . "." . $photo->getClientOriginalExtension();
+
+        //Create Folder If dont exists
+        if (!is_dir($this->photos_path . DIRECTORY_SEPARATOR . "blog")) {
+            mkdir($this->photos_path . DIRECTORY_SEPARATOR . "blog", 0777);
+        }
+
+        return Response::json(['message' => 'Blog Post Picture updated', 'cover' => $photo_name, 'status' => 200], 200);
+    }
 }

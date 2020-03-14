@@ -3,7 +3,6 @@
 @section('content')
 
 @push('style')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
 <link href="{{ asset('css/uppy.min.css') }}" rel="stylesheet">
 @endpush
 
@@ -155,9 +154,6 @@
                             @endif
 
                             <!-- Images Uppy -->
-                            <!--
-                            <a href="#" class="btn btn-primary UppyModalOpenerBtn">Subir fotos</a>
-                            -->
                             <div class="DashboardContainer"></div>
 
                         </div>
@@ -351,10 +347,6 @@
             name: 'imageID[]',
             value: response.body.imageID
         }).appendTo("#add");
-    })
-    uppy.on('complete', result => {
-        console.log('successful files:', result.successful)
-        console.log('failed files:', result.failed)
     })
 </script>
 
