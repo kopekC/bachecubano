@@ -3,7 +3,7 @@
 @section('content')
 
 @push('style')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
+<script src="https://cdn.tiny.cloud/1/wgmr4wcq67z5y9hof4fntp4hpk9432kmnzpgaatu0vjifwkh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <link href="{{ asset('css/uppy.min.css') }}" rel="stylesheet">
 @endpush
 
@@ -36,8 +36,9 @@
             <div class="col-lg-8 col-md-12 col-xs-12">
                 <form action="{{ route('blog.store') }}" method="post" id="create-new">
                     @csrf
+
                     <div class="form-group mb-3">
-                        <label for="title">Título de la noticia</label>
+                        <label for="title">Título de la noticia:</label>
                         <input type="text" name="title" class="form-control" placeholder="Título de la Noticia">
                         @error('title')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -45,12 +46,20 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <input id="body" type="hidden" name="body">
-                        <trix-editor input="body" style="min-height:300px"></trix-editor>
+                        <label for="title">Categoría:</label>
+                        @error('category')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="form-group mb-3">
-                        <!-- Images Uppy -->
+                        <textarea name="body"></textarea>
+                        @error('body')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mb-3">
                         <div class="DashboardContainer"></div>
                     </div>
 
@@ -64,7 +73,29 @@
 <!-- End Content -->
 
 @push('script')
-<script type="text/javascript" src="{{ asset('js/trix.js') }}"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        height: 600,
+        plugins: [
+            'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'table emoticons template paste help'
+        ],
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+            'forecolor backcolor emoticons | help',
+        menu: {
+            favs: {
+                title: 'My Favorites',
+                items: 'code visualaid | searchreplace | spellchecker | emoticons'
+            }
+        },
+        menubar: 'favs file edit view insert format tools table help',
+        toolbar_mode: 'floating',
+    });
+</script>
+
 <!-- AJAX Uploading for Add Post -->
 <script src="{{ asset('js/uppy.min.js') }}"></script>
 <script src="{{ asset('js/es_ES.min.js') }}"></script>
