@@ -2613,9 +2613,9 @@
             "authors": [
                 {
                     "name": "Ben Corlett",
-                    "role": "Developer",
                     "email": "bencorlett@me.com",
-                    "homepage": "http://www.webcomm.com.au"
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
                 }
             ],
             "description": "OAuth 1.0 Client Library",
@@ -4439,16 +4439,16 @@
         },
         {
             "name": "spatie/schema-org",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "419f3703015e86f2daccc63649c070e7bb5c52b3"
+                "reference": "367c57cf16a93dc9e119dea507a353bca2b87580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/419f3703015e86f2daccc63649c070e7bb5c52b3",
-                "reference": "419f3703015e86f2daccc63649c070e7bb5c52b3",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/367c57cf16a93dc9e119dea507a353bca2b87580",
+                "reference": "367c57cf16a93dc9e119dea507a353bca2b87580",
                 "shasum": ""
             },
             "require": {
@@ -4495,7 +4495,7 @@
                 "schema-org",
                 "spatie"
             ],
-            "time": "2020-01-23T14:09:05+00:00"
+            "time": "2020-03-17T11:08:16+00:00"
         },
         {
             "name": "spatie/temporary-directory",
