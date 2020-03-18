@@ -17,28 +17,13 @@
     var current_url = "{{ URL::current() }}";
 </script>
 
-{{--
-<!-- jQuery first 3.3.1 NotSlim, then Popper.js, then Bootstrap JS -->
-<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-<!-- Images LazyLoad -->
-<script src="{{ asset('js/lazysizes.min.js') }}"></script>
-<!-- Twitter Bootstrap & Behaviors Like Tooltips etc -->
-<script src="{{ asset('js/popper.min.js') }}"></script>
-<!-- Bootstrap JS -->
-<script src="{{ asset('js/bs.js') }}"></script>
-<!-- Responsive Navigation Menu -->
-<script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
-<script src="{{ asset('js/wow.js') }}"></script>
-<script src="{{ asset('js/main4.js') }}"></script>
-<script src="{{ asset('js/analytics.js') }}"></script>
---}}
-
 <!-- All above combined -->
 <script src="{{ route('bachecubano_js') }}"></script>
 
 <!--Google Adsense -->
 @if($show_ads)
 <script async data-ad-client="ca-pub-9876511577005081" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 @endif
 
 @stack('script')
