@@ -17,7 +17,7 @@ class PostCategoryCreateTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug');
-            $table->boolean('enabled');
+            $table->boolean('enabled')->default(0);
         });
     }
 

@@ -176,6 +176,6 @@ if (!function_exists('post_url')) {
      */
     function post_url($post)
     {
-        return config('app.url') . DIRECTORY_SEPARATOR . "blog" . DIRECTORY_SEPARATOR . $post->category->slug . DIRECTORY_SEPARATOR . $post->slug;
+        return config('app.url') . "blog" . DIRECTORY_SEPARATOR . $post->category->slug . DIRECTORY_SEPARATOR . $post->slug;
     }
 }

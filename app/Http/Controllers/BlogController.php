@@ -127,10 +127,10 @@ class BlogController extends Controller
 
         // validate incoming request data with validation rules
         $request->validate([
-            'category' => 'required|numeric',
             'title' => 'required|min:1|max:255',
+            'category' => 'required|numeric',
             'body'  => 'required|min:1',
-            'cover' => 'required',
+            //'cover' => 'required',
             'tags' => 'required'
         ]);
 
@@ -140,13 +140,16 @@ class BlogController extends Controller
             'title'     => $request->input('title'),
             'slug'      => Str::slug(request()->title),
             'body'      => $request->input('body'),
-            'cover'     => $request->input('cover'),
+            'cover'     => $request->input('cover') ? $request->input('cover') : "",
             'category_id' => $request->input('category'),
             'enabled' => 0,
             'monetized' => 0,
             'hits' => 0,
             'tags' => "",
         ]);
+
+        //Notify the admin for activation/deactivation of the post entry
+        //Then hit a Push notification and Social Media
 
         // redirect to show post URL
         return redirect(post_url($blog_post));
