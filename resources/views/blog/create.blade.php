@@ -39,7 +39,7 @@
 
                     <div class="form-group mb-3">
                         <label for="title">Título de la noticia:</label>
-                        <input type="text" name="title" class="form-control" placeholder="Título de la Noticia">
+                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Título de la Noticia" value="{{ old('title') }}">
                         @error('title')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -47,23 +47,42 @@
 
                     <div class="form-group mb-3">
                         <label for="title">Categoría:</label>
+                        <div class="tg-select">
+                            <select class="form-control @error('category') is-invalid @enderror" name="category">
+                                @foreach($blog_categories as $category)
+                                <option value="{{ $category->id }}" @if($edit && $blog_post->category_id == $category->id) selected="" @endif>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         @error('category')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="form-group mb-3">
-                        <textarea name="body"></textarea>
+                        <textarea name="body">{{ old('body') }}</textarea>
                         @error('body')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="form-group mb-3">
-                        <div class="DashboardContainer"></div>
+                        <label for="title">Etiquetas de la entrada:</label>
+                        <input type="text" name="tags" class="form-control" placeholder="Etiquetas separadas por (,)" value="{{ old('tags') }}">
+                        @error('tags')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
-                    <button class="btn btn-common btn-block" type="submit">@if(isset($edit)) Modificar noticia @else Publicar noticia @endif</button>
+                    <div class="form-group mb-3">
+                        <label for="title">Imagen de Cover (XXXpx*XXXpx):</label>
+                        <div class="DashboardContainer"></div>
+                        @error('cover')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <button class="btn btn-common btn-block" type="submit">@if($edit) Modificar noticia @else Publicar noticia @endif</button>
                 </form>
             </div>
             @include('blog.sidebar')
@@ -78,20 +97,21 @@
         selector: 'textarea',
         height: 600,
         plugins: [
-            'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+            'advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker',
             'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
             'table emoticons template paste help'
         ],
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-            'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-            'forecolor backcolor emoticons | help',
+        a11y_advanced_options: true,
+        image_caption: true,
+        image_advtab: true,
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | help',
         menu: {
             favs: {
                 title: 'My Favorites',
                 items: 'code visualaid | searchreplace | spellchecker | emoticons'
             }
         },
-        menubar: 'favs file edit view insert format tools table help',
+        menubar: 'file edit view insert format tools table favs help',
         toolbar_mode: 'floating',
     });
 </script>
@@ -117,7 +137,7 @@
             replaceTargetContent: true,
             showProgressDetails: true,
             note: 'Sólo imágenes, hasta 1 foto, de no más de 600kb',
-            height: 350,
+            height: 250,
             width: '100%',
             metaFields: [{
                     id: 'name',

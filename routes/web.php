@@ -57,7 +57,8 @@ Route::get('/js/bch1.js', 'WelcomeController@bachecubano_js')->name('bachecubano
 
 // Posts resourcfull controllers routes
 Route::get('/blog/create', 'BlogController@create')->name('blog_post_create');
-Route::get('/blog/{entry_slug}', 'BlogController@show')->name('blog_post');
+Route::get('/blog/{blog_category_slug?}/', 'BlogController@index')->name('blog_index');
+Route::get('/blog/{blog_category_slug}/{entry_slug}', 'BlogController@show')->name('blog_post');
 Route::resource('/blog', 'BlogController');
 
 //User Routes for Configuration (Mainly registered area)

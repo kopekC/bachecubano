@@ -71,14 +71,14 @@
         <h4 class="widget-title">Publicaciónes recientes</h4>
         <ul class="posts-list">
             @if(isset($posts) && $posts->count() > 0)
-            @foreach($posts as $post)
+            @foreach($posts as $blog_post)
             <li>
                 <div class="widget-thumb">
-                    <a href="{{ $post->path() }}"><img src="{{ config('app.img_url') }}/blog/{{ $post->cover }}" alt="{{ $post->title }}" loading=lazy></a>
+                    <a href="{{ post_url($blog_post) }}"><img src="{{ config('app.img_url') }}/blog/{{ $blog_post->cover }}" alt="{{ $blog_post->title }}" loading=lazy></a>
                 </div>
                 <div class="widget-content">
-                    <a href="{{ $post->path() }}">{{ $post->title }}</a>
-                    <span><i class="icon-calendar"></i>{{ $post->updated_at->format('d/m/Y') }}</span>
+                    <a href="{{ post_url($blog_post) }}">{{ $blog_post->title }}</a>
+                    <span><i class="icon-calendar"></i>{{ $blog_post->updated_at->format('d/m/Y') }}</span>
                 </div>
                 <div class="clearfix"></div>
             </li>

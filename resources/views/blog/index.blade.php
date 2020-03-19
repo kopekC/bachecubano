@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Page Header Start -->
-<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+<div class="page-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -31,12 +31,12 @@
             <div class="col-lg-8 col-md-12 col-xs-12">
 
                 @if(isset($posts) && $posts->count() > 0)
-                @foreach($posts as $post)
+                @foreach($posts as $blog_post)
                 <!-- Start Post -->
                 <div class="blog-post">
                     <!-- Post thumb -->
                     <div class="post-thumb">
-                        <a href="{{ $post->path() }}"><img class="img-fluid" src="{{ config('app.img_url') }}blog/{{ $post->cover }}" alt="{{ $post->title }}"></a>
+                        <a href="{{ post_url($blog_post) }}"><img class="img-fluid" src="{{ config('app.img_url') }}blog/{{ $blog_post->cover }}" alt="{{ $blog_post->title }}"></a>
                         <div class="hover-wrap"></div>
                     </div>
                     <!-- End Post post-thumb -->
@@ -44,16 +44,16 @@
                     <!-- Post Content -->
                     <div class="post-content">
                         <ul class="list-inline cat-meta">
-                            <li class="tr-cats"><a href="{{ route('blog.index') }}">Blog Bachecubano</a></li>
+                            <li class="tr-cats"><a href="{{ route('blog_index', ['blog_category_slug' => $blog_post->category->slug]) }}"> {{ $blog_post->category->name }}</a></li>
                         </ul>
-                        <h2 class="post-title"><a href="{{ $post->path() }}">{{ $post->title }}</a></h2>
+                        <h2 class="post-title"><a href="{{ post_url($blog_post) }}">{{ $blog_post->title }}</a></h2>
                         <div class="meta">
-                            <span class="meta-part"><a href="#"><i class="lni-user"></i> {{ $post->owner->name }}</a></span>
-                            <span class="meta-part"><a href="#"><i class="lni-alarm-clock"></i> {{ $post->updated_at->format('d/m/Y') }}</a></span>
+                            <span class="meta-part"><a href="#"><i class="lni-user"></i> {{ $blog_post->owner->name }}</a></span>
+                            <span class="meta-part"><a href="#"><i class="lni-alarm-clock"></i> {{ $blog_post->updated_at->format('d/m/Y') }}</a></span>
                             {{-- <span class="meta-part"><a href="#"><i class="lni-comments-alt"></i> Comentarios</a></span> --}}
                         </div>
                         <div class="entry-summary">
-                            <p>{!! Str::words($post->body, 100, ' >>>'); !!}</p>
+                            <p>{!! Str::words($blog_post->body, 100, ' >>>'); !!}</p>
                         </div>
                     </div>
                     <!-- Post Content -->

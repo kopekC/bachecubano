@@ -14,7 +14,7 @@ class Post extends Model
     protected $table = 'posts';
 
     // columns to be allowed in mass-assingment 
-    protected $fillable = ['user_id', 'title', 'slug', 'body', 'cover'];
+    protected $fillable = ['user_id', 'category_id', 'title', 'slug', 'body', 'cover'];
 
     /* Relations */
     // One to many inverse relationship with User model
@@ -24,12 +24,34 @@ class Post extends Model
     }
 
     /**
-     * get show post route
-     *
-     * @return string
+     * Get the Post Category.
      */
-    public function path()
+    public function category()
     {
-        return "/blog/{$this->slug}";
+        return $this->belongsTo('App\PostCategory');
+    }
+}
+
+/**
+ * Blog Categories
+ */
+class PostCategory extends Model
+{
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    // table name to be used
+    protected $table = 'post_categories';
+
+    /**
+     * Childs cats
+     */
+    public function childs()
+    {
+        return $this->hasMany('App\Post', 'category_id', 'id');
     }
 }

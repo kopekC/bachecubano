@@ -16,7 +16,7 @@
                     </div>
                     <div class="post-item-content">
                         <div class="post-date">{{ $blog_post->created_at->diffForHumans() }}</div>
-                        <h4 class="post-title"><a href="{{ route('blog_post', ['entry_slug' => $blog_post->slug]) }}">{{ $blog_post->title }}</a></h4>
+                        <h4 class="post-title"><a href="{{ post_url($blog_post) }}">{{ $blog_post->title }}</a></h4>
                     </div>
                 </div>
             </div>

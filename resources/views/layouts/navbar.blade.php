@@ -41,7 +41,7 @@
                     </a>
                     <div class="dropdown-menu">
                         @foreach($latest_blog_post as $blog_post)
-                        <a class="dropdown-item" href="{{ route('blog_post', ['entry_slug' => $blog_post->slug]) }}">{{ $blog_post->title }}</a>
+                        <a class="dropdown-item" href="{{ post_url($blog_post) }}">{{ $blog_post->title }}</a>
                         @endforeach
                     </div>
                 </li>
@@ -141,7 +141,7 @@
             <a href="#">Blog</a>
             <ul class="dropdown">
                 @foreach($latest_blog_post as $blog_post)
-                <li><a href="{{ route('blog_post', ['entry_slug' => $blog_post->slug]) }}">{{ $blog_post->title }}</a></li>
+                <li><a href="{{ post_url($blog_post) }}">{{ $blog_post->title }}</a></li>
                 @endforeach
             </ul>
         </li>

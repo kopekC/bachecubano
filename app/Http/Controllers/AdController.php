@@ -131,8 +131,8 @@ class AdController extends Controller
     {
         //SEO Data
         $seo_data = [
-            'title' => "Publicar anuncio gratis",
-            'desc' => "Promociona tu producto, negocio o servicio en nuestra web GRATIS",
+            'title' => "Publicar anuncio gratis en Bachecubano",
+            'desc' => "Promociona tu producto, negocio o servicio en Bachecubano totalmente gratis",
         ];
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
@@ -145,9 +145,6 @@ class AdController extends Controller
         $locations = Cache::rememberForever('ad-locations', function () {
             return AdLocation::all();
         });
-
-        //Dump Locations
-        //dd($locations);
 
         //Tell view that this is not an edit page
         $edit = false;
@@ -189,15 +186,15 @@ class AdController extends Controller
     {
         //Ad publish validation. Check if User is registered or not
         $request->validate([
-            'category' => 'bail|required|numeric',
-            'title' => 'bail|required|max:160|banned_words',
+            'category' => 'required|numeric',
+            'title' => 'required|max:160|banned_words',
             'price' => 'numeric',
-            'description' => 'bail|required|banned_words',
-            'contact_name' => 'bail|required|max:100',
-            'contact_email' => 'bail|required|email|max:140',
-            'phone' => 'bail|required|max:20',
-            'ad_location' => 'bail|required|numeric',
-            'agree' => 'bail|required',
+            'description' => 'required|banned_words',
+            'contact_name' => 'required|max:100',
+            'contact_email' => 'required|email|max:140',
+            'phone' => 'required|max:20',
+            'ad_location' => 'required|numeric',
+            'agree' => 'required',
             'g-recaptcha-response' => Auth::check() ? '' : 'recaptcha',     //Google recaptcha if Guest User
         ]);
 

@@ -41,7 +41,7 @@
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
                     <a href="{{ URL::current() }}">
-                        <h1 class="h2 product-title">@if($edit) Modificar anuncio @else Publicar anuncio @endif</h1>
+                        <h1 class="h2 product-title">@if($edit) Modificar anuncio @else Publicar anuncio gratis en {{ config('app.name') }} @endif</h1>
                     </a>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                             <div class="form-group mb-3 tg-inputwithicon">
                                 <label class="control-label">Categoría del anuncio:</label>
                                 <div class="tg-select form-control pt-0 pb-0">
-                                    <select class="form-control" name="category" style="padding: 0;margin: 0;margin-top: 0px;height: 30px;margin-top: 3px;">
+                                    <select class="form-control @error('category') is-invalid @enderror" name="category" style="padding: 0;margin: 0;margin-top: 0px;height: 30px;margin-top: 3px;">
                                         @foreach($parent_categories as $super_category)
                                         <optgroup label="{{ $super_category->description->name }}">
                                             @foreach($category_formatted[$super_category->id] as $category)
@@ -101,7 +101,7 @@
 
                             <div class="form-group mb-3">
                                 <label class="control-label">Título del anuncio:</label>
-                                <input class="form-control input-md" name="title" placeholder="Título del anuncio" type="text" value="@if($edit){{ $ad->description->title }}@else{{ old('title') }}@endif">
+                                <input class="form-control input-md @error('title') is-invalid @enderror" name="title" placeholder="Título del anuncio" type="text" value="@if($edit){{ $ad->description->title }}@else{{ old('title') }}@endif">
                                 @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -111,7 +111,7 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group mb-3">
                                         <label class="control-label">Precio</label>
-                                        <input class="form-control input-md" name="price" placeholder="$ 100.00" type="text" value="@if($edit){{ $ad->price }}@else{{ old('price', '0') }}@endif">
+                                        <input class="form-control input-md @error('price') is-invalid @enderror" name="price" placeholder="$ 100.00" type="text" value="@if($edit){{ $ad->price }}@else{{ old('price', '0') }}@endif">
                                     </div>
                                     @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -120,7 +120,7 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group mb-3 tg-inputwithicon">
                                         <label class="control-label">Estado</label>
-                                        <div class="tg-select form-control pt-0 pb-0">
+                                        <div class="tg-select form-control pt-0 pb-0 @error('status') is-invalid @enderror">
                                             <select class="form-control" name="status" style="padding: 0;margin: 0;margin-top: 0px;height: 30px;margin-top: 3px;">
                                                 <option value="new">Nuevo</option>
                                                 <option value="new">De Uso</option>
@@ -135,7 +135,7 @@
                                 @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <textarea name="description" class="form-control" rows="8" style="resize: vertical">@if($edit){!! $ad->description->description !!}@else{!! old('description') !!}@endif</textarea>
+                                <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="8" style="resize: vertical">@if($edit){!! $ad->description->description !!}@else{!! old('description') !!}@endif</textarea>
                             </div>
 
                             <!-- Image grid for Ajax deletion -->
@@ -170,7 +170,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Nombre *</label>
-                                            <input class="form-control input-md" name="contact_name" type="text" value="@if($edit){{ $ad->contact_name }}@else{{ old('contact_name', isset(Auth::user()->name) ? Auth::user()->name : '') }}@endif">
+                                            <input class="form-control input-md @error('name') is-invalid @enderror" name="contact_name" type="text" value="@if($edit){{ $ad->contact_name }}@else{{ old('contact_name', isset(Auth::user()->name) ? Auth::user()->name : '') }}@endif">
                                             @error('name')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -180,7 +180,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Teléfono *</label>
-                                            <input class="form-control input-md" name="phone" type="text" value="@if($edit){{ $ad->phone }}@else{{ old('phone', isset(Auth::user()->phone) ? Auth::user()->phone : '') }}@endif">
+                                            <input class="form-control input-md @error('phone') is-invalid @enderror" name="phone" type="text" value="@if($edit){{ $ad->phone }}@else{{ old('phone', isset(Auth::user()->phone) ? Auth::user()->phone : '') }}@endif">
                                             @error('phone')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -193,7 +193,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label class="control-label">Email *</label>
-                                            <input class="form-control input-md" name="contact_email" type="text" value="@if($edit){{ $ad->contact_email }}@else{{ old('contact_email', isset(Auth::user()->email) ? Auth::user()->email : '') }}@endif">
+                                            <input class="form-control input-md @error('email') is-invalid @enderror" name="contact_email" type="text" value="@if($edit){{ $ad->contact_email }}@else{{ old('contact_email', isset(Auth::user()->email) ? Auth::user()->email : '') }}@endif">
                                             @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -203,7 +203,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3 tg-inputwithicon">
                                             <label class="control-label">Provincia</label>
-                                            <div class="tg-select form-control pt-0 pb-0">
+                                            <div class="tg-select form-control pt-0 pb-0 @error('ad_location') is-invalid @enderror">
                                                 <select name="ad_location">
 
                                                     @if(isset($locations))
@@ -238,7 +238,7 @@
 
                                 <div class="tg-checkbox">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules" name="agree" checked>
+                                        <input type="checkbox" class="custom-control-input @error('agree') is-invalid @enderror" id="tg-agreetermsandrules" name="agree" checked>
                                         <label class="custom-control-label" for="tg-agreetermsandrules">Estoy de acuerdo con los <a href="{{ route('terms') }}">Términos &amp; Condiciones</a></label>
                                         @error('agree')
                                         <div class="alert alert-danger">{{ $message }}</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\PostCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -18,7 +19,7 @@ class BlogController extends Controller
     /**
      * Blog Index
      */
-    public function index()
+    public function index($category = "")
     {
         //SEO Data
         $seo_data = [
@@ -32,10 +33,20 @@ class BlogController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
-        //BreadCrumbs
 
-        //Latest 10 post
-        $posts = Post::with('owner')->latest()->paginate(10);
+        //Get Category post if its submitted
+        if ($category !== "") {
+            //Try to get this Category Details or fail
+            $category = PostCategory::where('slug', $category)->firstOrFail();
+
+            //Latest 10 post
+            $posts = Post::where('category_id', $category->id)->with('owner', 'category')->latest()->paginate(10);
+        } else {
+            //Latest 10 post
+            $posts = Post::with('owner', 'category')->latest()->paginate(10);
+        }
+
+        //BreadCrumbs
 
         return view('blog.index', compact('posts'));
     }
@@ -45,17 +56,17 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($entry_slug)
+    public function show($blog_category_slug = "", $entry_slug)
     {
         //Cache Post Entry
-        $post = Cache::remember('cached_post_' . $entry_slug, 120, function () use ($entry_slug) {
+        $blog_post = Cache::remember('cached_post_' . $entry_slug, 120, function () use ($entry_slug) {
             return Post::where('slug', $entry_slug)->firstOrFail();
         });
 
         //SEO Data
         $seo_data = [
-            'title' => $post->title,
-            'desc' => text_clean(Str::limit($post->body, 160)),
+            'title' => $blog_post->title,
+            'desc' => text_clean(Str::limit($blog_post->body, 160)),
         ];
         SEOMeta::setTitle($seo_data['title']);
         SEOMeta::setDescription($seo_data['desc']);
@@ -67,7 +78,11 @@ class BlogController extends Controller
         //Latest 5 post
         $posts = Post::latest()->take(5)->get();
 
-        return view('blog.show', compact('posts', 'post'));
+        //BreadCrumbs
+
+        //SchemaOrg
+
+        return view('blog.show', compact('posts', 'blog_post'));
     }
 
     /**
@@ -85,8 +100,16 @@ class BlogController extends Controller
         //Latest 5 post
         $posts = Post::latest()->take(5)->get();
 
+        //Get All Categories
+        //Retrieve Ad with aditional data
+        $blog_categories = Cache::remember('post_categories', 120, function () {
+            return PostCategory::all();
+        });
+
+        $edit = false;
+
         // view create form
-        return view('blog.create', compact('posts'));
+        return view('blog.create', compact('posts', 'blog_categories', 'edit'));
     }
 
     /**
@@ -104,22 +127,29 @@ class BlogController extends Controller
 
         // validate incoming request data with validation rules
         $request->validate([
+            'category' => 'required|numeric',
             'title' => 'required|min:1|max:255',
             'body'  => 'required|min:1',
-            'cover' => 'required'
+            'cover' => 'required',
+            'tags' => 'required'
         ]);
 
         // store data with create() method
-        $post = Post::create([
+        $blog_post = Post::create([
             'user_id'   => Auth::id(),
             'title'     => $request->input('title'),
             'slug'      => Str::slug(request()->title),
             'body'      => $request->input('body'),
-            'cover'     => $request->input('cover')
+            'cover'     => $request->input('cover'),
+            'category_id' => $request->input('category'),
+            'enabled' => 0,
+            'monetized' => 0,
+            'hits' => 0,
+            'tags' => "",
         ]);
 
         // redirect to show post URL
-        return redirect($post->path());
+        return redirect(post_url($blog_post));
     }
 
     /**

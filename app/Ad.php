@@ -30,7 +30,7 @@ class Ad extends Model implements Rateable
     ];
 
     /**
-     * Get the Ad that owns the stats.
+     * Get the Ad category.
      */
     public function category()
     {
@@ -160,9 +160,7 @@ class AdPromo extends Model
      */
     public $timestamps = false;
 
-    protected $fillable = [
-        'ad_id', 'promotype', 'end_promo'
-    ];
+    protected $fillable = ['ad_id', 'promotype', 'end_promo'];
 
     /**
      * Get the Ad that owns the stats.
@@ -240,15 +238,4 @@ class AdStats extends Model
             'hits' => 0,
         ]);
     }
-}
-
-
-class AdRegion extends Model
-{
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 }

@@ -168,3 +168,14 @@ if (!function_exists('profile_logo')) {
         return asset('android-chrome-192x192.png');
     }
 }
+
+//Constructed ad url
+if (!function_exists('post_url')) {
+    /**
+     * Obtiene la URL de un anuncio pasando el $ad object
+     */
+    function post_url($post)
+    {
+        return config('app.url') . DIRECTORY_SEPARATOR . "blog" . DIRECTORY_SEPARATOR . $post->category->slug . DIRECTORY_SEPARATOR . $post->slug;
+    }
+}

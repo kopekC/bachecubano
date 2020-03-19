@@ -28,23 +28,4 @@
 @include('blocks.subscribe')
 --}}
 
-@push('script')
-<script>
-    /* Search
-    ========================================================*/
-    $('.search-query .form-control').on('click', function(e) {
-        e.stopPropagation();
-        $(this).parent().toggleClass('query-focus');
-    });
-    $('body').on('click', function() {
-        if ($('.search-query').hasClass('query-focus')) {
-            $('.search-query').removeClass('query-focus');
-        }
-    });
-    $('.search-suggestion').on('click', function(e) {
-        e.stopPropagation();
-    });
-</script>
-@endpush
-
 @endsection
