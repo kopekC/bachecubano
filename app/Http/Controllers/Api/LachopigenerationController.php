@@ -72,7 +72,7 @@ class LachopigenerationController extends Controller
         $this->bd->exec("DELETE FROM cats");
         sleep(10);
         $this->bd->exec("DELETE FROM anuncios");
-        sleep(60);
+        sleep(600);
         $this->bd->exec("VACUUM");
 
         //Generate and Save Categories

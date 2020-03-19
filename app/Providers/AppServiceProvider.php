@@ -82,14 +82,6 @@ class AppServiceProvider extends ServiceProvider
             return Ad::count();
         });
 
-        //Total Users, cache it daily
-        //Is this info really neccessary??
-        /*
-        $total_users = Cache::remember('total_users', 60 * 24, function () {
-            return User::count();
-        });
-        */
-
         //Today date
         $today = Carbon::today();
 
@@ -99,7 +91,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('parent_categories', $parent_categories);
         View::share('category_formatted', $category_formatted);
         View::share('total_ads', $total_ads);
-        //View::share('total_users', $total_users);      //Load and cache this number everyday
         View::share('latest_blog_post', $latest_blog_post);
         View::share('today', $today);
         View::share('show_ads', $show_ads);
