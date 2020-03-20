@@ -108,15 +108,15 @@
                 </div>
                 <!-- End Post -->
                 --}}
-
-                <!-- Start Pagination -->
-                @if(isset($posts) && $posts->count() > 0)
-                <div class="pagination-bar">
-                    {{ $posts->links() }}
-                </div>
-                @endif
-                <!-- End Pagination -->
             </div>
+
+            <!-- Start Pagination -->
+            @if(isset($posts) && $posts->count() > 0)
+            <div class="pagination-bar">
+                {{ $posts->links() }}
+            </div>
+            @endif
+            <!-- End Pagination -->
 
             @include('blog.sidebar')
 
