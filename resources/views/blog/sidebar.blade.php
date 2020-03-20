@@ -68,7 +68,7 @@
 
     <!-- Popular Posts widget -->
     <div class="widget widget-popular-posts">
-        <h4 class="widget-title">Publicaciónes recientes</h4>
+        <h4 class="widget-title">Publicaciones recientes</h4>
         <ul class="posts-list">
             @if(isset($posts) && $posts->count() > 0)
             @foreach($posts as $blog_post)
