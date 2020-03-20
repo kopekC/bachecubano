@@ -53,7 +53,7 @@
                             {{-- <span class="meta-part"><a href="#"><i class="lni-comments-alt"></i> Comentarios</a></span> --}}
                         </div>
                         <div class="entry-summary">
-                            <p>{!! Str::words($blog_post->body, 100, ' >>>'); !!}</p>
+                            <p>{!! Str::words($blog_post->body, 100) !!}</p>
                         </div>
                     </div>
                     <!-- Post Content -->
