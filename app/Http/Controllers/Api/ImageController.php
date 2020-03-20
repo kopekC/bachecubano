@@ -189,6 +189,9 @@ class ImageController extends Controller
             mkdir($this->photos_path . DIRECTORY_SEPARATOR . "blog", 0777);
         }
 
+        //Original Move photo
+        $photo->move('./images/blog/', $photo_name);
+
         return Response::json(['message' => 'Blog Post Picture updated', 'cover' => $photo_name, 'status' => 200], 200);
     }
 
