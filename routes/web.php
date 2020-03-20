@@ -23,10 +23,6 @@ Route::domain('{province_slug}.' . config('app.domain'))->group(function () {
     Route::get('/', 'WelcomeController@index')->name('welcome')->middleware('cache.headers:private,max-age=300;etag');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', 'WelcomeController@index');
-});
-
 //Static Pages: [Contact, Terms, FAQ]
 Route::get('/contact', 'WelcomeController@contact')->name('contact');
 Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
@@ -57,6 +53,7 @@ Route::get('/js/bch1.js', 'WelcomeController@bachecubano_js')->name('bachecubano
 
 // Posts resourcfull controllers routes
 Route::get('/blog/create', 'BlogController@create')->name('blog_post_create');
+Route::get('/blog/edit/{post_id}', 'BlogController@edit')->name('blog_post_edit');
 Route::get('/blog/{blog_category_slug?}/', 'BlogController@index')->name('blog_index');
 Route::get('/blog/{blog_category_slug}/{entry_slug}', 'BlogController@show')->name('blog_post');
 Route::resource('/blog', 'BlogController');

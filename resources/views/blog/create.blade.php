@@ -37,6 +37,11 @@
                 <form action="{{ route('blog.store') }}" method="post" id="create-new">
                     @csrf
 
+                    @if($edit)
+                    <input type="hidden" name="edit" value="{{ $blog_post->id }}">
+                    @method('PUT')
+                    @endif
+
                     <div class="form-group mb-3">
                         <label for="title">Título de la noticia:</label>
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Título de la Noticia" value="{{ old('title') }}">

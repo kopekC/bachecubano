@@ -120,7 +120,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //Get logged in user
+        //Get logged in user and permissions of it
         if (!Auth::check() || Auth::id() !== 1) {
             abort(404);
         }
@@ -145,10 +145,11 @@ class BlogController extends Controller
             'enabled' => 0,
             'monetized' => 0,
             'hits' => 0,
-            'tags' => "",
+            'tags' => $request->input('tags')
         ]);
 
-        //Notify the admin for activation/deactivation of the post entry
+        //Notify the admin for activation/deactivation of the post entry via email ??
+
         //Then hit a Push notification and Social Media
 
         // redirect to show post URL
@@ -163,9 +164,16 @@ class BlogController extends Controller
      */
     public function edit(Post $post)
     {
+        //Get logged in user and permissions of it
+        if (!Auth::check() || (Auth::id() !== $post->user_id || Auth::id() !== 1)) {
+            abort(404);
+        }
+
+        $edit = true;
+
         // we are using route model binding 
         // view edit page with post data
-        return view('blog.edit')->with('post', $post);
+        return view('blog.create')->with(['post' => $post, 'edit' => $edit]);
     }
 
     /**

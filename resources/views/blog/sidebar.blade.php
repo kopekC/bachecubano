@@ -1,7 +1,7 @@
 <aside id="sidebar" class="col-lg-4 col-md-12 col-xs-12 right-sidebar">
     <!-- Searcg Widget -->
     <div class="widget_search">
-        <form id="search-form">
+        <form id="search-form" action="{{ route('blog_index') }}" method="get">
             <input type="search" class="form-control" autocomplete="off" name="s" placeholder="Buscar..." id="search-input" value="">
             <button type="submit" id="search-submit" class="search-btn"><i class="lni-search"></i></button>
         </form>
@@ -10,6 +10,9 @@
     @auth
     @if(Auth::id() == 1)
     <a class="btn btn-common btn-block mb-5 mt-0" href="{{ route('blog.create') }}">Publicar noticia</a>
+    @endif
+    @if(isset($blog_post) && Auth::id() == $blog_post->user_id)
+    <a class="btn btn-warning btn-block mb-5 mt-0" href="{{ route('blog_post_edit', ['post_id' => $blog_post->id]) }}">Editr noticia</a>
     @endif
     @endauth
 
