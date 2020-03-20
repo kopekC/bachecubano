@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 
 use Spatie\Sitemap\Sitemap;
 use Illuminate\Support\Facades\Cache;
@@ -14,6 +12,8 @@ use App\Post;
 
 use Spatie\Sitemap\SitemapIndex;
 use App\AdResource;
+
+use App\AdLocation;
 
 error_reporting(E_ALL);
 set_time_limit(0);
@@ -35,6 +35,9 @@ class SitemapController extends Controller
         echo "Generating Static Pages";
         $this->static();
 
+        echo "Generating Provinces";
+        $this->provinces();
+
         //All Category Pages
         echo "Generating Category Pages";
         $this->categories();
@@ -49,6 +52,7 @@ class SitemapController extends Controller
         $this->ads();
 
         SitemapIndex::create()
+            ->add(config('app.url') . 'provinces.xml')
             ->add(config('app.url') . 'static.xml')
             ->add(config('app.url') . 'categories.xml')
             ->add(config('app.url') . 'news.xml')
@@ -103,8 +107,8 @@ class SitemapController extends Controller
         $sitemap = Sitemap::create();
 
         //Latest Ads (How Many?? 1000??)
-        $ads = Cache::remember('cached_1000_ads', 60, function () {
-            return Ad::with(['description', 'category', 'resources'])->limit(1000)->latest()->get();
+        $ads = Cache::remember('cached_10000_ads', 600, function () {
+            return Ad::with(['description', 'category', 'resources'])->limit(10000)->latest()->get();
         });
         foreach ($ads as $ad) {
             $sitemap->add(ad_url($ad));
@@ -113,18 +117,19 @@ class SitemapController extends Controller
         $sitemap->writeToFile(public_path('ads.xml'));
     }
 
-
     //Website News SiteMap
     public function news()
     {
         $sitemap = Sitemap::create();
 
         //News Cache Entries
-        $latest_blog_post = Cache::remember('latest_blog_post_10', 60 * 12, function () {
-            return Post::latest()->limit(10)->get();
+        $latest_blog_post = Cache::remember('latest_blog_post_100', 60 * 12, function () {
+            return Post::where('enabled', 1)->with('owner', 'category')->latest()->limit(100)->get();
         });
+
+        //Iterate over every latest blog post
         foreach ($latest_blog_post as $blog_post) {
-            $sitemap->add(route('blog_post', ['entry_slug' => $blog_post->slug]));
+            $sitemap->add(post_url($blog_post));
         }
 
         $sitemap->writeToFile(public_path('news.xml'));
@@ -136,13 +141,31 @@ class SitemapController extends Controller
         $sitemap = Sitemap::create();
 
         //Images Cache Location
-        $latest_images = Cache::remember('latest_images_500', 60 * 12, function () {
-            return AdResource::orderBy('id', 'desc')->limit(500)->get();
+        $latest_images = Cache::remember('latest_images_1000', 60 * 12, function () {
+            return AdResource::orderBy('id', 'desc')->limit(1000)->get();
         });
         foreach ($latest_images as $image) {
             $sitemap->add(config('app.img_url') . $image->path . $image->id . "." . $image->extension);
         }
 
         $sitemap->writeToFile(public_path('images.xml'));
+    }
+
+    //Provinces Sitemap
+    public function provinces()
+    {
+        $sitemap = Sitemap::create();
+
+        //Global Cached Locations Data Cache forever
+        $locations = Cache::rememberForever('cached_locations', function () {
+            return AdLocation::get();
+        });
+
+        //Foreach Location as subdomain
+        foreach ($locations as $location) {
+            $sitemap->add("https://" . $location->slug . "bachecubano.com");
+        }
+
+        $sitemap->writeToFile(public_path('provinces.xml'));
     }
 }

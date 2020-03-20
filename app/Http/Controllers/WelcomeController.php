@@ -61,7 +61,6 @@ class WelcomeController extends Controller
         });
 
         //testimonial
-        //Try to fetch from facebook isn't with JS
 
         //Schema
         $SchemaLD = Schema::WholesaleStore()

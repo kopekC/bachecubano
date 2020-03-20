@@ -33,20 +33,19 @@ class BlogController extends Controller
         OpenGraph::setDescription($seo_data['desc']);
         OpenGraph::addProperty('type', 'website');
 
-
         //Get Category post if its submitted
         if ($category !== "") {
             //Try to get this Category Details or fail
             $category = PostCategory::where('slug', $category)->firstOrFail();
-
             //Latest 10 post
-            $posts = Post::where('category_id', $category->id)->with('owner', 'category')->latest()->paginate(10);
+            $posts = Post::where('enabled', 1)->where('category_id', $category->id)->with('owner', 'category')->latest()->paginate(10);
         } else {
             //Latest 10 post
-            $posts = Post::with('owner', 'category')->latest()->paginate(10);
+            $posts = Post::where('enabled', 1)->with('owner', 'category')->latest()->paginate(10);
         }
 
         //BreadCrumbs
+        
 
         return view('blog.index', compact('posts'));
     }
