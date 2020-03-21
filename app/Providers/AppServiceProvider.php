@@ -72,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
             return true;
         });
 
-        //get Three Blog Posts and cache it for one day?
+        //get 3 Blog Posts and cache it for one day?
         $latest_blog_post = Cache::remember('latest_blog_post', 60 * 12, function () {
             return Post::where('enabled', 1)->latest()->limit(3)->get();
         });

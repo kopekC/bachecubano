@@ -9,63 +9,28 @@
 
     @auth
     @if(Auth::id() == 1)
-    <a class="btn btn-common btn-block mb-5 mt-0" href="{{ route('blog.create') }}">Publicar noticia</a>
+    <a class="btn btn-primary btn-block mb-2 mt-0" href="{{ route('blog.create') }}">Publicar noticia</a>
     @endif
     @if(isset($blog_post) && Auth::id() == $blog_post->user_id)
-    <a class="btn btn-warning btn-block mb-5 mt-0" href="{{ route('blog_post_edit', ['post_id' => $blog_post->id]) }}">Editr noticia</a>
+    <a class="btn btn-warning btn-block mb-5 mt-0" href="{{ route('blog_post_edit', ['post_id' => $blog_post->id]) }}">Editar noticia</a>
     @endif
     @endauth
 
     <!-- Categories Widget -->
-    {{--
     <div class="widget categories">
         <h4 class="widget-title">Todas las Categorías</h4>
         <ul class="categories-list">
+            @if(isset($blog_categories))
+            @foreach($blog_categories as $blog_category)
             <li>
-                <a href="#">
-                    <i class="lni-dinner"></i>
-                    Hotel & Travels <span class="category-counter">(5)</span>
+                <a href="{{ config('app.url') . 'blog' . DIRECTORY_SEPARATOR . $blog_category->slug }}">
+                    <i class="lni-briefcase"></i> {{ $blog_category->name }} {{--<span class="category-counter">(5)</span>--}}
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="lni-control-panel"></i>
-                    Services <span class="category-counter">(8)</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="lni-github"></i>
-                    Pets <span class="category-counter">(2)</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="lni-coffee-cup"></i>
-                    Restaurants <span class="category-counter">(3)</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="lni-home"></i>
-                    Real Estate <span class="category-counter">(4)</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="lni-pencil"></i>
-                    Jobs <span class="category-counter">(5)</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="lni-display"></i>
-                    Electronics <span class="category-counter">(9)</span>
-                </a>
-            </li>
+            @endforeach
+            @endif
         </ul>
     </div>
-    --}}
 
     @include('gads.v')
 

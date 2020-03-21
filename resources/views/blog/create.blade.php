@@ -34,7 +34,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12 col-xs-12">
-                <form action="{{ route('blog.store') }}" method="post" id="create-new">
+                <form action="@if($edit){{ route('blog.update', ['blog' => $blog_post]) }}@else{{ route('blog.store') }}@endif" method="post" id="create-new">
                     @csrf
 
                     @if($edit)
@@ -44,7 +44,7 @@
 
                     <div class="form-group mb-3">
                         <label for="title">Título de la noticia:</label>
-                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Título de la Noticia" value="{{ old('title') }}">
+                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Título de la Noticia" value="@if($edit){{ $blog_post->title }}@else{{ old('title') }}@endif">
                         @error('title')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <textarea name="body">{{ old('body') }}</textarea>
+                        <textarea name="body">@if($edit){{ $blog_post->body }}@else{{ old('body') }}@endif</textarea>
                         @error('body')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -73,7 +73,7 @@
 
                     <div class="form-group mb-3">
                         <label for="title">Etiquetas de la entrada:</label>
-                        <input type="text" name="tags" class="form-control" placeholder="Etiquetas separadas por (,)" value="{{ old('tags') }}">
+                        <input type="text" name="tags" class="form-control" placeholder="Etiquetas separadas por (,)" value="@if($edit){{ $blog_post->tags }}@else{{ old('tags') }}@endif">
                         @error('tags')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

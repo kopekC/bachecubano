@@ -44,10 +44,14 @@ class BlogController extends Controller
             $posts = Post::where('enabled', 1)->with('owner', 'category')->latest()->paginate(10);
         }
 
-        //BreadCrumbs
-        
+        //Bog Categories
+        $blog_categories = Cache::remember('blog_categories', 60 * 24, function () {
+            return PostCategory::where('enabled', 1)->get();
+        });
 
-        return view('blog.index', compact('posts'));
+        //BreadCrumbs
+
+        return view('blog.index', compact('posts', 'blog_categories'));
     }
 
     /**
@@ -77,11 +81,16 @@ class BlogController extends Controller
         //Latest 5 post
         $posts = Post::latest()->take(5)->get();
 
+        //Bog Categories
+        $blog_categories = Cache::remember('blog_categories', 60 * 24, function () {
+            return PostCategory::where('enabled', 1)->get();
+        });
+
         //BreadCrumbs
 
         //SchemaOrg
 
-        return view('blog.show', compact('posts', 'blog_post'));
+        return view('blog.show', compact('posts', 'blog_post', 'blog_categories'));
     }
 
     /**
@@ -158,44 +167,59 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($post_id)
     {
+
+        $blog_post = Post::with('owner', 'category')->findOrFail($post_id);
+
         //Get logged in user and permissions of it
-        if (!Auth::check() || (Auth::id() !== $post->user_id || Auth::id() !== 1)) {
+        if (!Auth::check() || (Auth::id() !== $blog_post->user_id && Auth::id() !== 1)) {
             abort(404);
         }
 
         $edit = true;
 
+        //Get All Categories
+        //Retrieve Ad with aditional data
+        $blog_categories = Cache::remember('post_categories', 120, function () {
+            return PostCategory::all();
+        });
+
         // we are using route model binding 
         // view edit page with post data
-        return view('blog.create')->with(['post' => $post, 'edit' => $edit]);
+        return view('blog.create')->with(['blog_post' => $blog_post, 'edit' => $edit, 'blog_categories' => $blog_categories]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $post_id)
     {
         // validate incoming request data with validation rules
         $this->validate(request(), [
             'title' => 'required|min:1|max:255',
-            'body'  => 'required|min:1|max:300'
+            'body'  => 'required|min:1'
         ]);
+
+        //Get the Blog Post
+        $blog_post = Post::with('owner', 'category')->findOrFail($post_id);
+
         // update post with new data using update() method
-        $post->update([
-            'title'     => request()->title,
-            'body'      => request()->body
+        $blog_post->update([
+            'title'     => $request->input('title'),
+            'body'      => $request->input('body'),
+            'tags' => $request->input('tags')
         ]);
+
+        //dd($blog_post);
+
         // return to show post URL
-        return redirect($post->path());
+        return redirect(post_url($blog_post));
     }
 
     /**
