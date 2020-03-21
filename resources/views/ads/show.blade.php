@@ -18,11 +18,11 @@
 <!-- Page Header End -->
 
 <ol class="breadcrumb">
-    <li><a href="{{ config('app.url') }}">Inicio</a></li>
+    <li><a href="{{ route('welcome', ['province_slug' => (request()->get('province_slug') !== null) ? request()->get('province_slug') : 'www']) }}">Inicio</a></li>
     <li class="ml-2">/</li>
-    <li class="ml-2"><a href="{{ config('app.url') . $ad->category->parent->description->slug }}/">{{ $ad->category->parent->description->name }}</a></li>
+    <li class="ml-2"><a href="{{ route('super_category_index', ['province_slug' => (request()->get('province_slug') !== null) ? request()->get('province_slug') : 'www', 'category' => $ad->category->parent->description->slug]) }}">{{ $ad->category->parent->description->name }}</a></li>
     <li class="ml-2">/</li>
-    <li class="ml-2"><a href="{{ config('app.url') . $ad->category->parent->description->slug }}/{{ $ad->category->description->slug }}/">{{ $ad->category->description->name }}</a></li>
+    <li class="ml-2"><a href="{{ route('category_index', ['province_slug' => (request()->get('province_slug') !== null) ? request()->get('province_slug') : 'www', 'category' => $ad->category->parent->description->slug, 'subcategory' => $ad->category->description->slug]) }}">{{ $ad->category->description->name }}</a></li>
     <li class="ml-2">/</li>
     <li class="current ml-2">{{ $ad->description->title }}</li>
 </ol>
