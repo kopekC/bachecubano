@@ -105,10 +105,10 @@ class WelcomeController extends Controller
         //Hide here the Google Ads
         $show_ads = false;
 
+        //Provinces for main Page SEO
         if ($province_slug == "www") {
             $province_name = "Cuba";
         } else {
-            //Global Cached Locations Data Cache forever
             $province_name = Cache::rememberForever('locations_' . $province_slug, function () use ($province_slug) {
                 return AdLocation::where('slug', $province_slug)->get();
             })[0]->title;
