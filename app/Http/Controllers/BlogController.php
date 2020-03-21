@@ -138,7 +138,6 @@ class BlogController extends Controller
             'title' => 'required|min:1|max:255',
             'category' => 'required|numeric',
             'body'  => 'required|min:1',
-            //'cover' => 'required',
             'tags' => 'required'
         ]);
 

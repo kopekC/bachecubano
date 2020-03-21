@@ -8,10 +8,10 @@
                 <div class="blog-post-item">
                     <div class="post-thumb">
                         <figure>
-                            <img src="{{ config('app.img_url') }}/blog/{{ $blog_post->cover }}" alt="{{ $blog_post->title }}" loading=lazy>
+                            <img src="{{ config('app.img_url') }}blog/thumb_{{ $blog_post->cover }}" alt="{{ $blog_post->title }}" loading=lazy>
                         </figure>
                         <div class="post-categories">
-                            <a href="#"></a>
+                            <a href="{{ config('app.url') }}blog/{{ $blog_post->category->slug }}">{{ $blog_post->category->name }}</a>
                         </div>
                     </div>
                     <div class="post-item-content">

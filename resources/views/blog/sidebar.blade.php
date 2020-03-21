@@ -42,7 +42,7 @@
             @foreach($posts as $blog_post)
             <li>
                 <div class="widget-thumb">
-                    <a href="{{ post_url($blog_post) }}"><img src="{{ config('app.img_url') }}/blog/{{ $blog_post->cover }}" alt="{{ $blog_post->title }}" loading=lazy></a>
+                    <a href="{{ post_url($blog_post) }}"><img src="{{ config('app.img_url') }}blog/thumb_{{ $blog_post->cover }}" alt="{{ $blog_post->title }}" loading=lazy></a>
                 </div>
                 <div class="widget-content">
                     <a href="{{ post_url($blog_post) }}">{{ $blog_post->title }}</a>

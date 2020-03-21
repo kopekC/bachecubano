@@ -189,6 +189,13 @@ class ImageController extends Controller
             mkdir($this->photos_path . DIRECTORY_SEPARATOR . "blog", 0777);
         }
 
+        //Image manipulation preview
+        Image::make($photo)
+            ->resize(350, null, function ($constraints) {
+                $constraints->aspectRatio();
+            })
+            ->save('./images/blog/thumb_' . $photo_name);
+
         //Original Move photo
         $photo->move('./images/blog/', $photo_name);
 
