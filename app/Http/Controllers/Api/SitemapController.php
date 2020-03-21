@@ -163,7 +163,7 @@ class SitemapController extends Controller
 
         //Foreach Location as subdomain
         foreach ($locations as $location) {
-            $sitemap->add("https://" . $location->slug . "bachecubano.com");
+            $sitemap->add("https://" . $location->slug . ".bachecubano.com");
         }
 
         $sitemap->writeToFile(public_path('provinces.xml'));
