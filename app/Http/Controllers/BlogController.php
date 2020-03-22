@@ -170,7 +170,6 @@ class BlogController extends Controller
      */
     public function edit($post_id)
     {
-
         $blog_post = Post::with('owner', 'category')->findOrFail($post_id);
 
         //Get logged in user and permissions of it
@@ -199,6 +198,13 @@ class BlogController extends Controller
      */
     public function update(Request $request, $post_id)
     {
+        $blog_post = Post::with('owner', 'category')->findOrFail($post_id);
+
+        //Get logged in user and permissions of it
+        if (!Auth::check() || (Auth::id() !== $blog_post->user_id && Auth::id() !== 1)) {
+            abort(404);
+        }
+        
         // validate incoming request data with validation rules
         $this->validate(request(), [
             'title' => 'required|min:1|max:255',

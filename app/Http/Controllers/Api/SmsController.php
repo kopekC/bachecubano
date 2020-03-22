@@ -20,7 +20,6 @@ class SmsController extends Controller
 
     /**
      * Get a SMS delivery request and preoccess it.
-     * 
      * Typically a POST request with:
      * 
      */

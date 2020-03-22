@@ -16,7 +16,7 @@
 //SubDomain Mapping
 use Illuminate\Support\Facades\Route;
 
-Route::group(['domain' => 'api.bachecubano.com'], function () {
+Route::group(['domain' => 'api.' . config('app.domain')], function () {
 
     Route::get('/', 'Api\HomeController@index')->name('welcome_api')->middleware('cacheResponse:300');         //Cache 5min
 
@@ -58,6 +58,12 @@ Route::group(['domain' => 'api.bachecubano.com'], function () {
             Route::get('promoadvise', 'Api\CronController@notify_ending_promos')->name('promoadvise');
             //Update Ads which has some promotion applied
             Route::get('update_promoted_ads', 'Api\CronController@update_promoted_ads')->name('update_promoted_ads');
+        });
+
+        //La Chopi Routes
+        Route::group(['prefix' => 'blog'], function () {
+            //Blog Approve Post and Viralice
+            Route::get('approve/{post_id}', 'Api\BlogController@approve_post')->name('blog_post_approve')->where('post_id', '[0-9]+');
         });
 
         //Passport Routes for login/signup/logout/getUser
