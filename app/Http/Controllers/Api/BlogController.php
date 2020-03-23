@@ -37,6 +37,9 @@ class BlogController extends Controller
         //Mention @ErichGarciaCruz and @natashatenorio
 
         //Send to Telegram
+        //With iv parameters
+        //https://t.me/share/url?url=https%3A%2F%2Ft.me%2Fiv%3Furl%3Dhttps%253A%252F%252Fwww.bachecubano.com%252Fblog%252Fnoticias-bachecubano%252Fcomenzaremos-a-pagar-y-monetizar-anuncios-seguidores%26rhash%3D0929b8713a7588
+
 
         //Send to Facebook
 

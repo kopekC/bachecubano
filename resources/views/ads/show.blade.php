@@ -38,7 +38,7 @@
                 <div class="owl-carousel owl-theme" id="product-carousel">
                     @foreach($ad->resources as $resource)
                     <div class="item">
-                        <img src="{{ ad_image_url($resource) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}" loading=lazy>
+                        <img src="{{ ad_image_url($resource) }}" class="img-fluid tg-image" alt="{{ text_clean($ad->description->title) }}" loading=lazy>
                     </div>
                     @endforeach
                 </div>
@@ -83,7 +83,7 @@
                 @endpush
 
                 @else
-                <img src="{{ ad_first_image($ad) }}" class="img-fluid" alt="{{ text_clean($ad->description->title) }}" loading=lazy>
+                <img src="{{ ad_first_image($ad) }}" class="img-fluid tg-image" alt="{{ text_clean($ad->description->title) }}" loading=lazy>
                 @endif
 
                 @include('gads.v')
@@ -115,7 +115,7 @@
                             </ul>
                             <div class="details-meta">
                                 <span><a href="#" title="ID del anuncio"><i class="lni-information"></i> {{ $ad->id }}</a></span>
-                                <!--<span><a href="#" title="Creado el {{ $ad->created_at->format('d-m-Y') }} a las {{ $ad->created_at->format('H:m') }}"><i class="lni-alarm-clock"></i> {{ $ad->created_at->diffForHumans() }}</a></span>-->
+                                <span class="d-none tg-created-timestamp">{{ $ad->created_at->timestamp }}</span>
                                 @if(isset($ad->updated_at))<span><a href="#" title="Actualizado hace {{ $ad->updated_at->diffForHumans() }}"><i class="lni-alarm-clock"></i> {{ $ad->updated_at->diffForHumans() }}</a></span>@endif
                                 <span><a href="#" title="Total de visitas válidas del anuncio"><i class="lni-eye"></i> {{ $ad->stats->hits > 0 ? $ad->stats->hits : 0 }} Visitas</a></span>
                             </div>
@@ -154,7 +154,7 @@
                         <div class="ads-btn mb-4">
                             <h3 class="text-center h3">{{ ad_price($ad) }}</h3>
                             @if(isset($ad->contact_name) && $ad->contact_name != "")
-                            <h4 class="text-center h4">{{ $ad->contact_name }}</h4>
+                            <h4 class="text-center h4 tg-contact-name">{{ $ad->contact_name }}</h4>
                             @endif
                             @if(isset($ad->contact_email) && $ad->contact_email != "")
                             <a href="mailto:{{ $ad->contact_email }}" class="btn btn-common btn-reply btn-block mb-1" title="Enviar Email a {{ $ad->contact_name }}"><i class="lni-envelope"></i> Correo</a>
