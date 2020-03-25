@@ -30,6 +30,7 @@
         "renatomarinho/laravel-page-speed": "^1.8",
         "rennokki/befriended": "^3.0",
         "rennokki/rating": "^2.0",
+        "spatie/laravel-permission": "^3.11",
         "spatie/laravel-responsecache": "^6.3",
         "spatie/laravel-sitemap": "^5.3",
         "spatie/schema-org": "^2.2",
