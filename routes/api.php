@@ -45,8 +45,6 @@ Route::group(['domain' => 'api.' . config('app.domain')], function () {
 
         //La Chopi Routes
         Route::group(['prefix' => 'lachopi'], function () {
-            //Generate LaChopi after update_promoted_ads
-            Route::get('status', 'Api\LachopigenerationController@status')->name('api_status_lachopi');
             Route::get('generate', 'Api\LachopigenerationController@generate')->name('api_generate_lachopi');
         });
 
@@ -60,7 +58,7 @@ Route::group(['domain' => 'api.' . config('app.domain')], function () {
             Route::get('update_promoted_ads', 'Api\CronController@update_promoted_ads')->name('update_promoted_ads');
         });
 
-        //La Chopi Routes
+        //Approve a Blog Post
         Route::group(['prefix' => 'blog'], function () {
             //Blog Approve Post and Viralice
             Route::get('approve/{post_id}', 'Api\BlogController@approve_post')->name('blog_post_approve')->where('post_id', '[0-9]+');

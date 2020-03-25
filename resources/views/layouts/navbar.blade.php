@@ -34,9 +34,8 @@
                         @endforeach
                     </div>
                 </li>
-                <!--
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{{ route('blog.index') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{{ route('blog_index') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Blog
                     </a>
                     <div class="dropdown-menu">
@@ -45,7 +44,6 @@
                         @endforeach
                     </div>
                 </li>
-                -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">
                         Contáctenos

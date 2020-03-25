@@ -34,7 +34,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12 col-xs-12">
-                <form action="@if($edit){{ route('blog.update', ['blog' => $blog_post]) }}@else{{ route('blog.store') }}@endif" method="post" id="create-new">
+                <form action="@if($edit){{ route('blog_update', ['blog' => $blog_post]) }}@else{{ route('blog_store') }}@endif" method="post" id="create-new">
                     @csrf
 
                     @if($edit)

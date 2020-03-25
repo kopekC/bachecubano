@@ -80,6 +80,14 @@ class Kernel extends HttpKernel
 
         //Custom middlewares
         'defaultlocation' => \App\Http\Middleware\DefaultLocation::class,
+
+        //Custom middlewares
+        'admin' => \App\Http\Middleware\Admin::class,
+
+        // Roles and permissions
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
     ];
 
     /**

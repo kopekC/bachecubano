@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use App\Rules\MatchOldPassword;
 use App\User;
 use App\Wallet;
+use Artesaos\SEOTools\Facades\OpenGraph as FacadesOpenGraph;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -23,17 +24,6 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //Only autenticated users can use this controller
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -378,5 +368,13 @@ class HomeController extends Controller
         $search_bar = true;
 
         return view('user.sms', compact('section_name', 'user', 'search_bar'));
+    }
+
+    /**
+     * Manage the Blog Post publications
+     */
+    public function blog_posts(Request $request)
+    {
+        //Show all Blog Post here
     }
 }

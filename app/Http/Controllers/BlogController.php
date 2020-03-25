@@ -100,11 +100,6 @@ class BlogController extends Controller
      */
     public function create(Request $request)
     {
-        //Get logged in user
-        if (!Auth::check() || Auth::id() !== 1) {
-            abort(404);
-        }
-
         //Latest 5 post
         $posts = Post::latest()->take(5)->get();
 
@@ -128,11 +123,6 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //Get logged in user and permissions of it
-        if (!Auth::check() || Auth::id() !== 1) {
-            abort(404);
-        }
-
         // validate incoming request data with validation rules
         $request->validate([
             'title' => 'required|min:1|max:255',

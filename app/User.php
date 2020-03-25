@@ -14,9 +14,14 @@ use Rennokki\Befriended\Contracts\Following;
 
 use App\Notifications\ResetPassword;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class User extends Authenticatable implements Rater, Following
 {
     use HasApiTokens, Notifiable, CanLike, CanRate,Follow;
+
+    //Spatie Roles
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.

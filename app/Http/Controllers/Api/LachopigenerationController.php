@@ -45,14 +45,6 @@ class LachopigenerationController extends Controller
     }
 
     /**
-     * la Chpopi Status Generation
-     */
-    public function status()
-    {
-        echo "Todo fresa";
-    }
-
-    /**
      * Wrapper method for all them
      */
     public function generate(Request $request)

@@ -24,9 +24,12 @@ Route::domain('{province_slug}.' . config('app.domain'))->group(function () {
 });
 
 //Static Pages: [Contact, Terms, FAQ]
-Route::get('/contact', 'WelcomeController@contact')->name('contact');
-Route::post('/contact', 'WelcomeController@contact_submit')->name('contact_submit');
-Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:86400')->name('terms');
+Route::group(['prefix' => 'contact'], function () {
+    Route::get('/', 'WelcomeController@contact')->name('contact');
+    Route::post('/', 'WelcomeController@contact_submit')->name('contact_submit');
+});
+
+Route::get('/terms-and-conditions', 'WelcomeController@terms')->middleware('cacheResponse:86400', 'cache.headers:public,max-age=86400;etag')->name('terms');
 
 //Imap Controller every 1 min
 Route::get('/imap_check', 'ImapController@imap_check')->name('imap_check');
@@ -51,22 +54,38 @@ Route::get('/callback/{provider}', 'SocialController@callback')->name('social_ca
 Route::get('/css/bch1.css', 'WelcomeController@bachecubano_css')->name('bachecubano_css');
 Route::get('/js/bch1.js', 'WelcomeController@bachecubano_js')->name('bachecubano_js');
 
-// Posts resourcfull controllers routes
-Route::get('/blog/create', 'BlogController@create')->name('blog_post_create');
-Route::get('/blog/edit/{post_id}', 'BlogController@edit')->name('blog_post_edit');
-Route::get('/blog/{blog_category_slug?}/', 'BlogController@index')->name('blog_index');
-Route::get('/blog/{blog_category_slug}/{entry_slug}', 'BlogController@show')->name('blog_post');
-Route::resource('/blog', 'BlogController');
+//Blog access to create articles peremission role
+Route::group(['prefix' => 'blog'], function () {
+    Route::get('/create', 'BlogController@create')->name('blog_post_create')->middleware(['role:writer']);
+    Route::get('/edit/{post_id}', 'BlogController@edit')->name('blog_post_edit')->middleware(['role:writer']);
+    Route::post('/store', 'BlogController@store')->name('blog_store')->middleware(['role:writer']);
+    Route::put('/update', 'BlogController@update')->name('blog_update')->middleware(['role:writer']);
+    Route::get('/{blog_category_slug?}/', 'BlogController@index')->name('blog_index');
+    Route::get('/{blog_category_slug}/{entry_slug}', 'BlogController@show')->name('blog_post');
+});
 
-//User Routes for Configuration (Mainly registered area)
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/ads', 'HomeController@ads')->name('my_ads');
-Route::get('/home/favourite', 'HomeController@favourite')->name('my_favourite');
-Route::get('/home/settings', 'HomeController@settings')->name('my_settings');
-Route::get('/home/payments', 'HomeController@payments')->name('my_payments');
-Route::post('/home/delete', 'HomeController@delete_account')->name('delete_account');
-Route::post('/home/update', 'HomeController@update_user')->name('update_user');
-Route::post('/home/update_password', 'HomeController@update_user_password')->name('update_user_password');
+//Telegram Routes with token parameter
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    //Add specific role to specific user
+    Route::get('/assign-role/{user_id}/{rolename}', 'Admin\UserController@assign_role')->name('admin_assign_role');
+});
+
+//User Routes for Configuration (Mainly registered area) with some Auth Middleware
+Route::group(['prefix' => 'home', 'middleware' => 'auth'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    //Ads Management
+    Route::get('/ads', 'HomeController@ads')->name('my_ads');
+    Route::get('/favourite', 'HomeController@favourite')->name('my_favourite');
+    //User Settings
+    Route::get('/settings', 'HomeController@settings')->name('my_settings');
+    //Some stats about paymet hystory
+    Route::get('/payments', 'HomeController@payments')->name('my_payments');
+    //My Blog publications
+    Route::get('/blog-posts', 'HomeController@blog_posts')->name('my_blog_posts');
+    Route::post('/delete', 'HomeController@delete_account')->name('delete_account');
+    Route::post('/update', 'HomeController@update_user')->name('update_user');
+    Route::post('/update_password', 'HomeController@update_user_password')->name('update_user_password');
+});
 
 //SMS Routes
 Route::get('/home/send_sms', 'HomeController@send_sms')->name('send_sms');
@@ -86,8 +105,11 @@ Route::get('/share/{network}/{url}/{text}', 'ShareController@index')->name('shar
 Route::get('/invite/{item}/{misc}', 'ShareController@invite')->name('invite');
 
 //Ad promotion Page
-Route::get('/promote/{ad}', 'AdController@promote_ad')->name('promote_ad')->middleware('auth');
-Route::post('/promote/{ad}', 'AdController@post_promote_ad')->name('post_promote_ad')->middleware('auth');      //Access only if its registere4d user
+Route::group(['prefix' => 'promote', 'middleware' => 'auth'], function () {
+    Route::get('/{ad}', 'AdController@promote_ad')->name('promote_ad');
+    Route::post('/{ad}', 'AdController@post_promote_ad')->name('post_promote_ad');
+});
+
 //update_all
 Route::get('/update_all', 'AdController@update_all')->middleware('throttle:1,30')->name('update_all');      //Update All ads every 30 minutes only
 //Delete Ad direct link
